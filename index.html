@@ -3,110 +3,253 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nikita Joseph</title>
-  <meta name="description" content="Portfolio of Nikita Joseph.">
+  <title>Nikita Joseph — Senior UX Designer</title>
+  <meta name="description" content="Nikita Joseph is a Senior UX Designer and painter designing fintech experiences with clarity, care, and craft.">
+  <meta property="og:title" content="Nikita Joseph — Senior UX Designer">
+  <meta property="og:description" content="Money is emotional. The interface shouldn't be.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <nav class="nav">
-      <a class="brand" href="#top">Nikita Joseph</a>
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Nikita Joseph</a>
       <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li class="hide-sm"><a href="#principles">Principles</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="top">
-    <!-- HERO: replace the role and tagline with your own -->
-    <section class="hero">
-      <p class="eyebrow">Hello, I'm</p>
-      <h1>Nikita Joseph</h1>
-      <p class="tagline">[Your role — e.g. Software Developer / Designer / Student] building [what you love to make].</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">See my work</a>
-        <a class="btn" href="#contact">Get in touch</a>
+  <main id="main">
+    <!-- 1. Hero -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Senior UX Designer · Fintech</p>
+          <h1>Money is emotional.<br>The interface <em>shouldn’t&nbsp;be.</em></h1>
+          <p class="hero-intro">I’m <strong>Nikita Joseph</strong>, a Senior UX Designer and painter designing fintech experiences with clarity, care, and craft — inspired by the quiet order and detail of Rajasthan architecture.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View selected work <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <figure class="hero-arch" aria-hidden="true">
+          <div class="outer"></div>
+          <div class="inner"><div class="sun"></div></div>
+          <figcaption><strong>4+ years in fintech UX</strong>Currently at FYERS</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- ABOUT: a short paragraph or two about you -->
-    <section id="about" class="section">
-      <h2>About</h2>
-      <div class="about-text">
-        <p>[Write 2–3 sentences about who you are, what you do, and what you're interested in.]</p>
-        <p>[Optional: your background, education, or what you're currently learning.]</p>
+    <!-- 2. Philosophy -->
+    <section class="section philosophy" aria-labelledby="philosophy-title">
+      <div class="wrap philosophy-grid">
+        <div>
+          <p class="eyebrow">Considered clarity</p>
+          <blockquote id="philosophy-title">A premium experience is not about decoration. It is about making people feel <em>considered.</em></blockquote>
+        </div>
+        <div class="philosophy-body">
+          <p>Rajasthan architecture inspires me because it balances grandeur with order, detail with function, and beauty with comfort.</p>
+          <p>I bring the same thinking into digital products — especially financial experiences, where people need clarity, trust, and calm at the exact moments they feel least sure of themselves.</p>
+          <ul class="pillars" aria-label="What I design for">
+            <li>Clarity</li>
+            <li>Care</li>
+            <li>Craft</li>
+            <li>Calm</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- PROJECTS: copy a <article class="card"> block for each project -->
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>[Project name]</h3>
-          <p>[One or two sentences on what it does and why you built it.]</p>
-          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
-          <div class="card-links">
-            <a href="#">Live demo</a>
-            <a href="#">Code</a>
+    <!-- 3. Selected work -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Selected work</p>
+          <h2 id="work-title">Complex products deserve considered spaces.</h2>
+          <p>Trading, investing, learning, and operations — products where a confusing screen costs people money, time, or confidence.</p>
+        </div>
+
+        <div class="work-grid">
+          <a class="work-card" href="work/fyers-academy.html" style="--tone: var(--terracotta)">
+            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="work-meta"><span>Learning · Trading</span><span class="status">Case study</span></div>
+            <h3>FYERS Academy</h3>
+            <p>Helping traders practise before the market gets real.</p>
+            <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="work-card" href="work/fyers-portfolio.html" style="--tone: var(--maroon)">
+            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="work-meta"><span>Investing</span><span class="status">Case study</span></div>
+            <h3>FYERS Portfolio</h3>
+            <p>Making investments easier to read.</p>
+            <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="work-card" href="work/partner-dashboard.html" style="--tone: var(--blue)">
+            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="work-meta"><span>B2B · Dashboard</span><span class="status">Case study</span></div>
+            <h3>Partner Dashboard</h3>
+            <p>Bringing order to partner operations.</p>
+            <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+          </a>
+
+          <div class="work-card" style="--tone: #c39567">
+            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="work-meta"><span>Advisory</span><span>Coming soon</span></div>
+            <h3>FYERS Advisory</h3>
+            <p>Designing trust into financial guidance.</p>
           </div>
-        </article>
-        <article class="card">
-          <h3>[Project name]</h3>
-          <p>[One or two sentences on what it does and why you built it.]</p>
-          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
-          <div class="card-links">
-            <a href="#">Live demo</a>
-            <a href="#">Code</a>
+
+          <div class="work-card" style="--tone: #5b4f46">
+            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="work-meta"><span>AI · Search</span><span>Coming soon</span></div>
+            <h3>Genie</h3>
+            <p>Making search feel less like searching.</p>
           </div>
-        </article>
-        <article class="card">
-          <h3>[Project name]</h3>
-          <p>[One or two sentences on what it does and why you built it.]</p>
-          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
-          <div class="card-links">
-            <a href="#">Live demo</a>
-            <a href="#">Code</a>
+
+          <div class="work-card" style="--tone: #8c6a4f">
+            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="work-meta"><span>Android app</span><span>Coming soon</span></div>
+            <h3>LinkPin</h3>
+            <p>Bookmarks are for books, not browsers.</p>
           </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <!-- SKILLS: add or remove items -->
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <ul class="skills">
-        <li>[Skill]</li>
-        <li>[Skill]</li>
-        <li>[Skill]</li>
-        <li>[Skill]</li>
-        <li>[Skill]</li>
-        <li>[Skill]</li>
-      </ul>
+    <!-- 4. Principles -->
+    <section class="section principles" id="principles" aria-labelledby="principles-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Design principles</p>
+          <h2 id="principles-title">What old buildings taught me about new interfaces.</h2>
+          <p>Four ideas I borrow from architecture and return to on every product.</p>
+        </div>
+
+        <div class="principle-grid">
+          <article class="principle">
+            <span class="num">01</span>
+            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="4" y="4" width="44" height="44" rx="2"/>
+              <rect x="16" y="16" width="20" height="20" rx="1"/>
+              <path d="M26 4v12M26 36v12M4 26h12M36 26h12" opacity=".5"/>
+            </svg>
+            <h3>Courtyards</h3>
+            <p>Create breathing room through spacing, hierarchy, and progressive disclosure.</p>
+          </article>
+
+          <article class="principle">
+            <span class="num">02</span>
+            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="18" cy="13" r="8"/><circle cx="34" cy="13" r="8"/>
+              <circle cx="18" cy="29" r="8"/><circle cx="34" cy="29" r="8"/>
+              <circle cx="18" cy="45" r="5" opacity=".4"/><circle cx="34" cy="45" r="5" opacity=".4"/>
+            </svg>
+            <h3>Jaalis</h3>
+            <p>Reveal information with intention — enough to guide, never enough to overwhelm.</p>
+          </article>
+
+          <article class="principle">
+            <span class="num">03</span>
+            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M6 48V24a20 20 0 0 1 40 0v24"/>
+              <path d="M16 48V26a10 10 0 0 1 20 0v22"/>
+              <path d="M2 48h48"/>
+            </svg>
+            <h3>Arches</h3>
+            <p>Guide the eye with clear structure and a confident sense of direction.</p>
+          </article>
+
+          <article class="principle">
+            <span class="num">04</span>
+            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M26 4l5 17 17 5-17 5-5 17-5-17-17-5 17-5z"/>
+              <circle cx="26" cy="26" r="4"/>
+            </svg>
+            <h3>Craft</h3>
+            <p>Make details useful — microcopy, states, interactions, and the edge cases nobody asks about.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- CONTACT: add the links you want public -->
-    <section id="contact" class="section contact">
-      <h2>Contact</h2>
-      <p>[A line inviting people to reach out.]</p>
-      <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:you@example.com">Email me</a>
-        <a class="btn" href="https://github.com/neon123790">GitHub</a>
-        <a class="btn" href="#">LinkedIn</a>
+    <!-- 5. Proof points -->
+    <section class="section" aria-labelledby="proof-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Track record</p>
+          <h2 id="proof-title">Quietly, consistently, shipped.</h2>
+        </div>
+        <div class="proof-grid">
+          <div class="proof"><div class="figure">4+</div><p>Years designing fintech UX</p></div>
+          <div class="proof"><div class="figure">10+</div><p>Products shipped</p></div>
+          <div class="proof"><div class="figure">2×</div><p>Promoted at FYERS</p></div>
+          <div class="proof"><div class="figure word">Innovation Lab</div><p>Handpicked for the CXO’s Innovation Lab</p></div>
+          <div class="proof"><div class="figure">3 mo</div><p>To build a working Android app</p></div>
+          <div class="proof"><div class="figure word">FYERS Force</div><p>Award for best launched project</p></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="jaali-divider" aria-hidden="true"></div>
+
+    <!-- 6. Personal story -->
+    <section class="section story" id="about" aria-labelledby="story-title">
+      <div class="wrap story-grid">
+        <div class="story-frame">
+          <!-- Replace this placeholder with a photo of you or one of your paintings:
+               <img src="images/portrait.jpg" alt="Portrait of Nikita Joseph"> -->
+          <div class="placeholder"><span>Your portrait or a painting</span>Add an image here</div>
+        </div>
+        <div class="story-body">
+          <p class="eyebrow">Between canvas and interface</p>
+          <h2 id="story-title">I’ve always been drawn to spaces and surfaces.</h2>
+          <p>Paintings, patterns, architecture, and interfaces — I notice how things are put together, and how they make people feel.</p>
+          <p>Painting taught me to notice emotion, contrast, balance, and detail. Rajasthan architecture taught me that beauty can also be functional — that spaces can guide, comfort, and elevate the people moving through them.</p>
+          <p>UX gave both of these instincts structure.</p>
+          <p class="closing">Today, I design products that aim to feel clear, calm, and considered.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-arch" aria-hidden="true"></div>
+        <h2 id="contact-title">Let’s design something considered.</h2>
+        <p>I’m open to conversations about senior product and UX roles, fintech, and products that need more clarity and calm.</p>
+        <div class="hero-actions">
+          <!-- TODO: replace with the email you want public -->
+          <a class="btn btn-primary" href="mailto:hello@example.com">Email me <span class="arrow" aria-hidden="true">→</span></a>
+          <!-- TODO: add your LinkedIn URL -->
+          <a class="btn btn-ghost" href="#">LinkedIn</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Nikita Joseph</p>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Nikita Joseph</span>
+      <span>Designed with clarity, care, and craft.</span>
+    </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const header = document.querySelector('.site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
 </body>
 </html>

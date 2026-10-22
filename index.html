@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -410,13 +410,13 @@
 
         <div class="board reveal" id="board">
           <figure class="pin-card photo-card" tabindex="0" style="--x:37%; --y:25%; --r:-2deg; --pin:var(--p-magenta)">
-            <div class="pin-art"><img src="images/nikita-flowers.jpg" alt="Nikita smiling with arms open in front of a wall of pink bougainvillea." loading="lazy"></div>
+            <div class="pin-art"><img draggable="false" src="images/nikita-flowers.jpg" alt="Nikita smiling with arms open in front of a wall of pink bougainvillea." loading="lazy"></div>
             <figcaption>hi, I’m Nikita!</figcaption>
           </figure>
 
           <article class="pin-card m-paint" tabindex="0" style="--x:3%; --y:4%; --r:-4deg; --pin:var(--p-cobalt)">
             <div class="pin-art">
-              <img src="images/painting.jpg" alt="A vivid watercolour portrait painted by Nikita." loading="lazy">
+              <img draggable="false" src="images/painting.jpg" alt="A vivid watercolour portrait painted by Nikita." loading="lazy">
               <div class="wash-over" aria-hidden="true">
                 <span style="left:-20%; top:-25%; width:70%; height:70%; background:var(--p-magenta)"></span>
                 <span style="right:-25%; bottom:-30%; width:75%; height:75%; background:var(--p-cobalt)"></span>
@@ -443,7 +443,7 @@
 
           <article class="pin-card m-trip" tabindex="0" style="--x:61%; --y:4%; --r:2deg; --pin:var(--p-orange)">
             <div class="pin-art">
-              <img src="images/udaipur.jpg" alt="A view of a lake palace through a scalloped arch window." loading="lazy">
+              <img draggable="false" src="images/udaipur.jpg" alt="A view of a lake palace through a scalloped arch window." loading="lazy">
               <svg viewBox="0 0 200 150" aria-hidden="true">
                 <defs><mask id="trip-mask"><path class="route route-mask" pathLength="1" d="M30 128 C 60 100, 90 120, 110 90 S 150 50, 172 34"/></mask></defs>
                 <path class="route-line" d="M30 128 C 60 100, 90 120, 110 90 S 150 50, 172 34" mask="url(#trip-mask)"/>
@@ -735,6 +735,6 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=10"></script>
 </body>
 </html>

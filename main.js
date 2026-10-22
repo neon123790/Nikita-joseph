@@ -78,11 +78,17 @@
   makeTabs([...document.querySelectorAll('.bookmark')], {
     transition: (from, to, swap) => {
       if (!book || reduceMotion || narrow()) { swap(); return; }
+      const forward = to > from;
+      const turner = book.querySelector('.turner');
+      const oldPage = book.querySelector(`.entry:not([hidden]) .page.${forward ? 'right' : 'left'}`);
+      turner.innerHTML = '';
+      if (oldPage) turner.appendChild(oldPage.cloneNode(true));
       book.classList.remove('turn-next', 'turn-prev');
       void book.offsetWidth; // restart the animation
-      book.classList.add(to > from ? 'turn-next' : 'turn-prev');
-      setTimeout(swap, 330);
-      setTimeout(() => book.classList.remove('turn-next', 'turn-prev'), 720);
+      swap(); // the new pages sit underneath while the old one turns over
+      book.classList.add(forward ? 'turn-next' : 'turn-prev');
+      clearTimeout(book._turnDone);
+      book._turnDone = setTimeout(() => { book.classList.remove('turn-next', 'turn-prev'); turner.innerHTML = ''; }, 720);
     },
   });
   makeTabs([...document.querySelectorAll('.process-tab')]);
@@ -209,8 +215,10 @@
   if (board) {
     board.querySelectorAll('.pin-card').forEach((card) => {
       let startX = 0, startY = 0, moved = false, dragging = false, id = null;
+      card.addEventListener('dragstart', (e) => e.preventDefault());
       card.addEventListener('pointerdown', (e) => {
         if (e.button !== 0 || e.target.closest('a')) return;
+        e.preventDefault(); // no text selection or image ghost while dragging
         dragging = true; moved = false; id = e.pointerId;
         startX = e.clientX; startY = e.clientY;
         try { card.setPointerCapture(id); } catch (err) { /* synthetic pointer */ }

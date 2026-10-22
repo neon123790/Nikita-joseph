@@ -4,22 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FYERS Academy — Nikita Joseph</title>
-  <meta name="description" content="FYERS Academy: Helping traders practise before the market gets real. A case study by Nikita Joseph, Senior UX Designer.">
+  <meta name="description" content="FYERS Academy: Turning market learning into a hands-on practice experience. A case study by Nikita Joseph, Senior UX Designer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="7"/>
+    </filter>
+    <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".4"/>
+    </filter>
+  </svg>
+
   <header class="site-header">
     <nav class="nav wrap" aria-label="Primary">
-      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span>Nikita Joseph</a>
+      <a class="brand" href="../index.html"><span class="brand-dot" aria-hidden="true"></span>Nikita Joseph</a>
       <ul class="nav-links">
         <li><a href="../index.html#work">Work</a></li>
-        <li class="hide-sm"><a href="../index.html#principles">Principles</a></li>
-        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#career">Career</a></li>
         <li><a href="../index.html#contact">Contact</a></li>
       </ul>
     </nav>
@@ -29,9 +41,10 @@
     <section class="cs-hero">
       <div class="wrap">
         <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All work</a>
-        <p class="eyebrow">Case study · Learning · Trading</p>
+        <p class="label">Case study</p>
         <h1>FYERS Academy</h1>
-        <p class="lede">Helping traders practise before the market gets real.</p>
+        <p class="lede">Turning market learning into a hands-on practice experience.</p>
+        <div class="tags"><span class="chip" style="--c:var(--wash-yellow)">Learning UX</span><span class="chip" style="--c:var(--wash-yellow)">Simulator</span><span class="chip" style="--c:var(--wash-yellow)">AI-assisted workflows</span></div>
 
         <dl class="cs-facts">
           <div><dt>Role</dt><dd>[Your role]</dd></div>
@@ -44,7 +57,7 @@
 
     <div class="wrap">
       <!-- Replace with a cover image: <img src="../images/fyers-academy-cover.jpg" alt="..."> -->
-      <div class="cs-cover" style="--tone: var(--terracotta)"><span>Cover image · key screen of FYERS Academy</span></div>
+      <div class="cs-cover" style="--tone: var(--wash-yellow)"><span>Cover image · a key screen of FYERS Academy</span></div>
     </div>
 
     <article class="cs-body">
@@ -125,7 +138,7 @@
     <nav class="cs-next" aria-label="Next case study">
       <div class="wrap">
         <a href="fyers-portfolio.html">
-          <span><small>Next case study</small><strong>FYERS Portfolio</strong></span>
+          <span><small>Next case study</small><strong>Portfolio Experience</strong></span>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -135,7 +148,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>© <span id="year">2026</span> Nikita Joseph</span>
-      <span>Designed with clarity, care, and craft.</span>
+      <span>Designed with questions, watercolours, and a lot of sticky notes.</span>
     </div>
   </footer>
 

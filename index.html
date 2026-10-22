@@ -4,232 +4,711 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nikita Joseph — Senior UX Designer</title>
-  <meta name="description" content="Nikita Joseph is a Senior UX Designer and painter designing fintech experiences with clarity, care, and craft.">
+  <meta name="description" content="Nikita Joseph is a Senior UX Designer and painter with 4+ years at FYERS, designing trading, investing, learning, dashboard, and AI-assisted fintech experiences.">
   <meta property="og:title" content="Nikita Joseph — Senior UX Designer">
-  <meta property="og:description" content="Money is emotional. The interface shouldn't be.">
+  <meta property="og:description" content="Making messy money moments make sense.">
+  <meta property="og:image" content="images/nikita.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Shared SVG filters: watercolour edges, hand-drawn wobble -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="7"/>
+      </filter>
+      <filter id="wc-mood" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="2" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="2.2"/>
+      </filter>
+      <filter id="wc-edge" x="-15%" y="-15%" width="130%" height="130%">
+        <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="4" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="1.4"/>
+      </filter>
+      <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+        <feGaussianBlur in="d" stdDeviation=".4"/>
+      </filter>
+      <filter id="paint">
+        <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="1" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/>
+        <feColorMatrix in="d" type="saturate" values=".82"/>
+      </filter>
+      <filter id="rough" filterUnits="userSpaceOnUse" x="-500" y="-500" width="2000" height="2000">
+        <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="1" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="rough-sm" filterUnits="userSpaceOnUse" x="-100" y="-100" width="400" height="400">
+        <feTurbulence type="fractalNoise" baseFrequency=".18" numOctaves="2" seed="1" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale=".5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+  </svg>
+
   <header class="site-header">
     <nav class="nav wrap" aria-label="Primary">
-      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Nikita Joseph</a>
+      <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>Nikita Joseph</a>
       <ul class="nav-links">
         <li><a href="#work">Work</a></li>
-        <li class="hide-sm"><a href="#principles">Principles</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
-    <!-- 1. Hero -->
+    <!-- ======================= 1. Hero ======================= -->
     <section class="hero" id="top">
       <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Senior UX Designer · Fintech</p>
-          <h1>Money is emotional.<br>The interface <em>shouldn’t&nbsp;be.</em></h1>
-          <p class="hero-intro">I’m <strong>Nikita Joseph</strong>, a Senior UX Designer and painter designing fintech experiences with clarity, care, and craft — inspired by the quiet order and detail of Rajasthan architecture.</p>
+        <div class="hero-copy">
+          <p class="label">Senior UX Designer / Painter</p>
+          <h1>Making messy money moments
+            <span class="scribble">make sense.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12 C 40 4, 80 16, 120 8 S 180 6, 197 11" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span></h1>
+          <p>I’m Nikita Joseph, a Senior UX Designer with 4+ years at FYERS, designing trading, investing, learning, dashboards, and AI-assisted fintech experiences.</p>
+          <p>I turn complex flows into clear, usable products — from research and interviews to prototypes, team hiring, AI-assisted builds, and shipped work.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#work">View selected work <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+            <a class="btn btn-primary" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#career">View career</a>
           </div>
-        </div>
-        <figure class="hero-arch" aria-hidden="true">
-          <div class="outer"></div>
-          <div class="inner"><div class="sun"></div></div>
-          <figcaption><strong>4+ years in fintech UX</strong>Currently at FYERS</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- 2. Philosophy -->
-    <section class="section philosophy" aria-labelledby="philosophy-title">
-      <div class="wrap philosophy-grid">
-        <div>
-          <p class="eyebrow">Considered clarity</p>
-          <blockquote id="philosophy-title">A premium experience is not about decoration. It is about making people feel <em>considered.</em></blockquote>
-        </div>
-        <div class="philosophy-body">
-          <p>Rajasthan architecture inspires me because it balances grandeur with order, detail with function, and beauty with comfort.</p>
-          <p>I bring the same thinking into digital products — especially financial experiences, where people need clarity, trust, and calm at the exact moments they feel least sure of themselves.</p>
-          <ul class="pillars" aria-label="What I design for">
-            <li>Clarity</li>
-            <li>Care</li>
-            <li>Craft</li>
-            <li>Calm</li>
+          <ul class="proof-strip" aria-label="Highlights">
+            <li><strong>4+</strong> years in fintech</li>
+            <li><strong>10+</strong> products shipped</li>
+            <li><strong>2</strong> promotions</li>
+            <li>CXO Innovation Lab</li>
+            <li>Helped hire designers + researchers</li>
           </ul>
         </div>
+
+        <!-- The working wall: starts messy, organises into Ask → Map → Simplify → Ship -->
+        <div class="wall-wrap">
+          <div class="wall" id="wall" role="img" aria-label="A watercolour working wall: a portrait of Nikita surrounded by sticky notes with UX questions, fintech wireframes, tool labels and travel, craft and fitness doodles. It tidies itself into a four-step flow: Ask, Map, Simplify, Ship.">
+            <div class="washes" aria-hidden="true">
+              <span class="wash w1"></span><span class="wash w2"></span>
+              <span class="wash w3"></span><span class="wash w4"></span>
+            </div>
+
+            <!-- Portrait -->
+            <div class="portrait" aria-hidden="true">
+              <svg viewBox="0 0 100 112" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <mask id="portrait-mask">
+                    <path filter="url(#wc-edge)" fill="#fff" d="M50 4 C 74 3, 93 18, 95 44 C 97 70, 92 96, 74 106 C 58 112, 36 111, 22 104 C 6 94, 3 70, 5 46 C 7 20, 26 5, 50 4 Z"/>
+                  </mask>
+                </defs>
+                <image href="images/portrait.jpg" x="0" y="0" width="100" height="112" preserveAspectRatio="xMidYMin slice" mask="url(#portrait-mask)"/>
+              </svg>
+            </div>
+
+            <!-- Hand-drawn arrows (messy state only) -->
+            <div class="arrows item fades" aria-hidden="true">
+              <svg viewBox="0 0 100 106" class="draw">
+                <path class="ln" pathLength="1" style="--ad:.8s" d="M17 26 C 19 32, 22 34, 27 35" marker-end="url(#head)" stroke="currentColor"/>
+                <path class="ln" pathLength="1" style="--ad:1.1s" d="M82 69 C 80 73, 76 75, 72 74" marker-end="url(#head)" stroke="currentColor"/>
+                <path class="ln" pathLength="1" style="--ad:1.4s" d="M14 76 C 18 82, 24 84, 30 83" marker-end="url(#head)" stroke="currentColor"/>
+              </svg>
+            </div>
+
+            <!-- Main sticky notes: become the Ask → Map → Simplify → Ship flow -->
+            <div class="item note" data-flip style="--bg:var(--note-yellow); --x:0%; --y:2%; --r:-7deg; --cx:0%; --cy:70%; --cs:.88; --d:0s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">01<b>Ask</b></span><span class="q">What does the user need to decide?</span></div>
+                <div class="face back" aria-hidden="true"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+            <div class="item note" data-flip style="--bg:var(--note-blue); --x:74%; --y:4%; --r:6deg; --cx:25.33%; --cy:70%; --cs:.88; --d:.08s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">02<b>Map</b></span><span class="q">Where does doubt enter?</span></div>
+                <div class="face back" aria-hidden="true"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+            <div class="item note" data-flip style="--bg:var(--note-coral); --x:76%; --y:44%; --r:-5deg; --cx:50.66%; --cy:70%; --cs:.88; --d:.16s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">03<b>Simplify</b></span><span class="q">Can this be simpler?</span></div>
+                <div class="face back" aria-hidden="true"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+            <div class="item note" data-flip style="--bg:var(--note-sage); --x:1%; --y:47%; --r:5deg; --cx:76%; --cy:70%; --cs:.88; --d:.24s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">04<b>Ship</b></span><span class="q">Ship, learn, improve.</span></div>
+                <div class="face back" aria-hidden="true"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+
+            <!-- Smaller questions (tidied away) -->
+            <div class="item note small fades" aria-hidden="true" style="--bg:var(--note-yellow); --x:66%; --y:26%; --r:9deg">
+              <div class="note-inner"><div class="face front"><span class="q">What can we remove?</span></div></div>
+            </div>
+            <div class="item note small fades" aria-hidden="true" style="--bg:var(--note-blue); --x:50%; --y:55%; --r:-6deg; z-index:3">
+              <div class="note-inner"><div class="face front"><span class="q">Is this thumb reachable?</span></div></div>
+            </div>
+
+            <!-- Fintech doodles -->
+            <div class="item doodle draw" aria-hidden="true" style="width:15%; --x:30%; --y:63%; --r:-4deg; --cx:84%; --cy:27%; --cr:0deg; --cs:.86">
+              <svg viewBox="0 0 80 150">
+                <rect class="ln fill-paper" x="2" y="2" width="76" height="146" rx="11"/>
+                <path class="ln soft" d="M32 9h16"/>
+                <rect class="ln" x="10" y="20" width="60" height="14" rx="5"/>
+                <path class="ln" d="M40 20v14"/>
+                <rect class="ln" x="10" y="42" width="60" height="12" rx="3"/>
+                <rect class="ln" x="10" y="60" width="60" height="12" rx="3"/>
+                <path class="ln soft" d="M10 84h24M46 84h24M10 92h18M46 92h20M10 100h26M46 100h16"/>
+                <rect class="ln" x="10" y="122" width="60" height="16" rx="6"/>
+                <path d="M2 148 A 74 74 0 0 1 78 96" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="3 4" opacity=".55"/>
+              </svg>
+            </div>
+            <div class="item doodle draw" aria-hidden="true" style="width:27%; --x:46%; --y:71%; --r:3deg; --cx:80%; --cy:4%; --cr:0deg; --cs:.72; --d:.05s">
+              <svg viewBox="0 0 160 104">
+                <rect class="ln fill-paper" x="2" y="2" width="156" height="100" rx="9"/>
+                <path class="ln soft" d="M12 16h44M120 16h28"/>
+                <path class="ln" pathLength="1" style="--ad:1s" d="M12 78 C 26 70, 34 76, 46 62 S 66 66, 80 50 S 104 54, 116 36 S 136 34, 148 24"/>
+                <path class="ln soft" d="M12 90h136"/>
+                <circle cx="148" cy="24" r="2.6" fill="var(--gain)"/>
+              </svg>
+            </div>
+
+            <!-- AI / build tool chips -->
+            <span class="item chip tool" style="--c:#d58a6c; --x:39%; --y:89%; --r:-4deg; --cx:0%; --cy:95%; --cr:0deg">Claude</span>
+            <span class="item chip tool" style="--c:#6f9ac4; --x:57%; --y:92%; --r:3deg; --cx:15%; --cy:95%; --cr:0deg; --d:.04s">VS Code</span>
+            <span class="item chip tool" style="--c:var(--charcoal); --x:24%; --y:94%; --r:2deg; --cx:31%; --cy:95%; --cr:0deg; --d:.08s">GitHub</span>
+            <span class="item chip tool" style="--c:var(--wash-sage); --x:26%; --y:0%; --r:-5deg; --cx:46%; --cy:95%; --cr:0deg; --d:.12s">AI agents</span>
+            <span class="item chip tool" style="--c:var(--wash-yellow); --x:1%; --y:37%; --r:-3deg; --cx:63%; --cy:95%; --cr:0deg; --d:.16s">ElevenLabs</span>
+            <span class="item chip tool" style="--c:#c98fa0; --x:60%; --y:0%; --r:4deg; --cx:83%; --cy:95%; --cr:0deg; --d:.2s">HeyGen</span>
+
+            <!-- Personal artefacts -->
+            <div class="item photo-strip" aria-hidden="true" style="--x:76%; --y:71%; --r:7deg; --cx:0%; --cy:4%; --cr:-2deg; --cs:.86">
+              <span class="tape" style="--tr:4deg"></span>
+              <img src="images/udaipur.jpg" alt="">
+              <span class="cap">udaipur</span>
+            </div>
+            <div class="item ticket" aria-hidden="true" style="--x:4%; --y:90%; --r:-6deg; --cx:1%; --cy:36%; --cr:0deg; --cs:.9">seat 12A · window</div>
+            <div class="item doodle draw" aria-hidden="true" style="width:17%; --x:3%; --y:74%; --r:-8deg; --cx:1%; --cy:50%; --cr:0deg; --cs:.85">
+              <svg viewBox="0 0 120 90">
+                <path class="ln fill-paper" d="M58 6 C 90 4, 116 22, 112 48 C 108 70, 86 72, 76 64 C 68 58, 58 66, 60 76 C 62 86, 40 88, 26 80 C 8 70, 4 46, 14 28 C 22 14, 38 7, 58 6 Z"/>
+                <circle cx="34" cy="30" r="7" fill="var(--wash-coral)" filter="url(#wc-soft)"/>
+                <circle cx="58" cy="22" r="7" fill="var(--wash-yellow)" filter="url(#wc-soft)"/>
+                <circle cx="84" cy="28" r="7" fill="var(--wash-blue)" filter="url(#wc-soft)"/>
+                <circle cx="28" cy="56" r="7" fill="var(--wash-sage)" filter="url(#wc-soft)"/>
+                <path class="ln" d="M70 86 L 112 40"/>
+                <path class="ln" d="M108 44 l 8 -8 l 3 3 l -8 8 z"/>
+              </svg>
+            </div>
+            <div class="item doodle draw recedes" aria-hidden="true" style="width:13%; --x:44%; --y:-1%; --r:-10deg; --cx:84%; --cy:52%; --cr:0deg; --cs:.9">
+              <svg viewBox="0 0 100 40">
+                <path class="ln" d="M22 20h56"/>
+                <rect class="ln fill-paper" x="8" y="6" width="8" height="28" rx="2"/>
+                <rect class="ln fill-paper" x="16" y="10" width="6" height="20" rx="2"/>
+                <rect class="ln fill-paper" x="84" y="6" width="8" height="28" rx="2"/>
+                <rect class="ln fill-paper" x="78" y="10" width="6" height="20" rx="2"/>
+              </svg>
+            </div>
+            <span class="item craft-scrap fades" aria-hidden="true" style="--x:66%; --y:62%; --r:12deg"></span>
+
+            <!-- Tidy state: the flow arrows between notes -->
+            <div class="flow" aria-hidden="true">
+              <svg viewBox="0 0 100 106">
+                <path pathLength="1" d="M23 86h3.4" marker-end="url(#head)" stroke="currentColor" style="color:var(--charcoal)"/>
+                <path pathLength="1" d="M48.3 86h3.4" marker-end="url(#head)" stroke="currentColor" style="color:var(--charcoal)"/>
+                <path pathLength="1" d="M73.6 86h3.4" marker-end="url(#head)" stroke="currentColor" style="color:var(--charcoal)"/>
+              </svg>
+              <span class="flow-title">same wall, made sense of.</span>
+            </div>
+
+            <canvas class="trail" aria-hidden="true"></canvas>
+          </div>
+          <p class="wall-caption">
+            <span class="hand-hint">Hover the wall, or</span>
+            <button class="wall-toggle" type="button" aria-controls="wall" aria-pressed="false">Tidy it up</button>
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- 3. Selected work -->
+    <!-- ======================= 2. Selected work ======================= -->
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Selected work</p>
-          <h2 id="work-title">Complex products deserve considered spaces.</h2>
-          <p>Trading, investing, learning, and operations — products where a confusing screen costs people money, time, or confidence.</p>
+        <div class="section-head reveal">
+          <p class="label">Selected work</p>
+          <h2 id="work-title">Work that moved from messy to shipped.</h2>
+          <p>A look at fintech products I shaped across trading, investing, learning, dashboards, and AI-assisted experiences.</p>
         </div>
 
         <div class="work-grid">
-          <a class="work-card" href="work/fyers-academy.html" style="--tone: var(--terracotta)">
-            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
-            <div class="work-meta"><span>Learning · Trading</span><span class="status">Case study</span></div>
-            <h3>FYERS Academy</h3>
-            <p>Helping traders practise before the market gets real.</p>
-            <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+          <!-- FYERS Academy -->
+          <a class="work-card reveal" href="work/fyers-academy.html" style="--tone: var(--wash-yellow)">
+            <div class="work-visual">
+              <div class="sketch" aria-hidden="true">
+                <svg viewBox="0 0 320 200">
+                  <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/>
+                  <rect class="ln" x="66" y="32" width="64" height="16" rx="8"/>
+                  <path class="ln" d="M200 40h54"/>
+                  <path class="ln" d="M66 112 C 90 100, 100 108, 120 92 S 150 98, 170 80 S 210 84, 254 62"/>
+                  <path class="ln" d="M66 132h188"/>
+                  <path class="ln" d="M66 132h80" stroke-width="3"/>
+                  <rect class="ln" x="66" y="148" width="88" height="24" rx="6"/>
+                  <rect class="ln" x="166" y="148" width="88" height="24" rx="6"/>
+                  <text class="note-hand" x="214" y="12" transform="rotate(4 214 12)">safe to fail?</text>
+                </svg>
+              </div>
+              <div class="ui" aria-hidden="true">
+                <div class="mini">
+                  <div class="row"><span class="pill" style="background:var(--note-yellow)">Practice mode</span><span class="muted">Virtual ₹1,00,000</span></div>
+                  <svg class="chart" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M0 24 C 12 20, 18 23, 28 16 S 44 19, 56 12 S 76 14, 86 7 S 96 6, 100 4" stroke="var(--gain)"/></svg>
+                  <div class="row muted"><span>Lesson 3 of 8 · Placing a stop-loss</span><span>38%</span></div>
+                  <div class="bar" style="margin-top:1.2cqw"><i style="width:38%; background:var(--wash-yellow)"></i></div>
+                  <div class="btns"><span style="background:#e7f0e9; color:var(--gain)">Try a buy</span><span style="background:#f7e6e0; color:var(--loss)">Try a sell</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="work-body">
+              <div class="top"><h3>FYERS Academy</h3><span class="status">Case study</span></div>
+              <p>Turning market learning into a hands-on practice experience.</p>
+              <div class="tags"><span class="chip" style="--c:var(--wash-yellow)">Learning UX</span><span class="chip" style="--c:var(--wash-yellow)">Simulator</span><span class="chip" style="--c:var(--wash-yellow)">AI-assisted workflows</span></div>
+              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
           </a>
 
-          <a class="work-card" href="work/fyers-portfolio.html" style="--tone: var(--maroon)">
-            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
-            <div class="work-meta"><span>Investing</span><span class="status">Case study</span></div>
-            <h3>FYERS Portfolio</h3>
-            <p>Making investments easier to read.</p>
-            <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+          <!-- Portfolio -->
+          <a class="work-card reveal" href="work/fyers-portfolio.html" style="--tone: var(--wash-sage)">
+            <div class="work-visual">
+              <div class="sketch" aria-hidden="true">
+                <svg viewBox="0 0 320 200">
+                  <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/>
+                  <path class="ln" d="M66 40h60"/>
+                  <path class="ln" d="M66 58h110" stroke-width="3.2"/>
+                  <path class="ln" d="M200 58h50"/>
+                  <rect class="ln" x="66" y="76" width="188" height="9" rx="4"/>
+                  <path class="ln" d="M130 76v9M190 76v9"/>
+                  <circle class="ln" cx="76" cy="110" r="7"/><path class="ln" d="M92 110h70M220 110h34"/>
+                  <circle class="ln" cx="76" cy="136" r="7"/><path class="ln" d="M92 136h56M224 136h30"/>
+                  <circle class="ln" cx="76" cy="162" r="7"/><path class="ln" d="M92 162h80M216 162h38"/>
+                  <text class="note-hand" x="20" y="14" transform="rotate(-4 20 14)">what's my P&amp;L, really?</text>
+                </svg>
+              </div>
+              <div class="ui" aria-hidden="true">
+                <div class="mini">
+                  <div class="muted">Current value</div>
+                  <div class="row"><span class="big">₹4,82,310</span><span class="gain" style="font-weight:600">+₹52,140 · 12.1%</span></div>
+                  <div class="bar" style="margin:2cqw 0 1cqw"><i style="width:46%; background:#9db7cf"></i><i style="width:30%; background:var(--wash-sage)"></i><i style="width:24%; background:var(--wash-yellow)"></i></div>
+                  <div class="row muted" style="font-size:1.9cqw"><span>Equity 46%</span><span>Mutual funds 30%</span><span>ETFs 24%</span></div>
+                  <div class="hr"></div>
+                  <table>
+                    <tr><td>Index fund</td><td class="gain">+8.4%</td></tr>
+                    <tr><td>Large-cap stock</td><td class="gain">+14.2%</td></tr>
+                    <tr><td>Gold ETF</td><td class="loss">−1.3%</td></tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="work-body">
+              <div class="top"><h3>Portfolio Experience</h3><span class="status">Shipped</span></div>
+              <p>Making holdings, performance, and investment details easier to read and act on.</p>
+              <div class="tags"><span class="chip" style="--c:var(--wash-sage)">Investing UX</span><span class="chip" style="--c:var(--wash-sage)">Mobile + Web</span><span class="chip" style="--c:var(--wash-sage)">Shipped</span></div>
+              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
           </a>
 
-          <a class="work-card" href="work/partner-dashboard.html" style="--tone: var(--blue)">
-            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
-            <div class="work-meta"><span>B2B · Dashboard</span><span class="status">Case study</span></div>
-            <h3>Partner Dashboard</h3>
-            <p>Bringing order to partner operations.</p>
-            <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+          <!-- Partner Dashboard -->
+          <a class="work-card reveal" href="work/partner-dashboard.html" style="--tone: var(--wash-blue)">
+            <div class="work-visual">
+              <div class="sketch" aria-hidden="true">
+                <svg viewBox="0 0 320 200">
+                  <rect class="ln" x="30" y="18" width="260" height="168" rx="12"/>
+                  <rect class="ln" x="44" y="34" width="52" height="38" rx="5"/>
+                  <rect class="ln" x="104" y="34" width="52" height="38" rx="5"/>
+                  <rect class="ln" x="164" y="34" width="52" height="38" rx="5"/>
+                  <rect class="ln" x="224" y="34" width="52" height="38" rx="5"/>
+                  <path class="ln" d="M52 170v-30M76 170v-50M100 170v-38M124 170v-62M148 170v-44M172 170v-70M196 170v-52M220 170v-80M244 170v-60M268 170v-74"/>
+                  <text class="note-hand" x="196" y="13" transform="rotate(3 196 13)">too many tabs!</text>
+                </svg>
+              </div>
+              <div class="ui" aria-hidden="true">
+                <div class="mini">
+                  <div class="row" style="margin-bottom:2cqw"><b style="font-weight:600">Partner overview</b><span class="muted">This month</span></div>
+                  <div class="kpis">
+                    <div class="kpi"><span class="muted">Clients</span><b>248</b></div>
+                    <div class="kpi"><span class="muted">Onboarding</span><b>12</b></div>
+                    <div class="kpi"><span class="muted">Earnings</span><b>₹1.2L</b></div>
+                    <div class="kpi"><span class="muted">Tickets</span><b>3</b></div>
+                  </div>
+                  <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:69%"></i><i style="height:88%"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="work-body">
+              <div class="top"><h3>Partner Dashboard</h3><span class="status">Shipped</span></div>
+              <p>Helping partners track clients, onboarding, earnings, tickets, and performance in one clear place.</p>
+              <div class="tags"><span class="chip" style="--c:var(--wash-blue)">B2B Dashboard</span><span class="chip" style="--c:var(--wash-blue)">Operations UX</span><span class="chip" style="--c:var(--wash-blue)">Shipped</span></div>
+              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
           </a>
 
-          <div class="work-card" style="--tone: #c39567">
-            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
-            <div class="work-meta"><span>Advisory</span><span>Coming soon</span></div>
-            <h3>FYERS Advisory</h3>
-            <p>Designing trust into financial guidance.</p>
-          </div>
-
-          <div class="work-card" style="--tone: #5b4f46">
-            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
-            <div class="work-meta"><span>AI · Search</span><span>Coming soon</span></div>
-            <h3>Genie</h3>
-            <p>Making search feel less like searching.</p>
-          </div>
-
-          <div class="work-card" style="--tone: #8c6a4f">
-            <div class="work-thumb"><div class="screen" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
-            <div class="work-meta"><span>Android app</span><span>Coming soon</span></div>
-            <h3>LinkPin</h3>
-            <p>Bookmarks are for books, not browsers.</p>
-          </div>
+          <!-- Trading -->
+          <a class="work-card reveal" href="work/trading-experience.html" style="--tone: var(--wash-coral)">
+            <div class="work-visual">
+              <div class="sketch" aria-hidden="true">
+                <svg viewBox="0 0 320 200">
+                  <rect class="ln" x="60" y="18" width="200" height="168" rx="12"/>
+                  <rect class="ln" x="76" y="32" width="168" height="20" rx="6"/>
+                  <path class="ln" d="M160 32v20"/>
+                  <rect class="ln" x="76" y="62" width="80" height="18" rx="4"/>
+                  <rect class="ln" x="164" y="62" width="80" height="18" rx="4"/>
+                  <path class="ln" d="M76 96h70M174 96h70M76 108h56M174 108h60M76 120h64M174 120h48"/>
+                  <rect class="ln" x="76" y="148" width="168" height="24" rx="7"/>
+                  <text class="note-hand" x="6" y="64" transform="rotate(-6 6 64)">fast + calm?</text>
+                </svg>
+              </div>
+              <div class="ui" aria-hidden="true">
+                <div class="mini">
+                  <div class="seg"><span class="on">Buy</span><span class="muted">Sell</span></div>
+                  <div class="field"><span class="muted">Qty</span><b>25</b></div>
+                  <div class="field"><span class="muted">Price · Limit</span><b>₹1,284.50</b></div>
+                  <table>
+                    <tr><td class="gain">Bid 1,284.40</td><td class="loss">Ask 1,284.60</td></tr>
+                    <tr><td class="muted">Margin needed</td><td>₹32,112</td></tr>
+                  </table>
+                  <div class="btns" style="grid-template-columns:1fr"><span style="background:var(--gain); color:#fff">Review buy order</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="work-body">
+              <div class="top"><h3>Trading Experience</h3><span class="status">Case study</span></div>
+              <p>Simplifying fast-moving trading flows where clarity, timing, and trust matter.</p>
+              <div class="tags"><span class="chip" style="--c:var(--wash-coral)">Trading UX</span><span class="chip" style="--c:var(--wash-coral)">Order Flows</span><span class="chip" style="--c:var(--wash-coral)">Fintech</span></div>
+              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- 4. Principles -->
-    <section class="section principles" id="principles" aria-labelledby="principles-title">
+    <!-- ======================= 3. Career ======================= -->
+    <section class="section career" id="career" aria-labelledby="career-title">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Design principles</p>
-          <h2 id="principles-title">What old buildings taught me about new interfaces.</h2>
-          <p>Four ideas I borrow from architecture and return to on every product.</p>
+        <div class="section-head reveal">
+          <p class="label">Career</p>
+          <h2 id="career-title">4+ years of asking better questions.</h2>
+          <p>My journey at FYERS has moved across product design, research, shipping, hiring, innovation, and AI-assisted building.</p>
         </div>
 
-        <div class="principle-grid">
-          <article class="principle">
-            <span class="num">01</span>
-            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="4" y="4" width="44" height="44" rx="2"/>
-              <rect x="16" y="16" width="20" height="20" rx="1"/>
-              <path d="M26 4v12M26 36v12M4 26h12M36 26h12" opacity=".5"/>
+        <div class="timeline" id="timeline">
+          <div class="spine" aria-hidden="true">
+            <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
+              <path class="ghost" pathLength="1" vector-effect="non-scaling-stroke" d="M20 0 C 30 110, 10 220, 20 340 S 30 560, 20 680 S 12 880, 20 1000"/>
+              <path class="ink" pathLength="1" vector-effect="non-scaling-stroke" d="M20 0 C 30 110, 10 220, 20 340 S 30 560, 20 680 S 12 880, 20 1000"/>
             </svg>
-            <h3>Courtyards</h3>
-            <p>Create breathing room through spacing, hierarchy, and progressive disclosure.</p>
-          </article>
-
-          <article class="principle">
-            <span class="num">02</span>
-            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <circle cx="18" cy="13" r="8"/><circle cx="34" cy="13" r="8"/>
-              <circle cx="18" cy="29" r="8"/><circle cx="34" cy="29" r="8"/>
-              <circle cx="18" cy="45" r="5" opacity=".4"/><circle cx="34" cy="45" r="5" opacity=".4"/>
-            </svg>
-            <h3>Jaalis</h3>
-            <p>Reveal information with intention — enough to guide, never enough to overwhelm.</p>
-          </article>
-
-          <article class="principle">
-            <span class="num">03</span>
-            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M6 48V24a20 20 0 0 1 40 0v24"/>
-              <path d="M16 48V26a10 10 0 0 1 20 0v22"/>
-              <path d="M2 48h48"/>
-            </svg>
-            <h3>Arches</h3>
-            <p>Guide the eye with clear structure and a confident sense of direction.</p>
-          </article>
-
-          <article class="principle">
-            <span class="num">04</span>
-            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M26 4l5 17 17 5-17 5-5 17-5-17-17-5 17-5z"/>
-              <circle cx="26" cy="26" r="4"/>
-            </svg>
-            <h3>Craft</h3>
-            <p>Make details useful — microcopy, states, interactions, and the edge cases nobody asks about.</p>
-          </article>
+          </div>
+          <ol class="milestones">
+            <li class="milestone" style="--bg:var(--note-yellow); --r:-1.2deg">
+              <span class="pin" aria-hidden="true"></span>
+              <div class="card">
+                <span class="stat">4+ years at FYERS</span>
+                <h3>Joined FYERS</h3>
+                <p>Started designing fintech experiences across trading and investing products.</p>
+              </div>
+            </li>
+            <li class="milestone" style="--bg:var(--note-blue); --r:1deg">
+              <span class="pin" aria-hidden="true"></span>
+              <div class="card">
+                <span class="stat">2 promotions</span>
+                <h3>Grew through product ownership</h3>
+                <p>Took on larger flows, dashboards, mobile experiences, and cross-functional design decisions.</p>
+              </div>
+            </li>
+            <li class="milestone" style="--bg:var(--note-sage); --r:-.8deg">
+              <span class="pin" aria-hidden="true"></span>
+              <div class="card">
+                <span class="stat">10+ products shipped</span>
+                <h3>Shipped 10+ products</h3>
+                <p>Worked across trading, investing, learning, partner dashboards, onboarding, and product improvements.</p>
+              </div>
+            </li>
+            <li class="milestone" style="--bg:var(--note-coral); --r:1.3deg">
+              <span class="pin" aria-hidden="true"></span>
+              <div class="card">
+                <span class="stat">3–4 hires</span>
+                <h3>Helped grow the team</h3>
+                <p>Interviewed candidates and helped hire 3–4 people across junior design, senior UX design, and UX research roles.</p>
+              </div>
+            </li>
+            <li class="milestone" style="--bg:var(--note-yellow); --r:-1deg">
+              <span class="pin" aria-hidden="true"></span>
+              <div class="card">
+                <span class="stat">CXO Innovation Lab</span>
+                <h3>CXO Innovation Lab</h3>
+                <p>Explored AI-assisted product ideas and faster prototyping approaches.</p>
+              </div>
+            </li>
+            <li class="milestone" style="--bg:var(--note-blue); --r:.9deg">
+              <span class="pin" aria-hidden="true"></span>
+              <div class="card">
+                <span class="stat">3 months · AI-assisted</span>
+                <h3>Built a working Android app</h3>
+                <p>Designed and built a full-fledged Android app in 3 months using Claude, VS Code, GitHub, and AI-assisted workflows, while also experimenting with tools like ElevenLabs and HeyGen.</p>
+                <div class="tools">
+                  <span class="chip" style="--c:#d58a6c">Claude</span>
+                  <span class="chip" style="--c:#6f9ac4">VS Code</span>
+                  <span class="chip" style="--c:var(--charcoal)">GitHub</span>
+                  <span class="chip" style="--c:var(--wash-yellow)">ElevenLabs</span>
+                  <span class="chip" style="--c:#c98fa0">HeyGen</span>
+                </div>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- 5. Proof points -->
-    <section class="section" aria-labelledby="proof-title">
+    <!-- ======================= 4. Philosophy + process ======================= -->
+    <section class="section philosophy" aria-labelledby="philosophy-title">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Track record</p>
-          <h2 id="proof-title">Quietly, consistently, shipped.</h2>
+        <div class="philosophy-grid">
+          <div class="reveal">
+            <p class="label">How I work</p>
+            <h2 id="philosophy-title">Simplicity is not less thinking.<br><em>It is better thinking.</em></h2>
+          </div>
+          <div class="philosophy-copy reveal">
+            <p>I believe good UX comes from asking many questions, sitting with complexity, and slowly removing what does not help.</p>
+            <p>My work usually starts messy — interviews, notes, edge cases, flows, constraints, doubts — and becomes clearer through structure, iteration, and care.</p>
+            <ul class="principles">
+              <li>Ask before designing</li>
+              <li>Map the messy parts</li>
+              <li>Keep what matters</li>
+              <li>Remove what confuses</li>
+              <li>Design for trust</li>
+              <li>Ship, learn, improve</li>
+            </ul>
+          </div>
         </div>
-        <div class="proof-grid">
-          <div class="proof"><div class="figure">4+</div><p>Years designing fintech UX</p></div>
-          <div class="proof"><div class="figure">10+</div><p>Products shipped</p></div>
-          <div class="proof"><div class="figure">2×</div><p>Promoted at FYERS</p></div>
-          <div class="proof"><div class="figure word">Innovation Lab</div><p>Handpicked for the CXO’s Innovation Lab</p></div>
-          <div class="proof"><div class="figure">3 mo</div><p>To build a working Android app</p></div>
-          <div class="proof"><div class="figure word">FYERS Force</div><p>Award for best launched project</p></div>
+
+        <div class="stepper reveal">
+          <div class="step-tabs" role="tablist" aria-label="My process">
+            <button class="step-tab" role="tab" id="tab-ask" aria-controls="panel-ask" aria-selected="true"><small>01</small>Ask</button>
+            <span class="step-sep" aria-hidden="true">→</span>
+            <button class="step-tab" role="tab" id="tab-map" aria-controls="panel-map" aria-selected="false" tabindex="-1"><small>02</small>Map</button>
+            <span class="step-sep" aria-hidden="true">→</span>
+            <button class="step-tab" role="tab" id="tab-simplify" aria-controls="panel-simplify" aria-selected="false" tabindex="-1"><small>03</small>Simplify</button>
+            <span class="step-sep" aria-hidden="true">→</span>
+            <button class="step-tab" role="tab" id="tab-ship" aria-controls="panel-ship" aria-selected="false" tabindex="-1"><small>04</small>Ship</button>
+          </div>
+
+          <div class="step-stage">
+            <!-- Ask -->
+            <div class="step-panel is-active" role="tabpanel" id="panel-ask" aria-labelledby="tab-ask">
+              <div class="s-note" style="--bg:var(--note-yellow); left:2%; top:4%; --r:-3deg; --d:.05s"><small>Interview</small>What made you hesitate?</div>
+              <div class="s-note" style="--bg:var(--note-blue); left:24%; top:16%; --r:2deg; --d:.15s"><small>Interview</small>What did you expect to see next?</div>
+              <div class="s-note" style="--bg:var(--note-coral); left:46%; top:2%; --r:-2deg; --d:.25s"><small>Research</small>What do you check before you buy?</div>
+              <div class="s-note" style="--bg:var(--note-sage); left:68%; top:14%; --r:3deg; --d:.35s"><small>Data</small>Where do people drop off?</div>
+              <p class="caption"><strong>Ask</strong>Start with questions, not screens. Interviews, notes, and data come before pixels.</p>
+            </div>
+
+            <!-- Map -->
+            <div class="step-panel" role="tabpanel" id="panel-map" aria-labelledby="tab-map" hidden>
+              <div class="s-note" style="--bg:var(--note-yellow); left:2%; top:14%; --d:.05s"><small>Step 1</small>Learn the basics</div>
+              <div class="s-note" style="--bg:var(--note-blue); left:27%; top:14%; --d:.12s"><small>Step 2</small>Try a practice trade</div>
+              <div class="s-note" style="--bg:var(--note-coral); left:52%; top:14%; --d:.19s"><small>Step 3</small>See what happened</div>
+              <div class="s-note" style="--bg:var(--note-sage); left:77%; top:14%; --d:.26s"><small>Step 4</small>Try again, smarter</div>
+              <div class="s-note" style="--bg:var(--paper); left:60%; top:62%; --r:2deg; --d:.4s; width:15cqw"><small>Edge case</small>Market’s closed?</div>
+              <svg class="links" viewBox="0 0 100 40" aria-hidden="true">
+                <path pathLength="1" style="--d:.3s" d="M19.5 13 C 22 11, 24 11, 26.5 13" marker-end="url(#head)" stroke="currentColor"/>
+                <path pathLength="1" style="--d:.45s" d="M44.5 13 C 47 11, 49 11, 51.5 13" marker-end="url(#head)" stroke="currentColor"/>
+                <path pathLength="1" style="--d:.6s" d="M69.5 13 C 72 11, 74 11, 76.5 13" marker-end="url(#head)" stroke="currentColor"/>
+                <path pathLength="1" style="--d:.8s; stroke-dasharray:.03 .03" d="M60 21.5 C 62 24, 64 24, 66 24.6" marker-end="url(#head)" stroke="currentColor"/>
+              </svg>
+              <p class="caption"><strong>Map</strong>Connect the notes into a flow, then go looking for where it breaks.</p>
+            </div>
+
+            <!-- Simplify -->
+            <div class="step-panel" role="tabpanel" id="panel-simplify" aria-labelledby="tab-simplify" hidden>
+              <div class="wire" style="left:4%; top:0" aria-hidden="true"><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="t"></i><i class="s"></i><i></i></div>
+              <svg class="links" viewBox="0 0 100 40" aria-hidden="true"><path pathLength="1" style="--d:.2s" d="M32 16 C 35 14, 37 14, 40 16" marker-end="url(#head)" stroke="currentColor"/></svg>
+              <div class="clean" style="left:41%; top:0">
+                <span class="muted">Review order</span>
+                <div class="t">Buy 10 shares</div>
+                <div class="r"><span>Price</span><b>Market</b></div>
+                <div class="r"><span>Total</span><b>₹24,500</b></div>
+                <div class="cta">Place order</div>
+              </div>
+              <p class="caption" style="left:72%; bottom:auto; top:6%; max-width:26cqw"><strong>Simplify</strong>Keep what matters. Remove what confuses. Then test whether anyone misses it.</p>
+            </div>
+
+            <!-- Ship -->
+            <div class="step-panel" role="tabpanel" id="panel-ship" aria-labelledby="tab-ship" hidden>
+              <div class="clean" style="left:4%; top:0">
+                <span class="ok" aria-hidden="true">✓</span>
+                <div class="t">Order placed</div>
+                <div class="r"><span>Buy · 10 shares</span><b>Market</b></div>
+                <div class="r"><span>Status</span><b class="gain">Executed</b></div>
+                <div class="cta" style="background:var(--paper); color:var(--charcoal); border:1px solid var(--line)">View in portfolio</div>
+              </div>
+              <div class="ship-chips" style="left:38%; top:6%">
+                <span class="chip" style="--c:var(--gain); --d:.3s">Shipped</span>
+                <span class="chip" style="--c:var(--wash-yellow); --d:.4s">10+ products shipped</span>
+                <span class="chip" style="--c:var(--wash-blue); --d:.5s">4+ years at FYERS</span>
+                <span class="chip" style="--c:var(--wash-coral); --d:.6s">2 promotions</span>
+              </div>
+              <p class="caption" style="left:72%; bottom:auto; top:6%; max-width:26cqw"><strong>Ship</strong>Get it into people’s hands, watch what happens, and improve it.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="jaali-divider" aria-hidden="true"></div>
-
-    <!-- 6. Personal story -->
-    <section class="section story" id="about" aria-labelledby="story-title">
-      <div class="wrap story-grid">
-        <div class="story-frame">
-          <!-- Replace this placeholder with a photo of you or one of your paintings:
-               <img src="images/portrait.jpg" alt="Portrait of Nikita Joseph"> -->
-          <div class="placeholder"><span>Your portrait or a painting</span>Add an image here</div>
+    <!-- ======================= 5. Moodboard ======================= -->
+    <section class="section moodboard" aria-labelledby="mood-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="label">Off-screen</p>
+          <h2 id="mood-title">Outside the screen, I keep making.</h2>
+          <p>Painting, travelling, crafts, and workouts keep me observant, patient, curious, and disciplined — the same qualities I bring into product design.</p>
         </div>
-        <div class="story-body">
-          <p class="eyebrow">Between canvas and interface</p>
-          <h2 id="story-title">I’ve always been drawn to spaces and surfaces.</h2>
-          <p>Paintings, patterns, architecture, and interfaces — I notice how things are put together, and how they make people feel.</p>
-          <p>Painting taught me to notice emotion, contrast, balance, and detail. Rajasthan architecture taught me that beauty can also be functional — that spaces can guide, comfort, and elevate the people moving through them.</p>
-          <p>UX gave both of these instincts structure.</p>
-          <p class="closing">Today, I design products that aim to feel clear, calm, and considered.</p>
+
+        <div class="mood-grid">
+          <!-- Painting -->
+          <article class="mood-card m-paint reveal" tabindex="0" style="--r:-1.5deg">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="mood-art" aria-hidden="true">
+              <svg viewBox="0 0 200 164">
+                <defs>
+                  <mask id="paint-reveal">
+                    <path class="reveal-stroke" pathLength="1" d="M-10 140 C 40 80, 80 150, 120 80 S 190 30, 220 10" stroke="#fff" stroke-width="96" fill="none" stroke-linecap="round"/>
+                  </mask>
+                </defs>
+                <g mask="url(#paint-reveal)" filter="url(#wc-mood)" style="mix-blend-mode:multiply">
+                  <ellipse cx="60" cy="60" rx="52" ry="38" fill="var(--wash-coral)" opacity=".55"/>
+                  <ellipse cx="128" cy="78" rx="58" ry="40" fill="var(--wash-blue)" opacity=".55"/>
+                  <ellipse cx="96" cy="128" rx="80" ry="26" fill="var(--wash-sage)" opacity=".6"/>
+                  <circle cx="148" cy="38" r="15" fill="var(--wash-yellow)" opacity=".8"/>
+                </g>
+                <path class="ln" opacity=".5" d="M8 118 C 40 96, 64 104, 90 92 S 140 70, 192 86"/>
+                <path class="ln" opacity=".5" d="M8 138 C 50 124, 120 130, 192 120"/>
+                <circle class="ln" opacity=".5" cx="148" cy="38" r="14"/>
+                <path class="ln" d="M150 156 L 192 112"/><path class="ln" d="M188 116 l 7 -7 l 3 3 l -7 7 z"/>
+              </svg>
+            </div>
+            <h3>Painting</h3>
+            <p>Watercolours help me notice balance, contrast, space, and emotion.</p>
+          </article>
+
+          <!-- Travelling -->
+          <article class="mood-card m-travel reveal" tabindex="0" style="--r:1.2deg">
+            <span class="tape" aria-hidden="true" style="--tr:3deg"></span>
+            <div class="mood-art" aria-hidden="true">
+              <svg viewBox="0 0 200 164">
+                <defs>
+                  <mask id="route-reveal">
+                    <path class="route-mask" pathLength="1" d="M34 128 C 50 90, 90 120, 100 84 S 130 40, 150 38" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>
+                  </mask>
+                </defs>
+                <path class="ln" opacity=".28" d="M0 30 C 30 24, 50 40, 80 30 S 130 14, 200 26M0 70 C 40 60, 70 78, 110 64 S 170 52, 200 62M0 112 C 30 104, 60 120, 96 108"/>
+                <path d="M34 128 C 50 90, 90 120, 100 84 S 130 40, 150 38" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" mask="url(#route-reveal)"/>
+                <path class="ln fill-paper" d="M34 128 c -6 -8 -9 -12 -9 -17 a 9 9 0 0 1 18 0 c 0 5 -3 9 -9 17 z"/>
+                <circle cx="34" cy="111" r="3" fill="var(--ink)"/>
+                <g class="pin-b">
+                  <path d="M150 38 c -6 -8 -9 -12 -9 -17 a 9 9 0 0 1 18 0 c 0 5 -3 9 -9 17 z" fill="var(--accent)"/>
+                  <circle cx="150" cy="21" r="3" fill="var(--paper)"/>
+                </g>
+              </svg>
+              <div class="snap"><img src="images/udaipur.jpg" alt=""></div>
+            </div>
+            <h3>Travelling</h3>
+            <p>Travel keeps me curious about people, behaviour, culture, and context.</p>
+          </article>
+
+          <!-- Crafts -->
+          <article class="mood-card m-craft reveal" tabindex="0" style="--r:-.8deg">
+            <span class="tape" aria-hidden="true" style="--tr:-4deg"></span>
+            <div class="mood-art" aria-hidden="true">
+              <span class="layer a"></span>
+              <span class="layer b"></span>
+              <span class="layer c"></span>
+              <svg class="thread" viewBox="0 0 200 164">
+                <path d="M10 150 C 50 120, 40 60, 90 70 S 170 120, 190 20" fill="none" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 4" opacity=".7"/>
+                <path class="ln" d="M176 34 L 194 8"/><circle class="ln" cx="192" cy="11" r="1.6"/>
+              </svg>
+            </div>
+            <h3>Crafts</h3>
+            <p>Handmade work reminds me that small details can change the whole experience.</p>
+          </article>
+
+          <!-- Working out -->
+          <article class="mood-card m-gym reveal" tabindex="0" style="--r:1.4deg">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="mood-art" aria-hidden="true">
+              <svg viewBox="0 0 200 164">
+                <path class="ln" d="M60 52h80"/>
+                <rect class="ln" x="36" y="30" width="12" height="44" rx="3"/>
+                <rect class="ln" x="48" y="36" width="10" height="32" rx="3"/>
+                <rect class="ln" x="152" y="30" width="12" height="44" rx="3"/>
+                <rect class="ln" x="142" y="36" width="10" height="32" rx="3"/>
+              </svg>
+              <div class="reps">
+                <div class="row"><span>Reps</span><span><span class="count" data-target="12">0</span> / 12</span></div>
+                <div class="track"><i></i></div>
+                <div class="days">
+                  <b class="on" style="--d:.2s"></b><b class="on" style="--d:.35s"></b><b class="on" style="--d:.5s"></b><b style="--d:.65s"></b><b class="on" style="--d:.8s"></b><b class="on" style="--d:.95s"></b><b style="--d:1.1s"></b>
+                </div>
+              </div>
+            </div>
+            <h3>Working out</h3>
+            <p>Fitness teaches consistency, focus, and showing up even when it is hard.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- 7. Contact -->
+    <!-- ======================= 6. Painter's eye ======================= -->
+    <section class="section craft" aria-labelledby="craft-title">
+      <div class="wrap craft-grid">
+        <div class="craft-visual reveal">
+          <span class="wash cw1" aria-hidden="true"></span>
+          <span class="wash cw2" aria-hidden="true"></span>
+          <figure>
+            <span class="tape" aria-hidden="true"></span>
+            <img src="images/nikita.jpg" alt="Nikita sitting in a window seat framed by scalloped white arches, with a lake and hills behind." loading="lazy">
+            <span class="grid-overlay" aria-hidden="true"></span>
+            <figcaption>arches, light, and lake lines</figcaption>
+          </figure>
+        </div>
+        <div class="craft-copy reveal">
+          <p class="label">Craft</p>
+          <h2 id="craft-title">A painter’s eye, a product designer’s mind.</h2>
+          <p>Watercolours taught me to notice balance, contrast, space, and emotion. Product design taught me to turn those instincts into systems, flows, and decisions people can use.</p>
+          <div class="pairs">
+            <div><b>Balance</b> → hierarchy</div>
+            <div><b>Contrast</b> → emphasis</div>
+            <div><b>Space</b> → breathing room</div>
+            <div><b>Emotion</b> → trust</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 7. Contact ======================= -->
     <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="wrap">
-        <div class="contact-arch" aria-hidden="true"></div>
-        <h2 id="contact-title">Let’s design something considered.</h2>
-        <p>I’m open to conversations about senior product and UX roles, fintech, and products that need more clarity and calm.</p>
+      <span class="wash c1" aria-hidden="true"></span>
+      <span class="wash c2" aria-hidden="true"></span>
+      <div class="wrap reveal">
+        <p class="hand-note">p.s.</p>
+        <h2 id="contact-title">Have a messy product problem?</h2>
+        <p>I’d love to help make it make sense.</p>
         <div class="hero-actions">
           <!-- TODO: replace with the email you want public -->
-          <a class="btn btn-primary" href="mailto:hello@example.com">Email me <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="mailto:hello@example.com">Contact me <span class="arrow" aria-hidden="true">→</span></a>
+          <!-- TODO: add your resume, e.g. put resume.pdf in this folder and use href="resume.pdf" -->
+          <a class="btn btn-ghost" href="#">View resume</a>
           <!-- TODO: add your LinkedIn URL -->
           <a class="btn btn-ghost" href="#">LinkedIn</a>
         </div>
@@ -240,16 +719,10 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>© <span id="year">2026</span> Nikita Joseph</span>
-      <span>Designed with clarity, care, and craft.</span>
+      <span>Designed with questions, watercolours, and a lot of sticky notes.</span>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const header = document.querySelector('.site-header');
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

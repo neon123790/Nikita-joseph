@@ -817,13 +817,16 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 /* ==========================================================
    Feedback
    ========================================================== */
-.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 28px); }
-.quote { position: relative; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 30px 28px 24px; box-shadow: var(--shadow-note); overflow: hidden; display: flex; flex-direction: column; }
+.quotes { columns: 3 300px; column-gap: clamp(18px, 2.6vw, 28px); }
+.quote { position: relative; margin: 0 0 clamp(18px, 2.6vw, 28px); break-inside: avoid; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px 28px 22px; box-shadow: var(--shadow-note); overflow: hidden; display: flex; flex-direction: column; }
 .quote::before { content: ""; position: absolute; left: -40px; top: -50px; width: 160px; height: 130px; border-radius: 50%; background: var(--qc); filter: url(#wc); opacity: calc(var(--wash-opacity) * .8); }
 .quote-mark { position: relative; display: block; height: .55em; font-family: var(--serif); font-size: 4.6rem; line-height: 1; color: var(--qc); }
-.quote blockquote { position: relative; margin: 18px 0 22px; flex: 1; font-family: var(--serif); font-size: 1.22rem; line-height: 1.45; }
+.quote blockquote { position: relative; margin: 16px 0 20px; font-family: var(--serif); font-size: 1.16rem; line-height: 1.5; }
 .quote blockquote p { margin: 0; }
-.quote .placeholder { font-family: var(--hand); font-size: 1.3rem; line-height: 1.3; color: var(--muted); }
+.quote.feature blockquote { font-size: 1.4rem; line-height: 1.42; }
+.quotes-more { margin: 8px 0 0; }
+.quotes-more a { display: inline-flex; gap: 8px; font-weight: 500; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.quotes-more a:hover { color: var(--accent); }
 .quote figcaption { display: grid; gap: 2px; padding-top: 14px; border-top: 1px solid var(--line); }
 .quote .who { font-weight: 600; }
 .quote .role { font-size: .9rem; color: var(--muted); }

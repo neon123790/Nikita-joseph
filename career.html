@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Career — Nikita Joseph</title>
+  <meta name="description" content="The career journey of Nikita Joseph, Senior UX Designer at FYERS: promotions, shipped products, the CXO Innovation Lab, awards, and education.">
+  <meta property="og:title" content="Nikita Joseph — Senior UX Designer">
+  <meta property="og:description" content="Making messy money moments make sense.">
+  <meta property="og:image" content="images/nikita-flowers.jpg">
+  <script src="theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Shared SVG filters: watercolour washes, painted edges, hand-drawn wobble -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="7"/>
+      </filter>
+      <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+        <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation=".5"/>
+      </filter>
+      <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+        <feGaussianBlur in="d" stdDeviation=".4"/>
+      </filter>
+      <filter id="rough" filterUnits="userSpaceOnUse" x="-500" y="-500" width="2000" height="2000">
+        <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="1" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="rough-sm" filterUnits="userSpaceOnUse" x="-100" y="-100" width="400" height="400">
+        <feTurbulence type="fractalNoise" baseFrequency=".18" numOctaves="2" seed="1" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale=".5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Nikita Joseph</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="career.html" aria-current="page">Career</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="career-hero">
+      <div class="wrap">
+        <p class="label">Career</p>
+        <h1>The road so far.</h1>
+        <p class="lede">A 4+ year journey through fintech products, research, shipping, hiring, AI experiments, awards, and growth. Scroll to take the drive.</p>
+        <ul class="career-stats">
+          <li><strong>4+</strong> years at FYERS</li>
+          <li><strong>2</strong> promotions</li>
+          <li><strong>10+</strong> products shipped</li>
+          <li><strong>3–4</strong> designers hired</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="journey" id="journey" aria-label="Career timeline">
+      <div class="wrap journey-grid">
+        <ol class="journey-list">
+          <li class="j-stop" style="--sc:var(--p-violet)">
+            <span class="stamp">Start · 2017 – 2021</span>
+            <h3>Where the road began</h3>
+            <p>B.Tech in Electronics and Communication Engineering at Christ (Deemed to be University), Bengaluru — CGPA 9.03. Final project: BEAM, a student collaboration app (UX and front-end, team of 5, 50+ students across 10+ colleges).</p>
+            <div class="tools">
+              <span class="chip" style="--c:var(--p-mustard)">NISM Series 7 &amp; 8</span>
+              <span class="chip" style="--c:var(--p-cobalt)">Google UX Design</span>
+              <span class="chip" style="--c:var(--p-lime)">Georgia Tech · Intro to UX</span>
+              <span class="chip" style="--c:var(--p-magenta)">IxDF · AI for Designers</span>
+            </div>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-mustard)">
+            <span class="stamp">Jan – May 2022</span>
+            <h3>First design job</h3>
+            <p>UI/UX and Graphic Design Intern at DeFiner, designing logos, web screens, and mascots.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-orange)">
+            <span class="stamp">Jul 2022</span>
+            <h3>Joined FYERS</h3>
+            <p>Started as UX Designer I, designing fintech experiences across trading and investing products.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-magenta)">
+            <span class="stamp">2022 – 2023</span>
+            <h3>First shipped products</h3>
+            <p>Designed Onboarding, Open Account, Funds, Option Chain, and Advanced Screeners — all shipped to live users with one-handed use built in. Designed the Partner Dashboard with the CEO and CXO, the My Account app, and the News experience.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-cobalt)">
+            <span class="stamp">Jan 2024 · Promotion 1</span>
+            <h3>UX Designer II</h3>
+            <p>Led Portfolio across mobile and web, designed Single and Multi Order Windows on charts, revamped the Watchlist with tags and pinning, and built a 30-day challenge streak and trading journal.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-violet)">
+            <span class="stamp">Apr 2025 · Promotion 2</span>
+            <h3>Senior UX Designer</h3>
+            <p>Took on larger responsibilities across research, product thinking, flows, and cross-functional decisions — including primary and secondary research and end-to-end design for an advisory product.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-lime)">
+            <span class="stamp">10+ products</span>
+            <h3>Shipped 10+ products</h3>
+            <p>Designed across trading, investing, learning, dashboards, partner tools, and AI-assisted product experiences.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-mustard)">
+            <span class="stamp">Handpicked</span>
+            <h3>CXO Innovation Lab</h3>
+            <p>Handpicked by the CXO to join the Innovation Lab as a UX researcher and designer, exploring AI-assisted product ideas and faster prototyping.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-orange)">
+            <span class="stamp">3 months</span>
+            <h3>Built a full Android app</h3>
+            <p>Designed and built FYERS Academy as a fully working Android app — front-end design from scratch, developed with AI-assisted workflows, with thumb-reachable navigation and light and dark mode throughout.</p>
+            <div class="tools">
+              <span class="chip" style="--c:var(--p-orange)">Claude Code</span>
+              <span class="chip" style="--c:var(--p-magenta)">Claude Design</span>
+              <span class="chip" style="--c:var(--p-cobalt)">VS Code</span>
+              <span class="chip" style="--c:var(--text)">GitHub</span>
+              <span class="chip" style="--c:var(--p-mustard)">ElevenLabs</span>
+              <span class="chip" style="--c:var(--p-violet)">HeyGen</span>
+            </div>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-cobalt)">
+            <span class="stamp">Team</span>
+            <h3>Helped grow the team</h3>
+            <p>Interviewed candidates and helped hire 3 to 4 designers into the team.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-magenta)">
+            <span class="stamp">Recognition</span>
+            <h3>Awards</h3>
+            <p><strong>FYERS Force Award</strong> for the best project, successfully launched — and the <strong>Exceptional Team Player Award</strong>, nominated by the entire design team.</p>
+          </li>
+          <li class="j-stop" style="--sc:var(--p-lime)">
+            <span class="stamp">Beyond the job</span>
+            <h3>Volunteering and events</h3>
+            <p>Contributed through volunteering, hosting events, wall painting, and community and team activities.</p>
+          </li>
+          <li class="j-stop j-next" style="--sc:var(--p-magenta)">
+            <span class="stamp">Next stop</span>
+            <h3>Your team?</h3>
+            <p>The heart’s complete — and I’m ready for the next road. If you have a messy product problem, let’s talk.</p>
+            <a class="btn btn-primary" href="index.html#contact">Contact me <span class="arrow" aria-hidden="true">→</span></a>
+          </li>
+        </ol>
+
+        <div class="journey-map" aria-hidden="true">
+          <div class="map-card" id="map-card">
+            <svg class="map" id="map" viewBox="0 0 600 560">
+              <rect class="m-land" width="600" height="560"/>
+              <g class="m-grid">
+                <path d="M0 60H600M0 130H600M0 200H600M0 270H600M0 340H600M0 410H600M0 480H600M0 550H600"/>
+                <path d="M50 0V560M130 0V560M210 0V560M290 0V560M370 0V560M450 0V560M530 0V560"/>
+              </g>
+              <path class="m-avenue" d="M-10 150 L 610 250"/>
+              <path class="m-avenue" d="M170 -10 L 250 570"/>
+              <ellipse class="m-park" cx="96" cy="98" rx="52" ry="34"/>
+              <ellipse class="m-park" cx="508" cy="470" rx="62" ry="36"/>
+              <ellipse class="m-park" cx="470" cy="78" rx="40" ry="28"/>
+              <path class="m-water" d="M-20 470 C 100 430, 170 505, 290 470 S 500 380, 620 412"/>
+              <text class="m-label" x="28" y="36">BENGALURU</text>
+              <g class="m-compass" transform="translate(556 44)"><circle r="16"/><path d="M0 -12 L 4 0 L 0 12 L -4 0 Z"/><text y="-20">N</text></g>
+
+              <path class="heart-fill"/>
+              <path class="route-planned"/>
+              <path class="route-casing"/>
+              <path class="route-done"/>
+              <g class="pins"></g>
+              <g class="car">
+                <g transform="translate(-17 -9)">
+                  <rect class="wheel" x="5" y="-1" width="7" height="3" rx="1"/>
+                  <rect class="wheel" x="22" y="-1" width="7" height="3" rx="1"/>
+                  <rect class="wheel" x="5" y="16" width="7" height="3" rx="1"/>
+                  <rect class="wheel" x="22" y="16" width="7" height="3" rx="1"/>
+                  <rect class="body" x="0" y="1" width="34" height="16" rx="6"/>
+                  <rect class="glass" x="21" y="3.5" width="6" height="11" rx="2"/>
+                  <rect class="roof" x="10" y="3.5" width="10" height="11" rx="2"/>
+                  <rect class="glass" x="5" y="4" width="4" height="10" rx="1.5"/>
+                  <circle class="light" cx="33" cy="4.5" r="1.4"/>
+                  <circle class="light" cx="33" cy="13.5" r="1.4"/>
+                </g>
+              </g>
+            </svg>
+            <div class="dir-panel">
+              <span class="dir-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V12a4 4 0 0 1 4-4h10"/><path d="M15 4l4 4-4 4"/></svg>
+              </span>
+              <div>
+                <small id="dir-step">Stop 1 of 13</small>
+                <strong id="dir-title">Where the road began</strong>
+                <span id="dir-meta">Start · 2017 – 2021</span>
+              </div>
+            </div>
+            <div class="map-progress"><i id="map-progress"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 4. Awards ======================= -->
+    <section class="section section-alt" id="awards" aria-labelledby="awards-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="label">Awards</p>
+          <h2 id="awards-title">Recognised for craft, collaboration, and ownership.</h2>
+        </div>
+        <div class="awards-grid">
+          <article class="award reveal" style="--aw:var(--p-mustard)">
+            <span class="wash" aria-hidden="true"></span>
+            <svg viewBox="0 0 96 120" aria-hidden="true">
+              <path class="rib-a" d="M30 54 L 18 112 L 32 102 L 40 116 L 50 62 Z" filter="url(#paint-edge)"/>
+              <path class="rib-b" d="M66 54 L 78 112 L 64 102 L 56 116 L 46 62 Z" filter="url(#paint-edge)"/>
+              <circle class="medal" cx="48" cy="44" r="34"/>
+              <circle class="medal-in" cx="48" cy="44" r="26"/>
+              <path class="medal-star" d="M48 26 l 5.3 11 l 12 1.6 l -8.8 8.3 l 2.2 12 l -10.7 -5.8 l -10.7 5.8 l 2.2 -12 l -8.8 -8.3 l 12 -1.6 Z"/>
+            </svg>
+            <div>
+              <h3>FYERS Force Award</h3>
+              <p>For the best project, successfully launched — and for contribution, ownership, and consistent impact at FYERS.</p>
+            </div>
+          </article>
+          <article class="award reveal" style="--aw:var(--p-lime)">
+            <span class="wash" aria-hidden="true"></span>
+            <svg viewBox="0 0 96 120" aria-hidden="true">
+              <path class="rib-b" d="M30 58 L 18 112 L 32 102 L 40 116 L 50 64 Z" filter="url(#paint-edge)"/>
+              <path class="rib-a" d="M66 58 L 78 112 L 64 102 L 56 116 L 46 64 Z" filter="url(#paint-edge)"/>
+              <circle class="hand-a" cx="36" cy="44" r="26" style="mix-blend-mode:multiply"/>
+              <circle class="hand-b" cx="60" cy="44" r="26" style="mix-blend-mode:multiply"/>
+              <path class="medal-star" d="M48 32 l 3.6 7.4 l 8 1.1 l -5.9 5.6 l 1.5 8 l -7.2 -3.9 l -7.2 3.9 l 1.5 -8 l -5.9 -5.6 l 8 -1.1 Z"/>
+            </svg>
+            <div>
+              <h3>Exceptional Team Player Award</h3>
+              <p>Nominated by the entire design team — for collaboration, team support, and contributing beyond individual design work.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section career-cta">
+      <div class="wrap">
+        <h2>Want the full story?</h2>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="index.html#work">See the work <span class="arrow" aria-hidden="true">→</span></a>
+          <!-- TODO: link your resume PDF -->
+          <a class="btn btn-ghost" href="#">View resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Nikita Joseph</span>
+      <span>Designed with love.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

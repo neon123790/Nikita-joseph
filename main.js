@@ -2,7 +2,8 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const canHover = window.matchMedia('(hover: hover)').matches;
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
 
   /* ---------- Header border on scroll ---------- */
   const header = document.querySelector('.site-header');
@@ -22,56 +23,32 @@
   document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
 
   /* ==========================================================
-     Hero: the wall tidies into Ask → Map → Simplify → Ship on hover
+     Hero: the painted colour blocks drift with the cursor,
+     and her eyes follow it, just a little
      ========================================================== */
-  const stage = document.getElementById('stage');
-  if (canHover) {
-    stage.addEventListener('pointerenter', () => stage.classList.add('is-clear'));
-    stage.addEventListener('pointerleave', () => stage.classList.remove('is-clear'));
-  }
-
-  /* one sticky note flips every few seconds to show a proof point */
-  const proofs = [
-    ['4+ years', 'in fintech UX'],
-    ['10+', 'products shipped'],
-    ['2', 'promotions at FYERS'],
-    ['CXO', 'Innovation Lab'],
-    ['FYERS Force', 'Award · best launched project'],
-  ];
-  const flipNotes = [...stage.querySelectorAll('[data-flip]')];
-  let tick = 0;
-  let flipped = null;
-  const flipNext = () => {
-    if (document.hidden) return;
-    if (flipped) flipped.classList.remove('is-flipped');
-    const note = flipNotes[tick % flipNotes.length];
-    const [big, small] = proofs[tick % proofs.length];
-    note.querySelector('.back strong').textContent = big;
-    note.querySelector('.back span').textContent = small;
-    setTimeout(() => note.classList.add('is-flipped'), flipped ? 350 : 0);
-    flipped = note;
-    tick++;
-  };
-  setTimeout(() => { flipNext(); setInterval(flipNext, 4000); }, 2500);
-
-  /* her eyes follow the cursor, just a little */
-  const look = document.querySelector('.girl .look');
-  if (look && canHover && !reduceMotion) {
-    const girl = document.querySelector('.girl');
+  const girl = document.querySelector('.girl');
+  if (girl && canHover && !reduceMotion) {
+    const back = girl.querySelector('.parallax-back');
+    const look = girl.querySelector('.look');
     window.addEventListener('pointermove', (e) => {
       const r = girl.getBoundingClientRect();
       const dx = e.clientX - (r.left + r.width / 2);
       const dy = e.clientY - (r.top + r.height / 2);
+      const nx = Math.max(-1, Math.min(1, dx / (window.innerWidth / 2)));
+      const ny = Math.max(-1, Math.min(1, dy / (window.innerHeight / 2)));
+      back.style.setProperty('--px', `${nx * -10}px`);
+      back.style.setProperty('--py', `${ny * -6}px`);
       const d = Math.hypot(dx, dy) || 1;
       const k = Math.min(1, d / 300);
-      look.style.transform = `translate(${(dx / d) * 2.2 * k}px, ${(dy / d) * 1.6 * k}px)`;
+      look.style.transform = `translate(${(dx / d) * 2.2 * k}px, ${(dy / d) * 1.4 * k}px)`;
     }, { passive: true });
   }
 
   /* ==========================================================
-     Tabs helper: bookmarks (journal) and the process stepper
+     Tabs: journal bookmarks and the How I work process
      ========================================================== */
   const makeTabs = (tabs, { hoverSelect = false } = {}) => {
+    if (!tabs.length) return;
     const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
     const select = (i, focus = false) => {
       tabs.forEach((t, j) => {
@@ -104,137 +81,161 @@
     });
   };
   makeTabs([...document.querySelectorAll('.bookmark')]);
-  makeTabs([...document.querySelectorAll('.step-tab')], { hoverSelect: true });
+  makeTabs([...document.querySelectorAll('.process-tab')]);
 
   /* ==========================================================
-     Career: a road through the stops, with a car that drives as you scroll
+     Career: a car drives a heart-shaped route as you scroll
      ========================================================== */
-  const road = document.getElementById('road');
-  const svg = road.querySelector('.road-svg');
-  const base = svg.querySelector('.road-base');
-  const dash = svg.querySelector('.road-dash');
-  const done = svg.querySelector('.road-done');
-  const stopsLayer = svg.querySelector('.stops-layer');
-  const car = svg.querySelector('.car');
-  const dest = svg.querySelector('.dest-marker');
-  const cards = [...road.querySelectorAll('.stop-card')];
-  let total = 0;
-  let stopLens = [];
-  let stopDots = [];
+  const mapSvg = document.getElementById('map');
+  if (mapSvg) {
+    const SVGNS = 'http://www.w3.org/2000/svg';
+    const card = document.getElementById('map-card');
+    const planned = mapSvg.querySelector('.route-planned');
+    const casing = mapSvg.querySelector('.route-casing');
+    const done = mapSvg.querySelector('.route-done');
+    const heart = mapSvg.querySelector('.heart-fill');
+    const pinsLayer = mapSvg.querySelector('.pins');
+    const car = mapSvg.querySelector('.car');
+    const stops = [...document.querySelectorAll('.j-stop')];
+    const dirStep = document.getElementById('dir-step');
+    const dirTitle = document.getElementById('dir-title');
+    const dirMeta = document.getElementById('dir-meta');
+    const bar = document.getElementById('map-progress');
 
-  const buildRoad = () => {
-    const rr = road.getBoundingClientRect();
-    const W = rr.width;
-    const H = rr.height;
-    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-    const narrow = W < 700;
-    const cx = narrow ? 22 : W / 2;
-    const amp = narrow ? 8 : 34;
+    // The classic heart curve, starting at the bottom tip and going clockwise
+    const pts = [];
+    for (let t = -Math.PI; t <= Math.PI + 0.0001; t += 0.01) {
+      const x = 300 + 15 * 16 * Math.pow(Math.sin(t), 3);
+      const y = 282 - 15 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+      pts.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
+    }
+    const d = `M ${pts.join(' L ')}`;
+    [planned, casing, done, heart].forEach((p) => p.setAttribute('d', d));
+    const total = done.getTotalLength();
+    [casing, done].forEach((p) => { p.style.strokeDasharray = `${total} ${total}`; p.style.strokeDashoffset = `${total}`; });
 
-    const pts = cards.map((c, i) => {
-      const r = c.getBoundingClientRect();
-      return { x: cx + (i % 2 ? amp : -amp), y: r.top - rr.top + Math.min(44, r.height / 2) };
+    // pins evenly spaced along the heart; the last stop closes the heart
+    const N = stops.length;
+    const stopLen = stops.map((_, i) => (total * i) / (N - 1));
+    const pins = stopLen.map((len, i) => {
+      const p = done.getPointAtLength(Math.min(len, total - 0.01));
+      const g = document.createElementNS(SVGNS, 'g');
+      g.setAttribute('class', i === N - 1 ? 'pin final' : 'pin');
+      g.setAttribute('transform', `translate(${p.x} ${p.y})`);
+      g.innerHTML = `<circle class="ring" r="11"/><circle class="dot" r="11"/><text>${i === N - 1 ? '♥' : i + 1}</text>`;
+      pinsLayer.appendChild(g);
+      return g;
     });
-    let d = `M ${cx} 0`;
-    let prev = { x: cx, y: 0 };
-    pts.forEach((p) => {
-      const my = (prev.y + p.y) / 2;
-      d += ` C ${prev.x} ${my}, ${p.x} ${my}, ${p.x} ${p.y}`;
-      prev = p;
-    });
-    [base, dash, done].forEach((p) => p.setAttribute('d', d));
-    total = base.getTotalLength();
-    done.style.strokeDasharray = `${total} ${total}`;
 
-    // find how far along the road each stop is (y increases along the path)
-    stopLens = pts.map((p) => {
-      let lo = 0, hi = total;
-      for (let k = 0; k < 24; k++) {
-        const mid = (lo + hi) / 2;
-        if (base.getPointAtLength(mid).y < p.y) lo = mid; else hi = mid;
+    let target = 0;   // where the scroll says the car should be (in stop units)
+    let current = 0;  // where the car is now; eased towards target every frame
+    let raf = null;
+    let lastActive = -1;
+
+    const measure = () => {
+      // on phones the map sits on top, so read the stop in the space below it
+      const mapBox = card.getBoundingClientRect();
+      const stacked = window.matchMedia('(max-width: 860px)').matches;
+      const focus = stacked ? mapBox.bottom + (window.innerHeight - mapBox.bottom) * 0.4 : window.innerHeight * 0.48;
+      const centers = stops.map((s) => {
+        const r = s.getBoundingClientRect();
+        return r.top + r.height / 2;
+      });
+      if (focus <= centers[0]) return 0;
+      if (focus >= centers[N - 1]) return N - 1;
+      for (let i = 0; i < N - 1; i++) {
+        if (focus >= centers[i] && focus < centers[i + 1]) {
+          return i + (focus - centers[i]) / (centers[i + 1] - centers[i]);
+        }
       }
-      return hi;
-    });
+      return 0;
+    };
 
-    stopsLayer.innerHTML = '';
-    stopDots = pts.map((p) => {
-      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', narrow ? 6 : 8);
-      c.setAttribute('class', 'stop');
-      stopsLayer.appendChild(c);
-      return c;
-    });
-    const last = pts[pts.length - 1];
-    dest.setAttribute('transform', `translate(${last.x + (narrow ? 0 : 0)} ${last.y - 10})`);
-    updateCar();
-  };
+    const render = () => {
+      const i0 = Math.floor(current);
+      const f = current - i0;
+      const L = i0 >= N - 1 ? total : stopLen[i0] + (stopLen[i0 + 1] - stopLen[i0]) * f;
+      const a = done.getPointAtLength(Math.min(L, total - 0.5));
+      const b = done.getPointAtLength(Math.min(L + 0.5, total));
+      const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+      car.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${angle})`);
+      [casing, done].forEach((p) => { p.style.strokeDashoffset = `${total - L}`; });
+      bar.style.width = `${(L / total) * 100}%`;
 
-  const updateCar = () => {
-    if (!total) return;
-    const r = road.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const p = Math.min(1, Math.max(0, (vh * 0.55 - r.top) / r.height));
-    // never drive past the destination
-    const L = Math.min(total * p, stopLens[stopLens.length - 1] || total);
-    const a = base.getPointAtLength(L);
-    const b = base.getPointAtLength(Math.min(total, L + 1));
-    const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
-    car.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${angle})`);
-    done.style.strokeDashoffset = String(total - L);
-    stopLens.forEach((len, i) => {
-      const reached = L >= len - 2;
-      stopDots[i] && stopDots[i].classList.toggle('reached', reached);
-      cards[i].classList.toggle('reached', reached);
-    });
-  };
+      const active = Math.min(N - 1, Math.round(current));
+      card.classList.toggle('complete', current > N - 1.05);
+      if (active !== lastActive) {
+        lastActive = active;
+        pins.forEach((p, i) => {
+          p.classList.toggle('past', i < active);
+          p.classList.toggle('current', i === active);
+        });
+        stops.forEach((s, i) => {
+          s.classList.toggle('is-current', i === active);
+          s.classList.toggle('is-past', i < active);
+        });
+        dirStep.textContent = active === N - 1 ? 'Arrived' : `Stop ${active + 1} of ${N}`;
+        dirTitle.textContent = stops[active].querySelector('h3').textContent;
+        dirMeta.textContent = stops[active].querySelector('.stamp').textContent;
+      }
+    };
 
-  // build after fonts and layout settle
-  const rebuild = () => requestAnimationFrame(buildRoad);
-  window.addEventListener('load', rebuild);
-  window.addEventListener('resize', rebuild);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(rebuild);
-  if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(road);
-  window.addEventListener('scroll', updateCar, { passive: true });
+    const tick = () => {
+      // ease towards the target so the drive feels smooth, never jumpy
+      current += (target - current) * (reduceMotion ? 1 : 0.09);
+      if (Math.abs(target - current) < 0.001) current = target;
+      render();
+      raf = current === target ? null : requestAnimationFrame(tick);
+    };
+
+    const onScroll = () => {
+      target = measure();
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    target = current = measure();
+    render();
+  }
 
   /* ==========================================================
      Noticeboard: gentle drag that snaps back, tap/Enter to open
      ========================================================== */
   const board = document.getElementById('board');
-  board.querySelectorAll('.pin-card').forEach((card) => {
-    let startX = 0, startY = 0, moved = false, dragging = false, id = null;
-
-    card.addEventListener('pointerdown', (e) => {
-      if (e.button !== 0 || e.target.closest('a')) return;
-      dragging = true; moved = false; id = e.pointerId;
-      startX = e.clientX; startY = e.clientY;
-      card.setPointerCapture(id);
+  if (board) {
+    board.querySelectorAll('.pin-card').forEach((card) => {
+      let startX = 0, startY = 0, moved = false, dragging = false, id = null;
+      card.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 || e.target.closest('a')) return;
+        dragging = true; moved = false; id = e.pointerId;
+        startX = e.clientX; startY = e.clientY;
+        try { card.setPointerCapture(id); } catch (err) { /* synthetic pointer */ }
+      });
+      card.addEventListener('pointermove', (e) => {
+        if (!dragging || e.pointerId !== id) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        if (!moved && Math.hypot(dx, dy) > 4) { moved = true; card.classList.add('dragging'); }
+        if (moved) {
+          card.style.setProperty('--dx', `${dx * 0.85}px`);
+          card.style.setProperty('--dy', `${dy * 0.85}px`);
+        }
+      });
+      const end = (e) => {
+        if (!dragging || e.pointerId !== id) return;
+        dragging = false;
+        card.classList.remove('dragging');
+        card.style.setProperty('--dx', '0px');
+        card.style.setProperty('--dy', '0px');
+        if (!moved && !canHover) card.classList.toggle('is-open');
+      };
+      card.addEventListener('pointerup', end);
+      card.addEventListener('pointercancel', end);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('is-open'); }
+        if (e.key === 'Escape') card.classList.remove('is-open');
+      });
+      card.addEventListener('blur', () => card.classList.remove('is-open'));
     });
-    card.addEventListener('pointermove', (e) => {
-      if (!dragging || e.pointerId !== id) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      if (!moved && Math.hypot(dx, dy) > 4) { moved = true; card.classList.add('dragging'); }
-      if (moved) {
-        // a gentle drag: the card follows, but with some resistance
-        card.style.setProperty('--dx', `${dx * 0.85}px`);
-        card.style.setProperty('--dy', `${dy * 0.85}px`);
-      }
-    });
-    const end = (e) => {
-      if (!dragging || e.pointerId !== id) return;
-      dragging = false;
-      card.classList.remove('dragging');
-      // snap back neatly
-      card.style.setProperty('--dx', '0px');
-      card.style.setProperty('--dy', '0px');
-      if (!moved && !canHover) card.classList.toggle('is-open');
-    };
-    card.addEventListener('pointerup', end);
-    card.addEventListener('pointercancel', end);
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('is-open'); }
-      if (e.key === 'Escape') card.classList.remove('is-open');
-    });
-    card.addEventListener('blur', () => card.classList.remove('is-open'));
-  });
+  }
 })();

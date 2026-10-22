@@ -15,6 +15,10 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+      <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    </filter>
     <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
       <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
       <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
@@ -33,8 +37,7 @@
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="../index.html#work">Work</a></li>
-          <li><a href="../index.html#career">Career</a></li>
-          <li><a href="../index.html#noticeboard">Noticeboard</a></li>
+          <li><a href="../career.html">Career</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
         </ul>
         <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
@@ -156,7 +159,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>© <span id="year">2026</span> Nikita Joseph</span>
-      <span>Designed with questions, watercolours, and a lot of sticky notes.</span>
+      <span>Designed with love.</span>
     </div>
   </footer>
 

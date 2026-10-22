@@ -73,14 +73,17 @@
         <p class="label hero-label">Senior UX Designer</p>
 
         <div class="headline-wrap" id="stage">
-          <!-- Nikita, painted in the style of her own watercolour portraits,
-               resting her head on her hands on top of the headline -->
+          <!-- Nikita, painted from a photo of her, resting her chin on her hand on top of the headline.
+               Every few seconds it crossfades to the real photo and back. -->
           <div class="girl" aria-hidden="true">
             <svg viewBox="0 0 480 330">
               <defs>
-                <clipPath id="saree-clip"><path d="M128 322 C 126 290, 146 262, 186 252 L 222 248 L 258 248 L 294 252 C 334 262, 354 290, 352 322 Z"/></clipPath>
-                <clipPath id="eye-l"><path d="M203 172 C 210 164, 223 163, 231 170 C 223 177, 210 178, 203 172 Z"/></clipPath>
-                <clipPath id="eye-r"><path d="M277 172 C 270 164, 257 163, 249 170 C 257 177, 270 178, 277 172 Z"/></clipPath>
+                <clipPath id="top-clip"><path d="M138 324 C 136 290, 156 262, 196 252 L 228 246 L 268 246 L 300 252 C 340 262, 360 292, 360 324 Z"/></clipPath>
+                <clipPath id="eye-l"><path d="M214 167 C 220 160, 232 160, 238 166 C 232 170, 220 171, 214 167 Z"/></clipPath>
+                <clipPath id="eye-r"><path d="M258 166 C 264 160, 276 160, 282 167 C 276 171, 264 170, 258 166 Z"/></clipPath>
+                <mask id="photo-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="330">
+                  <path filter="url(#paint-edge)" fill="#fff" d="M180 336 C 170 300, 170 200, 170 130 C 170 46, 216 14, 296 14 C 376 14, 424 46, 424 130 L 424 336 Z"/>
+                </mask>
               </defs>
 
               <!-- colour blocks, painted in one by one -->
@@ -95,114 +98,102 @@
                   <rect class="b-cobalt"  style="--i:6" x="344" y="122" width="58" height="100"/>
                   <rect class="b-orange"  style="--i:7" x="78"  y="172" width="32" height="92"/>
                   <rect class="b-lime"    style="--i:8" x="66"  y="206" width="62" height="110"/>
-                  <rect class="b-lime"    style="--i:9" x="356" y="210" width="62" height="104"/>
-                  <rect class="b-teal"    style="--i:10" x="304" y="226" width="52" height="90"/>
+                  <rect class="b-lime"    style="--i:9" x="372" y="210" width="62" height="104"/>
+                  <rect class="b-teal"    style="--i:10" x="320" y="226" width="52" height="90"/>
                 </g>
               </g>
 
-              <g class="rise">
-                <!-- upper arms -->
-                <path class="skin ink" d="M150 268 C 122 276, 96 294, 76 314 L 112 318 C 126 304, 142 294, 162 288 Z"/>
-                <path class="skin ink" d="M330 268 C 358 276, 384 294, 404 314 L 368 318 C 354 304, 338 294, 318 288 Z"/>
+              <!-- the illustration -->
+              <g class="art-layer">
+                <g class="rise">
+                  <!-- hair, back: long and wavy, past the shoulders -->
+                  <path class="hair" d="M244 80 C 186 78, 158 118, 160 168 C 161 190, 148 200, 152 218 C 155 236, 140 246, 138 262 C 136 276, 126 282, 124 294 C 146 302, 172 298, 192 282 C 194 254, 196 228, 200 212 L 302 212 C 306 234, 312 258, 320 286 C 342 302, 368 298, 390 286 C 386 270, 372 264, 370 248 C 368 230, 352 222, 353 202 C 354 186, 344 178, 346 166 C 346 116, 306 80, 244 80 Z"/>
+                  <path class="hair-wave" d="M170 176 C 162 196, 176 210, 166 230 C 158 246, 164 260, 148 280 M334 170 C 342 192, 330 210, 344 232 C 354 248, 350 262, 366 280 M356 196 C 364 214, 360 232, 374 252"/>
 
-                <!-- magenta saree with a lime pallu over the shoulder -->
-                <g clip-path="url(#saree-clip)">
-                  <rect class="saree" x="120" y="240" width="240" height="92"/>
-                  <path class="saree-shade" d="M290 252 C 330 262, 352 292, 352 330 L 300 330 C 310 300, 306 274, 290 252 Z"/>
-                  <g class="saree-print">
-                    <circle cx="300" cy="270" r="3"/><circle cx="322" cy="290" r="2.6"/><circle cx="286" cy="300" r="3"/><circle cx="336" cy="314" r="2.6"/><circle cx="270" cy="282" r="2.4"/>
+                  <!-- upper arms -->
+                  <path class="skin ink" d="M318 250 C 344 252, 368 270, 386 296 L 360 308 C 350 290, 336 278, 316 272 Z"/>
+                  <path class="skin ink" d="M150 256 C 160 280, 168 300, 176 318 L 206 318 C 198 296, 188 274, 178 252 Z"/>
+
+                  <!-- dusty pink top with puff sleeves -->
+                  <g clip-path="url(#top-clip)">
+                    <rect class="top" x="130" y="240" width="240" height="90"/>
+                    <path class="top-shade" d="M300 252 C 336 262, 356 290, 358 324 L 312 324 C 318 296, 314 272, 300 252 Z"/>
                   </g>
-                  <path class="pallu" d="M134 300 C 154 268, 178 256, 200 252 L 222 252 C 202 270, 184 300, 176 332 L 128 332 Z"/>
-                  <path class="pallu-swirl" d="M150 300 c 6 -8 14 -8 16 0 M158 318 c 6 -8 14 -8 16 0 M176 276 c 5 -7 12 -7 14 0"/>
-                </g>
+                  <path class="top ink" d="M128 270 C 126 250, 146 240, 168 244 C 186 248, 194 262, 188 278 C 176 288, 150 290, 134 284 Z"/>
+                  <path class="top ink" d="M352 268 C 354 248, 336 238, 314 242 C 296 246, 288 260, 294 276 C 306 286, 332 288, 348 282 Z"/>
+                  <path class="ruffle" d="M136 280 c 6 -4 10 4 16 0 s 10 4 16 0 s 10 4 16 -2 M300 274 c 6 4 10 -4 16 0 s 10 -4 16 0 s 10 -4 14 2"/>
 
-                <!-- hair: voluminous and wavy, falling to the shoulders -->
-                <path class="hair" d="M240 70 C 176 68, 150 112, 152 160 C 154 196, 140 222, 122 252 C 140 264, 162 264, 178 254 C 180 230, 184 210, 188 196 L 292 196 C 296 210, 300 230, 302 254 C 318 264, 340 264, 358 252 C 340 222, 326 196, 328 160 C 330 112, 304 68, 240 70 Z"/>
+                  <!-- the long hair falling in front of the shoulders -->
+                  <path class="hair" d="M186 200 C 181 218, 191 230, 183 246 C 175 262, 179 278, 158 298 C 176 302, 192 294, 198 280 C 198 254, 200 230, 204 212 Z"/>
+                  <path class="hair" d="M300 196 C 306 216, 299 232, 311 250 C 322 266, 318 284, 346 298 C 326 306, 306 298, 296 284 C 294 258, 292 234, 290 214 Z"/>
 
-                <g class="head">
-                  <!-- neck -->
-                  <path class="skin" d="M222 232 L 222 266 C 232 272, 248 272, 258 266 L 258 232 Z"/>
-                  <path class="shade" d="M222 236 C 234 246, 248 248, 258 240 L 258 256 C 246 260, 232 258, 222 252 Z"/>
+                  <g class="head">
+                    <!-- neck -->
+                    <path class="skin" d="M232 220 L 232 256 C 242 262, 256 262, 266 256 L 266 220 Z"/>
+                    <path class="shade" d="M232 226 C 244 238, 256 240, 266 232 L 266 248 C 254 252, 242 250, 232 244 Z"/>
 
-                  <!-- jhumka earrings -->
-                  <g class="earring earring-l">
-                    <circle class="gold" cx="186" cy="204" r="3.2"/>
-                    <path class="gold" d="M186 206 v 4"/>
-                    <path class="gold ink-thin" d="M177 222 C 177 212, 195 212, 195 222 L 197 228 L 175 228 Z"/>
-                    <circle class="pearl" cx="179" cy="231" r="1.8"/><circle class="pearl" cx="186" cy="232" r="1.8"/><circle class="pearl" cx="193" cy="231" r="1.8"/>
-                  </g>
-                  <g class="earring earring-r">
-                    <circle class="gold" cx="294" cy="204" r="3.2"/>
-                    <path class="gold" d="M294 206 v 4"/>
-                    <path class="gold ink-thin" d="M285 222 C 285 212, 303 212, 303 222 L 305 228 L 283 228 Z"/>
-                    <circle class="pearl" cx="287" cy="231" r="1.8"/><circle class="pearl" cx="294" cy="232" r="1.8"/><circle class="pearl" cx="301" cy="231" r="1.8"/>
-                  </g>
+                    <!-- face, built up in washes -->
+                    <path class="skin ink" d="M248 103 C 281 103, 300 130, 300 166 C 300 204, 278 230, 248 234 C 218 230, 196 204, 196 166 C 196 130, 215 103, 248 103 Z"/>
+                    <path class="shade" d="M276 116 C 296 132, 302 164, 296 194 C 290 216, 274 230, 256 234 C 274 212, 284 180, 276 116 Z"/>
+                    <path class="light" d="M222 118 C 236 110, 258 110, 270 118 L 264 130 C 252 124, 238 124, 226 130 Z"/>
+                    <path class="light" d="M245 162 L 252 162 L 254 190 L 243 190 Z"/>
+                    <ellipse class="blush" cx="217" cy="191" rx="13" ry="9"/>
+                    <ellipse class="blush" cx="282" cy="189" rx="11" ry="8"/>
 
-                  <!-- face, built up in washes like her portraits -->
-                  <path class="skin ink" d="M240 110 C 274 110, 296 138, 296 176 C 296 216, 272 250, 240 256 C 208 250, 184 216, 184 176 C 184 138, 206 110, 240 110 Z"/>
-                  <path class="shade" d="M268 122 C 290 138, 296 170, 292 200 C 286 230, 268 248, 248 254 C 266 228, 276 196, 268 122 Z"/>
-                  <path class="light" d="M212 126 C 228 116, 252 116, 264 126 L 258 140 C 246 133, 230 133, 218 140 Z"/>
-                  <path class="light" d="M237 158 L 244 158 L 246 196 L 235 196 Z"/>
-                  <ellipse class="warm" cx="209" cy="198" rx="16" ry="11"/>
-                  <ellipse class="warm" cx="272" cy="200" rx="12" ry="10"/>
+                    <!-- brows -->
+                    <path class="brow draw" pathLength="1" d="M210 150 C 218 145, 230 144, 240 147"/>
+                    <path class="brow draw" pathLength="1" d="M256 147 C 266 144, 278 145, 286 150"/>
 
-                  <!-- brows -->
-                  <path class="brow draw" pathLength="1" d="M200 156 C 210 148, 222 147, 232 151"/>
-                  <path class="brow draw" pathLength="1" d="M280 156 C 270 148, 258 147, 248 151"/>
-
-                  <!-- almond eyes -->
-                  <g class="eyes">
-                    <path class="eye-white" d="M203 172 C 210 164, 223 163, 231 170 C 223 177, 210 178, 203 172 Z"/>
-                    <path class="eye-white" d="M277 172 C 270 164, 257 163, 249 170 C 257 177, 270 178, 277 172 Z"/>
-                    <g class="look">
-                      <g clip-path="url(#eye-l)"><circle class="iris" cx="217" cy="170.5" r="5.6"/><circle class="pupil" cx="217" cy="170.5" r="2.4"/><circle class="shine" cx="219.2" cy="168.4" r="1.3"/></g>
-                      <g clip-path="url(#eye-r)"><circle class="iris" cx="263" cy="170.5" r="5.6"/><circle class="pupil" cx="263" cy="170.5" r="2.4"/><circle class="shine" cx="265.2" cy="168.4" r="1.3"/></g>
+                    <!-- smiling eyes -->
+                    <g class="eyes">
+                      <path class="eye-white" d="M214 167 C 220 160, 232 160, 238 166 C 232 170, 220 171, 214 167 Z"/>
+                      <path class="eye-white" d="M258 166 C 264 160, 276 160, 282 167 C 276 171, 264 170, 258 166 Z"/>
+                      <g class="look">
+                        <g clip-path="url(#eye-l)"><circle class="iris" cx="226" cy="165.5" r="5"/><circle class="pupil" cx="226" cy="165.5" r="2.2"/><circle class="shine" cx="228" cy="163.6" r="1.1"/></g>
+                        <g clip-path="url(#eye-r)"><circle class="iris" cx="270" cy="165.5" r="5"/><circle class="pupil" cx="270" cy="165.5" r="2.2"/><circle class="shine" cx="272" cy="163.6" r="1.1"/></g>
+                      </g>
+                      <path class="lid draw" pathLength="1" d="M212 166 C 220 158, 233 158, 240 165"/>
+                      <path class="lid draw" pathLength="1" d="M256 165 C 263 158, 276 158, 284 166"/>
+                      <path class="under" d="M216 172 C 222 175, 230 175, 236 171 M260 171 C 266 175, 274 175, 280 172"/>
                     </g>
-                    <path class="lid draw" pathLength="1" d="M201 171 C 209 161, 224 161, 233 169"/>
-                    <path class="lid draw" pathLength="1" d="M279 171 C 271 161, 256 161, 247 169"/>
+
+                    <path class="nose draw" pathLength="1" d="M248 168 C 246 180, 242 188, 244 192 C 248 195, 254 195, 258 192"/>
+
+                    <!-- a warm, closed-lip smile -->
+                    <path class="lips" d="M228 205 C 238 211, 258 211, 270 203 C 264 215, 238 218, 228 205 Z"/>
+                    <path class="lip-line" d="M228 205 C 240 209, 256 209, 270 203"/>
+                    <path class="smile draw" pathLength="1" d="M226 204 q -3 -1 -4 -4 M272 202 q 3 -1 4 -4"/>
+
+                    <!-- hair, front: side parting, swept over -->
+                    <path class="hair" d="M228 92 C 206 96, 194 116, 192 142 C 192 156, 194 168, 197 176 C 198 150, 206 128, 222 114 C 228 108, 230 100, 228 92 Z"/>
+                    <path class="hair" d="M226 90 C 256 82, 292 94, 304 124 C 312 144, 310 166, 302 184 C 298 162, 290 142, 272 128 C 258 118, 242 112, 228 106 Z"/>
+                    <path class="hi hi-caramel draw" pathLength="1" d="M238 94 C 262 92, 286 104, 298 124"/>
+                    <path class="hi hi-caramel draw" pathLength="1" d="M200 118 C 194 136, 192 152, 194 170"/>
                   </g>
 
-                  <circle class="bindi" cx="240" cy="146" r="3.8"/>
-                  <path class="nose draw" pathLength="1" d="M238 178 C 236 188, 232 195, 234 199 C 238 203, 244 203, 248 199"/>
+                  <!-- caramel highlights in the long hair -->
+                  <path class="hi hi-caramel draw" pathLength="1" d="M178 164 C 170 186, 182 204, 172 226 C 164 244, 168 258, 152 278"/>
+                  <path class="hi hi-caramel draw" pathLength="1" d="M192 212 C 186 228, 194 240, 186 256 C 180 270, 182 282, 168 294"/>
+                  <path class="hi hi-caramel draw" pathLength="1" d="M330 152 C 338 176, 326 196, 340 220 C 350 238, 346 254, 364 274"/>
+                  <path class="hi hi-caramel draw" pathLength="1" d="M304 216 C 310 232, 304 248, 314 262 C 322 274, 322 284, 336 294"/>
+                  <path class="hi hi-caramel draw" pathLength="1" d="M318 132 C 326 152, 318 172, 328 192 C 336 208, 332 224, 342 242"/>
 
-                  <!-- lips: a soft closed smile -->
-                  <path class="lip-top" d="M221 216 C 229 210, 236 212, 240 214 C 244 212, 251 210, 259 216 C 250 220, 230 220, 221 216 Z"/>
-                  <path class="lip-bottom" d="M223 217 C 231 227, 249 227, 257 217 C 249 221, 231 221, 223 217 Z"/>
-                  <ellipse class="lip-shine" cx="241" cy="222.4" rx="5" ry="1.5"/>
-                  <path class="smile draw" pathLength="1" d="M221 215 q -3 -1 -4 -4 M259 215 q 3 -1 4 -4"/>
+                  <!-- forearm folded flat across the headline -->
+                  <path class="skin ink" d="M372 298 C 388 298, 398 312, 394 322 C 390 330, 380 331, 370 331 L 196 331 C 184 331, 180 316, 190 306 L 212 299 Z"/>
+                  <path class="shade" d="M200 322 C 260 328, 330 328, 390 320 L 380 330 L 204 330 Z"/>
+                  <path class="light" d="M220 302 C 270 300, 330 300, 368 302 L 368 307 C 330 305, 270 305, 220 307 Z"/>
 
-                  <!-- hair, front: side-swept volume -->
-                  <path class="hair" d="M240 96 C 204 90, 184 108, 177 134 C 175 148, 177 162, 181 174 C 183 150, 191 132, 206 122 C 222 112, 236 112, 248 106 C 262 112, 278 122, 288 136 C 296 150, 298 162, 299 174 C 303 160, 305 146, 303 132 C 299 108, 274 92, 240 96 Z"/>
-                  <path class="hair" d="M208 102 C 190 110, 180 132, 182 162 C 192 136, 212 120, 238 111 Z"/>
-                  <path class="hi hi-cobalt draw" pathLength="1" d="M198 88 C 214 79, 238 76, 260 80"/>
-                  <path class="hi hi-violet draw" pathLength="1" d="M190 120 C 184 136, 182 152, 184 168"/>
-                  <path class="hi hi-cobalt draw" pathLength="1" d="M292 122 C 300 140, 302 158, 300 176"/>
-                  <path class="hi hi-magenta draw" pathLength="1" d="M262 98 C 276 102, 290 112, 298 124"/>
+                  <!-- the other forearm, up to a fist under her chin -->
+                  <path class="skin ink" d="M204 252 L 240 260 L 216 326 C 202 334, 180 330, 172 316 Z"/>
+                  <path class="shade" d="M226 258 L 240 260 L 216 326 C 210 328, 204 328, 200 327 Z"/>
+                  <path class="skin ink" d="M200 238 C 200 224, 214 218, 230 220 C 246 222, 256 232, 254 246 C 252 262, 236 270, 220 268 C 206 266, 200 252, 200 238 Z"/>
+                  <path class="finger" d="M208 232 q 10 -4 20 0 M206 242 q 12 -4 24 0 M208 252 q 10 -3 20 1 M238 226 q 8 4 10 14"/>
                 </g>
+              </g>
 
-                <!-- wavy highlights in the hair falling past the shoulders -->
-                <path class="hi hi-magenta draw" pathLength="1" d="M156 200 C 150 220, 142 236, 130 248"/>
-                <path class="hi hi-violet draw" pathLength="1" d="M324 200 C 330 220, 340 236, 352 248"/>
-                <path class="hi hi-cobalt draw" pathLength="1" d="M166 150 C 160 170, 160 188, 164 206"/>
-
-                <!-- folded forearms lying on the headline -->
-                <path class="skin ink" d="M70 307 C 70 294, 82 287, 100 287 L 226 285 C 236 285, 240 296, 240 307 C 240 320, 232 328, 220 328 L 92 328 C 79 328, 70 320, 70 307 Z"/>
-                <path class="skin ink" d="M410 307 C 410 294, 398 287, 380 287 L 254 285 C 244 285, 240 296, 240 307 C 240 320, 248 328, 260 328 L 388 328 C 401 328, 410 320, 410 307 Z"/>
-                <path class="shade" d="M78 314 C 120 322, 190 322, 236 314 L 230 326 L 92 327 Z"/>
-                <path class="shade" d="M244 314 C 290 322, 360 322, 402 314 L 388 327 L 250 326 Z"/>
-                <path class="light" d="M100 292 C 140 289, 190 288, 224 290 L 224 295 C 190 293, 140 294, 100 297 Z"/>
-                <path class="light" d="M256 290 C 290 288, 340 289, 380 292 L 380 297 C 340 294, 290 293, 256 295 Z"/>
-                <!-- glass bangles -->
-                <path class="bangle b1" d="M160 288 c -3 12, -3 26, 0 39"/>
-                <path class="bangle b2" d="M167 288 c -3 12, -3 26, 0 39"/>
-                <path class="bangle b3" d="M174 288 c -3 12, -3 26, 0 39"/>
-                <path class="bangle b3" d="M312 288 c 3 12, 3 26, 0 39"/>
-                <path class="bangle b1" d="M319 288 c 3 12, 3 26, 0 39"/>
-                <!-- hands cupping the chin -->
-                <path class="skin ink" d="M180 288 C 178 268, 196 256, 218 258 C 232 259, 242 272, 240 284 C 224 294, 198 296, 180 288 Z"/>
-                <path class="skin ink" d="M300 288 C 302 268, 284 256, 262 258 C 248 259, 238 272, 240 284 C 256 294, 282 296, 300 288 Z"/>
-                <path class="light" d="M196 266 C 206 260, 218 260, 226 264 L 222 268 C 214 265, 205 266, 198 270 Z"/>
-                <path class="finger" d="M194 270 q 7 -5 14 -3 M200 279 q 8 -4 16 -2 M286 270 q -7 -5 -14 -3 M280 279 q -8 -4 -16 -2"/>
+              <!-- the real photo, crossfading in every few seconds -->
+              <g class="photo-layer">
+                <image href="images/nikita-photo.jpg" x="157" y="0" width="296" height="331" preserveAspectRatio="xMidYMax slice" mask="url(#photo-mask)"/>
               </g>
             </svg>
           </div>
@@ -210,21 +201,7 @@
           <h1>Making messy money moments <span class="scribble-word">make sense.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12 C 40 4, 80 16, 120 8 S 180 6, 197 11" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span></h1>
         </div>
 
-        <p class="hero-intro">Senior UX Designer at FYERS with 4+ years of experience turning complex fintech flows into clear, usable products across trading, investing, learning, and AI-assisted experiences.</p>
-        <p class="hero-intro">I make messy money moments easier to understand, trust, and use — from research and interviews to prototypes and shipped work.</p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#career">View career</a>
-        </div>
-
-        <ul class="proof-strip" aria-label="Highlights">
-          <li><strong>4+</strong> years in fintech</li>
-          <li><strong>10+</strong> products shipped</li>
-          <li><strong>2</strong> promotions</li>
-          <li>CXO Innovation Lab</li>
-          <li>FYERS Force Award</li>
-        </ul>
+        <p class="hero-intro">Senior UX Designer at FYERS with 4+ years of experience turning complex fintech into usable flows, thoughtful details, and painted-clear experiences.</p>
       </div>
     </section>
 
@@ -277,7 +254,10 @@
             <button class="bookmark" role="tab" id="bm-ai" aria-controls="entry-ai" aria-selected="false" tabindex="-1" style="--bm:var(--p-magenta); color:#fff"><small>05</small>AI Experiments</button>
           </div>
 
+          <div class="book-cover">
           <div class="book">
+            <div class="spiral" aria-hidden="true"></div>
+            <div class="turner" aria-hidden="true"></div>
             <!-- 01 FYERS Academy -->
             <div class="entry is-active" id="entry-academy" role="tabpanel" aria-labelledby="bm-academy" style="--bm:var(--p-mustard)">
               <div class="page left">
@@ -293,6 +273,7 @@
                 <a class="btn btn-primary" href="work/fyers-academy.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
+                <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
                 <div class="thumb" aria-hidden="true">
                   <div class="sketch"><svg viewBox="0 0 320 200">
                     <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/><rect class="ln" x="66" y="32" width="64" height="16" rx="8"/><path class="ln" d="M200 40h54"/>
@@ -307,6 +288,7 @@
                     <div class="bar" style="margin-top:1.2cqw"><i style="width:38%; background:#e2b23d"></i></div>
                     <div class="btns"><span style="background:#e7f0e9; color:#3f7a52">Try a buy</span><span style="background:#f7e6e0; color:#b5573d">Try a sell</span></div>
                   </div></div>
+                </div>
                 </div>
                 <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
@@ -327,6 +309,7 @@
                 <a class="btn btn-primary" href="work/fyers-portfolio.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
+                <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
                 <div class="thumb" aria-hidden="true">
                   <div class="sketch"><svg viewBox="0 0 320 200">
                     <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/><path class="ln" d="M66 40h60"/><path class="ln" d="M66 58h110"/><path class="ln" d="M200 58h50"/>
@@ -344,6 +327,7 @@
                     <div class="hr"></div>
                     <table><tr><td>Index fund</td><td class="gain">+8.4%</td></tr><tr><td>Large-cap stock</td><td class="gain">+14.2%</td></tr><tr><td>Gold ETF</td><td class="loss">−1.3%</td></tr></table>
                   </div></div>
+                </div>
                 </div>
                 <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
@@ -364,6 +348,7 @@
                 <a class="btn btn-primary" href="work/partner-dashboard.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
+                <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
                 <div class="thumb" aria-hidden="true">
                   <div class="sketch"><svg viewBox="0 0 320 200">
                     <rect class="ln" x="30" y="18" width="260" height="168" rx="12"/>
@@ -376,6 +361,7 @@
                     <div class="kpis"><div class="kpi"><span class="muted">Clients</span><b>248</b></div><div class="kpi"><span class="muted">Onboarding</span><b>12</b></div><div class="kpi"><span class="muted">Earnings</span><b>₹1.2L</b></div><div class="kpi"><span class="muted">Tickets</span><b>3</b></div></div>
                     <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:69%"></i><i style="height:88%"></i></div>
                   </div></div>
+                </div>
                 </div>
                 <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
@@ -396,6 +382,7 @@
                 <a class="btn btn-primary" href="work/trading-experience.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
+                <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
                 <div class="thumb" aria-hidden="true">
                   <div class="sketch"><svg viewBox="0 0 320 200">
                     <rect class="ln" x="60" y="18" width="200" height="168" rx="12"/><rect class="ln" x="76" y="32" width="168" height="20" rx="6"/><path class="ln" d="M160 32v20"/>
@@ -411,6 +398,7 @@
                     <table><tr><td class="gain">Bid 1,284.40</td><td class="loss">Ask 1,284.60</td></tr><tr><td class="muted">Margin needed</td><td>₹32,112</td></tr></table>
                     <div class="btns" style="grid-template-columns:1fr"><span style="background:#3f7a52; color:#fff">Review buy order</span></div>
                   </div></div>
+                </div>
                 </div>
                 <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
@@ -431,6 +419,7 @@
                 <a class="btn btn-primary" href="work/ai-experiments.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
+                <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
                 <div class="thumb" aria-hidden="true">
                   <div class="sketch"><svg viewBox="0 0 320 200">
                     <rect class="ln" x="112" y="10" width="96" height="182" rx="14"/>
@@ -447,9 +436,11 @@
                     <div class="voice"><i style="height:30%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:75%"></i><i style="height:40%"></i></div>
                   </div></div>
                 </div>
+                </div>
                 <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

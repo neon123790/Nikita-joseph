@@ -44,17 +44,33 @@
     }, { passive: true });
   }
 
+  /* every 5 seconds the painting and the real photo swap places */
+  if (girl && !reduceMotion) {
+    setTimeout(() => {
+      setInterval(() => { if (!document.hidden) girl.classList.toggle('show-photo'); }, 5000);
+    }, 2500);
+  }
+
   /* ==========================================================
      Tabs: journal bookmarks and the How I work process
      ========================================================== */
-  const makeTabs = (tabs, { hoverSelect = false } = {}) => {
+  const makeTabs = (tabs, { hoverSelect = false, transition = null } = {}) => {
     if (!tabs.length) return;
     const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+    let current = Math.max(0, tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true'));
     const select = (i, focus = false) => {
+      if (i === current) { if (focus) tabs[i].focus(); return; }
+      const from = current;
+      current = i;
+      // mark the tab straight away; swap the panel now or partway through a transition
+      tabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+      if (focus) tabs[i].focus();
+      if (transition) transition(from, i, () => swap(i));
+      else swap(i);
+    };
+    const swap = (i) => {
       tabs.forEach((t, j) => {
         const on = i === j;
-        t.setAttribute('aria-selected', String(on));
-        t.tabIndex = on ? 0 : -1;
         const panel = panels[j];
         if (on) {
           panel.hidden = false;
@@ -64,7 +80,6 @@
           panel.hidden = true;
         }
       });
-      if (focus) tabs[i].focus();
     };
     tabs.forEach((t, i) => {
       t.addEventListener('click', () => select(i));
@@ -80,7 +95,19 @@
       });
     });
   };
-  makeTabs([...document.querySelectorAll('.bookmark')]);
+  // the journal turns a page: forwards for a later bookmark, backwards for an earlier one
+  const book = document.querySelector('.book');
+  const narrow = () => window.matchMedia('(max-width: 860px)').matches;
+  makeTabs([...document.querySelectorAll('.bookmark')], {
+    transition: (from, to, swap) => {
+      if (!book || reduceMotion || narrow()) { swap(); return; }
+      book.classList.remove('turn-next', 'turn-prev');
+      void book.offsetWidth; // restart the animation
+      book.classList.add(to > from ? 'turn-next' : 'turn-prev');
+      setTimeout(swap, 330);
+      setTimeout(() => book.classList.remove('turn-next', 'turn-prev'), 720);
+    },
+  });
   makeTabs([...document.querySelectorAll('.process-tab')]);
 
   /* ==========================================================

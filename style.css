@@ -274,7 +274,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .headline-wrap {
   position: relative;
   font-size: clamp(2.5rem, 6.6vw, 5.4rem);
-  padding-top: 5.02em;
+  padding-top: 4.94em;
 }
 .hero h1 { font-size: 1em; line-height: 1.04; letter-spacing: -.03em; position: relative; z-index: 2; max-width: 12.4em; margin: 0 auto; }
 
@@ -459,6 +459,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   content: ""; position: absolute; left: -4px; right: -6px; bottom: .08em; height: .38em; z-index: -1;
   background: var(--bm); opacity: .95; border-radius: 3px; transform: rotate(-.8deg);
 }
+.entry .product { margin: -6px 0 14px; font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--page-muted); }
 .entry .desc { font-size: 1.06rem; color: var(--page-ink); margin: 0 0 24px; max-width: 27em; }
 .entry .meta { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 0 0 22px; font-size: .94rem; }
 .entry .meta dt { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--page-muted); padding-top: 3px; }
@@ -975,6 +976,40 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 @media (max-width: 560px) {
   .journey-map { top: 104px; height: 40vh; }
 }
+
+/* ==========================================================
+   Line illustrations — process, noticeboard, awards
+   ========================================================== */
+.proc-art .ln, .pin-art .ln, .award .ln { fill: none; stroke: var(--ink-stroke); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+.proc-art .ln.fill-paper, .pin-art .ln.fill-paper, .award .ln.fill-paper { fill: var(--surface); }
+.proc-art .ln.soft, .pin-art .ln.soft, .award .ln.soft { opacity: .4; }
+.proc-art .ln.thick { stroke-width: 6; }
+.proc-art .acc, .pin-art .acc, .award .acc { stroke: var(--a); stroke-width: 2.4; }
+.pin-art svg { background: var(--paper); }
+.pin-art img + svg { background: none; }
+
+/* process */
+.p-ask .q-mark { font: 400 92px/1 var(--serif); fill: var(--p-magenta); }
+.p-ask .typing { fill: var(--p-cobalt); }
+.p-map .node-t { fill: var(--text); }
+.p-ship .boat { transform-box: view-box; transform-origin: 240px 230px; animation: rock 3.2s ease-in-out infinite; }
+.p-ship .flag-p { fill: none; transform-box: fill-box; transform-origin: left center; animation: flutter 1.2s ease-in-out infinite alternate; }
+.p-ship .confetti path { fill: none; stroke: var(--c); stroke-width: 3; stroke-linecap: round; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.process-panel.is-active .p-ship .confetti path { animation: burst 2.6s ease-out .5s infinite; }
+
+/* noticeboard */
+.m-trek .trail { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s var(--ease); }
+.m-wall .stroke { fill: none; stroke-width: 9; stroke-linecap: round; opacity: .85; stroke-dasharray: 1; stroke-dashoffset: 1; transform: none; transition: stroke-dashoffset 1.2s var(--ease); }
+.m-wall .stroke { stroke-dasharray: 140; stroke-dashoffset: 120; }
+.m-wall .stroke.s2 { transition-delay: .15s; }
+.m-wall:hover .stroke, .m-wall.is-open .stroke { stroke-dashoffset: 0; transform: none; }
+.m-craft .shape { transform-box: fill-box; transform-origin: center; transition: transform .7s var(--ease); }
+.m-craft:hover .s-a, .m-craft.is-open .s-a { transform: translate(-6px, -4px) rotate(-8deg); }
+.m-craft:hover .s-b, .m-craft.is-open .s-b { transform: translate(6px, -6px) rotate(12deg); }
+.m-craft:hover .s-c, .m-craft.is-open .s-c { transform: translate(2px, 6px) rotate(6deg); }
+
+/* awards: line badges, no wash */
+.award svg { width: 92px; height: 116px; }
 
 /* ==========================================================
    Responsive

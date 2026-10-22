@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -84,26 +84,26 @@
             <span style="--c:var(--p-mustard); --x:18%; --y:6%; --w:24%; --h:26%; --d:-5s"></span>
             <span style="--c:var(--p-orange); --x:64%; --y:4%; --w:22%; --h:24%; --d:-1s"></span>
           </div>
-          <div class="girl" role="img" aria-label="A colourful painted portrait of Nikita resting her chin on her hand, leaning on the headline.">
-            <svg viewBox="0 0 406 592" aria-hidden="true">
+          <div class="girl" role="img" aria-label="A colourful painting of Nikita smiling with her chin on her hand, arms resting on a table, with bougainvillea behind her.">
+            <svg viewBox="0 0 680 646" aria-hidden="true">
               <defs>
-                <filter id="soft-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="806" height="1000">
-                  <feTurbulence type="fractalNoise" baseFrequency=".016" numOctaves="3" seed="5" result="n"/>
-                  <feDisplacementMap in="SourceGraphic" in2="n" scale="40" xChannelSelector="R" yChannelSelector="G" result="d"/>
-                  <feGaussianBlur in="d" stdDeviation="18"/>
+                <filter id="soft-edge" filterUnits="userSpaceOnUse" x="-300" y="-300" width="1280" height="1300">
+                  <feTurbulence type="fractalNoise" baseFrequency=".011" numOctaves="3" seed="5" result="n"/>
+                  <feDisplacementMap in="SourceGraphic" in2="n" scale="64" xChannelSelector="R" yChannelSelector="G" result="d"/>
+                  <feGaussianBlur in="d" stdDeviation="28"/>
                 </filter>
-                <filter id="soft-side" filterUnits="userSpaceOnUse" x="-200" y="-200" width="806" height="1000">
-                  <feGaussianBlur stdDeviation="22"/>
+                <filter id="soft-side" filterUnits="userSpaceOnUse" x="-300" y="-300" width="1280" height="1300">
+                  <feGaussianBlur stdDeviation="30"/>
                 </filter>
-                <mask id="canvas-mask" maskUnits="userSpaceOnUse" x="-200" y="-200" width="806" height="1000">
-                  <!-- soft painted edges all round the head and shoulders -->
-                  <path filter="url(#soft-edge)" fill="#fff" d="M34 700 L 30 300 C 30 140, 90 32, 203 28 C 316 32, 376 140, 376 300 L 372 700 Z"/>
-                  <!-- the arms stay solid down to the words; the sides melt into the colour around her -->
-                  <path filter="url(#soft-side)" fill="#fff" d="M54 760 C 40 600, 50 470, 90 400 L 316 400 C 356 470, 366 600, 352 760 Z"/>
+                <mask id="canvas-mask" maskUnits="userSpaceOnUse" x="-300" y="-300" width="1280" height="1300">
+                  <!-- soft painted edges all round, so the scene melts into the page -->
+                  <path filter="url(#soft-edge)" fill="#fff" d="M60 800 L 56 320 C 56 130, 180 40, 340 34 C 500 40, 624 130, 624 320 L 620 800 Z"/>
+                  <!-- her arms stay solid down to the words; the sides melt away -->
+                  <path filter="url(#soft-side)" fill="#fff" d="M120 860 C 100 680, 130 540, 190 460 L 500 460 C 560 540, 590 680, 570 860 Z"/>
                 </mask>
               </defs>
               <g class="rise">
-                <image mask="url(#canvas-mask)" href="images/portrait-painting.jpg" width="406" height="592" preserveAspectRatio="xMidYMid slice"/>
+                <image mask="url(#canvas-mask)" href="images/portrait-scene.jpg" width="680" height="646" preserveAspectRatio="xMidYMid slice"/>
               </g>
             </svg>
           </div>

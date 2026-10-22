@@ -36,7 +36,7 @@
   --p-cobalt-hi: #4a76d6;
   --p-violet-hi: #8b65c9;
   --block-opacity: .88;
-  --bleed-opacity: .5;
+  --bleed-opacity: .32;
 
   /* illustration */
   --skin: #c27a35;
@@ -102,7 +102,7 @@
   --p-cobalt-hi: #86a7ff;
   --p-violet-hi: #b893ff;
   --block-opacity: .92;
-  --bleed-opacity: .34;
+  --bleed-opacity: .22;
   --wash-opacity: .32;
 
   --outline: #0b0d16;
@@ -274,7 +274,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .headline-wrap {
   position: relative;
   font-size: clamp(2.5rem, 6.6vw, 5.4rem);
-  padding-top: 5.48em;
+  padding-top: 5.02em;
 }
 .hero h1 { font-size: 1em; line-height: 1.04; letter-spacing: -.03em; position: relative; z-index: 2; max-width: 12.4em; margin: 0 auto; }
 
@@ -285,7 +285,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 /* --- Nikita's painted portrait, leaning on the headline --- */
 .girl {
   position: absolute; left: 50%; top: 0;
-  width: 4em;
+  width: 5.6em;
   transform: translateX(-50%);
   /* only the bottom is clipped, so she rises from behind the words
      while the soft edges spill out freely at the top and sides */

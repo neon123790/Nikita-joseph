@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nikita Joseph — Senior UX Designer</title>
-  <meta name="description" content="Nikita Joseph is a Senior UX Designer and painter with 4+ years at FYERS, designing trading, investing, learning, dashboard, and AI-assisted fintech experiences.">
+  <meta name="description" content="Nikita Joseph is a Senior UX Designer and painter with 4+ years at FYERS, turning complex trading, investing, learning, and AI-assisted fintech flows into clear, usable products.">
   <meta property="og:title" content="Nikita Joseph — Senior UX Designer">
   <meta property="og:description" content="Making messy money moments make sense.">
-  <meta property="og:image" content="images/nikita.jpg">
+  <meta property="og:image" content="images/nikita-flowers.jpg">
+  <script src="theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Shared SVG filters: watercolour edges, hand-drawn wobble -->
+  <!-- Shared SVG filters: watercolour washes, painted edges, hand-drawn wobble -->
   <svg class="svg-defs" aria-hidden="true" focusable="false">
     <defs>
       <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
@@ -24,25 +25,15 @@
         <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
         <feGaussianBlur in="d" stdDeviation="7"/>
       </filter>
-      <filter id="wc-mood" x="-25%" y="-25%" width="150%" height="150%">
-        <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="2" result="n"/>
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G" result="d"/>
-        <feGaussianBlur in="d" stdDeviation="2.2"/>
-      </filter>
-      <filter id="wc-edge" x="-15%" y="-15%" width="130%" height="130%">
-        <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="4" seed="7" result="n"/>
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/>
-        <feGaussianBlur in="d" stdDeviation="1.4"/>
+      <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+        <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation=".5"/>
       </filter>
       <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
         <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
         <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
         <feGaussianBlur in="d" stdDeviation=".4"/>
-      </filter>
-      <filter id="paint">
-        <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="1" result="n"/>
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/>
-        <feColorMatrix in="d" type="saturate" values=".82"/>
       </filter>
       <filter id="rough" filterUnits="userSpaceOnUse" x="-500" y="-500" width="2000" height="2000">
         <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="1" result="n"/>
@@ -61,11 +52,18 @@
   <header class="site-header">
     <nav class="nav wrap" aria-label="Primary">
       <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>Nikita Joseph</a>
-      <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#career">Career</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#career">Career</a></li>
+          <li><a href="#noticeboard">Noticeboard</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -73,10 +71,10 @@
     <!-- ======================= 1. Hero ======================= -->
     <section class="hero" id="top">
       <div class="wrap">
-        <p class="label hero-label">Senior UX Designer</p>
+        <p class="label hero-label">Senior UX Designer / Painter</p>
 
-        <div class="headline-wrap">
-          <!-- Nikita, resting her head on her hands on top of the headline -->
+        <div class="headline-wrap" id="stage">
+          <!-- Nikita, painted, resting her head on her hands on top of the headline -->
           <div class="girl" aria-hidden="true">
             <svg viewBox="0 0 400 280">
               <defs>
@@ -85,44 +83,54 @@
                 </clipPath>
               </defs>
               <g class="rise">
+                <!-- colour blocks behind her, like the backgrounds in her paintings -->
+                <g class="blocks">
+                  <rect class="b-mustard" x="166" y="34" width="66" height="40"/>
+                  <rect class="b-magenta" x="100" y="60" width="62" height="92"/>
+                  <rect class="b-magenta" x="86" y="104" width="40" height="70"/>
+                  <rect class="b-cobalt" x="238" y="40" width="64" height="86"/>
+                  <rect class="b-violet" x="266" y="96" width="44" height="64"/>
+                  <rect class="b-orange" x="110" y="160" width="52" height="72"/>
+                  <rect class="b-lime" x="236" y="156" width="58" height="70"/>
+                </g>
+
                 <!-- thought bubble: a scribble that becomes a checkmark -->
                 <g class="thought">
-                  <circle cx="268" cy="76" r="3" class="bubble"/>
-                  <circle cx="282" cy="62" r="5" class="bubble"/>
-                  <ellipse cx="326" cy="36" rx="34" ry="22" class="bubble"/>
-                  <path class="scribble" pathLength="1" d="M308 40 c 4 -10, 8 6, 12 -4 s 6 8, 10 -2 s 6 6, 12 -2"/>
-                  <path class="check" pathLength="1" d="M314 36 l 8 8 l 16 -14"/>
+                  <circle cx="272" cy="76" r="3" class="bubble"/>
+                  <circle cx="286" cy="62" r="5" class="bubble"/>
+                  <ellipse cx="330" cy="36" rx="34" ry="22" class="bubble"/>
+                  <path class="scribble" pathLength="1" d="M312 40 c 4 -10, 8 6, 12 -4 s 6 8, 10 -2 s 6 6, 12 -2"/>
+                  <path class="check" pathLength="1" d="M318 36 l 8 8 l 16 -14"/>
                 </g>
 
-                <!-- upper arms, coming out of the sleeveless kurta down to the elbows -->
-                <path class="skin" d="M136 212 C 110 220, 84 240, 66 262 L 102 266 C 116 250, 132 238, 152 230 Z"/>
-                <path class="skin" d="M264 212 C 290 220, 316 240, 334 262 L 298 266 C 284 250, 268 238, 248 230 Z"/>
+                <!-- upper arms -->
+                <path class="skin ol" d="M136 212 C 110 220, 84 240, 66 262 L 102 266 C 116 250, 132 238, 152 230 Z"/>
+                <path class="skin ol" d="M264 212 C 290 220, 316 240, 334 262 L 298 266 C 284 250, 268 238, 248 230 Z"/>
 
-                <!-- purple floral kurta -->
+                <!-- purple floral kurta, painted -->
                 <g clip-path="url(#kurta-clip)">
-                  <rect class="kurta" x="110" y="190" width="180" height="90"/>
-                  <g class="print">
-                    <g transform="translate(140 222)"><circle r="6" class="fl"/><circle r="2.4" class="fl-c"/></g>
-                    <g transform="translate(262 226)"><circle r="7" class="fl"/><circle r="2.6" class="fl-c"/></g>
-                    <g transform="translate(176 250)"><circle r="5" class="fl-2"/></g>
-                    <g transform="translate(232 252)"><circle r="6" class="fl"/><circle r="2.2" class="fl-c"/></g>
-                    <path class="leaf" d="M150 236 q 8 -6 14 0 q -8 6 -14 0 Z"/>
-                    <path class="leaf" d="M244 214 q 8 -6 14 0 q -8 6 -14 0 Z"/>
-                    <path class="leaf" d="M126 252 q 7 -5 12 0 q -7 5 -12 0 Z"/>
-                    <path class="leaf" d="M266 254 q 7 -5 12 0 q -7 5 -12 0 Z"/>
-                  </g>
+                  <rect class="kurta" x="110" y="190" width="180" height="92"/>
+                  <path class="kurta-wash" d="M120 214 C 150 204, 170 230, 160 262 L 120 270 Z"/>
+                  <path class="kurta-wash" d="M250 206 C 274 214, 286 240, 282 270 L 244 262 C 252 244, 240 222, 250 206 Z"/>
+                  <g transform="translate(140 222)"><circle r="6" class="fl"/><circle r="2.4" class="fl-c"/></g>
+                  <g transform="translate(262 226)"><circle r="7" class="fl"/><circle r="2.6" class="fl-c"/></g>
+                  <g transform="translate(232 254)"><circle r="6" class="fl"/><circle r="2.2" class="fl-c"/></g>
+                  <path class="leaf" d="M150 236 q 8 -6 14 0 q -8 6 -14 0 Z"/>
+                  <path class="leaf" d="M244 214 q 8 -6 14 0 q -8 6 -14 0 Z"/>
+                  <path class="leaf" d="M126 252 q 7 -5 12 0 q -7 5 -12 0 Z"/>
                 </g>
-                <!-- V neckline -->
+                <path class="ol" fill="none" d="M136 212 C 150 204, 172 200, 184 199 M216 199 C 228 200, 250 204, 264 212"/>
                 <path class="skin" d="M184 199 L 200 228 L 216 199 Z"/>
 
                 <g class="head">
-                  <!-- hair tied back: a little bun peeking over the top -->
-                  <path class="hair" d="M146 136 C 142 100, 166 78, 200 78 C 234 78, 258 100, 254 136 Z"/>
+                  <!-- hair volume at the back -->
+                  <path class="hair ol" d="M146 138 C 140 100, 166 76, 200 76 C 234 76, 260 100, 254 138 Z"/>
                   <!-- neck -->
-                  <path class="skin-shade" d="M184 190 L 184 206 C 192 212, 208 212, 216 206 L 216 190 Z"/>
+                  <path class="skin" d="M184 190 L 184 206 C 192 212, 208 212, 216 206 L 216 190 Z"/>
+                  <path class="wash-shade" d="M204 192 L 216 192 L 216 206 C 212 209, 208 210, 204 210 Z"/>
                   <!-- ears + dangling earrings -->
-                  <ellipse class="skin" cx="153" cy="150" rx="7.5" ry="11.5"/>
-                  <ellipse class="skin" cx="247" cy="150" rx="7.5" ry="11.5"/>
+                  <ellipse class="skin ol" cx="153" cy="150" rx="7.5" ry="11.5"/>
+                  <ellipse class="skin ol" cx="247" cy="150" rx="7.5" ry="11.5"/>
                   <g class="earring earring-l">
                     <path class="silver-line" d="M152 160 v 8"/>
                     <circle class="silver" cx="152" cy="172" r="4"/>
@@ -135,14 +143,17 @@
                     <path class="silver" d="M244 176 q 4 10 8 0 Z"/>
                     <circle class="silver" cx="248" cy="187" r="1.6"/>
                   </g>
-                  <!-- face -->
-                  <path class="skin" d="M200 90 C 229 90, 248 114, 248 146 C 248 179, 228 205, 200 210 C 172 205, 152 179, 152 146 C 152 114, 171 90, 200 90 Z"/>
-                  <ellipse class="blush" cx="171" cy="170" rx="9" ry="5"/>
-                  <ellipse class="blush" cx="229" cy="170" rx="9" ry="5"/>
+                  <!-- face, with layered washes -->
+                  <path class="skin ol" d="M200 90 C 229 90, 248 114, 248 146 C 248 179, 228 205, 200 210 C 172 205, 152 179, 152 146 C 152 114, 171 90, 200 90 Z"/>
+                  <path class="wash-shade" d="M226 102 C 246 118, 250 150, 241 178 C 233 196, 218 206, 205 208 C 222 190, 233 158, 226 102 Z"/>
+                  <ellipse class="wash-light" cx="178" cy="128" rx="15" ry="20"/>
+                  <ellipse class="wash-light" cx="200" cy="150" rx="4" ry="11"/>
+                  <ellipse class="blush" cx="171" cy="170" rx="10" ry="6"/>
+                  <ellipse class="blush" cx="229" cy="170" rx="10" ry="6"/>
                   <!-- brows -->
                   <path class="brow" d="M171 134 q 10 -7 20 -1"/>
                   <path class="brow" d="M209 133 q 10 -6 20 1"/>
-                  <!-- smiling eyes -->
+                  <!-- eyes -->
                   <g class="eyes">
                     <g class="look">
                       <ellipse class="iris" cx="181" cy="147" rx="4.6" ry="5.2"/>
@@ -156,40 +167,123 @@
                   <path class="nose" d="M199 151 q -3 10 1 14 q 3 1.5 6 -0.5"/>
                   <path class="mouth" d="M180 176 Q 200 200 220 176 Q 200 181 180 176 Z"/>
                   <path class="teeth" d="M184 177.6 Q 200 181.5 216 177.6 L 213.5 182.5 Q 200 186 186.5 182.5 Z"/>
-                  <!-- hair, front: centre parting, smoothed back past the ears -->
-                  <path class="hair" d="M200 84 C 163 84, 145 107, 146 140 C 147 150, 148 156, 150 162 C 150 144, 154 126, 166 114 C 177 104, 190 99, 200 95 C 210 99, 223 104, 234 114 C 246 126, 250 144, 250 162 C 252 156, 253 150, 254 140 C 255 107, 237 84, 200 84 Z"/>
+                  <!-- hair, front: centre parting, smoothed back -->
+                  <path class="hair ol" d="M200 84 C 163 84, 145 107, 146 140 C 147 150, 148 156, 150 162 C 150 144, 154 126, 166 114 C 177 104, 190 99, 200 95 C 210 99, 223 104, 234 114 C 246 126, 250 144, 250 162 C 252 156, 253 150, 254 140 C 255 107, 237 84, 200 84 Z"/>
                   <path class="part" d="M200 85 v 9"/>
-                  <path class="hair-shine" d="M174 94 C 182 90, 190 88, 196 88"/>
-                  <!-- loose strands -->
+                  <path class="hair-hi hi-cobalt" d="M168 98 C 178 91, 188 88, 196 88"/>
+                  <path class="hair-hi hi-violet" d="M208 90 C 222 92, 236 100, 244 114"/>
+                  <path class="hair-hi hi-cobalt" d="M150 122 C 148 134, 148 146, 150 156"/>
                   <path class="strand strand-l" d="M160 114 C 151 132, 152 156, 160 174"/>
                   <path class="strand strand-r" d="M240 114 C 249 132, 248 156, 240 174"/>
                 </g>
 
                 <!-- folded forearms lying on the headline -->
-                <path class="skin" d="M62 259 C 62 247, 72 241, 88 241 L 182 239 C 193 239, 200 248, 200 259 C 200 271, 192 278, 180 278 L 84 278 C 71 278, 62 271, 62 259 Z"/>
-                <path class="skin" d="M338 259 C 338 247, 328 241, 312 241 L 218 239 C 207 239, 200 248, 200 259 C 200 271, 208 278, 220 278 L 316 278 C 329 278, 338 271, 338 259 Z"/>
-                <path class="shade" d="M200 248 v 28"/>
-                <!-- bangles on the left wrist, watch on the right -->
+                <path class="skin ol" d="M62 259 C 62 247, 72 241, 88 241 L 182 239 C 193 239, 200 248, 200 259 C 200 271, 192 278, 180 278 L 84 278 C 71 278, 62 271, 62 259 Z"/>
+                <path class="skin ol" d="M338 259 C 338 247, 328 241, 312 241 L 218 239 C 207 239, 200 248, 200 259 C 200 271, 208 278, 220 278 L 316 278 C 329 278, 338 271, 338 259 Z"/>
+                <path class="wash-shade" d="M70 266 C 110 274, 160 274, 196 266 L 194 276 L 80 277 Z"/>
+                <path class="wash-shade" d="M204 266 C 240 274, 290 274, 330 266 L 320 277 L 206 276 Z"/>
                 <path class="gold-line" d="M146 241 c -3 12, -3 25, 0 36"/>
                 <path class="gold-line" d="M139 241 c -3 12, -3 25, 0 36"/>
                 <rect class="watch" x="254" y="241" width="12" height="16" rx="3.5"/>
                 <!-- hands cupping the chin -->
-                <path class="skin" d="M152 236 C 150 220, 166 210, 186 212 C 198 213, 202 224, 200 234 C 186 242, 166 244, 152 236 Z"/>
-                <path class="skin" d="M248 236 C 250 220, 234 210, 214 212 C 202 213, 198 224, 200 234 C 214 242, 234 244, 248 236 Z"/>
+                <path class="skin ol" d="M152 236 C 150 220, 166 210, 186 212 C 198 213, 202 224, 200 234 C 186 242, 166 244, 152 236 Z"/>
+                <path class="skin ol" d="M248 236 C 250 220, 234 210, 214 212 C 202 213, 198 224, 200 234 C 214 242, 234 244, 248 236 Z"/>
                 <path class="finger" d="M164 222 q 6 -4 12 -3M170 229 q 7 -3 14 -2M236 222 q -6 -4 -12 -3M230 229 q -7 -3 -14 -2"/>
               </g>
             </svg>
           </div>
 
+          <!-- The working wall around her: messy by default, tidy on hover (desktop) -->
+          <div class="wall-layer" aria-hidden="true">
+            <div class="wall-item wall-arrows">
+              <svg viewBox="0 0 387 100" preserveAspectRatio="none">
+                <g class="messy">
+                  <path pathLength="1" vector-effect="non-scaling-stroke" d="M40 62 C 42 72, 52 78, 66 76 M66 76 l -5 -3 M66 76 l -5 3"/>
+                  <path pathLength="1" vector-effect="non-scaling-stroke" d="M300 60 C 302 70, 310 74, 322 72 M322 72 l -5 -3 M322 72 l -5 3"/>
+                </g>
+                <g class="flow">
+                  <path pathLength="1" vector-effect="non-scaling-stroke" d="M54 50 H 62 M62 50 l -3 -3 M62 50 l -3 3"/>
+                  <path class="arc" pathLength="1" vector-effect="non-scaling-stroke" d="M117 36 C 150 -26, 238 -26, 270 36 M270 36 l -1 -6 M270 36 l -5 -2"/>
+                  <path pathLength="1" vector-effect="non-scaling-stroke" d="M325 50 H 333 M333 50 l -3 -3 M333 50 l -3 3"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="wall-item note" data-flip style="--bg-note:var(--note-yellow); --x:4%; --y:6%; --r:-7deg; --cx:0%; --cy:24%; --fd:0s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">01<b>Ask</b></span><span class="q">What does the user need to decide?</span></div>
+                <div class="face back"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+            <div class="wall-item note" data-flip style="--bg-note:var(--note-blue); --x:18%; --y:46%; --r:5deg; --cx:16.4%; --cy:24%; --fd:-1.5s; --d:.06s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">02<b>Map</b></span><span class="q">Where does doubt enter?</span></div>
+                <div class="face back"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+            <div class="wall-item note" data-flip style="--bg-note:var(--note-coral); --x:70%; --y:4%; --r:6deg; --cx:70%; --cy:24%; --fd:-3s; --d:.12s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">03<b>Simplify</b></span><span class="q">Can this be simpler?</span></div>
+                <div class="face back"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+            <div class="wall-item note" data-flip style="--bg-note:var(--note-sage); --x:84%; --y:44%; --r:-5deg; --cx:86.4%; --cy:24%; --fd:-4.5s; --d:.18s">
+              <div class="note-inner">
+                <div class="face front"><span class="step">04<b>Ship</b></span><span class="q">Ship, learn, improve.</span></div>
+                <div class="face back"><small>Proof</small><strong></strong><span></span></div>
+              </div>
+            </div>
+
+            <!-- fintech doodles -->
+            <div class="wall-item doodle fades" style="--x:0%; --y:66%; --w:12.5%; --r:-4deg">
+              <svg viewBox="0 0 160 104">
+                <rect class="ln fill-paper" x="2" y="2" width="156" height="100" rx="9"/>
+                <path class="ln" style="opacity:.45" d="M12 16h44M120 16h28M12 90h136"/>
+                <path class="ln trace" pathLength="1" d="M12 78 C 26 70, 34 76, 46 62 S 66 66, 80 50 S 104 54, 116 36 S 136 34, 148 24" style="stroke:var(--p-cobalt)"/>
+              </svg>
+            </div>
+            <div class="wall-item doodle fades" style="--x:72%; --y:52%; --w:6.2%; --r:4deg; --d:.05s">
+              <svg viewBox="0 0 80 150">
+                <rect class="ln fill-paper" x="2" y="2" width="76" height="146" rx="11"/>
+                <rect class="ln" x="10" y="20" width="60" height="14" rx="5"/>
+                <path class="ln" d="M40 20v14"/>
+                <rect class="ln" x="10" y="42" width="60" height="12" rx="3"/>
+                <rect class="ln" x="10" y="60" width="60" height="12" rx="3"/>
+                <path class="ln" style="opacity:.45" d="M10 84h24M46 84h24M10 92h18M46 92h20"/>
+                <rect class="ln" x="10" y="122" width="60" height="16" rx="6" style="fill:var(--p-lime); fill-opacity:.5"/>
+              </svg>
+            </div>
+            <!-- personal artefacts: paint palette + brush, dumbbell -->
+            <div class="wall-item doodle fades" style="--x:20%; --y:2%; --w:6.5%; --r:-8deg">
+              <svg viewBox="0 0 120 90">
+                <path class="ln fill-paper" d="M58 6 C 90 4, 116 22, 112 48 C 108 70, 86 72, 76 64 C 68 58, 58 66, 60 76 C 62 86, 40 88, 26 80 C 8 70, 4 46, 14 28 C 22 14, 38 7, 58 6 Z"/>
+                <circle cx="34" cy="30" r="7" fill="var(--p-magenta)" filter="url(#wc-soft)"/>
+                <circle cx="58" cy="22" r="7" fill="var(--p-mustard)" filter="url(#wc-soft)"/>
+                <circle cx="84" cy="28" r="7" fill="var(--p-cobalt)" filter="url(#wc-soft)"/>
+                <circle cx="28" cy="56" r="7" fill="var(--p-lime)" filter="url(#wc-soft)"/>
+                <path class="ln" d="M70 86 L 112 40"/>
+                <path class="ln" d="M108 44 l 8 -8 l 3 3 l -8 8 z"/>
+              </svg>
+            </div>
+            <div class="wall-item doodle fades" style="--x:87%; --y:8%; --w:7%; --r:-10deg">
+              <svg viewBox="0 0 100 40">
+                <path class="ln" d="M22 20h56"/>
+                <rect class="ln fill-paper" x="8" y="6" width="8" height="28" rx="2"/>
+                <rect class="ln fill-paper" x="16" y="10" width="6" height="20" rx="2"/>
+                <rect class="ln fill-paper" x="84" y="6" width="8" height="28" rx="2"/>
+                <rect class="ln fill-paper" x="78" y="10" width="6" height="20" rx="2"/>
+              </svg>
+            </div>
+            <span class="wall-item chip wall-chip fades" style="--c:var(--p-violet); --x:19.5%; --y:26%; --r:-4deg">AI agents</span>
+            <span class="wall-item chip wall-chip fades" style="--c:var(--p-orange); --x:86%; --y:29%; --r:4deg">Claude Code</span>
+          </div>
+
           <h1>Making messy money moments <span class="scribble-word">make sense.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12 C 40 4, 80 16, 120 8 S 180 6, 197 11" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span></h1>
-
-          <span class="sticker" style="--sx:-3%; --sy:44%; --sr:-8deg; --sc:var(--note-sage); --fd:0s">Trading</span>
-          <span class="sticker" style="--sx:88%; --sy:36%; --sr:7deg; --sc:var(--note-blue); --fd:-1.5s">Investing</span>
-          <span class="sticker" style="--sx:4%; --sy:86%; --sr:5deg; --sc:var(--note-yellow); --fd:-3s">Learning</span>
-          <span class="sticker" style="--sx:84%; --sy:84%; --sr:-6deg; --sc:var(--note-coral); --fd:-4.5s">AI-assisted</span>
         </div>
+        <p class="wall-hint" aria-hidden="true">hover the wall and watch the notes make sense ↑</p>
 
-        <p class="hero-intro">I’m Nikita Joseph, a Senior UX Designer with 4+ years at FYERS. I turn complex trading, investing, learning, and AI-assisted flows into clear, usable products — from research and interviews to prototypes and shipped work.</p>
+        <p class="hero-intro">Senior UX Designer at FYERS with 4+ years of experience turning complex fintech flows into clear, usable products across trading, investing, learning, and AI-assisted experiences.</p>
+        <p class="hero-intro">I make messy money moments easier to understand, trust, and use — from research and interviews to prototypes and shipped work.</p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
@@ -201,46 +295,37 @@
           <li><strong>10+</strong> products shipped</li>
           <li><strong>2</strong> promotions</li>
           <li>CXO Innovation Lab</li>
-          <li>Helped hire designers + researchers</li>
+          <li>FYERS Force Award</li>
         </ul>
       </div>
     </section>
-    <!-- ======================= 2. Selected work ======================= -->
+
+    <!-- ======================= 2. Selected work — the journal ======================= -->
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
         <div class="work-head">
           <div class="section-head reveal">
             <p class="label">Selected work</p>
-            <h2 id="work-title">Work that moved from messy to shipped.</h2>
-            <p>A look at fintech products I shaped across trading, investing, learning, dashboards, and AI-assisted experiences.</p>
+            <h2 id="work-title">Selected work from the journal.</h2>
+            <p>A few products that moved from messy notes to shipped experiences.</p>
           </div>
-          <!-- A little ship, sailing: messy to shipped -->
+
           <div class="ship-scene reveal" aria-hidden="true">
             <svg viewBox="0 0 320 170">
-              <defs>
-                <clipPath id="sea-clip"><rect x="0" y="0" width="320" height="170" rx="20"/></clipPath>
-              </defs>
+              <defs><clipPath id="sea-clip"><rect x="0" y="0" width="320" height="170" rx="20"/></clipPath></defs>
               <g clip-path="url(#sea-clip)">
                 <circle class="sun" cx="248" cy="46" r="20"/>
                 <path class="gull g1" d="M60 40 q 5 -5 10 0 q 5 -5 10 0"/>
                 <path class="gull g2" d="M92 56 q 4 -4 8 0 q 4 -4 8 0"/>
-
-                <g class="wave wave-back">
-                  <path d="M0 122 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/>
-                </g>
-
+                <g class="wave-back"><path d="M0 122 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/></g>
                 <g class="ship">
                   <g class="ship-rock">
-                    <!-- wake -->
                     <path class="wake" d="M86 126 q -14 2 -28 0M92 132 q -12 2 -22 0"/>
-                    <!-- mast + flag -->
                     <path class="mast" d="M160 116 V 26"/>
                     <path class="flag" d="M160 26 l 20 5 l -20 6 Z"/>
-                    <!-- sails -->
                     <path class="sail-main" d="M165 32 C 190 52, 206 80, 210 110 L 165 110 Z"/>
                     <path class="sail-jib" d="M155 40 C 140 60, 128 84, 122 110 L 155 110 Z"/>
                     <path class="tick" d="M178 86 l 6 6 l 12 -14"/>
-                    <!-- hull -->
                     <path class="hull" d="M98 112 L 226 112 L 210 134 C 180 140, 140 140, 112 134 Z"/>
                     <path class="hull-stripe" d="M103 119 L 221 119"/>
                     <circle class="port" cx="138" cy="126" r="3"/>
@@ -248,235 +333,305 @@
                     <circle class="port" cx="182" cy="126" r="3"/>
                   </g>
                 </g>
-
-                <g class="wave wave-front">
-                  <path d="M0 134 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/>
-                </g>
+                <g class="wave-front"><path d="M0 134 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/></g>
               </g>
             </svg>
             <span class="ship-note">shipped, and still sailing.</span>
           </div>
         </div>
 
-        <div class="work-grid">
-          <!-- FYERS Academy -->
-          <a class="work-card reveal" href="work/fyers-academy.html" style="--tone: var(--wash-yellow)">
-            <div class="work-visual">
-              <div class="sketch" aria-hidden="true">
-                <svg viewBox="0 0 320 200">
-                  <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/>
-                  <rect class="ln" x="66" y="32" width="64" height="16" rx="8"/>
-                  <path class="ln" d="M200 40h54"/>
-                  <path class="ln" d="M66 112 C 90 100, 100 108, 120 92 S 150 98, 170 80 S 210 84, 254 62"/>
-                  <path class="ln" d="M66 132h188"/>
-                  <path class="ln" d="M66 132h80" stroke-width="3"/>
-                  <rect class="ln" x="66" y="148" width="88" height="24" rx="6"/>
-                  <rect class="ln" x="166" y="148" width="88" height="24" rx="6"/>
-                  <text class="note-hand" x="214" y="12" transform="rotate(4 214 12)">safe to fail?</text>
-                </svg>
-              </div>
-              <div class="ui" aria-hidden="true">
-                <div class="mini">
-                  <div class="row"><span class="pill" style="background:var(--note-yellow)">Practice mode</span><span class="muted">Virtual ₹1,00,000</span></div>
-                  <svg class="chart" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M0 24 C 12 20, 18 23, 28 16 S 44 19, 56 12 S 76 14, 86 7 S 96 6, 100 4" stroke="var(--gain)"/></svg>
-                  <div class="row muted"><span>Lesson 3 of 8 · Placing a stop-loss</span><span>38%</span></div>
-                  <div class="bar" style="margin-top:1.2cqw"><i style="width:38%; background:var(--wash-yellow)"></i></div>
-                  <div class="btns"><span style="background:#e7f0e9; color:var(--gain)">Try a buy</span><span style="background:#f7e6e0; color:var(--loss)">Try a sell</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="work-body">
-              <div class="top"><h3>FYERS Academy</h3><span class="status">Case study</span></div>
-              <p>Turning market learning into a hands-on practice experience.</p>
-              <div class="tags"><span class="chip" style="--c:var(--wash-yellow)">Learning UX</span><span class="chip" style="--c:var(--wash-yellow)">Simulator</span><span class="chip" style="--c:var(--wash-yellow)">AI-assisted workflows</span></div>
-              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
-            </div>
-          </a>
+        <div class="journal reveal">
+          <div class="bookmarks" role="tablist" aria-label="Projects">
+            <button class="bookmark" role="tab" id="bm-academy" aria-controls="entry-academy" aria-selected="true" style="--bm:var(--p-mustard); color:#26221f"><small>01</small>FYERS Academy</button>
+            <button class="bookmark" role="tab" id="bm-portfolio" aria-controls="entry-portfolio" aria-selected="false" tabindex="-1" style="--bm:var(--p-lime); color:#26221f"><small>02</small>Portfolio</button>
+            <button class="bookmark" role="tab" id="bm-partner" aria-controls="entry-partner" aria-selected="false" tabindex="-1" style="--bm:var(--p-cobalt); color:#fff"><small>03</small>Partner Dashboard</button>
+            <button class="bookmark" role="tab" id="bm-trading" aria-controls="entry-trading" aria-selected="false" tabindex="-1" style="--bm:var(--p-orange); color:#26221f"><small>04</small>Trading Flows</button>
+            <button class="bookmark" role="tab" id="bm-ai" aria-controls="entry-ai" aria-selected="false" tabindex="-1" style="--bm:var(--p-magenta); color:#fff"><small>05</small>AI Experiments</button>
+          </div>
 
-          <!-- Portfolio -->
-          <a class="work-card reveal" href="work/fyers-portfolio.html" style="--tone: var(--wash-sage)">
-            <div class="work-visual">
-              <div class="sketch" aria-hidden="true">
-                <svg viewBox="0 0 320 200">
-                  <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/>
-                  <path class="ln" d="M66 40h60"/>
-                  <path class="ln" d="M66 58h110" stroke-width="3.2"/>
-                  <path class="ln" d="M200 58h50"/>
-                  <rect class="ln" x="66" y="76" width="188" height="9" rx="4"/>
-                  <path class="ln" d="M130 76v9M190 76v9"/>
-                  <circle class="ln" cx="76" cy="110" r="7"/><path class="ln" d="M92 110h70M220 110h34"/>
-                  <circle class="ln" cx="76" cy="136" r="7"/><path class="ln" d="M92 136h56M224 136h30"/>
-                  <circle class="ln" cx="76" cy="162" r="7"/><path class="ln" d="M92 162h80M216 162h38"/>
-                  <text class="note-hand" x="20" y="14" transform="rotate(-4 20 14)">what's my P&amp;L, really?</text>
-                </svg>
+          <div class="book">
+            <!-- 01 FYERS Academy -->
+            <div class="entry is-active" id="entry-academy" role="tabpanel" aria-labelledby="bm-academy" style="--bm:var(--p-mustard)">
+              <div class="page left">
+                <span class="num">entry no. 01</span>
+                <h3>FYERS Academy</h3>
+                <p class="desc">Turning market learning into a hands-on practice experience. I designed and built it as a fully working Android app in 3 months, and merged in “Learn by Doing”, a risk-free simulator built on real past market scenarios.</p>
+                <dl class="meta">
+                  <dt>Role</dt><dd>Senior UX Designer · designed and built</dd>
+                  <dt>Area</dt><dd>Learning · Trading simulator</dd>
+                  <dt>Outcome</dt><dd>Working Android app in 3 months</dd>
+                </dl>
+                <div class="tags"><span class="chip" style="--c:var(--p-mustard)">Learning UX</span><span class="chip" style="--c:var(--p-mustard)">Simulator</span><span class="chip" style="--c:var(--p-mustard)">AI-assisted workflows</span></div>
+                <a class="btn btn-primary" href="work/fyers-academy.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
-              <div class="ui" aria-hidden="true">
-                <div class="mini">
-                  <div class="muted">Current value</div>
-                  <div class="row"><span class="big">₹4,82,310</span><span class="gain" style="font-weight:600">+₹52,140 · 12.1%</span></div>
-                  <div class="bar" style="margin:2cqw 0 1cqw"><i style="width:46%; background:#9db7cf"></i><i style="width:30%; background:var(--wash-sage)"></i><i style="width:24%; background:var(--wash-yellow)"></i></div>
-                  <div class="row muted" style="font-size:1.9cqw"><span>Equity 46%</span><span>Mutual funds 30%</span><span>ETFs 24%</span></div>
-                  <div class="hr"></div>
-                  <table>
-                    <tr><td>Index fund</td><td class="gain">+8.4%</td></tr>
-                    <tr><td>Large-cap stock</td><td class="gain">+14.2%</td></tr>
-                    <tr><td>Gold ETF</td><td class="loss">−1.3%</td></tr>
-                  </table>
+              <div class="page right">
+                <div class="thumb" aria-hidden="true">
+                  <div class="sketch"><svg viewBox="0 0 320 200">
+                    <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/><rect class="ln" x="66" y="32" width="64" height="16" rx="8"/><path class="ln" d="M200 40h54"/>
+                    <path class="ln" d="M66 112 C 90 100, 100 108, 120 92 S 150 98, 170 80 S 210 84, 254 62"/><path class="ln" d="M66 132h188"/>
+                    <rect class="ln" x="66" y="148" width="88" height="24" rx="6"/><rect class="ln" x="166" y="148" width="88" height="24" rx="6"/>
+                    <text class="note-hand" x="214" y="12" transform="rotate(4 214 12)">safe to fail?</text>
+                  </svg></div>
+                  <div class="ui"><div class="mini">
+                    <div class="row"><span class="pill" style="background:#f3e3a6">Learn by Doing</span><span class="muted">Virtual ₹1,00,000</span></div>
+                    <svg class="chart" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M0 24 C 12 20, 18 23, 28 16 S 44 19, 56 12 S 76 14, 86 7 S 96 6, 100 4" stroke="#3f7a52"/></svg>
+                    <div class="row muted"><span>Lesson 3 of 8 · Placing a stop-loss</span><span>38%</span></div>
+                    <div class="bar" style="margin-top:1.2cqw"><i style="width:38%; background:#e2b23d"></i></div>
+                    <div class="btns"><span style="background:#e7f0e9; color:#3f7a52">Try a buy</span><span style="background:#f7e6e0; color:#b5573d">Try a sell</span></div>
+                  </div></div>
                 </div>
+                <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
             </div>
-            <div class="work-body">
-              <div class="top"><h3>Portfolio Experience</h3><span class="status">Shipped</span></div>
-              <p>Making holdings, performance, and investment details easier to read and act on.</p>
-              <div class="tags"><span class="chip" style="--c:var(--wash-sage)">Investing UX</span><span class="chip" style="--c:var(--wash-sage)">Mobile + Web</span><span class="chip" style="--c:var(--wash-sage)">Shipped</span></div>
-              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
-            </div>
-          </a>
 
-          <!-- Partner Dashboard -->
-          <a class="work-card reveal" href="work/partner-dashboard.html" style="--tone: var(--wash-blue)">
-            <div class="work-visual">
-              <div class="sketch" aria-hidden="true">
-                <svg viewBox="0 0 320 200">
-                  <rect class="ln" x="30" y="18" width="260" height="168" rx="12"/>
-                  <rect class="ln" x="44" y="34" width="52" height="38" rx="5"/>
-                  <rect class="ln" x="104" y="34" width="52" height="38" rx="5"/>
-                  <rect class="ln" x="164" y="34" width="52" height="38" rx="5"/>
-                  <rect class="ln" x="224" y="34" width="52" height="38" rx="5"/>
-                  <path class="ln" d="M52 170v-30M76 170v-50M100 170v-38M124 170v-62M148 170v-44M172 170v-70M196 170v-52M220 170v-80M244 170v-60M268 170v-74"/>
-                  <text class="note-hand" x="196" y="13" transform="rotate(3 196 13)">too many tabs!</text>
-                </svg>
+            <!-- 02 Portfolio -->
+            <div class="entry" id="entry-portfolio" role="tabpanel" aria-labelledby="bm-portfolio" style="--bm:var(--p-lime)" hidden>
+              <div class="page left">
+                <span class="num">entry no. 02</span>
+                <h3>Portfolio</h3>
+                <p class="desc">Making holdings, performance, and investment details easier to read and act on. I led positions and holdings design across mobile and web, from wireframes to developer handoff.</p>
+                <dl class="meta">
+                  <dt>Role</dt><dd>Lead designer · UX Designer II</dd>
+                  <dt>Area</dt><dd>Investing · Mobile + Web</dd>
+                  <dt>Outcome</dt><dd>Shipped</dd>
+                </dl>
+                <div class="tags"><span class="chip" style="--c:var(--p-lime)">Investing UX</span><span class="chip" style="--c:var(--p-lime)">Mobile + Web</span><span class="chip" style="--c:var(--p-lime)">Shipped</span></div>
+                <a class="btn btn-primary" href="work/fyers-portfolio.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
-              <div class="ui" aria-hidden="true">
-                <div class="mini">
-                  <div class="row" style="margin-bottom:2cqw"><b style="font-weight:600">Partner overview</b><span class="muted">This month</span></div>
-                  <div class="kpis">
-                    <div class="kpi"><span class="muted">Clients</span><b>248</b></div>
-                    <div class="kpi"><span class="muted">Onboarding</span><b>12</b></div>
-                    <div class="kpi"><span class="muted">Earnings</span><b>₹1.2L</b></div>
-                    <div class="kpi"><span class="muted">Tickets</span><b>3</b></div>
-                  </div>
-                  <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:69%"></i><i style="height:88%"></i></div>
+              <div class="page right">
+                <div class="thumb" aria-hidden="true">
+                  <div class="sketch"><svg viewBox="0 0 320 200">
+                    <rect class="ln" x="50" y="18" width="220" height="168" rx="12"/><path class="ln" d="M66 40h60"/><path class="ln" d="M66 58h110"/><path class="ln" d="M200 58h50"/>
+                    <rect class="ln" x="66" y="76" width="188" height="9" rx="4"/><path class="ln" d="M130 76v9M190 76v9"/>
+                    <circle class="ln" cx="76" cy="110" r="7"/><path class="ln" d="M92 110h70M220 110h34"/>
+                    <circle class="ln" cx="76" cy="136" r="7"/><path class="ln" d="M92 136h56M224 136h30"/>
+                    <circle class="ln" cx="76" cy="162" r="7"/><path class="ln" d="M92 162h80M216 162h38"/>
+                    <text class="note-hand" x="20" y="14" transform="rotate(-4 20 14)">what's my P&amp;L, really?</text>
+                  </svg></div>
+                  <div class="ui"><div class="mini">
+                    <div class="muted">Current value</div>
+                    <div class="row"><span class="big">₹4,82,310</span><span class="gain" style="font-weight:600">+₹52,140 · 12.1%</span></div>
+                    <div class="bar" style="margin:2cqw 0 1cqw"><i style="width:46%; background:#8fa9d6"></i><i style="width:30%; background:#9cbf4a"></i><i style="width:24%; background:#e2b23d"></i></div>
+                    <div class="row muted" style="font-size:1.9cqw"><span>Equity 46%</span><span>Mutual funds 30%</span><span>ETFs 24%</span></div>
+                    <div class="hr"></div>
+                    <table><tr><td>Index fund</td><td class="gain">+8.4%</td></tr><tr><td>Large-cap stock</td><td class="gain">+14.2%</td></tr><tr><td>Gold ETF</td><td class="loss">−1.3%</td></tr></table>
+                  </div></div>
                 </div>
+                <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
             </div>
-            <div class="work-body">
-              <div class="top"><h3>Partner Dashboard</h3><span class="status">Shipped</span></div>
-              <p>Helping partners track clients, onboarding, earnings, tickets, and performance in one clear place.</p>
-              <div class="tags"><span class="chip" style="--c:var(--wash-blue)">B2B Dashboard</span><span class="chip" style="--c:var(--wash-blue)">Operations UX</span><span class="chip" style="--c:var(--wash-blue)">Shipped</span></div>
-              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
-            </div>
-          </a>
 
-          <!-- Trading -->
-          <a class="work-card reveal" href="work/trading-experience.html" style="--tone: var(--wash-coral)">
-            <div class="work-visual">
-              <div class="sketch" aria-hidden="true">
-                <svg viewBox="0 0 320 200">
-                  <rect class="ln" x="60" y="18" width="200" height="168" rx="12"/>
-                  <rect class="ln" x="76" y="32" width="168" height="20" rx="6"/>
-                  <path class="ln" d="M160 32v20"/>
-                  <rect class="ln" x="76" y="62" width="80" height="18" rx="4"/>
-                  <rect class="ln" x="164" y="62" width="80" height="18" rx="4"/>
-                  <path class="ln" d="M76 96h70M174 96h70M76 108h56M174 108h60M76 120h64M174 120h48"/>
-                  <rect class="ln" x="76" y="148" width="168" height="24" rx="7"/>
-                  <text class="note-hand" x="6" y="64" transform="rotate(-6 6 64)">fast + calm?</text>
-                </svg>
+            <!-- 03 Partner Dashboard -->
+            <div class="entry" id="entry-partner" role="tabpanel" aria-labelledby="bm-partner" style="--bm:var(--p-cobalt)" hidden>
+              <div class="page left">
+                <span class="num">entry no. 03</span>
+                <h3>Partner Dashboard</h3>
+                <p class="desc">Helping partners track clients, onboarding, earnings, tickets, and performance in one clear place. Designed directly with the CEO and CXO, with a thumb-zone layout and light and dark mode.</p>
+                <dl class="meta">
+                  <dt>Role</dt><dd>UX Designer I · with the CEO and CXO</dd>
+                  <dt>Area</dt><dd>B2B · Partner operations</dd>
+                  <dt>Outcome</dt><dd>Shipped</dd>
+                </dl>
+                <div class="tags"><span class="chip" style="--c:var(--p-cobalt)">B2B Dashboard</span><span class="chip" style="--c:var(--p-cobalt)">Operations UX</span><span class="chip" style="--c:var(--p-cobalt)">Shipped</span></div>
+                <a class="btn btn-primary" href="work/partner-dashboard.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
-              <div class="ui" aria-hidden="true">
-                <div class="mini">
-                  <div class="seg"><span class="on">Buy</span><span class="muted">Sell</span></div>
-                  <div class="field"><span class="muted">Qty</span><b>25</b></div>
-                  <div class="field"><span class="muted">Price · Limit</span><b>₹1,284.50</b></div>
-                  <table>
-                    <tr><td class="gain">Bid 1,284.40</td><td class="loss">Ask 1,284.60</td></tr>
-                    <tr><td class="muted">Margin needed</td><td>₹32,112</td></tr>
-                  </table>
-                  <div class="btns" style="grid-template-columns:1fr"><span style="background:var(--gain); color:#fff">Review buy order</span></div>
+              <div class="page right">
+                <div class="thumb" aria-hidden="true">
+                  <div class="sketch"><svg viewBox="0 0 320 200">
+                    <rect class="ln" x="30" y="18" width="260" height="168" rx="12"/>
+                    <rect class="ln" x="44" y="34" width="52" height="38" rx="5"/><rect class="ln" x="104" y="34" width="52" height="38" rx="5"/><rect class="ln" x="164" y="34" width="52" height="38" rx="5"/><rect class="ln" x="224" y="34" width="52" height="38" rx="5"/>
+                    <path class="ln" d="M52 170v-30M76 170v-50M100 170v-38M124 170v-62M148 170v-44M172 170v-70M196 170v-52M220 170v-80M244 170v-60M268 170v-74"/>
+                    <text class="note-hand" x="196" y="13" transform="rotate(3 196 13)">too many tabs!</text>
+                  </svg></div>
+                  <div class="ui"><div class="mini">
+                    <div class="row" style="margin-bottom:2cqw"><b style="font-weight:600">Partner overview</b><span class="muted">This month</span></div>
+                    <div class="kpis"><div class="kpi"><span class="muted">Clients</span><b>248</b></div><div class="kpi"><span class="muted">Onboarding</span><b>12</b></div><div class="kpi"><span class="muted">Earnings</span><b>₹1.2L</b></div><div class="kpi"><span class="muted">Tickets</span><b>3</b></div></div>
+                    <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:69%"></i><i style="height:88%"></i></div>
+                  </div></div>
                 </div>
+                <p class="thumb-hint">hover: from sketch to screen</p>
               </div>
             </div>
-            <div class="work-body">
-              <div class="top"><h3>Trading Experience</h3><span class="status">Case study</span></div>
-              <p>Simplifying fast-moving trading flows where clarity, timing, and trust matter.</p>
-              <div class="tags"><span class="chip" style="--c:var(--wash-coral)">Trading UX</span><span class="chip" style="--c:var(--wash-coral)">Order Flows</span><span class="chip" style="--c:var(--wash-coral)">Fintech</span></div>
-              <span class="read">Read the story <span class="arrow" aria-hidden="true">→</span></span>
+
+            <!-- 04 Trading Flows -->
+            <div class="entry" id="entry-trading" role="tabpanel" aria-labelledby="bm-trading" style="--bm:var(--p-orange)" hidden>
+              <div class="page left">
+                <span class="num">entry no. 04</span>
+                <h3>Trading Flows</h3>
+                <p class="desc">Simplifying fast-moving trading journeys where clarity, timing, and trust matter — Single and Multi Order Windows on charts, Option Chain, Advanced Screeners, and a Watchlist revamp with tags and pinning.</p>
+                <dl class="meta">
+                  <dt>Role</dt><dd>UX Designer I &amp; II</dd>
+                  <dt>Area</dt><dd>Trading · Order flows</dd>
+                  <dt>Outcome</dt><dd>Shipped to live users, built for one-handed use</dd>
+                </dl>
+                <div class="tags"><span class="chip" style="--c:var(--p-orange)">Trading UX</span><span class="chip" style="--c:var(--p-orange)">Order Flows</span><span class="chip" style="--c:var(--p-orange)">Fintech</span></div>
+                <a class="btn btn-primary" href="work/trading-experience.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+              <div class="page right">
+                <div class="thumb" aria-hidden="true">
+                  <div class="sketch"><svg viewBox="0 0 320 200">
+                    <rect class="ln" x="60" y="18" width="200" height="168" rx="12"/><rect class="ln" x="76" y="32" width="168" height="20" rx="6"/><path class="ln" d="M160 32v20"/>
+                    <rect class="ln" x="76" y="62" width="80" height="18" rx="4"/><rect class="ln" x="164" y="62" width="80" height="18" rx="4"/>
+                    <path class="ln" d="M76 96h70M174 96h70M76 108h56M174 108h60M76 120h64M174 120h48"/>
+                    <rect class="ln" x="76" y="148" width="168" height="24" rx="7"/>
+                    <text class="note-hand" x="6" y="64" transform="rotate(-6 6 64)">fast + calm?</text>
+                  </svg></div>
+                  <div class="ui"><div class="mini">
+                    <div class="seg"><span class="on">Buy</span><span class="muted">Sell</span></div>
+                    <div class="field"><span class="muted">Qty</span><b>25</b></div>
+                    <div class="field"><span class="muted">Price · Limit</span><b>₹1,284.50</b></div>
+                    <table><tr><td class="gain">Bid 1,284.40</td><td class="loss">Ask 1,284.60</td></tr><tr><td class="muted">Margin needed</td><td>₹32,112</td></tr></table>
+                    <div class="btns" style="grid-template-columns:1fr"><span style="background:#3f7a52; color:#fff">Review buy order</span></div>
+                  </div></div>
+                </div>
+                <p class="thumb-hint">hover: from sketch to screen</p>
+              </div>
             </div>
-          </a>
+
+            <!-- 05 AI Experiments -->
+            <div class="entry" id="entry-ai" role="tabpanel" aria-labelledby="bm-ai" style="--bm:var(--p-magenta)" hidden>
+              <div class="page left">
+                <span class="num">entry no. 05</span>
+                <h3>AI Experiments</h3>
+                <p class="desc">Handpicked by the CXO for the Innovation Lab as a UX researcher and designer — exploring AI-assisted product ideas, faster prototyping, and building real software with Claude Code, Claude Design, VS Code, and GitHub.</p>
+                <dl class="meta">
+                  <dt>Role</dt><dd>UX researcher, designer + builder</dd>
+                  <dt>Area</dt><dd>AI-assisted products · Prototyping</dd>
+                  <dt>Outcome</dt><dd>FYERS Academy shipped as a working app</dd>
+                </dl>
+                <div class="tags"><span class="chip" style="--c:var(--p-magenta)">CXO Innovation Lab</span><span class="chip" style="--c:var(--p-magenta)">Prototyping</span><span class="chip" style="--c:var(--p-magenta)">ElevenLabs · HeyGen</span></div>
+                <a class="btn btn-primary" href="work/ai-experiments.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+              <div class="page right">
+                <div class="thumb" aria-hidden="true">
+                  <div class="sketch"><svg viewBox="0 0 320 200">
+                    <rect class="ln" x="112" y="10" width="96" height="182" rx="14"/>
+                    <rect class="ln" x="124" y="34" width="56" height="20" rx="8"/><rect class="ln" x="142" y="62" width="54" height="16" rx="8"/><rect class="ln" x="124" y="86" width="64" height="26" rx="8"/>
+                    <path class="ln" d="M130 160v-6M136 160v-14M142 160v-8M148 160v-18M154 160v-10M160 160v-4"/>
+                    <rect class="ln" x="124" y="170" width="72" height="12" rx="6"/>
+                    <text class="note-hand" x="214" y="40" transform="rotate(5 214 40)">can AI help here?</text>
+                  </svg></div>
+                  <div class="ui"><div class="mini" style="max-width:56cqw">
+                    <div class="row" style="margin-bottom:2cqw"><b style="font-weight:600">Assistant</b><span class="pill" style="background:#f6e1ec; color:#a3305f">Prototype</span></div>
+                    <div class="bubble-ai">Hi! What would you like to learn today?</div>
+                    <div class="bubble-me">Explain stop-loss simply</div>
+                    <div class="bubble-ai">Think of it as a safety net for a trade…</div>
+                    <div class="voice"><i style="height:30%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:75%"></i><i style="height:40%"></i></div>
+                  </div></div>
+                </div>
+                <p class="thumb-hint">hover: from sketch to screen</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================= 3. Career ======================= -->
-    <section class="section career" id="career" aria-labelledby="career-title">
+    <!-- ======================= 3. Career — the road so far ======================= -->
+    <section class="section section-alt" id="career" aria-labelledby="career-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="label">Career</p>
-          <h2 id="career-title">4+ years of asking better questions.</h2>
-          <p>My journey at FYERS has moved across product design, research, shipping, hiring, innovation, and AI-assisted building.</p>
+          <h2 id="career-title">The road so far.</h2>
+          <p>A 4+ year journey through fintech products, research, shipping, hiring, AI experiments, awards, and growth.</p>
         </div>
 
-        <div class="timeline" id="timeline">
-          <div class="spine" aria-hidden="true">
-            <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
-              <path class="ghost" pathLength="1" vector-effect="non-scaling-stroke" d="M20 0 C 30 110, 10 220, 20 340 S 30 560, 20 680 S 12 880, 20 1000"/>
-              <path class="ink" pathLength="1" vector-effect="non-scaling-stroke" d="M20 0 C 30 110, 10 220, 20 340 S 30 560, 20 680 S 12 880, 20 1000"/>
-            </svg>
-          </div>
-          <ol class="milestones">
-            <li class="milestone" style="--bg:var(--note-yellow); --r:-1.2deg">
-              <span class="pin" aria-hidden="true"></span>
-              <div class="card">
-                <span class="stat">4+ years at FYERS</span>
-                <h3>Joined FYERS</h3>
-                <p>Started designing fintech experiences across trading and investing products.</p>
+        <div class="road" id="road">
+          <svg class="road-svg" aria-hidden="true">
+            <path class="road-base"/>
+            <path class="road-dash"/>
+            <path class="road-done"/>
+            <g class="stops-layer"></g>
+            <g class="dest-marker"><path class="dest" d="M0 0 v -26 l 16 5 l -16 5"/><circle cx="0" cy="0" r="3" fill="var(--outline)"/></g>
+            <g class="car">
+              <g transform="translate(-17 -9)">
+                <rect class="wheel" x="5" y="-1" width="7" height="3" rx="1"/>
+                <rect class="wheel" x="22" y="-1" width="7" height="3" rx="1"/>
+                <rect class="wheel" x="5" y="16" width="7" height="3" rx="1"/>
+                <rect class="wheel" x="22" y="16" width="7" height="3" rx="1"/>
+                <rect class="body" x="0" y="1" width="34" height="16" rx="6"/>
+                <rect class="glass" x="21" y="3.5" width="6" height="11" rx="2"/>
+                <rect class="roof" x="10" y="3.5" width="10" height="11" rx="2"/>
+                <rect class="glass" x="5" y="4" width="4" height="10" rx="1.5"/>
+                <circle class="light" cx="33" cy="4.5" r="1.4"/>
+                <circle class="light" cx="33" cy="13.5" r="1.4"/>
+              </g>
+            </g>
+          </svg>
+
+          <ol class="stops">
+            <li class="stop-card reveal" style="--sc:var(--p-mustard)">
+              <span class="stamp">Stop 01 · Jan – May 2022</span>
+              <h3>First design job</h3>
+              <p>UI/UX and Graphic Design Intern at DeFiner, designing logos, web screens, and mascots.</p>
+            </li>
+            <li class="stop-card reveal" style="--sc:var(--p-orange)">
+              <span class="stamp">Stop 02 · Jul 2022</span>
+              <h3>Joined FYERS</h3>
+              <p>Started as UX Designer I, designing fintech experiences across trading and investing products.</p>
+            </li>
+            <li class="stop-card reveal" style="--sc:var(--p-magenta)">
+              <span class="stamp">Stop 03 · 2022 – 2023</span>
+              <h3>First shipped products</h3>
+              <p>Designed Onboarding, Open Account, Funds, Option Chain, and Advanced Screeners — all shipped to live users with one-handed use built in. Designed the Partner Dashboard with the CEO and CXO, the My Account app, and the News experience.</p>
+            </li>
+            <li class="stop-card reveal" style="--sc:var(--p-violet)">
+              <span class="stamp">Stop 04 · Jan 2024 · Promotion 1</span>
+              <h3>UX Designer II</h3>
+              <p>Led Portfolio across mobile and web, designed Single and Multi Order Windows on charts, revamped the Watchlist with tags and pinning, and built a 30-day challenge streak and trading journal.</p>
+            </li>
+            <li class="stop-card reveal" style="--sc:var(--p-cobalt)">
+              <span class="stamp">Stop 05 · Apr 2025 · Promotion 2</span>
+              <h3>Grew into Senior UX Designer</h3>
+              <p>Took on larger responsibilities across research, product thinking, flows, and cross-functional design decisions — including primary and secondary research and end-to-end design for an advisory product.</p>
+            </li>
+            <li class="stop-card reveal" style="--sc:var(--p-lime)">
+              <span class="stamp">Stop 06 · 10+ products</span>
+              <h3>Shipped 10+ products</h3>
+              <p>Designed across trading, investing, learning, dashboards, partner tools, and AI-assisted product experiences.</p>
+            </li>
+            <li class="stop-card reveal" style="--sc:var(--p-mustard)">
+              <span class="stamp">Stop 07</span>
+              <h3>CXO Innovation Lab</h3>
+              <p>Handpicked by the CXO to join the Innovation Lab as a UX researcher and designer, exploring AI-assisted product ideas and faster prototyping.</p>
+            </li>
+            <li class="stop-card reveal" style="--sc:var(--p-orange)">
+              <span class="stamp">Stop 08 · 3 months</span>
+              <h3>Built a full Android app</h3>
+              <p>Designed and built FYERS Academy as a fully working Android app in 3 months — front-end design from scratch, developed with AI-assisted workflows, with thumb-reachable navigation and light and dark mode throughout.</p>
+              <div class="tools">
+                <span class="chip" style="--c:var(--p-orange)">Claude Code</span>
+                <span class="chip" style="--c:var(--p-magenta)">Claude Design</span>
+                <span class="chip" style="--c:var(--p-cobalt)">VS Code</span>
+                <span class="chip" style="--c:var(--text)">GitHub</span>
+                <span class="chip" style="--c:var(--p-mustard)">ElevenLabs</span>
+                <span class="chip" style="--c:var(--p-violet)">HeyGen</span>
               </div>
             </li>
-            <li class="milestone" style="--bg:var(--note-blue); --r:1deg">
-              <span class="pin" aria-hidden="true"></span>
-              <div class="card">
-                <span class="stat">2 promotions</span>
-                <h3>Grew through product ownership</h3>
-                <p>Took on larger flows, dashboards, mobile experiences, and cross-functional design decisions.</p>
-              </div>
+            <li class="stop-card reveal" style="--sc:var(--p-cobalt)">
+              <span class="stamp">Stop 09</span>
+              <h3>Helped grow the team</h3>
+              <p>Interviewed candidates and helped hire 3 to 4 designers into the team.</p>
             </li>
-            <li class="milestone" style="--bg:var(--note-sage); --r:-.8deg">
-              <span class="pin" aria-hidden="true"></span>
-              <div class="card">
-                <span class="stat">10+ products shipped</span>
-                <h3>Shipped 10+ products</h3>
-                <p>Worked across trading, investing, learning, partner dashboards, onboarding, and product improvements.</p>
-              </div>
+            <li class="stop-card reveal" style="--sc:var(--p-magenta)">
+              <span class="stamp">Stop 10 · Awards</span>
+              <h3>Awards and recognition</h3>
+              <div class="awards-mini"><span>FYERS Force Award</span><span>Exceptional Team Player Award</span></div>
             </li>
-            <li class="milestone" style="--bg:var(--note-coral); --r:1.3deg">
-              <span class="pin" aria-hidden="true"></span>
-              <div class="card">
-                <span class="stat">3–4 hires</span>
-                <h3>Helped grow the team</h3>
-                <p>Interviewed candidates and helped hire 3–4 people across junior design, senior UX design, and UX research roles.</p>
-              </div>
+            <li class="stop-card reveal" style="--sc:var(--p-lime)">
+              <span class="stamp">Stop 11</span>
+              <h3>Volunteering and events</h3>
+              <p>Contributed through volunteering, hosting events, wall painting, and community and team activities.</p>
             </li>
-            <li class="milestone" style="--bg:var(--note-yellow); --r:-1deg">
-              <span class="pin" aria-hidden="true"></span>
-              <div class="card">
-                <span class="stat">CXO Innovation Lab</span>
-                <h3>CXO Innovation Lab</h3>
-                <p>Explored AI-assisted product ideas and faster prototyping approaches.</p>
-              </div>
-            </li>
-            <li class="milestone" style="--bg:var(--note-blue); --r:.9deg">
-              <span class="pin" aria-hidden="true"></span>
-              <div class="card">
-                <span class="stat">3 months · AI-assisted</span>
-                <h3>Built a working Android app</h3>
-                <p>Designed and built a full-fledged Android app in 3 months using Claude, VS Code, GitHub, and AI-assisted workflows, while also experimenting with tools like ElevenLabs and HeyGen.</p>
-                <div class="tools">
-                  <span class="chip" style="--c:#d58a6c">Claude</span>
-                  <span class="chip" style="--c:#6f9ac4">VS Code</span>
-                  <span class="chip" style="--c:var(--charcoal)">GitHub</span>
-                  <span class="chip" style="--c:var(--wash-yellow)">ElevenLabs</span>
-                  <span class="chip" style="--c:#c98fa0">HeyGen</span>
-                </div>
+            <li class="stop-card destination reveal" style="--sc:var(--p-violet)">
+              <span class="stamp">Destination · Education</span>
+              <h3>B.Tech, Electronics and Communication Engineering</h3>
+              <p>Christ (Deemed to be University), Bengaluru · 2017 – 2021 · CGPA 9.03. Final project: BEAM, a student collaboration app (UX and front-end, team of 5, 50+ students across 10+ colleges).</p>
+              <div class="tools">
+                <span class="chip" style="--c:var(--p-mustard)">NISM Series 7 &amp; 8</span>
+                <span class="chip" style="--c:var(--p-cobalt)">Google UX Design</span>
+                <span class="chip" style="--c:var(--p-lime)">Georgia Tech · Intro to UX</span>
+                <span class="chip" style="--c:var(--p-magenta)">IxDF · AI for Designers</span>
               </div>
             </li>
           </ol>
@@ -484,7 +639,202 @@
       </div>
     </section>
 
-    <!-- ======================= 4. Philosophy + process ======================= -->
+    <!-- ======================= 4. Awards ======================= -->
+    <section class="section" id="awards" aria-labelledby="awards-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="label">Awards</p>
+          <h2 id="awards-title">Recognised for craft, collaboration, and ownership.</h2>
+        </div>
+        <div class="awards-grid">
+          <article class="award reveal" style="--aw:var(--p-mustard)">
+            <span class="wash" aria-hidden="true"></span>
+            <svg viewBox="0 0 96 120" aria-hidden="true">
+              <path class="rib-a" d="M30 54 L 18 112 L 32 102 L 40 116 L 50 62 Z" filter="url(#paint-edge)"/>
+              <path class="rib-b" d="M66 54 L 78 112 L 64 102 L 56 116 L 46 62 Z" filter="url(#paint-edge)"/>
+              <circle class="medal" cx="48" cy="44" r="34"/>
+              <circle class="medal-in" cx="48" cy="44" r="26"/>
+              <path class="medal-star" d="M48 26 l 5.3 11 l 12 1.6 l -8.8 8.3 l 2.2 12 l -10.7 -5.8 l -10.7 5.8 l 2.2 -12 l -8.8 -8.3 l 12 -1.6 Z"/>
+            </svg>
+            <div>
+              <h3>FYERS Force Award</h3>
+              <p>For the best project, successfully launched — and for contribution, ownership, and consistent impact at FYERS.</p>
+            </div>
+          </article>
+          <article class="award reveal" style="--aw:var(--p-lime)">
+            <span class="wash" aria-hidden="true"></span>
+            <svg viewBox="0 0 96 120" aria-hidden="true">
+              <path class="rib-b" d="M30 58 L 18 112 L 32 102 L 40 116 L 50 64 Z" filter="url(#paint-edge)"/>
+              <path class="rib-a" d="M66 58 L 78 112 L 64 102 L 56 116 L 46 64 Z" filter="url(#paint-edge)"/>
+              <circle class="hand-a" cx="36" cy="44" r="26" style="mix-blend-mode:multiply"/>
+              <circle class="hand-b" cx="60" cy="44" r="26" style="mix-blend-mode:multiply"/>
+              <path class="medal-star" d="M48 32 l 3.6 7.4 l 8 1.1 l -5.9 5.6 l 1.5 8 l -7.2 -3.9 l -7.2 3.9 l 1.5 -8 l -5.9 -5.6 l 8 -1.1 Z"/>
+            </svg>
+            <div>
+              <h3>Exceptional Team Player Award</h3>
+              <p>Nominated by the entire design team — for collaboration, team support, and contributing beyond individual design work.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 5. Noticeboard ======================= -->
+    <section class="section section-alt" id="noticeboard" aria-labelledby="board-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="label">Noticeboard</p>
+          <h2 id="board-title">The noticeboard.</h2>
+          <p>The things outside work that shape how I observe, create, and keep going.</p>
+        </div>
+
+        <div class="board reveal" id="board">
+          <figure class="pin-card photo-card" tabindex="0" style="--x:37%; --y:25%; --r:-2deg; --pin:var(--p-magenta)">
+            <div class="pin-art"><img src="images/nikita-flowers.jpg" alt="Nikita smiling with arms open in front of a wall of pink bougainvillea." loading="lazy"></div>
+            <figcaption>hi, I’m Nikita!</figcaption>
+          </figure>
+
+          <article class="pin-card m-paint" tabindex="0" style="--x:3%; --y:4%; --r:-4deg; --pin:var(--p-cobalt)">
+            <div class="pin-art">
+              <img src="images/painting.jpg" alt="A vivid watercolour portrait painted by Nikita." loading="lazy">
+              <div class="wash-over" aria-hidden="true">
+                <span style="left:-20%; top:-25%; width:70%; height:70%; background:var(--p-magenta)"></span>
+                <span style="right:-25%; bottom:-30%; width:75%; height:75%; background:var(--p-cobalt)"></span>
+                <span style="left:-10%; bottom:-30%; width:50%; height:55%; background:var(--p-lime)"></span>
+              </div>
+            </div>
+            <h3>Painting</h3>
+            <div class="cap"><p>Watercolours taught me patience, layering, and knowing when to stop. More on <a href="https://www.instagram.com/inkbyneon/" target="_blank" rel="noopener">@inkbyneon</a>.</p></div>
+          </article>
+
+          <article class="pin-card m-trek" tabindex="0" style="--x:22%; --y:7%; --r:3deg; --pin:var(--p-lime)">
+            <div class="pin-art" aria-hidden="true">
+              <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="200" height="150" fill="var(--paper)"/>
+                <circle class="pf" cx="156" cy="34" r="14" fill="var(--p-mustard)" opacity=".8"/>
+                <path class="pf" d="M-10 130 L 60 40 L 100 90 L 130 60 L 210 130 Z" fill="var(--p-cobalt)" opacity=".85"/>
+                <path class="pf" d="M60 40 L 74 58 L 66 56 L 58 64 L 50 54 Z" fill="#fff"/>
+                <path class="pf" d="M-10 150 L 40 100 L 90 128 L 140 92 L 210 150 Z" fill="var(--p-violet)" opacity=".85"/>
+                <path class="pf" d="M-10 150 C 40 128, 120 136, 210 124 L 210 150 Z" fill="var(--p-lime)"/>
+                <path class="trail" pathLength="1" d="M20 146 C 50 132, 70 120, 90 124 S 120 110, 140 96" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Treks</h3>
+            <div class="cap"><p>Long routes remind me that clarity often comes one step at a time.</p></div>
+          </article>
+
+          <article class="pin-card m-trip" tabindex="0" style="--x:61%; --y:4%; --r:2deg; --pin:var(--p-orange)">
+            <div class="pin-art">
+              <img src="images/udaipur.jpg" alt="A view of a lake palace through a scalloped arch window." loading="lazy">
+              <svg viewBox="0 0 200 150" aria-hidden="true">
+                <defs><mask id="trip-mask"><path class="route route-mask" pathLength="1" d="M30 128 C 60 100, 90 120, 110 90 S 150 50, 172 34"/></mask></defs>
+                <path class="route-line" d="M30 128 C 60 100, 90 120, 110 90 S 150 50, 172 34" mask="url(#trip-mask)"/>
+                <circle class="pin-dot" cx="30" cy="128" r="5"/>
+                <circle class="pin-dot" cx="172" cy="34" r="5"/>
+              </svg>
+            </div>
+            <h3>Trips</h3>
+            <div class="cap"><p>Travel keeps me curious about people, places, and behaviour.</p></div>
+          </article>
+
+          <article class="pin-card m-wall" tabindex="0" style="--x:80%; --y:2%; --r:-3deg; --pin:var(--p-mustard)">
+            <div class="pin-art" aria-hidden="true">
+              <svg viewBox="0 0 200 150">
+                <rect width="200" height="150" fill="var(--paper)"/>
+                <path d="M0 118 H200" stroke="var(--line-strong)" stroke-width="1"/>
+                <rect class="stroke pf" x="18" y="26" width="164" height="22" rx="6" fill="var(--p-magenta)"/>
+                <rect class="stroke s2 pf" x="18" y="56" width="140" height="22" rx="6" fill="var(--p-mustard)"/>
+                <rect class="stroke s3 pf" x="18" y="86" width="120" height="22" rx="6" fill="var(--p-cobalt)"/>
+                <path class="ln" d="M160 96 h 24 v -10 h -24 z M172 96 v 10 h -14 v 34"/>
+              </svg>
+            </div>
+            <h3>Wall painting</h3>
+            <div class="cap"><p>Large-scale making taught me planning, detail, and teamwork.</p></div>
+          </article>
+
+          <article class="pin-card m-gym" tabindex="0" style="--x:4%; --y:38%; --r:2deg; --pin:var(--p-magenta)">
+            <div class="pin-art" aria-hidden="true">
+              <svg viewBox="0 0 200 150">
+                <rect width="200" height="150" fill="var(--paper)"/>
+                <path class="ln" d="M64 54h72"/>
+                <rect class="pf" x="38" y="30" width="14" height="48" rx="3" fill="var(--p-magenta)"/>
+                <rect class="pf" x="52" y="36" width="12" height="36" rx="3" fill="var(--p-orange)"/>
+                <rect class="pf" x="148" y="30" width="14" height="48" rx="3" fill="var(--p-magenta)"/>
+                <rect class="pf" x="136" y="36" width="12" height="36" rx="3" fill="var(--p-orange)"/>
+              </svg>
+              <span class="reps">showing up</span>
+              <span class="track"><i></i></span>
+            </div>
+            <h3>Workouts</h3>
+            <div class="cap"><p>Showing up regularly teaches discipline — useful in design and life.</p></div>
+          </article>
+
+          <article class="pin-card m-cook" tabindex="0" style="--x:19%; --y:59%; --r:-2deg; --pin:var(--p-lime)">
+            <div class="pin-art" aria-hidden="true">
+              <svg viewBox="0 0 200 150">
+                <rect width="200" height="150" fill="var(--paper)"/>
+                <path class="ln" style="opacity:.6" d="M86 30 c -6 -8, 6 -12, 0 -20 M100 30 c -6 -8, 6 -12, 0 -20 M114 30 c -6 -8, 6 -12, 0 -20"/>
+                <path class="pf" d="M50 52 H150 V 100 C 150 116, 136 124, 120 124 H 80 C 64 124, 50 116, 50 100 Z" fill="var(--p-cobalt)"/>
+                <rect class="pf" x="44" y="44" width="112" height="12" rx="5" fill="var(--p-violet)"/>
+                <path class="ln" d="M150 70 h 14 M50 70 h -14"/>
+                <path class="ln" d="M150 40 L 178 12"/><ellipse class="ln" cx="182" cy="9" rx="6" ry="4" transform="rotate(-45 182 9)"/>
+              </svg>
+              <div class="recipe"><b>Recipe for a good flow</b>1. Get the timing right<br>2. Balance every flavour<br>3. Taste, tweak, repeat</div>
+            </div>
+            <h3>Cooking</h3>
+            <div class="cap"><p>A good recipe, like a good flow, needs timing, balance, and iteration.</p></div>
+          </article>
+
+          <article class="pin-card m-host" tabindex="0" style="--x:80%; --y:35%; --r:3deg; --pin:var(--p-cobalt)">
+            <div class="pin-art" aria-hidden="true">
+              <svg viewBox="0 0 200 150">
+                <rect width="200" height="150" fill="var(--paper)"/>
+                <g class="bunting">
+                  <path d="M0 14 C 60 40, 140 40, 200 14" fill="none" stroke="var(--ink)" stroke-width="1.2"/>
+                  <path class="pf" d="M18 22 l 16 6 l -10 16 z" fill="var(--p-magenta)"/>
+                  <path class="pf" d="M50 30 l 17 3 l -6 18 z" fill="var(--p-mustard)"/>
+                  <path class="pf" d="M86 34 l 17 0 l -8 18 z" fill="var(--p-cobalt)"/>
+                  <path class="pf" d="M122 33 l 17 -3 l -4 18 z" fill="var(--p-lime)"/>
+                  <path class="pf" d="M156 28 l 16 -6 l -2 18 z" fill="var(--p-orange)"/>
+                </g>
+                <rect class="ln" x="88" y="70" width="24" height="36" rx="12" style="fill:var(--surface)"/>
+                <path class="ln" d="M80 92 c 0 16, 40 16, 40 0 M100 108 v 22 M88 132 h 24"/>
+                <circle cx="40" cy="96" r="3" fill="var(--p-magenta)"/><circle cx="160" cy="84" r="3" fill="var(--p-lime)"/><circle cx="150" cy="120" r="2.5" fill="var(--p-mustard)"/><circle cx="52" cy="124" r="2.5" fill="var(--p-cobalt)"/>
+              </svg>
+            </div>
+            <h3>Hosting events</h3>
+            <div class="cap"><p>Hosting helped me listen, organise, and make people feel included.</p></div>
+          </article>
+
+          <article class="pin-card m-craft" tabindex="0" style="--x:65%; --y:59%; --r:-2deg; --pin:var(--p-orange)">
+            <div class="pin-art" aria-hidden="true">
+              <span class="layer a"></span><span class="layer b"></span><span class="layer c"></span>
+              <svg viewBox="0 0 200 150"><path d="M10 140 C 50 110, 40 50, 90 60 S 170 110, 190 20" fill="none" stroke="var(--ink)" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/></svg>
+            </div>
+            <h3>Crafts</h3>
+            <div class="cap"><p>Making by hand reminds me how much small details matter.</p></div>
+          </article>
+
+          <article class="pin-card m-team" tabindex="0" style="--x:41%; --y:73%; --r:1deg; --pin:var(--p-lime)">
+            <div class="pin-art" aria-hidden="true">
+              <svg viewBox="0 0 200 150">
+                <rect width="200" height="150" fill="var(--paper)"/>
+                <g class="person"><circle class="pf" cx="46" cy="66" r="16" fill="var(--p-orange)"/><path class="pf" d="M20 150 C 20 104, 72 104, 72 150 Z" fill="var(--p-orange)"/></g>
+                <g class="person p2"><circle class="pf" cx="86" cy="58" r="17" fill="var(--p-magenta)"/><path class="pf" d="M58 150 C 58 98, 114 98, 114 150 Z" fill="var(--p-magenta)"/></g>
+                <g class="person p3"><circle class="pf" cx="126" cy="62" r="16" fill="var(--p-cobalt)"/><path class="pf" d="M100 150 C 100 102, 152 102, 152 150 Z" fill="var(--p-cobalt)"/></g>
+                <g class="person p4"><circle class="pf" cx="162" cy="70" r="15" fill="var(--p-lime)"/><path class="pf" d="M138 150 C 138 108, 186 108, 186 150 Z" fill="var(--p-lime)"/></g>
+              </svg>
+            </div>
+            <h3>Coworkers</h3>
+            <div class="cap"><p>The best products are rarely solo work. Good collaboration means sharing the messy middle, not just the final screens.</p></div>
+          </article>
+
+          <p class="board-hint" aria-hidden="true">psst — you can drag these around</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 6. Philosophy + process ======================= -->
     <section class="section philosophy" aria-labelledby="philosophy-title">
       <div class="wrap">
         <div class="philosophy-grid">
@@ -493,8 +843,7 @@
             <h2 id="philosophy-title">Simplicity is not less thinking.<br><em>It is better thinking.</em></h2>
           </div>
           <div class="philosophy-copy reveal">
-            <p>I believe good UX comes from asking many questions, sitting with complexity, and slowly removing what does not help.</p>
-            <p>My work usually starts messy — interviews, notes, edge cases, flows, constraints, doubts — and becomes clearer through structure, iteration, and care.</p>
+            <p>Good UX starts with questions. I like sitting with messy problems long enough to understand what can be removed, what must stay, and what needs to become clearer.</p>
             <ul class="principles">
               <li>Ask before designing</li>
               <li>Map the messy parts</li>
@@ -518,22 +867,19 @@
           </div>
 
           <div class="step-stage">
-            <!-- Ask -->
             <div class="step-panel is-active" role="tabpanel" id="panel-ask" aria-labelledby="tab-ask">
-              <div class="s-note" style="--bg:var(--note-yellow); left:2%; top:4%; --r:-3deg; --d:.05s"><small>Interview</small>What made you hesitate?</div>
-              <div class="s-note" style="--bg:var(--note-blue); left:24%; top:16%; --r:2deg; --d:.15s"><small>Interview</small>What did you expect to see next?</div>
-              <div class="s-note" style="--bg:var(--note-coral); left:46%; top:2%; --r:-2deg; --d:.25s"><small>Research</small>What do you check before you buy?</div>
-              <div class="s-note" style="--bg:var(--note-sage); left:68%; top:14%; --r:3deg; --d:.35s"><small>Data</small>Where do people drop off?</div>
+              <div class="s-note" style="--bg-note:var(--note-yellow); left:2%; top:4%; --r:-3deg; --d:.05s"><small>Interview</small>What made you hesitate?</div>
+              <div class="s-note" style="--bg-note:var(--note-blue); left:24%; top:16%; --r:2deg; --d:.15s"><small>Interview</small>What did you expect to see next?</div>
+              <div class="s-note" style="--bg-note:var(--note-coral); left:46%; top:2%; --r:-2deg; --d:.25s"><small>Research</small>What do you check before you buy?</div>
+              <div class="s-note" style="--bg-note:var(--note-sage); left:68%; top:14%; --r:3deg; --d:.35s"><small>Data</small>Where do people drop off?</div>
               <p class="caption"><strong>Ask</strong>Start with questions, not screens. Interviews, notes, and data come before pixels.</p>
             </div>
-
-            <!-- Map -->
             <div class="step-panel" role="tabpanel" id="panel-map" aria-labelledby="tab-map" hidden>
-              <div class="s-note" style="--bg:var(--note-yellow); left:2%; top:14%; --d:.05s"><small>Step 1</small>Learn the basics</div>
-              <div class="s-note" style="--bg:var(--note-blue); left:27%; top:14%; --d:.12s"><small>Step 2</small>Try a practice trade</div>
-              <div class="s-note" style="--bg:var(--note-coral); left:52%; top:14%; --d:.19s"><small>Step 3</small>See what happened</div>
-              <div class="s-note" style="--bg:var(--note-sage); left:77%; top:14%; --d:.26s"><small>Step 4</small>Try again, smarter</div>
-              <div class="s-note" style="--bg:var(--paper); left:60%; top:62%; --r:2deg; --d:.4s; width:15cqw"><small>Edge case</small>Market’s closed?</div>
+              <div class="s-note" style="--bg-note:var(--note-yellow); left:2%; top:14%; --d:.05s"><small>Step 1</small>Learn the basics</div>
+              <div class="s-note" style="--bg-note:var(--note-blue); left:27%; top:14%; --d:.12s"><small>Step 2</small>Try a practice trade</div>
+              <div class="s-note" style="--bg-note:var(--note-coral); left:52%; top:14%; --d:.19s"><small>Step 3</small>See what happened</div>
+              <div class="s-note" style="--bg-note:var(--note-sage); left:77%; top:14%; --d:.26s"><small>Step 4</small>Try again, smarter</div>
+              <div class="s-note" style="--bg-note:var(--surface); color:var(--text); left:60%; top:62%; --r:2deg; --d:.4s; width:15cqw"><small>Edge case</small>Market’s closed?</div>
               <svg class="links" viewBox="0 0 100 40" aria-hidden="true">
                 <path pathLength="1" style="--d:.3s" d="M19.5 13 C 22 11, 24 11, 26.5 13" marker-end="url(#head)" stroke="currentColor"/>
                 <path pathLength="1" style="--d:.45s" d="M44.5 13 C 47 11, 49 11, 51.5 13" marker-end="url(#head)" stroke="currentColor"/>
@@ -542,8 +888,6 @@
               </svg>
               <p class="caption"><strong>Map</strong>Connect the notes into a flow, then go looking for where it breaks.</p>
             </div>
-
-            <!-- Simplify -->
             <div class="step-panel" role="tabpanel" id="panel-simplify" aria-labelledby="tab-simplify" hidden>
               <div class="wire" style="left:4%; top:0" aria-hidden="true"><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="t"></i><i class="s"></i><i></i></div>
               <svg class="links" viewBox="0 0 100 40" aria-hidden="true"><path pathLength="1" style="--d:.2s" d="M32 16 C 35 14, 37 14, 40 16" marker-end="url(#head)" stroke="currentColor"/></svg>
@@ -556,154 +900,22 @@
               </div>
               <p class="caption" style="left:72%; bottom:auto; top:6%; max-width:26cqw"><strong>Simplify</strong>Keep what matters. Remove what confuses. Then test whether anyone misses it.</p>
             </div>
-
-            <!-- Ship -->
             <div class="step-panel" role="tabpanel" id="panel-ship" aria-labelledby="tab-ship" hidden>
               <div class="clean" style="left:4%; top:0">
                 <span class="ok" aria-hidden="true">✓</span>
                 <div class="t">Order placed</div>
                 <div class="r"><span>Buy · 10 shares</span><b>Market</b></div>
                 <div class="r"><span>Status</span><b class="gain">Executed</b></div>
-                <div class="cta" style="background:var(--paper); color:var(--charcoal); border:1px solid var(--line)">View in portfolio</div>
+                <div class="cta" style="background:#fbf8f2; color:#26221f; border:1px solid #e4dbcc">View in portfolio</div>
               </div>
               <div class="ship-chips" style="left:38%; top:6%">
-                <span class="chip" style="--c:var(--gain); --d:.3s">Shipped</span>
-                <span class="chip" style="--c:var(--wash-yellow); --d:.4s">10+ products shipped</span>
-                <span class="chip" style="--c:var(--wash-blue); --d:.5s">4+ years at FYERS</span>
-                <span class="chip" style="--c:var(--wash-coral); --d:.6s">2 promotions</span>
+                <span class="chip" style="--c:var(--p-lime); --d:.3s">Shipped</span>
+                <span class="chip" style="--c:var(--p-mustard); --d:.4s">10+ products shipped</span>
+                <span class="chip" style="--c:var(--p-cobalt); --d:.5s">4+ years at FYERS</span>
+                <span class="chip" style="--c:var(--p-magenta); --d:.6s">FYERS Force Award</span>
               </div>
               <p class="caption" style="left:72%; bottom:auto; top:6%; max-width:26cqw"><strong>Ship</strong>Get it into people’s hands, watch what happens, and improve it.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= 5. Moodboard ======================= -->
-    <section class="section moodboard" aria-labelledby="mood-title">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">Off-screen</p>
-          <h2 id="mood-title">Outside the screen, I keep making.</h2>
-          <p>Painting, travelling, crafts, and workouts keep me observant, patient, curious, and disciplined — the same qualities I bring into product design.</p>
-        </div>
-
-        <div class="mood-grid">
-          <!-- Painting -->
-          <article class="mood-card m-paint reveal" tabindex="0" style="--r:-1.5deg">
-            <span class="tape" aria-hidden="true"></span>
-            <div class="mood-art" aria-hidden="true">
-              <svg viewBox="0 0 200 164">
-                <defs>
-                  <mask id="paint-reveal">
-                    <path class="reveal-stroke" pathLength="1" d="M-10 140 C 40 80, 80 150, 120 80 S 190 30, 220 10" stroke="#fff" stroke-width="96" fill="none" stroke-linecap="round"/>
-                  </mask>
-                </defs>
-                <g mask="url(#paint-reveal)" filter="url(#wc-mood)" style="mix-blend-mode:multiply">
-                  <ellipse cx="60" cy="60" rx="52" ry="38" fill="var(--wash-coral)" opacity=".55"/>
-                  <ellipse cx="128" cy="78" rx="58" ry="40" fill="var(--wash-blue)" opacity=".55"/>
-                  <ellipse cx="96" cy="128" rx="80" ry="26" fill="var(--wash-sage)" opacity=".6"/>
-                  <circle cx="148" cy="38" r="15" fill="var(--wash-yellow)" opacity=".8"/>
-                </g>
-                <path class="ln" opacity=".5" d="M8 118 C 40 96, 64 104, 90 92 S 140 70, 192 86"/>
-                <path class="ln" opacity=".5" d="M8 138 C 50 124, 120 130, 192 120"/>
-                <circle class="ln" opacity=".5" cx="148" cy="38" r="14"/>
-                <path class="ln" d="M150 156 L 192 112"/><path class="ln" d="M188 116 l 7 -7 l 3 3 l -7 7 z"/>
-              </svg>
-            </div>
-            <h3>Painting</h3>
-            <p>Watercolours help me notice balance, contrast, space, and emotion.</p>
-          </article>
-
-          <!-- Travelling -->
-          <article class="mood-card m-travel reveal" tabindex="0" style="--r:1.2deg">
-            <span class="tape" aria-hidden="true" style="--tr:3deg"></span>
-            <div class="mood-art" aria-hidden="true">
-              <svg viewBox="0 0 200 164">
-                <defs>
-                  <mask id="route-reveal">
-                    <path class="route-mask" pathLength="1" d="M34 128 C 50 90, 90 120, 100 84 S 130 40, 150 38" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>
-                  </mask>
-                </defs>
-                <path class="ln" opacity=".28" d="M0 30 C 30 24, 50 40, 80 30 S 130 14, 200 26M0 70 C 40 60, 70 78, 110 64 S 170 52, 200 62M0 112 C 30 104, 60 120, 96 108"/>
-                <path d="M34 128 C 50 90, 90 120, 100 84 S 130 40, 150 38" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="3 5" stroke-linecap="round" mask="url(#route-reveal)"/>
-                <path class="ln fill-paper" d="M34 128 c -6 -8 -9 -12 -9 -17 a 9 9 0 0 1 18 0 c 0 5 -3 9 -9 17 z"/>
-                <circle cx="34" cy="111" r="3" fill="var(--ink)"/>
-                <g class="pin-b">
-                  <path d="M150 38 c -6 -8 -9 -12 -9 -17 a 9 9 0 0 1 18 0 c 0 5 -3 9 -9 17 z" fill="var(--accent)"/>
-                  <circle cx="150" cy="21" r="3" fill="var(--paper)"/>
-                </g>
-              </svg>
-              <div class="snap"><img src="images/udaipur.jpg" alt=""></div>
-            </div>
-            <h3>Travelling</h3>
-            <p>Travel keeps me curious about people, behaviour, culture, and context.</p>
-          </article>
-
-          <!-- Crafts -->
-          <article class="mood-card m-craft reveal" tabindex="0" style="--r:-.8deg">
-            <span class="tape" aria-hidden="true" style="--tr:-4deg"></span>
-            <div class="mood-art" aria-hidden="true">
-              <span class="layer a"></span>
-              <span class="layer b"></span>
-              <span class="layer c"></span>
-              <svg class="thread" viewBox="0 0 200 164">
-                <path d="M10 150 C 50 120, 40 60, 90 70 S 170 120, 190 20" fill="none" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 4" opacity=".7"/>
-                <path class="ln" d="M176 34 L 194 8"/><circle class="ln" cx="192" cy="11" r="1.6"/>
-              </svg>
-            </div>
-            <h3>Crafts</h3>
-            <p>Handmade work reminds me that small details can change the whole experience.</p>
-          </article>
-
-          <!-- Working out -->
-          <article class="mood-card m-gym reveal" tabindex="0" style="--r:1.4deg">
-            <span class="tape" aria-hidden="true"></span>
-            <div class="mood-art" aria-hidden="true">
-              <svg viewBox="0 0 200 164">
-                <path class="ln" d="M60 52h80"/>
-                <rect class="ln" x="36" y="30" width="12" height="44" rx="3"/>
-                <rect class="ln" x="48" y="36" width="10" height="32" rx="3"/>
-                <rect class="ln" x="152" y="30" width="12" height="44" rx="3"/>
-                <rect class="ln" x="142" y="36" width="10" height="32" rx="3"/>
-              </svg>
-              <div class="reps">
-                <div class="row"><span>Reps</span><span><span class="count" data-target="12">0</span> / 12</span></div>
-                <div class="track"><i></i></div>
-                <div class="days">
-                  <b class="on" style="--d:.2s"></b><b class="on" style="--d:.35s"></b><b class="on" style="--d:.5s"></b><b style="--d:.65s"></b><b class="on" style="--d:.8s"></b><b class="on" style="--d:.95s"></b><b style="--d:1.1s"></b>
-                </div>
-              </div>
-            </div>
-            <h3>Working out</h3>
-            <p>Fitness teaches consistency, focus, and showing up even when it is hard.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= 6. Painter's eye ======================= -->
-    <section class="section craft" aria-labelledby="craft-title">
-      <div class="wrap craft-grid">
-        <div class="craft-visual reveal">
-          <span class="wash cw1" aria-hidden="true"></span>
-          <span class="wash cw2" aria-hidden="true"></span>
-          <figure>
-            <span class="tape" aria-hidden="true"></span>
-            <img src="images/nikita.jpg" alt="Nikita sitting in a window seat framed by scalloped white arches, with a lake and hills behind." loading="lazy">
-            <span class="grid-overlay" aria-hidden="true"></span>
-            <figcaption>arches, light, and lake lines</figcaption>
-          </figure>
-        </div>
-        <div class="craft-copy reveal">
-          <p class="label">Craft</p>
-          <h2 id="craft-title">A painter’s eye, a product designer’s mind.</h2>
-          <p>Watercolours taught me to notice balance, contrast, space, and emotion. Product design taught me to turn those instincts into systems, flows, and decisions people can use.</p>
-          <div class="pairs">
-            <div><b>Balance</b> → hierarchy</div>
-            <div><b>Contrast</b> → emphasis</div>
-            <div><b>Space</b> → breathing room</div>
-            <div><b>Emotion</b> → trust</div>
           </div>
         </div>
       </div>
@@ -713,6 +925,7 @@
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <span class="wash c1" aria-hidden="true"></span>
       <span class="wash c2" aria-hidden="true"></span>
+      <span class="wash c3" aria-hidden="true"></span>
       <div class="wrap reveal">
         <p class="hand-note">p.s.</p>
         <h2 id="contact-title">Have a messy product problem?</h2>
@@ -722,8 +935,8 @@
           <a class="btn btn-primary" href="mailto:hello@example.com">Contact me <span class="arrow" aria-hidden="true">→</span></a>
           <!-- TODO: add your resume, e.g. put resume.pdf in this folder and use href="resume.pdf" -->
           <a class="btn btn-ghost" href="#">View resume</a>
-          <!-- TODO: add your LinkedIn URL -->
-          <a class="btn btn-ghost" href="#">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/inkbyneon/" target="_blank" rel="noopener">My art · @inkbyneon</a>
         </div>
       </div>
     </section>

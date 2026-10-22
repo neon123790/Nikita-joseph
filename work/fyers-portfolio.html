@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio Experience — Nikita Joseph</title>
-  <meta name="description" content="Portfolio Experience: Making holdings, performance, and investment details easier to read and act on. A case study by Nikita Joseph, Senior UX Designer.">
+  <title>Portfolio — Nikita Joseph</title>
+  <meta name="description" content="Portfolio: Making holdings, performance, and investment details easier to read and act on. A case study by Nikita Joseph, Senior UX Designer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="../theme.js"></script>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -29,11 +30,18 @@
   <header class="site-header">
     <nav class="nav wrap" aria-label="Primary">
       <a class="brand" href="../index.html"><span class="brand-dot" aria-hidden="true"></span>Nikita Joseph</a>
-      <ul class="nav-links">
-        <li><a href="../index.html#work">Work</a></li>
-        <li><a href="../index.html#career">Career</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../index.html#career">Career</a></li>
+          <li><a href="../index.html#noticeboard">Noticeboard</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -42,22 +50,22 @@
       <div class="wrap">
         <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All work</a>
         <p class="label">Case study</p>
-        <h1>Portfolio Experience</h1>
+        <h1>Portfolio</h1>
         <p class="lede">Making holdings, performance, and investment details easier to read and act on.</p>
-        <div class="tags"><span class="chip" style="--c:var(--wash-sage)">Investing UX</span><span class="chip" style="--c:var(--wash-sage)">Mobile + Web</span><span class="chip" style="--c:var(--wash-sage)">Shipped</span></div>
+        <div class="tags"><span class="chip" style="--c:var(--p-lime)">Investing UX</span><span class="chip" style="--c:var(--p-lime)">Mobile + Web</span><span class="chip" style="--c:var(--p-lime)">Shipped</span></div>
 
         <dl class="cs-facts">
-          <div><dt>Role</dt><dd>[Your role]</dd></div>
+          <div><dt>Role</dt><dd>Lead designer · UX Designer II</dd></div>
           <div><dt>Company</dt><dd>FYERS</dd></div>
-          <div><dt>Timeline</dt><dd>[e.g. 2024 · 4 months]</dd></div>
-          <div><dt>Team</dt><dd>[e.g. 1 PM, 4 engineers]</dd></div>
+          <div><dt>Timeline</dt><dd>2024 – 2025</dd></div>
+          <div><dt>Team</dt><dd>[Who you worked with]</dd></div>
         </dl>
       </div>
     </section>
 
     <div class="wrap">
       <!-- Replace with a cover image: <img src="../images/fyers-portfolio-cover.jpg" alt="..."> -->
-      <div class="cs-cover" style="--tone: var(--wash-sage)"><span>Cover image · a key screen of Portfolio Experience</span></div>
+      <div class="cs-cover" style="--tone: var(--p-lime)"><span>Cover image · a key screen of Portfolio</span></div>
     </div>
 
     <article class="cs-body">

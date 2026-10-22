@@ -234,7 +234,7 @@ h1, h2, h3 {
   font-size: clamp(2.5rem, 7.2vw, 6rem);
   max-width: 12.6em;
   margin: 0 auto;
-  padding-top: 2.56em;
+  padding-top: 2.9em;
 }
 
 .hero h1 {
@@ -289,20 +289,36 @@ h1, h2, h3 {
 .girl .gold-line { fill: none; stroke: #c9a05a; stroke-width: 3; stroke-linecap: round; }
 .girl .watch { fill: #2a2421; }
 .girl .bubble { fill: #fff; stroke: var(--line-strong); stroke-width: 1.2; }
+.girl .skin-shade { fill: #87543a; }
+.girl .kurta { fill: #6a53a8; }
+.girl .fl { fill: #c9b8ee; }
+.girl .fl-c { fill: #f3eefc; }
+.girl .fl-2 { fill: #f3eefc; opacity: .85; }
+.girl .leaf { fill: #efe9fb; opacity: .9; }
+.girl .silver { fill: #d9d3cb; stroke: #8f877e; stroke-width: .8; }
+.girl .silver-line { fill: none; stroke: #8f877e; stroke-width: 1.2; }
+.girl .lid { fill: none; stroke: #7f4f36; stroke-width: 1.3; stroke-linecap: round; }
+.girl .mouth { fill: #5a2620; }
+.girl .teeth { fill: #fff; }
+.girl .part { fill: none; stroke: #4a372e; stroke-width: 1.4; stroke-linecap: round; }
+.girl .strand { fill: none; stroke: #231814; stroke-width: 1.6; stroke-linecap: round; }
+.girl .earring-l { transform-origin: 152px 160px; animation: swing 3.4s ease-in-out infinite alternate; }
+.girl .earring-r { transform-origin: 248px 160px; animation: swing 3.4s ease-in-out -1.7s infinite alternate; }
+@keyframes swing { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
 
 /* idle motion: a slow head tilt, swaying hair, blinking, and a thought that resolves */
-.girl .head, .girl .eyes, .girl .strand-l, .girl .strand-r, .girl .look { transform-box: view-box; }
-.girl .head { transform-origin: 200px 190px; animation: tilt 7s ease-in-out 1.3s infinite; }
+.girl .head, .girl .eyes, .girl .strand-l, .girl .strand-r, .girl .look, .girl .earring { transform-box: view-box; }
+.girl .head { transform-origin: 200px 214px; animation: tilt 7s ease-in-out 1.3s infinite; }
 @keyframes tilt {
   0%, 100% { transform: rotate(0deg); }
   30% { transform: rotate(-3deg); }
   70% { transform: rotate(2.5deg); }
 }
-.girl .strand-l { transform-origin: 150px 112px; animation: sway 5s ease-in-out infinite alternate; }
-.girl .strand-r { transform-origin: 250px 112px; animation: sway 5.6s ease-in-out -2s infinite alternate-reverse; }
+.girl .strand-l { transform-origin: 158px 112px; animation: sway 5s ease-in-out infinite alternate; }
+.girl .strand-r { transform-origin: 242px 112px; animation: sway 5.6s ease-in-out -2s infinite alternate-reverse; }
 @keyframes sway { from { transform: rotate(-2.5deg); } to { transform: rotate(2.5deg); } }
 
-.girl .eyes { transform-origin: 200px 127px; animation: blink 4.6s 2s infinite; }
+.girl .eyes { transform-origin: 200px 147px; animation: blink 4.6s 2s infinite; }
 @keyframes blink {
   0%, 93%, 100% { transform: scaleY(1); }
   95.5% { transform: scaleY(.08); }
@@ -449,6 +465,58 @@ h1, h2, h3 {
 .work-body .read { display: inline-flex; gap: 6px; margin-top: 16px; font-weight: 500; font-size: .92rem; }
 .work-body .read .arrow { transition: transform .2s ease; }
 .work-card:hover .read .arrow { transform: translateX(4px); }
+
+/* ---------- Work heading + sailing ship ---------- */
+.work-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+  align-items: end;
+  gap: clamp(28px, 5vw, 64px);
+  margin-bottom: clamp(44px, 6vw, 72px);
+}
+.work-head .section-head { margin-bottom: 0; }
+
+.ship-scene { position: relative; }
+.ship-scene svg { display: block; width: 100%; height: auto; border-radius: 20px; background: linear-gradient(#f9f4ea, #f3ece0); border: 1px solid var(--line); }
+.ship-scene .ship-note {
+  display: block; text-align: right; margin-top: 8px;
+  font-family: var(--hand); font-size: 1.2rem; color: var(--muted);
+}
+.ship-scene .sun { fill: var(--wash-yellow); opacity: .55; }
+.ship-scene .gull { fill: none; stroke: var(--muted); stroke-width: 1.3; stroke-linecap: round; }
+.ship-scene .g1 { animation: gull 9s ease-in-out infinite; }
+.ship-scene .g2 { animation: gull 11s ease-in-out -3s infinite; }
+@keyframes gull { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(14px, -5px); } }
+
+.ship-scene .wave path { stroke: none; }
+.ship-scene .wave-back path { fill: #c9d7e4; }
+.ship-scene .wave-front path { fill: #9db7cf; opacity: .75; }
+.ship-scene .wave-back { animation: waves 6s linear infinite; }
+.ship-scene .wave-front { animation: waves 4s linear infinite reverse; }
+@keyframes waves { from { transform: translateX(0); } to { transform: translateX(-80px); } }
+
+.ship-scene .ship { animation: sail 10s ease-in-out infinite; }
+@keyframes sail { 0%, 100% { transform: translateX(-26px); } 50% { transform: translateX(26px); } }
+.ship-scene .ship-rock { transform-box: view-box; transform-origin: 160px 126px; animation: rock 3.2s ease-in-out infinite; }
+@keyframes rock {
+  0%, 100% { transform: rotate(-3deg) translateY(0); }
+  50% { transform: rotate(3deg) translateY(3px); }
+}
+.ship-scene .mast { fill: none; stroke: var(--charcoal); stroke-width: 2.2; stroke-linecap: round; }
+.ship-scene .flag { fill: var(--gain); transform-box: view-box; transform-origin: 160px 31px; animation: flutter 1.2s ease-in-out infinite alternate; }
+@keyframes flutter { from { transform: scaleX(1) skewY(0deg); } to { transform: scaleX(.86) skewY(-6deg); } }
+.ship-scene .sail-main { fill: var(--paper); stroke: var(--charcoal); stroke-width: 1.4; stroke-linejoin: round; }
+.ship-scene .sail-jib { fill: var(--note-coral); stroke: var(--charcoal); stroke-width: 1.4; stroke-linejoin: round; }
+.ship-scene .tick { fill: none; stroke: var(--gain); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.ship-scene .hull { fill: var(--charcoal); }
+.ship-scene .hull-stripe { stroke: var(--wash-coral); stroke-width: 2.4; }
+.ship-scene .port { fill: var(--note-yellow); }
+.ship-scene .wake { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; opacity: .9; }
+
+@media (max-width: 760px) {
+  .work-head { grid-template-columns: 1fr; }
+  .ship-scene { max-width: 360px; }
+}
 
 /* Mini product UIs — sized with container units so they scale with the card */
 .mini {
@@ -935,6 +1003,7 @@ h1, h2, h3 {
     animation-delay: 0s !important;
     transition-duration: .001ms !important;
     transition-delay: 0s !important;
+    animation-iteration-count: 1 !important;
   }
   .reveal { opacity: 1; transform: none; }
 }

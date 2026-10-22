@@ -78,64 +78,105 @@
         <div class="headline-wrap">
           <!-- Nikita, resting her head on her hands on top of the headline -->
           <div class="girl" aria-hidden="true">
-            <svg viewBox="0 0 400 250">
+            <svg viewBox="0 0 400 280">
+              <defs>
+                <clipPath id="kurta-clip">
+                  <path d="M118 272 C 116 236, 128 214, 152 206 C 166 201, 182 199, 200 199 C 218 199, 234 201, 248 206 C 272 214, 284 236, 282 272 Z"/>
+                </clipPath>
+              </defs>
               <g class="rise">
                 <!-- thought bubble: a scribble that becomes a checkmark -->
                 <g class="thought">
-                  <circle cx="262" cy="72" r="3" class="bubble"/>
-                  <circle cx="276" cy="58" r="5" class="bubble"/>
-                  <ellipse cx="320" cy="34" rx="34" ry="22" class="bubble"/>
-                  <path class="scribble" pathLength="1" d="M302 38 c 4 -10, 8 6, 12 -4 s 6 8, 10 -2 s 6 6, 12 -2"/>
-                  <path class="check" pathLength="1" d="M308 34 l 8 8 l 16 -14"/>
+                  <circle cx="268" cy="76" r="3" class="bubble"/>
+                  <circle cx="282" cy="62" r="5" class="bubble"/>
+                  <ellipse cx="326" cy="36" rx="34" ry="22" class="bubble"/>
+                  <path class="scribble" pathLength="1" d="M308 40 c 4 -10, 8 6, 12 -4 s 6 8, 10 -2 s 6 6, 12 -2"/>
+                  <path class="check" pathLength="1" d="M314 36 l 8 8 l 16 -14"/>
                 </g>
 
+                <!-- upper arms, coming out of the sleeveless kurta down to the elbows -->
+                <path class="skin" d="M136 212 C 110 220, 84 240, 66 262 L 102 266 C 116 250, 132 238, 152 230 Z"/>
+                <path class="skin" d="M264 212 C 290 220, 316 240, 334 262 L 298 266 C 284 250, 268 238, 248 230 Z"/>
+
+                <!-- purple floral kurta -->
+                <g clip-path="url(#kurta-clip)">
+                  <rect class="kurta" x="110" y="190" width="180" height="90"/>
+                  <g class="print">
+                    <g transform="translate(140 222)"><circle r="6" class="fl"/><circle r="2.4" class="fl-c"/></g>
+                    <g transform="translate(262 226)"><circle r="7" class="fl"/><circle r="2.6" class="fl-c"/></g>
+                    <g transform="translate(176 250)"><circle r="5" class="fl-2"/></g>
+                    <g transform="translate(232 252)"><circle r="6" class="fl"/><circle r="2.2" class="fl-c"/></g>
+                    <path class="leaf" d="M150 236 q 8 -6 14 0 q -8 6 -14 0 Z"/>
+                    <path class="leaf" d="M244 214 q 8 -6 14 0 q -8 6 -14 0 Z"/>
+                    <path class="leaf" d="M126 252 q 7 -5 12 0 q -7 5 -12 0 Z"/>
+                    <path class="leaf" d="M266 254 q 7 -5 12 0 q -7 5 -12 0 Z"/>
+                  </g>
+                </g>
+                <!-- V neckline -->
+                <path class="skin" d="M184 199 L 200 228 L 216 199 Z"/>
+
                 <g class="head">
-                  <!-- hair, back -->
-                  <path class="hair" d="M200 50 C 138 50, 124 100, 128 142 C 132 182, 116 214, 100 248 L 300 248 C 284 214, 268 182, 272 142 C 276 100, 262 50, 200 50 Z"/>
-                  <!-- ears + earrings -->
-                  <ellipse class="skin" cx="149" cy="129" rx="8" ry="12"/>
-                  <ellipse class="skin" cx="251" cy="129" rx="8" ry="12"/>
-                  <circle class="gold" cx="149" cy="145" r="3.2"/>
-                  <circle class="gold" cx="251" cy="145" r="3.2"/>
+                  <!-- hair tied back: a little bun peeking over the top -->
+                  <path class="hair" d="M146 136 C 142 100, 166 78, 200 78 C 234 78, 258 100, 254 136 Z"/>
+                  <!-- neck -->
+                  <path class="skin-shade" d="M184 190 L 184 206 C 192 212, 208 212, 216 206 L 216 190 Z"/>
+                  <!-- ears + dangling earrings -->
+                  <ellipse class="skin" cx="153" cy="150" rx="7.5" ry="11.5"/>
+                  <ellipse class="skin" cx="247" cy="150" rx="7.5" ry="11.5"/>
+                  <g class="earring earring-l">
+                    <path class="silver-line" d="M152 160 v 8"/>
+                    <circle class="silver" cx="152" cy="172" r="4"/>
+                    <path class="silver" d="M148 176 q 4 10 8 0 Z"/>
+                    <circle class="silver" cx="152" cy="187" r="1.6"/>
+                  </g>
+                  <g class="earring earring-r">
+                    <path class="silver-line" d="M248 160 v 8"/>
+                    <circle class="silver" cx="248" cy="172" r="4"/>
+                    <path class="silver" d="M244 176 q 4 10 8 0 Z"/>
+                    <circle class="silver" cx="248" cy="187" r="1.6"/>
+                  </g>
                   <!-- face -->
-                  <path class="skin" d="M200 70 C 233 70, 252 95, 252 127 C 252 161, 230 185, 200 187 C 170 185, 148 161, 148 127 C 148 95, 167 70, 200 70 Z"/>
-                  <ellipse class="blush" cx="170" cy="151" rx="9" ry="5"/>
-                  <ellipse class="blush" cx="230" cy="151" rx="9" ry="5"/>
+                  <path class="skin" d="M200 90 C 229 90, 248 114, 248 146 C 248 179, 228 205, 200 210 C 172 205, 152 179, 152 146 C 152 114, 171 90, 200 90 Z"/>
+                  <ellipse class="blush" cx="171" cy="170" rx="9" ry="5"/>
+                  <ellipse class="blush" cx="229" cy="170" rx="9" ry="5"/>
                   <!-- brows -->
-                  <path class="brow" d="M171 113 q 10 -6 21 -1"/>
-                  <path class="brow" d="M208 112 q 11 -5 21 1"/>
-                  <!-- eyes -->
+                  <path class="brow" d="M171 134 q 10 -7 20 -1"/>
+                  <path class="brow" d="M209 133 q 10 -6 20 1"/>
+                  <!-- smiling eyes -->
                   <g class="eyes">
                     <g class="look">
-                      <ellipse class="iris" cx="182" cy="127" rx="4.8" ry="5.8"/>
-                      <ellipse class="iris" cx="218" cy="127" rx="4.8" ry="5.8"/>
-                      <circle class="shine" cx="183.6" cy="125" r="1.3"/>
-                      <circle class="shine" cx="219.6" cy="125" r="1.3"/>
+                      <ellipse class="iris" cx="181" cy="147" rx="4.6" ry="5.2"/>
+                      <ellipse class="iris" cx="219" cy="147" rx="4.6" ry="5.2"/>
+                      <circle class="shine" cx="182.6" cy="145" r="1.3"/>
+                      <circle class="shine" cx="220.6" cy="145" r="1.3"/>
                     </g>
-                    <path class="lash" d="M176 122 l -3 -2.5M224 122 l 3 -2.5"/>
+                    <path class="lash" d="M175.5 143 q 5.5 -4.5 11 0M213.5 143 q 5.5 -4.5 11 0"/>
                   </g>
-                  <!-- bindi, nose, smile -->
-                  <circle class="bindi" cx="200" cy="104" r="2.8"/>
-                  <path class="nose" d="M199 133 q -3 10 1 14 q 3 1.5 6 -0.5"/>
-                  <path class="smile" d="M186 159 Q 200 173 214 159 Q 200 165 186 159 Z"/>
-                  <!-- hair, front: centre parting and side locks -->
-                  <path class="hair" d="M200 66 C 167 64, 145 85, 143 120 C 150 104, 162 92, 178 86 C 189 82, 196 76, 200 70 C 204 76, 211 82, 222 86 C 238 92, 250 104, 257 120 C 255 85, 233 64, 200 66 Z"/>
-                  <path class="hair strand-l" d="M147 108 C 134 140, 136 174, 152 204 C 157 184, 153 150, 158 122 Z"/>
-                  <path class="hair strand-r" d="M253 108 C 266 140, 264 174, 248 204 C 243 184, 247 150, 242 122 Z"/>
-                  <path class="hair-shine" d="M176 74 C 186 70, 194 70, 199 72"/>
+                  <!-- nose + big open smile -->
+                  <path class="nose" d="M199 151 q -3 10 1 14 q 3 1.5 6 -0.5"/>
+                  <path class="mouth" d="M180 176 Q 200 200 220 176 Q 200 181 180 176 Z"/>
+                  <path class="teeth" d="M184 177.6 Q 200 181.5 216 177.6 L 213.5 182.5 Q 200 186 186.5 182.5 Z"/>
+                  <!-- hair, front: centre parting, smoothed back past the ears -->
+                  <path class="hair" d="M200 84 C 163 84, 145 107, 146 140 C 147 150, 148 156, 150 162 C 150 144, 154 126, 166 114 C 177 104, 190 99, 200 95 C 210 99, 223 104, 234 114 C 246 126, 250 144, 250 162 C 252 156, 253 150, 254 140 C 255 107, 237 84, 200 84 Z"/>
+                  <path class="part" d="M200 85 v 9"/>
+                  <path class="hair-shine" d="M174 94 C 182 90, 190 88, 196 88"/>
+                  <!-- loose strands -->
+                  <path class="strand strand-l" d="M160 114 C 151 132, 152 156, 160 174"/>
+                  <path class="strand strand-r" d="M240 114 C 249 132, 248 156, 240 174"/>
                 </g>
 
                 <!-- folded forearms lying on the headline -->
-                <path class="skin" d="M58 226 C 58 210, 70 203, 88 203 L 180 200 C 193 200, 200 213, 200 226 C 200 240, 192 248, 178 248 L 82 248 C 68 248, 58 240, 58 226 Z"/>
-                <path class="skin" d="M342 226 C 342 210, 330 203, 312 203 L 220 200 C 207 200, 200 213, 200 226 C 200 240, 208 248, 222 248 L 318 248 C 332 248, 342 240, 342 226 Z"/>
-                <path class="shade" d="M200 212 v 34"/>
-                <!-- bracelet + watch -->
-                <path class="gold-line" d="M144 203 c -3 14, -3 30, 0 44"/>
-                <rect class="watch" x="254" y="204" width="12" height="17" rx="3.5"/>
+                <path class="skin" d="M62 259 C 62 247, 72 241, 88 241 L 182 239 C 193 239, 200 248, 200 259 C 200 271, 192 278, 180 278 L 84 278 C 71 278, 62 271, 62 259 Z"/>
+                <path class="skin" d="M338 259 C 338 247, 328 241, 312 241 L 218 239 C 207 239, 200 248, 200 259 C 200 271, 208 278, 220 278 L 316 278 C 329 278, 338 271, 338 259 Z"/>
+                <path class="shade" d="M200 248 v 28"/>
+                <!-- bangles on the left wrist, watch on the right -->
+                <path class="gold-line" d="M146 241 c -3 12, -3 25, 0 36"/>
+                <path class="gold-line" d="M139 241 c -3 12, -3 25, 0 36"/>
+                <rect class="watch" x="254" y="241" width="12" height="16" rx="3.5"/>
                 <!-- hands cupping the chin -->
-                <path class="skin" d="M152 206 C 150 190, 166 180, 186 182 C 198 183, 202 194, 200 204 C 186 212, 166 214, 152 206 Z"/>
-                <path class="skin" d="M248 206 C 250 190, 234 180, 214 182 C 202 183, 198 194, 200 204 C 214 212, 234 214, 248 206 Z"/>
-                <path class="finger" d="M164 192 q 6 -4 12 -3M170 199 q 7 -3 14 -2M236 192 q -6 -4 -12 -3M230 199 q -7 -3 -14 -2"/>
+                <path class="skin" d="M152 236 C 150 220, 166 210, 186 212 C 198 213, 202 224, 200 234 C 186 242, 166 244, 152 236 Z"/>
+                <path class="skin" d="M248 236 C 250 220, 234 210, 214 212 C 202 213, 198 224, 200 234 C 214 242, 234 244, 248 236 Z"/>
+                <path class="finger" d="M164 222 q 6 -4 12 -3M170 229 q 7 -3 14 -2M236 222 q -6 -4 -12 -3M230 229 q -7 -3 -14 -2"/>
               </g>
             </svg>
           </div>
@@ -167,10 +208,54 @@
     <!-- ======================= 2. Selected work ======================= -->
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="label">Selected work</p>
-          <h2 id="work-title">Work that moved from messy to shipped.</h2>
-          <p>A look at fintech products I shaped across trading, investing, learning, dashboards, and AI-assisted experiences.</p>
+        <div class="work-head">
+          <div class="section-head reveal">
+            <p class="label">Selected work</p>
+            <h2 id="work-title">Work that moved from messy to shipped.</h2>
+            <p>A look at fintech products I shaped across trading, investing, learning, dashboards, and AI-assisted experiences.</p>
+          </div>
+          <!-- A little ship, sailing: messy to shipped -->
+          <div class="ship-scene reveal" aria-hidden="true">
+            <svg viewBox="0 0 320 170">
+              <defs>
+                <clipPath id="sea-clip"><rect x="0" y="0" width="320" height="170" rx="20"/></clipPath>
+              </defs>
+              <g clip-path="url(#sea-clip)">
+                <circle class="sun" cx="248" cy="46" r="20"/>
+                <path class="gull g1" d="M60 40 q 5 -5 10 0 q 5 -5 10 0"/>
+                <path class="gull g2" d="M92 56 q 4 -4 8 0 q 4 -4 8 0"/>
+
+                <g class="wave wave-back">
+                  <path d="M0 122 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/>
+                </g>
+
+                <g class="ship">
+                  <g class="ship-rock">
+                    <!-- wake -->
+                    <path class="wake" d="M86 126 q -14 2 -28 0M92 132 q -12 2 -22 0"/>
+                    <!-- mast + flag -->
+                    <path class="mast" d="M160 116 V 26"/>
+                    <path class="flag" d="M160 26 l 20 5 l -20 6 Z"/>
+                    <!-- sails -->
+                    <path class="sail-main" d="M165 32 C 190 52, 206 80, 210 110 L 165 110 Z"/>
+                    <path class="sail-jib" d="M155 40 C 140 60, 128 84, 122 110 L 155 110 Z"/>
+                    <path class="tick" d="M178 86 l 6 6 l 12 -14"/>
+                    <!-- hull -->
+                    <path class="hull" d="M98 112 L 226 112 L 210 134 C 180 140, 140 140, 112 134 Z"/>
+                    <path class="hull-stripe" d="M103 119 L 221 119"/>
+                    <circle class="port" cx="138" cy="126" r="3"/>
+                    <circle class="port" cx="160" cy="127" r="3"/>
+                    <circle class="port" cx="182" cy="126" r="3"/>
+                  </g>
+                </g>
+
+                <g class="wave wave-front">
+                  <path d="M0 134 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/>
+                </g>
+              </g>
+            </svg>
+            <span class="ship-note">shipped, and still sailing.</span>
+          </div>
         </div>
 
         <div class="work-grid">

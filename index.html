@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nikita Joseph</title>
+  <meta name="description" content="Portfolio of Nikita Joseph.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#top">Nikita Joseph</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO: replace the role and tagline with your own -->
+    <section class="hero">
+      <p class="eyebrow">Hello, I'm</p>
+      <h1>Nikita Joseph</h1>
+      <p class="tagline">[Your role — e.g. Software Developer / Designer / Student] building [what you love to make].</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">See my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <!-- ABOUT: a short paragraph or two about you -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="about-text">
+        <p>[Write 2–3 sentences about who you are, what you do, and what you're interested in.]</p>
+        <p>[Optional: your background, education, or what you're currently learning.]</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS: copy a <article class="card"> block for each project -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>[Project name]</h3>
+          <p>[One or two sentences on what it does and why you built it.]</p>
+          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
+          <div class="card-links">
+            <a href="#">Live demo</a>
+            <a href="#">Code</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>[Project name]</h3>
+          <p>[One or two sentences on what it does and why you built it.]</p>
+          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
+          <div class="card-links">
+            <a href="#">Live demo</a>
+            <a href="#">Code</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>[Project name]</h3>
+          <p>[One or two sentences on what it does and why you built it.]</p>
+          <ul class="tags"><li>[Tech]</li><li>[Tech]</li></ul>
+          <div class="card-links">
+            <a href="#">Live demo</a>
+            <a href="#">Code</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS: add or remove items -->
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>[Skill]</li>
+        <li>[Skill]</li>
+        <li>[Skill]</li>
+        <li>[Skill]</li>
+        <li>[Skill]</li>
+        <li>[Skill]</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT: add the links you want public -->
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+      <p>[A line inviting people to reach out.]</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:you@example.com">Email me</a>
+        <a class="btn" href="https://github.com/neon123790">GitHub</a>
+        <a class="btn" href="#">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Nikita Joseph</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

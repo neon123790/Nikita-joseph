@@ -22,27 +22,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
 
-  /* ==========================================================
-     Hero: the painted colour blocks drift with the cursor,
-     and her eyes follow it, just a little
-     ========================================================== */
   const girl = document.querySelector('.girl');
-  if (girl && canHover && !reduceMotion) {
-    const back = girl.querySelector('.parallax-back');
-    const look = girl.querySelector('.look');
-    window.addEventListener('pointermove', (e) => {
-      const r = girl.getBoundingClientRect();
-      const dx = e.clientX - (r.left + r.width / 2);
-      const dy = e.clientY - (r.top + r.height / 2);
-      const nx = Math.max(-1, Math.min(1, dx / (window.innerWidth / 2)));
-      const ny = Math.max(-1, Math.min(1, dy / (window.innerHeight / 2)));
-      back.style.setProperty('--px', `${nx * -10}px`);
-      back.style.setProperty('--py', `${ny * -6}px`);
-      const d = Math.hypot(dx, dy) || 1;
-      const k = Math.min(1, d / 300);
-      look.style.transform = `translate(${(dx / d) * 2.2 * k}px, ${(dy / d) * 1.4 * k}px)`;
-    }, { passive: true });
-  }
 
   /* every 5 seconds the painting and the real photo swap places */
   if (girl && !reduceMotion) {

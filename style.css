@@ -272,7 +272,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .headline-wrap {
   position: relative;
   font-size: clamp(2.5rem, 6.6vw, 5.4rem);
-  padding-top: 3.95em;
+  padding-top: 4.62em;
 }
 .hero h1 { font-size: 1em; line-height: 1.04; letter-spacing: -.03em; position: relative; z-index: 2; max-width: 12.4em; margin: 0 auto; }
 
@@ -280,108 +280,24 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .scribble-word svg { position: absolute; left: -2%; bottom: -.1em; width: 104%; height: .26em; color: var(--p-orange); opacity: .8; }
 .scribble-word path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.2s 1.1s var(--ease) forwards; }
 
-/* --- the character, painted like Nikita's portraits --- */
+/* --- Nikita's painted portrait, resting on the headline --- */
 .girl {
   position: absolute; left: 50%; top: 0;
-  width: 6em;
+  width: 3.3em;
   transform: translateX(-50%);
-  pointer-events: none;
   overflow: hidden;           /* she rises from behind the headline */
+  pointer-events: none;
   z-index: 1;
 }
 .girl svg { display: block; width: 100%; height: auto; }
+.girl .rise { animation: rise 1.1s .2s cubic-bezier(.2, .9, .25, 1.05) both; }
+@keyframes rise { from { transform: translateY(72%); } to { transform: none; } }
 
-/* 1. colour blocks paint themselves in */
-.girl .parallax-back { transition: transform .6s var(--ease); transform: translate(var(--px, 0px), var(--py, 0px)); }
-.girl .blocks rect {
-  filter: url(#paint-edge);
-  opacity: var(--block-opacity);
-  transform-box: fill-box;
-  transform-origin: left bottom;
-  animation: paintin .75s var(--ease) both;
-  animation-delay: calc(var(--i) * 70ms);
-}
-@keyframes paintin { from { transform: scaleX(0) scaleY(.6); } to { transform: none; } }
-.girl .b-magenta { fill: var(--p-magenta); }
-.girl .b-cobalt { fill: var(--p-cobalt); }
-.girl .b-orange { fill: var(--p-orange); }
-.girl .b-lime { fill: var(--p-lime); }
-.girl .b-mustard { fill: var(--p-mustard); }
-.girl .b-violet { fill: var(--p-violet); }
-.girl .b-teal { fill: var(--p-teal); }
-
-/* 2. she rises from behind the headline (clipped at the headline's top edge) */
-.girl .rise { animation: rise 1.1s .55s cubic-bezier(.2, .9, .25, 1.05) both; }
-@keyframes rise { from { transform: translateY(78%); } to { transform: none; } }
-
-/* paint */
-.girl .skin { fill: var(--skin); }
-.girl .ink { stroke: var(--outline); stroke-width: 1.6; stroke-linejoin: round; }
-.girl .ink-thin { stroke: var(--outline); stroke-width: 1; }
-.girl .shade { fill: var(--skin-shade); opacity: .55; filter: url(#paint-edge); }
-.girl .light { fill: var(--skin-light); opacity: .6; filter: url(#paint-edge); }
-.girl .warm { fill: var(--p-orange); opacity: .32; filter: url(#paint-edge); }
-.girl .hair { fill: var(--hair); stroke: var(--outline); stroke-width: 1.4; }
-.girl .hi { fill: none; stroke-width: 2.6; stroke-linecap: round; opacity: .9; }
-.girl .hi-cobalt { stroke: var(--p-cobalt-hi); }
-.girl .hi-violet { stroke: var(--p-violet-hi); }
-.girl .hi-magenta { stroke: var(--p-magenta); }
-.girl .brow { fill: none; stroke: var(--outline); stroke-width: 3.6; stroke-linecap: round; }
-.girl .eye-white { fill: #f4ecdc; }
-.girl .iris { fill: #4a2b17; }
-.girl .pupil { fill: #120b08; }
-.girl .shine { fill: #fff; }
-.girl .lid { fill: none; stroke: var(--outline); stroke-width: 2.6; stroke-linecap: round; }
-.girl .nose { fill: none; stroke: var(--skin-shade); stroke-width: 2; stroke-linecap: round; }
-.girl .bindi { fill: #9c1f2e; }
-.girl .lip-top { fill: #8a3325; }
-.girl .lip-bottom { fill: #b4523e; }
-.girl .lip-shine { fill: #f0a184; opacity: .7; }
-.girl .smile { fill: none; stroke: #7a3426; stroke-width: 1.4; stroke-linecap: round; }
-.girl .saree { fill: var(--p-magenta); }
-.girl .saree-shade { fill: #7d1f4b; opacity: .45; filter: url(#paint-edge); }
-.girl .saree-print circle { fill: #f6d9ea; opacity: .85; }
-.girl .pallu { fill: var(--p-lime); filter: url(#paint-edge); }
-.girl .pallu-swirl { fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; opacity: .85; }
-.girl .gold { fill: var(--p-mustard); stroke: var(--p-mustard); }
-.girl .pearl { fill: #fbf6ea; stroke: #a89c88; stroke-width: .6; }
-.girl .bangle { fill: none; stroke-width: 3.2; stroke-linecap: round; }
-.girl .bangle.b1 { stroke: var(--p-lime); }
-.girl .bangle.b2 { stroke: var(--p-magenta); }
-.girl .bangle.b3 { stroke: var(--p-mustard); }
-.girl .finger { fill: none; stroke: var(--skin-shade); stroke-width: 1.6; stroke-linecap: round; }
-
-/* the illustration and the real photo take turns */
+/* the painting and the real photo take turns */
 .girl .art-layer, .girl .photo-layer { transition: opacity 1.2s ease; }
 .girl .photo-layer { opacity: 0; }
 .girl.show-photo .art-layer { opacity: 0; }
 .girl.show-photo .photo-layer { opacity: 1; }
-
-.girl .top { fill: var(--top); }
-.girl .top-shade { fill: #8f3f47; opacity: .35; filter: url(#paint-edge); }
-.girl .ruffle { fill: none; stroke: #9c4a52; stroke-width: 1.4; stroke-linecap: round; opacity: .7; }
-.girl .blush { fill: #e0788a; opacity: .3; filter: url(#paint-edge); }
-.girl .under { fill: none; stroke: var(--skin-shade); stroke-width: 1.2; stroke-linecap: round; opacity: .35; }
-.girl .hair-wave { fill: none; stroke: #3b2a22; stroke-width: 2; stroke-linecap: round; opacity: .9; }
-.girl .lips { fill: #c95d79; }
-.girl .lip-line { fill: none; stroke: #8e3550; stroke-width: 1.6; stroke-linecap: round; }
-.girl .hi-caramel { stroke: #b67c46; }
-
-/* 3. ink lines draw on, like a pen finishing the portrait */
-.girl .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw .9s var(--ease) forwards; animation-delay: 1.45s; }
-
-/* idle life: head tilt, blinking, swinging jhumkas, shimmering hair */
-.girl .head, .girl .eyes, .girl .look, .girl .earring { transform-box: view-box; }
-.girl .head { transform-origin: 240px 240px; animation: tilt 8s ease-in-out 2.4s infinite; }
-@keyframes tilt { 0%, 100% { transform: rotate(0deg); } 30% { transform: rotate(-2.5deg); } 70% { transform: rotate(2deg); } }
-.girl .eyes { transform-origin: 240px 170px; animation: blink 5s 2.6s infinite; }
-@keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95.5% { transform: scaleY(.1); } }
-.girl .look { transition: transform .3s ease-out; }
-.girl .earring-l { transform-origin: 186px 204px; animation: swing 3.2s ease-in-out infinite alternate; }
-.girl .earring-r { transform-origin: 294px 204px; animation: swing 3.2s ease-in-out -1.6s infinite alternate; }
-@keyframes swing { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
-.girl .hi { animation: draw 1.2s var(--ease) 1.7s forwards, shimmer 4s ease-in-out 3s infinite; }
-@keyframes shimmer { 0%, 100% { opacity: .9; } 50% { opacity: .45; } }
 
 .hero-intro { max-width: 37em; margin: clamp(28px, 4vw, 40px) auto 0; font-size: 1.1rem; color: var(--ink); }
 .hero-intro + .hero-intro { margin-top: .8em; color: var(--muted); }
@@ -427,30 +343,32 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .ship-scene .wake { fill: none; stroke: var(--paper); stroke-width: 1.6; stroke-linecap: round; }
 
 /* journal — a real notebook: cloth cover, wire-o binding, dot-grid pages */
-.journal { position: relative; padding-top: 72px; --page: #fbf7ee; --page-ink: #2b2622; --page-muted: #6f675e; --page-line: #e6dccb; --cover: #33425f; }
+.journal { position: relative; padding-right: 118px; --page: #fbf7ee; --page-ink: #2b2622; --page-muted: #6f675e; --page-line: #e6dccb; --cover: #33425f; }
 :root[data-theme="dark"] .journal { --page: #efe8da; --page-ink: #2b2622; --page-muted: #6f675e; --page-line: #ddd1bd; --cover: #0a0d18; }
 
-.bookmarks { position: absolute; top: 0; right: clamp(40px, 6vw, 90px); display: flex; gap: 4px; z-index: 0; }
+/* index tabs sticking out of the right edge of the notebook */
+.bookmarks { position: absolute; top: 54px; right: 0; display: flex; flex-direction: column; gap: 8px; z-index: 0; }
 .bookmark {
   position: relative;
   border: 0; cursor: pointer;
-  width: clamp(92px, 10.5vw, 128px);
-  height: 86px;
-  padding: 10px 12px 0;
+  width: 178px;
+  height: 58px;
+  padding: 0 10px 0 86px;
+  display: flex; flex-direction: column; justify-content: center;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, .18), transparent 40%),
+    linear-gradient(90deg, rgba(0, 0, 0, .07), transparent 32%),
     var(--bm);
-  color: #fff;
-  font: 600 .78rem/1.15 var(--sans);
+  color: #2b2622;
+  font: 600 .8rem/1.15 var(--sans);
   text-align: left;
-  border-radius: 8px 8px 0 0;
-  box-shadow: inset 0 -12px 14px -10px rgba(0, 0, 0, .35), 0 -1px 0 rgba(0, 0, 0, .06);
-  transform: translateY(20px);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .08), 0 6px 14px -10px rgba(0, 0, 0, .35);
+  transform: translateX(-18px);
   transition: transform .35s var(--ease);
 }
-.bookmark small { display: block; font-family: var(--hand); font-weight: 600; font-size: 1.05rem; opacity: .85; margin-bottom: 1px; }
-.bookmark:hover { transform: translateY(12px); }
-.bookmark[aria-selected="true"] { transform: translateY(2px); }
+.bookmark small { display: block; font-family: var(--hand); font-weight: 600; font-size: 1rem; opacity: .7; }
+.bookmark:hover { transform: translateX(-9px); }
+.bookmark[aria-selected="true"] { transform: translateX(0); }
 
 /* the cover peeks out around the pages, with an elastic strap */
 .book-cover {
@@ -536,7 +454,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .entry h3::after {
   /* a highlighter swipe under the title */
   content: ""; position: absolute; left: -4px; right: -6px; bottom: .08em; height: .38em; z-index: -1;
-  background: var(--bm); opacity: .24; border-radius: 3px; transform: rotate(-.8deg);
+  background: var(--bm); opacity: .95; border-radius: 3px; transform: rotate(-.8deg);
 }
 .entry .desc { font-size: 1.06rem; color: var(--page-ink); margin: 0 0 24px; max-width: 27em; }
 .entry .meta { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 0 0 22px; font-size: .94rem; }
@@ -575,7 +493,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   container-type: inline-size;
 }
 .thumb::before { content: ""; position: absolute; inset: 12% 8% -12%; background: var(--bm); filter: url(#wc); opacity: 0; transition: opacity .6s ease; }
-.print:hover .thumb::before { opacity: .25; }
+.print:hover .thumb::before { opacity: .7; }
 .thumb .sketch, .thumb .ui { position: absolute; inset: 0; transition: opacity .55s ease, transform .7s var(--ease), filter .7s ease; }
 .thumb .sketch { display: grid; place-items: center; padding: 6%; }
 .thumb .sketch svg { width: 100%; height: 100%; }
@@ -1060,11 +978,12 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   .book-cover { padding: 10px; border-radius: 16px; }
   .page.left { order: 2; border-radius: 0 0 8px 8px; box-shadow: none; border-top: 1px dashed var(--page-line); }
   .entry:not([hidden]) .page.right { order: 1; padding-bottom: 8px; border-radius: 8px 8px 0 0; box-shadow: none; }
-  .journal { padding-top: 0; }
-  .bookmarks { position: relative; right: auto; overflow-x: auto; padding: 0 14px; margin-bottom: -8px; scrollbar-width: none; }
-  .bookmark { flex: 0 0 auto; width: auto; white-space: nowrap; height: 56px; padding: 12px 16px 0 12px; transform: translateY(12px); }
+  .journal { padding-right: 0; }
+  .bookmarks { position: relative; top: auto; right: auto; flex-direction: row; gap: 6px; overflow-x: auto; padding: 0 14px; margin-bottom: -8px; scrollbar-width: none; }
+  .bookmark { flex: 0 0 auto; width: auto; height: 52px; padding: 10px 14px 0; display: block; white-space: nowrap; border-radius: 10px 10px 0 0; background: linear-gradient(180deg, rgba(255, 255, 255, .25), transparent 40%), var(--bm); transform: translateY(8px); }
+  .bookmark:hover { transform: translateY(7px); }
+  .bookmark[aria-selected="true"] { transform: translateY(0); }
   .bookmark small { display: inline; margin-right: 6px; }
-  .bookmark:hover { transform: translateY(8px); }
 
 }
 

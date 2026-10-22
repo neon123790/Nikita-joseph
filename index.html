@@ -73,127 +73,20 @@
         <p class="label hero-label">Senior UX Designer</p>
 
         <div class="headline-wrap" id="stage">
-          <!-- Nikita, painted from a photo of her, resting her chin on her hand on top of the headline.
-               Every few seconds it crossfades to the real photo and back. -->
-          <div class="girl" aria-hidden="true">
-            <svg viewBox="0 0 480 330">
+          <!-- Nikita's own painted portrait, resting on the headline.
+               Every 5 seconds it crossfades to the photo it was painted from, and back. -->
+          <div class="girl" role="img" aria-label="A colourful painted portrait of Nikita resting her chin on her hand, which fades into the photo it was painted from.">
+            <svg viewBox="0 0 406 592" aria-hidden="true">
               <defs>
-                <clipPath id="top-clip"><path d="M138 324 C 136 290, 156 262, 196 252 L 228 246 L 268 246 L 300 252 C 340 262, 360 292, 360 324 Z"/></clipPath>
-                <clipPath id="eye-l"><path d="M214 167 C 220 160, 232 160, 238 166 C 232 170, 220 171, 214 167 Z"/></clipPath>
-                <clipPath id="eye-r"><path d="M258 166 C 264 160, 276 160, 282 167 C 276 171, 264 170, 258 166 Z"/></clipPath>
-                <mask id="photo-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="330">
-                  <path filter="url(#paint-edge)" fill="#fff" d="M180 336 C 170 300, 170 200, 170 130 C 170 46, 216 14, 296 14 C 376 14, 424 46, 424 130 L 424 336 Z"/>
+                <mask id="canvas-mask" maskUnits="userSpaceOnUse" x="-40" y="-40" width="486" height="700">
+                  <rect filter="url(#paint-edge)" fill="#fff" x="7" y="7" width="392" height="640"/>
                 </mask>
               </defs>
-
-              <!-- colour blocks, painted in one by one -->
-              <g class="parallax-back">
-                <g class="blocks">
-                  <rect class="b-cobalt"  style="--i:0" x="196" y="8"   width="92" height="74"/>
-                  <rect class="b-magenta" style="--i:1" x="286" y="22"  width="72" height="120"/>
-                  <rect class="b-mustard" style="--i:2" x="138" y="40"  width="62" height="92"/>
-                  <rect class="b-violet"  style="--i:3" x="116" y="74"  width="40" height="70"/>
-                  <rect class="b-magenta" style="--i:4" x="332" y="70"  width="50" height="62"/>
-                  <rect class="b-orange"  style="--i:5" x="94"  y="120" width="72" height="150"/>
-                  <rect class="b-cobalt"  style="--i:6" x="344" y="122" width="58" height="100"/>
-                  <rect class="b-orange"  style="--i:7" x="78"  y="172" width="32" height="92"/>
-                  <rect class="b-lime"    style="--i:8" x="66"  y="206" width="62" height="110"/>
-                  <rect class="b-lime"    style="--i:9" x="372" y="210" width="62" height="104"/>
-                  <rect class="b-teal"    style="--i:10" x="320" y="226" width="52" height="90"/>
+              <g class="rise">
+                <g mask="url(#canvas-mask)">
+                  <image class="art-layer" href="images/portrait-painting.jpg" width="406" height="592" preserveAspectRatio="xMidYMid slice"/>
+                  <image class="photo-layer" href="images/nikita-photo.jpg" width="406" height="592" preserveAspectRatio="xMidYMid slice"/>
                 </g>
-              </g>
-
-              <!-- the illustration -->
-              <g class="art-layer">
-                <g class="rise">
-                  <!-- hair, back: long and wavy, past the shoulders -->
-                  <path class="hair" d="M244 80 C 186 78, 158 118, 160 168 C 161 190, 148 200, 152 218 C 155 236, 140 246, 138 262 C 136 276, 126 282, 124 294 C 146 302, 172 298, 192 282 C 194 254, 196 228, 200 212 L 302 212 C 306 234, 312 258, 320 286 C 342 302, 368 298, 390 286 C 386 270, 372 264, 370 248 C 368 230, 352 222, 353 202 C 354 186, 344 178, 346 166 C 346 116, 306 80, 244 80 Z"/>
-                  <path class="hair-wave" d="M170 176 C 162 196, 176 210, 166 230 C 158 246, 164 260, 148 280 M334 170 C 342 192, 330 210, 344 232 C 354 248, 350 262, 366 280 M356 196 C 364 214, 360 232, 374 252"/>
-
-                  <!-- upper arms -->
-                  <path class="skin ink" d="M318 250 C 344 252, 368 270, 386 296 L 360 308 C 350 290, 336 278, 316 272 Z"/>
-                  <path class="skin ink" d="M150 256 C 160 280, 168 300, 176 318 L 206 318 C 198 296, 188 274, 178 252 Z"/>
-
-                  <!-- dusty pink top with puff sleeves -->
-                  <g clip-path="url(#top-clip)">
-                    <rect class="top" x="130" y="240" width="240" height="90"/>
-                    <path class="top-shade" d="M300 252 C 336 262, 356 290, 358 324 L 312 324 C 318 296, 314 272, 300 252 Z"/>
-                  </g>
-                  <path class="top ink" d="M128 270 C 126 250, 146 240, 168 244 C 186 248, 194 262, 188 278 C 176 288, 150 290, 134 284 Z"/>
-                  <path class="top ink" d="M352 268 C 354 248, 336 238, 314 242 C 296 246, 288 260, 294 276 C 306 286, 332 288, 348 282 Z"/>
-                  <path class="ruffle" d="M136 280 c 6 -4 10 4 16 0 s 10 4 16 0 s 10 4 16 -2 M300 274 c 6 4 10 -4 16 0 s 10 -4 16 0 s 10 -4 14 2"/>
-
-                  <!-- the long hair falling in front of the shoulders -->
-                  <path class="hair" d="M186 200 C 181 218, 191 230, 183 246 C 175 262, 179 278, 158 298 C 176 302, 192 294, 198 280 C 198 254, 200 230, 204 212 Z"/>
-                  <path class="hair" d="M300 196 C 306 216, 299 232, 311 250 C 322 266, 318 284, 346 298 C 326 306, 306 298, 296 284 C 294 258, 292 234, 290 214 Z"/>
-
-                  <g class="head">
-                    <!-- neck -->
-                    <path class="skin" d="M232 220 L 232 256 C 242 262, 256 262, 266 256 L 266 220 Z"/>
-                    <path class="shade" d="M232 226 C 244 238, 256 240, 266 232 L 266 248 C 254 252, 242 250, 232 244 Z"/>
-
-                    <!-- face, built up in washes -->
-                    <path class="skin ink" d="M248 103 C 281 103, 300 130, 300 166 C 300 204, 278 230, 248 234 C 218 230, 196 204, 196 166 C 196 130, 215 103, 248 103 Z"/>
-                    <path class="shade" d="M276 116 C 296 132, 302 164, 296 194 C 290 216, 274 230, 256 234 C 274 212, 284 180, 276 116 Z"/>
-                    <path class="light" d="M222 118 C 236 110, 258 110, 270 118 L 264 130 C 252 124, 238 124, 226 130 Z"/>
-                    <path class="light" d="M245 162 L 252 162 L 254 190 L 243 190 Z"/>
-                    <ellipse class="blush" cx="217" cy="191" rx="13" ry="9"/>
-                    <ellipse class="blush" cx="282" cy="189" rx="11" ry="8"/>
-
-                    <!-- brows -->
-                    <path class="brow draw" pathLength="1" d="M210 150 C 218 145, 230 144, 240 147"/>
-                    <path class="brow draw" pathLength="1" d="M256 147 C 266 144, 278 145, 286 150"/>
-
-                    <!-- smiling eyes -->
-                    <g class="eyes">
-                      <path class="eye-white" d="M214 167 C 220 160, 232 160, 238 166 C 232 170, 220 171, 214 167 Z"/>
-                      <path class="eye-white" d="M258 166 C 264 160, 276 160, 282 167 C 276 171, 264 170, 258 166 Z"/>
-                      <g class="look">
-                        <g clip-path="url(#eye-l)"><circle class="iris" cx="226" cy="165.5" r="5"/><circle class="pupil" cx="226" cy="165.5" r="2.2"/><circle class="shine" cx="228" cy="163.6" r="1.1"/></g>
-                        <g clip-path="url(#eye-r)"><circle class="iris" cx="270" cy="165.5" r="5"/><circle class="pupil" cx="270" cy="165.5" r="2.2"/><circle class="shine" cx="272" cy="163.6" r="1.1"/></g>
-                      </g>
-                      <path class="lid draw" pathLength="1" d="M212 166 C 220 158, 233 158, 240 165"/>
-                      <path class="lid draw" pathLength="1" d="M256 165 C 263 158, 276 158, 284 166"/>
-                      <path class="under" d="M216 172 C 222 175, 230 175, 236 171 M260 171 C 266 175, 274 175, 280 172"/>
-                    </g>
-
-                    <path class="nose draw" pathLength="1" d="M248 168 C 246 180, 242 188, 244 192 C 248 195, 254 195, 258 192"/>
-
-                    <!-- a warm, closed-lip smile -->
-                    <path class="lips" d="M228 205 C 238 211, 258 211, 270 203 C 264 215, 238 218, 228 205 Z"/>
-                    <path class="lip-line" d="M228 205 C 240 209, 256 209, 270 203"/>
-                    <path class="smile draw" pathLength="1" d="M226 204 q -3 -1 -4 -4 M272 202 q 3 -1 4 -4"/>
-
-                    <!-- hair, front: side parting, swept over -->
-                    <path class="hair" d="M228 92 C 206 96, 194 116, 192 142 C 192 156, 194 168, 197 176 C 198 150, 206 128, 222 114 C 228 108, 230 100, 228 92 Z"/>
-                    <path class="hair" d="M226 90 C 256 82, 292 94, 304 124 C 312 144, 310 166, 302 184 C 298 162, 290 142, 272 128 C 258 118, 242 112, 228 106 Z"/>
-                    <path class="hi hi-caramel draw" pathLength="1" d="M238 94 C 262 92, 286 104, 298 124"/>
-                    <path class="hi hi-caramel draw" pathLength="1" d="M200 118 C 194 136, 192 152, 194 170"/>
-                  </g>
-
-                  <!-- caramel highlights in the long hair -->
-                  <path class="hi hi-caramel draw" pathLength="1" d="M178 164 C 170 186, 182 204, 172 226 C 164 244, 168 258, 152 278"/>
-                  <path class="hi hi-caramel draw" pathLength="1" d="M192 212 C 186 228, 194 240, 186 256 C 180 270, 182 282, 168 294"/>
-                  <path class="hi hi-caramel draw" pathLength="1" d="M330 152 C 338 176, 326 196, 340 220 C 350 238, 346 254, 364 274"/>
-                  <path class="hi hi-caramel draw" pathLength="1" d="M304 216 C 310 232, 304 248, 314 262 C 322 274, 322 284, 336 294"/>
-                  <path class="hi hi-caramel draw" pathLength="1" d="M318 132 C 326 152, 318 172, 328 192 C 336 208, 332 224, 342 242"/>
-
-                  <!-- forearm folded flat across the headline -->
-                  <path class="skin ink" d="M372 298 C 388 298, 398 312, 394 322 C 390 330, 380 331, 370 331 L 196 331 C 184 331, 180 316, 190 306 L 212 299 Z"/>
-                  <path class="shade" d="M200 322 C 260 328, 330 328, 390 320 L 380 330 L 204 330 Z"/>
-                  <path class="light" d="M220 302 C 270 300, 330 300, 368 302 L 368 307 C 330 305, 270 305, 220 307 Z"/>
-
-                  <!-- the other forearm, up to a fist under her chin -->
-                  <path class="skin ink" d="M204 252 L 240 260 L 216 326 C 202 334, 180 330, 172 316 Z"/>
-                  <path class="shade" d="M226 258 L 240 260 L 216 326 C 210 328, 204 328, 200 327 Z"/>
-                  <path class="skin ink" d="M200 238 C 200 224, 214 218, 230 220 C 246 222, 256 232, 254 246 C 252 262, 236 270, 220 268 C 206 266, 200 252, 200 238 Z"/>
-                  <path class="finger" d="M208 232 q 10 -4 20 0 M206 242 q 12 -4 24 0 M208 252 q 10 -3 20 1 M238 226 q 8 4 10 14"/>
-                </g>
-              </g>
-
-              <!-- the real photo, crossfading in every few seconds -->
-              <g class="photo-layer">
-                <image href="images/nikita-photo.jpg" x="157" y="0" width="296" height="331" preserveAspectRatio="xMidYMax slice" mask="url(#photo-mask)"/>
               </g>
             </svg>
           </div>
@@ -247,11 +140,11 @@
 
         <div class="journal reveal">
           <div class="bookmarks" role="tablist" aria-label="Projects">
-            <button class="bookmark" role="tab" id="bm-academy" aria-controls="entry-academy" aria-selected="true" style="--bm:var(--p-mustard); color:#26221f"><small>01</small>FYERS Academy</button>
-            <button class="bookmark" role="tab" id="bm-portfolio" aria-controls="entry-portfolio" aria-selected="false" tabindex="-1" style="--bm:var(--p-lime); color:#26221f"><small>02</small>Portfolio</button>
-            <button class="bookmark" role="tab" id="bm-partner" aria-controls="entry-partner" aria-selected="false" tabindex="-1" style="--bm:var(--p-cobalt); color:#fff"><small>03</small>Partner Dashboard</button>
-            <button class="bookmark" role="tab" id="bm-trading" aria-controls="entry-trading" aria-selected="false" tabindex="-1" style="--bm:var(--p-orange); color:#26221f"><small>04</small>Trading Flows</button>
-            <button class="bookmark" role="tab" id="bm-ai" aria-controls="entry-ai" aria-selected="false" tabindex="-1" style="--bm:var(--p-magenta); color:#fff"><small>05</small>AI Experiments</button>
+            <button class="bookmark" role="tab" id="bm-academy" aria-controls="entry-academy" aria-selected="true" style="--bm:#f2dfa7"><small>01</small>FYERS Academy</button>
+            <button class="bookmark" role="tab" id="bm-portfolio" aria-controls="entry-portfolio" aria-selected="false" tabindex="-1" style="--bm:#d4e4c4"><small>02</small>Portfolio</button>
+            <button class="bookmark" role="tab" id="bm-partner" aria-controls="entry-partner" aria-selected="false" tabindex="-1" style="--bm:#cddcf0"><small>03</small>Partner Dashboard</button>
+            <button class="bookmark" role="tab" id="bm-trading" aria-controls="entry-trading" aria-selected="false" tabindex="-1" style="--bm:#f3cdbd"><small>04</small>Trading Flows</button>
+            <button class="bookmark" role="tab" id="bm-ai" aria-controls="entry-ai" aria-selected="false" tabindex="-1" style="--bm:#e2d3f0"><small>05</small>AI Experiments</button>
           </div>
 
           <div class="book-cover">
@@ -259,7 +152,7 @@
             <div class="spiral" aria-hidden="true"></div>
             <div class="turner" aria-hidden="true"></div>
             <!-- 01 FYERS Academy -->
-            <div class="entry is-active" id="entry-academy" role="tabpanel" aria-labelledby="bm-academy" style="--bm:var(--p-mustard)">
+            <div class="entry is-active" id="entry-academy" role="tabpanel" aria-labelledby="bm-academy" style="--bm:#f2dfa7">
               <div class="page left">
                 <span class="num">entry no. 01</span>
                 <h3>FYERS Academy</h3>
@@ -269,7 +162,7 @@
                   <dt>Area</dt><dd>Learning · Trading simulator</dd>
                   <dt>Outcome</dt><dd>Working Android app in 3 months</dd>
                 </dl>
-                <div class="tags"><span class="chip" style="--c:var(--p-mustard)">Learning UX</span><span class="chip" style="--c:var(--p-mustard)">Simulator</span><span class="chip" style="--c:var(--p-mustard)">AI-assisted workflows</span></div>
+                <div class="tags"><span class="chip" style="--c:var(--bm)">Learning UX</span><span class="chip" style="--c:var(--bm)">Simulator</span><span class="chip" style="--c:var(--bm)">AI-assisted workflows</span></div>
                 <a class="btn btn-primary" href="work/fyers-academy.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
@@ -295,7 +188,7 @@
             </div>
 
             <!-- 02 Portfolio -->
-            <div class="entry" id="entry-portfolio" role="tabpanel" aria-labelledby="bm-portfolio" style="--bm:var(--p-lime)" hidden>
+            <div class="entry" id="entry-portfolio" role="tabpanel" aria-labelledby="bm-portfolio" style="--bm:#d4e4c4" hidden>
               <div class="page left">
                 <span class="num">entry no. 02</span>
                 <h3>Portfolio</h3>
@@ -305,7 +198,7 @@
                   <dt>Area</dt><dd>Investing · Mobile + Web</dd>
                   <dt>Outcome</dt><dd>Shipped</dd>
                 </dl>
-                <div class="tags"><span class="chip" style="--c:var(--p-lime)">Investing UX</span><span class="chip" style="--c:var(--p-lime)">Mobile + Web</span><span class="chip" style="--c:var(--p-lime)">Shipped</span></div>
+                <div class="tags"><span class="chip" style="--c:var(--bm)">Investing UX</span><span class="chip" style="--c:var(--bm)">Mobile + Web</span><span class="chip" style="--c:var(--bm)">Shipped</span></div>
                 <a class="btn btn-primary" href="work/fyers-portfolio.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
@@ -334,7 +227,7 @@
             </div>
 
             <!-- 03 Partner Dashboard -->
-            <div class="entry" id="entry-partner" role="tabpanel" aria-labelledby="bm-partner" style="--bm:var(--p-cobalt)" hidden>
+            <div class="entry" id="entry-partner" role="tabpanel" aria-labelledby="bm-partner" style="--bm:#cddcf0" hidden>
               <div class="page left">
                 <span class="num">entry no. 03</span>
                 <h3>Partner Dashboard</h3>
@@ -344,7 +237,7 @@
                   <dt>Area</dt><dd>B2B · Partner operations</dd>
                   <dt>Outcome</dt><dd>Shipped</dd>
                 </dl>
-                <div class="tags"><span class="chip" style="--c:var(--p-cobalt)">B2B Dashboard</span><span class="chip" style="--c:var(--p-cobalt)">Operations UX</span><span class="chip" style="--c:var(--p-cobalt)">Shipped</span></div>
+                <div class="tags"><span class="chip" style="--c:var(--bm)">B2B Dashboard</span><span class="chip" style="--c:var(--bm)">Operations UX</span><span class="chip" style="--c:var(--bm)">Shipped</span></div>
                 <a class="btn btn-primary" href="work/partner-dashboard.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
@@ -368,7 +261,7 @@
             </div>
 
             <!-- 04 Trading Flows -->
-            <div class="entry" id="entry-trading" role="tabpanel" aria-labelledby="bm-trading" style="--bm:var(--p-orange)" hidden>
+            <div class="entry" id="entry-trading" role="tabpanel" aria-labelledby="bm-trading" style="--bm:#f3cdbd" hidden>
               <div class="page left">
                 <span class="num">entry no. 04</span>
                 <h3>Trading Flows</h3>
@@ -378,7 +271,7 @@
                   <dt>Area</dt><dd>Trading · Order flows</dd>
                   <dt>Outcome</dt><dd>Shipped to live users, built for one-handed use</dd>
                 </dl>
-                <div class="tags"><span class="chip" style="--c:var(--p-orange)">Trading UX</span><span class="chip" style="--c:var(--p-orange)">Order Flows</span><span class="chip" style="--c:var(--p-orange)">Fintech</span></div>
+                <div class="tags"><span class="chip" style="--c:var(--bm)">Trading UX</span><span class="chip" style="--c:var(--bm)">Order Flows</span><span class="chip" style="--c:var(--bm)">Fintech</span></div>
                 <a class="btn btn-primary" href="work/trading-experience.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
@@ -405,7 +298,7 @@
             </div>
 
             <!-- 05 AI Experiments -->
-            <div class="entry" id="entry-ai" role="tabpanel" aria-labelledby="bm-ai" style="--bm:var(--p-magenta)" hidden>
+            <div class="entry" id="entry-ai" role="tabpanel" aria-labelledby="bm-ai" style="--bm:#e2d3f0" hidden>
               <div class="page left">
                 <span class="num">entry no. 05</span>
                 <h3>AI Experiments</h3>
@@ -415,7 +308,7 @@
                   <dt>Area</dt><dd>AI-assisted products · Prototyping</dd>
                   <dt>Outcome</dt><dd>FYERS Academy shipped as a working app</dd>
                 </dl>
-                <div class="tags"><span class="chip" style="--c:var(--p-magenta)">CXO Innovation Lab</span><span class="chip" style="--c:var(--p-magenta)">Prototyping</span><span class="chip" style="--c:var(--p-magenta)">ElevenLabs · HeyGen</span></div>
+                <div class="tags"><span class="chip" style="--c:var(--bm)">CXO Innovation Lab</span><span class="chip" style="--c:var(--bm)">Prototyping</span><span class="chip" style="--c:var(--bm)">ElevenLabs · HeyGen</span></div>
                 <a class="btn btn-primary" href="work/ai-experiments.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">

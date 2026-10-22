@@ -22,15 +22,6 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
 
-  const girl = document.querySelector('.girl');
-
-  /* every 5 seconds the painting and the real photo swap places */
-  if (girl && !reduceMotion) {
-    setTimeout(() => {
-      setInterval(() => { if (!document.hidden) girl.classList.toggle('show-photo'); }, 5000);
-    }, 2500);
-  }
-
   /* ==========================================================
      Tabs: journal bookmarks and the How I work process
      ========================================================== */

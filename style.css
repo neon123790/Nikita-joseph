@@ -293,12 +293,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .girl .rise { animation: rise 1.1s .2s cubic-bezier(.2, .9, .25, 1.05) both; }
 @keyframes rise { from { transform: translateY(72%); } to { transform: none; } }
 
-/* the painting and the real photo take turns */
-.girl .art-layer, .girl .photo-layer { transition: opacity 1.2s ease; }
-.girl .photo-layer { opacity: 0; }
-.girl.show-photo .art-layer { opacity: 0; }
-.girl.show-photo .photo-layer { opacity: 1; }
-
 .hero-intro { max-width: 37em; margin: clamp(28px, 4vw, 40px) auto 0; font-size: 1.1rem; color: var(--ink); }
 .hero-intro + .hero-intro { margin-top: .8em; color: var(--muted); }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 32px 0 0; }
@@ -314,33 +308,23 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .work-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px); align-items: end; gap: clamp(28px, 5vw, 64px); margin-bottom: clamp(56px, 7vw, 88px); }
 .work-head .section-head { margin-bottom: 0; }
 
-/* little ship */
-.ship-scene svg { display: block; width: 100%; height: auto; border-radius: 20px; background: var(--paper); border: 1px solid var(--line); }
-.ship-scene .ship-note { display: block; text-align: right; margin-top: 8px; font-family: var(--hand); font-size: 1.2rem; color: var(--muted); }
-.ship-scene .sun { fill: var(--p-mustard); opacity: .7; filter: url(#paint-edge); }
-.ship-scene .gull { fill: none; stroke: var(--muted); stroke-width: 1.3; stroke-linecap: round; }
+/* little ship: a line drawing that gently rocks */
+.ship-scene svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ship-scene .ship-note { display: block; text-align: right; margin-top: 4px; font-family: var(--hand); font-size: 1.25rem; color: var(--muted); }
+.ship-scene .ln { fill: none; stroke: var(--ink-stroke); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+.ship-scene .flag { fill: var(--p-lime); fill-opacity: .55; transform-box: fill-box; transform-origin: left center; animation: flutter 1.2s ease-in-out infinite alternate; }
+.ship-scene .tick { stroke: var(--p-lime); stroke-width: 2.4; }
+.ship-scene .gull { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-linecap: round; }
 .ship-scene .g1 { animation: gull 9s ease-in-out infinite; }
 .ship-scene .g2 { animation: gull 11s ease-in-out -3s infinite; }
 @keyframes gull { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(14px, -5px); } }
-.ship-scene .wave-back path { fill: var(--p-cobalt); opacity: .35; }
-.ship-scene .wave-front path { fill: var(--p-cobalt); opacity: .75; }
-.ship-scene .wave-back { animation: waves 6s linear infinite; }
-.ship-scene .wave-front { animation: waves 4s linear infinite reverse; }
-@keyframes waves { from { transform: translateX(0); } to { transform: translateX(-80px); } }
 .ship-scene .ship { animation: sail 10s ease-in-out infinite; }
-@keyframes sail { 0%, 100% { transform: translateX(-26px); } 50% { transform: translateX(26px); } }
-.ship-scene .ship-rock { transform-box: view-box; transform-origin: 160px 126px; animation: rock 3.2s ease-in-out infinite; }
+@keyframes sail { 0%, 100% { transform: translateX(-18px); } 50% { transform: translateX(18px); } }
+.ship-scene .ship-rock { transform-box: view-box; transform-origin: 160px 140px; animation: rock 3.2s ease-in-out infinite; }
 @keyframes rock { 0%, 100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(3px); } }
-.ship-scene .mast { fill: none; stroke: var(--outline); stroke-width: 2.2; stroke-linecap: round; }
-.ship-scene .flag { fill: var(--p-lime); transform-box: view-box; transform-origin: 160px 31px; animation: flutter 1.2s ease-in-out infinite alternate; }
 @keyframes flutter { from { transform: scaleX(1) skewY(0deg); } to { transform: scaleX(.86) skewY(-6deg); } }
-.ship-scene .sail-main { fill: var(--p-mustard); stroke: var(--outline); stroke-width: 1.4; stroke-linejoin: round; }
-.ship-scene .sail-jib { fill: var(--p-magenta); stroke: var(--outline); stroke-width: 1.4; stroke-linejoin: round; }
-.ship-scene .tick { fill: none; stroke: var(--outline); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.ship-scene .hull { fill: var(--p-orange); stroke: var(--outline); stroke-width: 1.4; }
-.ship-scene .hull-stripe { stroke: var(--outline); stroke-width: 1.4; }
-.ship-scene .port { fill: var(--paper); stroke: var(--outline); stroke-width: 1; }
-.ship-scene .wake { fill: none; stroke: var(--paper); stroke-width: 1.6; stroke-linecap: round; }
+.ship-scene .draw-in { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.ship-scene.is-in .draw-in { animation: draw 1.4s var(--ease) .2s forwards; }
 
 /* journal — a real notebook: cloth cover, wire-o binding, dot-grid pages */
 .journal { position: relative; padding-right: 118px; --page: #fbf7ee; --page-ink: #2b2622; --page-muted: #6f675e; --page-line: #e6dccb; --cover: #33425f; }

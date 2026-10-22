@@ -73,20 +73,21 @@
         <p class="label hero-label">Senior UX Designer</p>
 
         <div class="headline-wrap" id="stage">
-          <!-- Nikita's own painted portrait, resting on the headline.
-               Every 5 seconds it crossfades to the photo it was painted from, and back. -->
-          <div class="girl" role="img" aria-label="A colourful painted portrait of Nikita resting her chin on her hand, which fades into the photo it was painted from.">
+          <!-- Nikita's own painted portrait, resting on the headline, fading softly into the page -->
+          <div class="girl" role="img" aria-label="A colourful painted portrait of Nikita resting her chin on her hand.">
             <svg viewBox="0 0 406 592" aria-hidden="true">
               <defs>
-                <mask id="canvas-mask" maskUnits="userSpaceOnUse" x="-40" y="-40" width="486" height="700">
-                  <rect filter="url(#paint-edge)" fill="#fff" x="7" y="7" width="392" height="640"/>
+                <filter id="soft-edge" filterUnits="userSpaceOnUse" x="-100" y="-100" width="606" height="800">
+                  <feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="5" result="n"/>
+                  <feDisplacementMap in="SourceGraphic" in2="n" scale="34" xChannelSelector="R" yChannelSelector="G" result="d"/>
+                  <feGaussianBlur in="d" stdDeviation="14"/>
+                </filter>
+                <mask id="canvas-mask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="606" height="800">
+                  <path filter="url(#soft-edge)" fill="#fff" d="M30 640 L 30 300 C 30 150, 90 46, 203 40 C 316 46, 376 150, 376 300 L 376 640 Z"/>
                 </mask>
               </defs>
               <g class="rise">
-                <g mask="url(#canvas-mask)">
-                  <image class="art-layer" href="images/portrait-painting.jpg" width="406" height="592" preserveAspectRatio="xMidYMid slice"/>
-                  <image class="photo-layer" href="images/nikita-photo.jpg" width="406" height="592" preserveAspectRatio="xMidYMid slice"/>
-                </g>
+                <image mask="url(#canvas-mask)" href="images/portrait-painting.jpg" width="406" height="592" preserveAspectRatio="xMidYMid slice"/>
               </g>
             </svg>
           </div>
@@ -110,28 +111,21 @@
 
           <div class="ship-scene reveal" aria-hidden="true">
             <svg viewBox="0 0 320 170">
-              <defs><clipPath id="sea-clip"><rect x="0" y="0" width="320" height="170" rx="20"/></clipPath></defs>
-              <g clip-path="url(#sea-clip)">
-                <circle class="sun" cx="248" cy="46" r="20"/>
-                <path class="gull g1" d="M60 40 q 5 -5 10 0 q 5 -5 10 0"/>
-                <path class="gull g2" d="M92 56 q 4 -4 8 0 q 4 -4 8 0"/>
-                <g class="wave-back"><path d="M0 122 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/></g>
-                <g class="ship">
-                  <g class="ship-rock">
-                    <path class="wake" d="M86 126 q -14 2 -28 0M92 132 q -12 2 -22 0"/>
-                    <path class="mast" d="M160 116 V 26"/>
-                    <path class="flag" d="M160 26 l 20 5 l -20 6 Z"/>
-                    <path class="sail-main" d="M165 32 C 190 52, 206 80, 210 110 L 165 110 Z"/>
-                    <path class="sail-jib" d="M155 40 C 140 60, 128 84, 122 110 L 155 110 Z"/>
-                    <path class="tick" d="M178 86 l 6 6 l 12 -14"/>
-                    <path class="hull" d="M98 112 L 226 112 L 210 134 C 180 140, 140 140, 112 134 Z"/>
-                    <path class="hull-stripe" d="M103 119 L 221 119"/>
-                    <circle class="port" cx="138" cy="126" r="3"/>
-                    <circle class="port" cx="160" cy="127" r="3"/>
-                    <circle class="port" cx="182" cy="126" r="3"/>
-                  </g>
+              <path class="gull g1" d="M60 40 q 5 -5 10 0 q 5 -5 10 0"/>
+              <path class="gull g2" d="M92 56 q 4 -4 8 0 q 4 -4 8 0"/>
+              <g class="ship">
+                <g class="ship-rock">
+                  <path class="ln draw-in" pathLength="1" d="M160 120 V 26"/>
+                  <path class="ln flag" d="M160 26 l 22 6 l -22 7 Z"/>
+                  <path class="ln draw-in" pathLength="1" d="M166 32 C 192 52, 208 82, 212 114 L 166 114 Z"/>
+                  <path class="ln draw-in" pathLength="1" d="M154 42 C 138 62, 126 88, 120 114 L 154 114 Z"/>
+                  <path class="ln tick" d="M180 90 l 7 7 l 13 -15"/>
+                  <path class="ln draw-in" pathLength="1" d="M96 120 L 228 120 L 210 144 C 180 150, 140 150, 112 144 Z"/>
+                  <path class="ln" d="M104 128 L 220 128"/>
+                  <circle class="ln" cx="140" cy="136" r="3"/>
+                  <circle class="ln" cx="162" cy="137" r="3"/>
+                  <circle class="ln" cx="184" cy="136" r="3"/>
                 </g>
-                <g class="wave-front"><path d="M0 134 q 20 -7 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V 170 H 0 Z"/></g>
               </g>
             </svg>
             <span class="ship-note">shipped, and still sailing.</span>

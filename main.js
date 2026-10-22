@@ -22,6 +22,12 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
 
+  /* pause looping animations in sections that aren't on screen */
+  const pauseIO = new IntersectionObserver((entries) => {
+    entries.forEach((e) => e.target.classList.toggle('offscreen', !e.isIntersecting));
+  }, { rootMargin: '100px 0px' });
+  document.querySelectorAll('main > section').forEach((s) => pauseIO.observe(s));
+
   /* ==========================================================
      Tabs: journal bookmarks and the How I work process
      ========================================================== */

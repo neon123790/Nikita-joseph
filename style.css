@@ -69,7 +69,7 @@
   --ease: cubic-bezier(.22, .8, .24, 1);
   --shadow-note: 0 1px 1px rgba(38, 34, 31, .06), 0 8px 18px -10px rgba(38, 34, 31, .35);
   --shadow-lift: 0 2px 2px rgba(38, 34, 31, .06), 0 20px 34px -14px rgba(38, 34, 31, .42);
-  --grain-opacity: .45;
+  --grain-opacity: .35;
   --grain-blend: multiply;
 
   color-scheme: light;
@@ -131,7 +131,6 @@
     radial-gradient(820px 480px at 94% 6%, rgba(91, 128, 214, .16), transparent 62%),
     radial-gradient(760px 520px at 50% 105%, rgba(174, 208, 92, .06), transparent 62%),
     var(--bg);
-  background-attachment: fixed;
 }
 :root[data-theme="dark"] .section-alt { background: color-mix(in srgb, var(--paper) 82%, transparent); }
 :root[data-theme="dark"] .site-header { background: color-mix(in srgb, var(--bg) 80%, transparent); }
@@ -159,7 +158,6 @@ body::before {
   pointer-events: none;
   z-index: 100;
   opacity: var(--grain-opacity);
-  mix-blend-mode: var(--grain-blend);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .33 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -251,7 +249,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 }
 .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c, var(--line-strong)); }
 
-.wash { position: absolute; pointer-events: none; border-radius: 50%; filter: url(#wc); opacity: var(--wash-opacity); }
+.wash { position: absolute; pointer-events: none; border-radius: 50%; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent); opacity: var(--wash-opacity); }
 
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.is-in { opacity: 1; transform: none; }
@@ -292,6 +290,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   clip-path: inset(-40% -40% 0 -40%);
   pointer-events: none;
   z-index: 3;
+  will-change: transform;   /* keep the painted portrait on its own layer */
 }
 .girl svg { display: block; width: 100%; height: auto; overflow: visible; }
 .girl .rise { animation: rise 1.2s .25s cubic-bezier(.2, .9, .25, 1.05) both; }
@@ -303,12 +302,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h);
   border-radius: 50%;
   background: var(--c);
-  filter: url(#wc);
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent);
   opacity: 0;
-  mix-blend-mode: multiply;
   animation: bleed 1.6s var(--ease) .5s forwards, breathe 12s ease-in-out var(--d) infinite;
 }
-:root[data-theme="dark"] .hero-bleed span { mix-blend-mode: normal; }
 @keyframes bleed { from { opacity: 0; transform: scale(.6); } to { opacity: var(--bleed-opacity); transform: none; } }
 @keyframes breathe { 0%, 100% { translate: 0 0; scale: 1; } 50% { translate: 6px -4px; scale: 1.05; } }
 
@@ -330,7 +327,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 /* little ship: a line drawing that gently rocks */
 .ship-scene svg { display: block; width: 100%; height: auto; overflow: visible; }
 .ship-scene .ship-note { display: block; text-align: right; margin-top: 4px; font-family: var(--hand); font-size: 1.25rem; color: var(--muted); }
-.ship-scene .ln { fill: none; stroke: var(--ink-stroke); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+.ship-scene .ln { fill: none; stroke: var(--ink-stroke); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .ship-scene .flag { fill: var(--p-lime); fill-opacity: .55; transform-box: fill-box; transform-origin: left center; animation: flutter 1.2s ease-in-out infinite alternate; }
 .ship-scene .tick { stroke: var(--p-lime); stroke-width: 2.4; }
 .ship-scene .gull { fill: none; stroke: var(--muted); stroke-width: 1.4; stroke-linecap: round; }
@@ -496,7 +493,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   overflow: hidden;
   container-type: inline-size;
 }
-.thumb::before { content: ""; position: absolute; inset: 12% 8% -12%; background: var(--bm); filter: url(#wc); opacity: 0; transition: opacity .6s ease; }
+.thumb::before { content: ""; position: absolute; inset: 12% 8% -12%; background: var(--bm); -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent); opacity: 0; transition: opacity .6s ease; }
 .print:hover .thumb::before { opacity: .7; }
 .thumb .sketch, .thumb .ui { position: absolute; inset: 0; transition: opacity .55s ease, transform .7s var(--ease), filter .7s ease; }
 .thumb .sketch { display: grid; place-items: center; padding: 6%; }
@@ -621,7 +618,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .pin-art { position: relative; aspect-ratio: 4 / 3; border-radius: 3px; overflow: hidden; background: var(--paper); }
 .pin-art img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
 .pin-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.pin-art .ln { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+.pin-art .ln { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .pin-art .pf { filter: url(#paint-edge); }
 .pin-card h3 { font-size: 1.15rem; margin: 10px 4px 0; }
 .pin-card .cap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
@@ -637,7 +634,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 
 /* per-card hover moments */
 .m-paint .wash-over { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; }
-.m-paint .wash-over span { position: absolute; border-radius: 50%; filter: url(#wc); mix-blend-mode: multiply; }
+.m-paint .wash-over span { position: absolute; border-radius: 50%; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent); }
 .m-paint:hover .wash-over, .m-paint.is-open .wash-over { opacity: .75; }
 
 .m-trek .trail, .m-trip .route { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s var(--ease); }
@@ -713,7 +710,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .cs-facts dt { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .cs-facts dd { margin: 0; }
 .cs-cover { position: relative; aspect-ratio: 16 / 8; border-radius: 24px; overflow: hidden; background: var(--paper); border: 1px solid var(--line); display: grid; place-items: center; color: var(--muted); font-size: .92rem; }
-.cs-cover::before { content: ""; position: absolute; inset: 15% 10%; background: var(--tone); filter: url(#wc); opacity: var(--wash-opacity); }
+.cs-cover::before { content: ""; position: absolute; inset: 15% 10%; background: var(--tone); -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent); opacity: var(--wash-opacity); }
 .cs-cover span { position: relative; }
 .cs-body { padding: clamp(64px, 9vw, 112px) 0; }
 .cs-section { display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 5vw, 72px); padding: 48px 0; border-top: 1px solid var(--line); }
@@ -820,7 +817,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
    ========================================================== */
 .quotes { columns: 3 300px; column-gap: clamp(18px, 2.6vw, 28px); }
 .quote { position: relative; margin: 0 0 clamp(18px, 2.6vw, 28px); break-inside: avoid; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px 28px 22px; box-shadow: var(--shadow-note); overflow: hidden; display: flex; flex-direction: column; }
-.quote::before { content: ""; position: absolute; left: -40px; top: -50px; width: 160px; height: 130px; border-radius: 50%; background: var(--qc); filter: url(#wc); opacity: calc(var(--wash-opacity) * .8); }
+.quote::before { content: ""; position: absolute; left: -40px; top: -50px; width: 160px; height: 130px; border-radius: 50%; background: var(--qc); -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent); opacity: calc(var(--wash-opacity) * .8); }
 .quote-mark { position: relative; display: block; height: .55em; font-family: var(--serif); font-size: 4.6rem; line-height: 1; color: var(--qc); }
 .quote blockquote { position: relative; margin: 16px 0 20px; font-family: var(--serif); font-size: 1.16rem; line-height: 1.5; }
 .quote blockquote p { margin: 0; }
@@ -951,7 +948,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 /* career: the extras below the road */
 .extras { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 24px); }
 .extra { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px 22px 24px; box-shadow: var(--shadow-note); }
-.extra::before { content: ""; position: absolute; right: -40px; top: -40px; width: 130px; height: 110px; border-radius: 50%; background: var(--ec); filter: url(#wc); opacity: calc(var(--wash-opacity) * .8); }
+.extra::before { content: ""; position: absolute; right: -40px; top: -40px; width: 130px; height: 110px; border-radius: 50%; background: var(--ec); -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent); opacity: calc(var(--wash-opacity) * .8); }
 .extra strong { position: relative; display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 3.4vw, 2.8rem); line-height: 1; margin-bottom: 10px; }
 .extra h3 { position: relative; font-family: var(--sans); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
 .extra p { position: relative; margin: 0; font-size: .95rem; color: var(--ink); }
@@ -980,7 +977,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 /* ==========================================================
    Line illustrations — process, noticeboard, awards
    ========================================================== */
-.proc-art .ln, .pin-art .ln, .award .ln { fill: none; stroke: var(--ink-stroke); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+.proc-art .ln, .pin-art .ln, .award .ln { fill: none; stroke: var(--ink-stroke); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .proc-art .ln.fill-paper, .pin-art .ln.fill-paper, .award .ln.fill-paper { fill: var(--surface); }
 .proc-art .ln.soft, .pin-art .ln.soft, .award .ln.soft { opacity: .4; }
 .proc-art .ln.thick { stroke-width: 6; }
@@ -1010,6 +1007,9 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 
 /* awards: line badges, no wash */
 .award svg { width: 92px; height: 116px; }
+
+/* animations rest while their section is off screen */
+.offscreen *, .offscreen *::before, .offscreen *::after { animation-play-state: paused !important; }
 
 /* ==========================================================
    Responsive

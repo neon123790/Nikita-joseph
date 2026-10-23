@@ -1595,3 +1595,15 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
   .resume-page { padding: 0; }
   .resume-sheet { box-shadow: none; border: 0; padding: 0; }
 }
+
+/* contact: Nikita on a call, small, inside a circle */
+.contact-art { height: auto; aspect-ratio: 1; max-width: 460px; width: 100%; margin-left: auto; display: grid; place-items: center; }
+.c-circle { position: relative; width: 72%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--mint); border: 3px solid var(--stk-ink); box-shadow: 6px 6px 0 var(--stk-ink); }
+.c-circle img { position: absolute; left: 50%; bottom: -14%; height: 100%; width: auto; translate: -50% 0; }
+.cs-star1 { left: 6%; top: 8%; }
+.cs-chat { right: 2%; top: 6%; }
+.cs-star2 { right: 4%; top: 52%; }
+.cs-spark { left: 4%; top: 50%; }
+.cs-mail { left: 6%; bottom: 8%; }
+.cs-heart { right: 12%; bottom: 8%; }
+@media (max-width: 760px) { .contact-art { height: auto; max-width: 340px; margin: 0 auto; } }

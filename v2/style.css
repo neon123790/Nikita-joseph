@@ -1739,24 +1739,3 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
 .kind3 .quote blockquote, .kind3 .quote.feature blockquote { font-family: var(--sans); font-weight: 400; font-size: 1.05rem; line-height: 1.55; }
 .kind3 .quote-mark, .kind3 .quote.feature .quote-mark { background: var(--qc); }
 @media (max-width: 560px) { .kind3 .quote, .kind3 .quote.feature { flex-basis: 84%; } }
-
-/* ---------- one label style everywhere: the small tag above every headline ---------- */
-.label, .entry .num, .aw-tag, .rs-block h2 {
-  display: inline-block;
-  margin: 0 0 16px;
-  padding: 6px 14px;
-  background: #ffd65a;
-  border: 2px solid var(--stk-ink);
-  border-radius: 999px;
-  font: 600 .74rem/1 var(--sans);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stk-ink);
-  transform: none;
-}
-.mat-head .label, .det-head .label { margin-bottom: 4px; }
-.hero3-inner > .label { margin-bottom: 18px; }
-.contact3 .label { margin-bottom: 18px; }
-.entry .num { margin-bottom: 4px; }
-.aw-tag { margin-bottom: 10px; }
-.label, .entry .num, .aw-tag, .rs-block h2 { font: 600 .74rem/1 var(--sans) !important; letter-spacing: .14em !important; color: var(--stk-ink) !important; max-width: none !important; }

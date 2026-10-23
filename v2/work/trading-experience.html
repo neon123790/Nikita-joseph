@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trading Flows — Nikita Joseph</title>
+  <meta name="description" content="Trading Flows: Simplifying fast-moving trading journeys where clarity, timing, and trust matter. A case study by Nikita Joseph, Senior UX Designer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+      <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    </filter>
+    <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="7"/>
+    </filter>
+    <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".4"/>
+    </filter>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="../index.html">Nikita Joseph</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../career.html">Career</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button class="music-toggle" type="button" aria-pressed="false" aria-label="Play some soothing music" title="Play some soothing music">
+          <svg class="turntable" viewBox="0 0 72 54" aria-hidden="true">
+            <rect class="tt-base" x="2" y="4" width="68" height="46" rx="10"/>
+            <circle class="tt-knob" cx="62" cy="42" r="3"/>
+            <g class="tt-disc">
+              <circle class="tt-vinyl" cx="28" cy="27" r="19"/>
+              <circle class="tt-groove" cx="28" cy="27" r="15.5"/>
+              <circle class="tt-groove" cx="28" cy="27" r="12.5"/>
+              <circle class="tt-groove" cx="28" cy="27" r="9.5"/>
+              <circle class="tt-label" cx="28" cy="27" r="5.5"/>
+              <circle class="tt-hole" cx="28" cy="27" r="1.2"/>
+            </g>
+            <path class="tt-shine" d="M15 18 A 16 16 0 0 1 25 11.5"/>
+            <g class="tt-arm">
+              <circle class="tt-pivot" cx="60" cy="12" r="4.2"/>
+              <path class="tt-rod" d="M60 12 L 55 30 L 42 37"/>
+              <rect class="tt-head" x="37" y="34.5" width="7.5" height="5" rx="1.2" transform="rotate(-28 40.5 37)"/>
+            </g>
+          </svg>
+          <span class="tt-note n1" aria-hidden="true">♪</span>
+          <span class="tt-note n2" aria-hidden="true">♫</span>
+          <span class="tt-note n3" aria-hidden="true">♪</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="cs-hero">
+      <div class="wrap">
+        <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All work</a>
+        <p class="label">Case study</p>
+        <h1>Trading Flows</h1>
+        <p class="lede">Simplifying fast-moving trading journeys where clarity, timing, and trust matter.</p>
+        <div class="tags"><span class="chip" style="--c:var(--p-orange)">Trading UX</span><span class="chip" style="--c:var(--p-orange)">Order Flows</span><span class="chip" style="--c:var(--p-orange)">Fintech</span></div>
+
+        <dl class="cs-facts">
+          <div><dt>Role</dt><dd>UX Designer I &amp; II</dd></div>
+          <div><dt>Company</dt><dd>FYERS</dd></div>
+          <div><dt>Timeline</dt><dd>2022 – 2025</dd></div>
+          <div><dt>Team</dt><dd>[Who you worked with]</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <!-- Replace with a cover image: <img src="../images/trading-experience-cover.jpg" alt="..."> -->
+      <div class="cs-cover" style="--tone: var(--p-orange)"><span>Cover image · a key screen of Trading Flows</span></div>
+    </div>
+
+    <article class="cs-body">
+      <div class="wrap">
+        <section class="cs-section">
+          <h2>Overview</h2>
+          <div class="content">
+            <h3>[One-paragraph summary: what the product is, who it’s for, and what changed because of your work.]</h3>
+            <p class="todo">Write this last. A hiring manager should get the whole story from this paragraph alone.</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>The problem</h2>
+          <div class="content">
+            <h3>[What was going wrong, and for whom?]</h3>
+            <p class="todo">State the user problem and the business problem. Use a real quote, support ticket theme, or data point if you have one.</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>Context</h2>
+          <div class="content">
+            <h3>[Where this sat in the product and the market.]</h3>
+            <p class="todo">Who are the users (new traders, active investors, partners)? What did the existing experience look like? Why now?</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>User friction</h2>
+          <div class="content">
+            <h3>[Where people got stuck — and how it felt.]</h3>
+            <p class="todo">Describe the moments of confusion, anxiety, or drop-off. Show research: interviews, usability tests, analytics, competitive audit.</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>Constraints</h2>
+          <div class="content">
+            <h3>[What you had to design around.]</h3>
+            <p class="todo">Regulation, exchange rules, legacy systems, timelines, engineering capacity, data availability.</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>Key decisions</h2>
+          <div class="content">
+            <h3>[The two or three calls that shaped the product.]</h3>
+            <p class="todo">For each: the options you considered, what you chose, and why. Include the trade-off you accepted. This is the most senior part of the story.</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>Collaboration</h2>
+          <div class="content">
+            <h3>[Who you worked with and how.]</h3>
+            <p class="todo">Product, engineering, compliance, business, leadership. Where did you lead, influence, or change someone’s mind?</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>The solution</h2>
+          <div class="content">
+            <h3>[What shipped.]</h3>
+            <p class="todo">Walk through the key screens and flows. Call out the craft: hierarchy, microcopy, empty/error/loading states, accessibility.</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>Outcomes</h2>
+          <div class="content">
+            <h3>[What changed after launch.]</h3>
+            <p class="todo">Metrics if you can share them (adoption, completion, support tickets, time on task), plus qualitative feedback. Only use numbers you’re allowed to publish.</p>
+          </div>
+        </section>
+        <section class="cs-section">
+          <h2>What I learned</h2>
+          <div class="content">
+            <h3>[What you’d keep, and what you’d do differently.]</h3>
+            <p class="todo">One or two honest reflections. This is where your voice and judgement come through.</p>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <nav class="cs-next" aria-label="Next case study">
+      <div class="wrap">
+        <a href="ai-experiments.html">
+          <span><small>Next case study</small><strong>AI Experiments</strong></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Nikita Joseph</span>
+      <span class="made">Designed with care <svg class="heart" viewBox="0 0 24 24" aria-label="love" role="img"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg></span>
+    </div>
+  </footer>
+
+  <script src="../music.js?v=1"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const header = document.querySelector('.site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+</body>
+</html>

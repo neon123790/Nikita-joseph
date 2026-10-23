@@ -110,6 +110,8 @@
     const dirTitle = document.getElementById('dir-title');
     const dirMeta = document.getElementById('dir-meta');
     const bar = document.getElementById('map-progress');
+    const dirIcon = document.getElementById('dir-icon');
+    const dirThen = document.getElementById('dir-then');
 
     // A drive through the city: along the streets, with rounded corners at each turn
     const way = [[70,510],[70,400],[190,400],[190,290],[310,290],[310,400],[430,400],[430,180],[310,180],[190,180],[190,80],[530,80],[530,290]];
@@ -186,9 +188,16 @@
           s.classList.toggle('is-current', i === active);
           s.classList.toggle('is-past', i < active);
         });
-        dirStep.textContent = active === N - 1 ? 'Arrived' : `Stop ${active + 1} of ${N}`;
+        // like turn-by-turn directions: this manoeuvre, then the next one
+        dirStep.textContent = `${active + 1} / ${N}`;
         dirTitle.textContent = stops[active].querySelector('h3').textContent;
         dirMeta.textContent = stops[active].querySelector('.stamp').textContent;
+        const turn = stops[active].querySelector('.turn svg');
+        if (dirIcon && turn) dirIcon.innerHTML = turn.outerHTML;
+        if (dirThen) {
+          const next = stops[active + 1];
+          dirThen.innerHTML = next ? `Then <b>${next.querySelector('h3').textContent}</b>` : 'You have arrived ♥';
+        }
       }
     };
 

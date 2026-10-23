@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume — Nikita Joseph</title>
+  <meta name="description" content="Resume of Nikita Joseph, Senior UX Designer at FYERS, Bengaluru.">
+  <meta property="og:title" content="Nikita Joseph — Senior UX Designer">
+  <meta property="og:description" content="Making messy money moments make sense.">
+  <meta property="og:image" content="images/nikita-flowers.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=22">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Shared SVG filters: watercolour washes, painted edges, hand-drawn wobble -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="7"/>
+      </filter>
+      <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+        <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation=".5"/>
+      </filter>
+      <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+        <feGaussianBlur in="d" stdDeviation=".4"/>
+      </filter>
+      <filter id="rough" filterUnits="userSpaceOnUse" x="-500" y="-500" width="2000" height="2000">
+        <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="1" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="rough-sm" filterUnits="userSpaceOnUse" x="-100" y="-100" width="400" height="400">
+        <feTurbulence type="fractalNoise" baseFrequency=".18" numOctaves="2" seed="1" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale=".5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M1 1 L8 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="index.html">Nikita Joseph</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="career.html">Career</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button class="music-toggle" type="button" aria-pressed="false" aria-label="Play some soothing music" title="Play some soothing music">
+          <svg class="turntable" viewBox="0 0 72 54" aria-hidden="true">
+            <rect class="tt-base" x="2" y="4" width="68" height="46" rx="10"/>
+            <circle class="tt-knob" cx="62" cy="42" r="3"/>
+            <g class="tt-disc">
+              <circle class="tt-vinyl" cx="28" cy="27" r="19"/>
+              <circle class="tt-groove" cx="28" cy="27" r="15.5"/>
+              <circle class="tt-groove" cx="28" cy="27" r="12.5"/>
+              <circle class="tt-groove" cx="28" cy="27" r="9.5"/>
+              <circle class="tt-label" cx="28" cy="27" r="5.5"/>
+              <circle class="tt-hole" cx="28" cy="27" r="1.2"/>
+            </g>
+            <path class="tt-shine" d="M15 18 A 16 16 0 0 1 25 11.5"/>
+            <g class="tt-arm">
+              <circle class="tt-pivot" cx="60" cy="12" r="4.2"/>
+              <path class="tt-rod" d="M60 12 L 55 30 L 42 37"/>
+              <rect class="tt-head" x="37" y="34.5" width="7.5" height="5" rx="1.2" transform="rotate(-28 40.5 37)"/>
+            </g>
+          </svg>
+          <span class="tt-note n1" aria-hidden="true">♪</span>
+          <span class="tt-note n2" aria-hidden="true">♫</span>
+          <span class="tt-note n3" aria-hidden="true">♪</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section resume-page">
+      <div class="wrap">
+        <div class="resume-actions">
+          <a class="btn btn-ghost" href="career.html">← Back to the road trip</a>
+          <button class="btn btn-primary" type="button" onclick="window.print()">Save as PDF</button>
+        </div>
+        <article class="resume-sheet">
+          <header class="rs-head">
+            <div>
+              <h1>Nikita Joseph</h1>
+              <p class="rs-role">Senior UX Designer · FYERS · Bengaluru</p>
+            </div>
+            <ul class="rs-contact">
+              <!-- TODO: replace with the email you want public -->
+              <li><a href="mailto:hello@example.com">Email</a></li>
+              <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="index.html">Portfolio</a></li>
+            </ul>
+          </header>
+
+          <p class="rs-summary">UX designer with 4+ years in fintech, turning complex trading and investing journeys into calm, usable flows. 10+ products shipped, two promotions, and a working Android app designed and built with AI-assisted workflows.</p>
+
+          <section class="rs-block">
+            <h2>Experience</h2>
+            <div class="rs-item">
+              <div class="rs-line"><h3>FYERS</h3><span>Jul 2022 – Present</span></div>
+              <p class="rs-sub">Senior UX Designer (Apr 2025) · UX Designer II (Jan 2024) · UX Designer I (Jul 2022)</p>
+              <ul>
+                <li>Own research, flows and product decisions end to end, including primary and secondary research for a new advisory product.</li>
+                <li>Handpicked by the CXO for the Innovation Lab as UX researcher and designer, prototyping AI-assisted product ideas.</li>
+                <li>Designed and built FYERS Academy, a working Android trading simulator, in 3 months using Claude Code, VS Code and GitHub.</li>
+                <li>Led Portfolio across mobile and web; designed Single and Multi Order Windows on charts, a Watchlist revamp with tags and pinning, and a 30-day challenge with a trading journal.</li>
+                <li>Shipped Onboarding, Open Account, Funds, Option Chain and Advanced Screeners; designed the Partner Dashboard with the CEO and CXO, the My Account app and News.</li>
+                <li>Interviewed and helped hire 3–4 designers across junior, senior and UX research roles.</li>
+              </ul>
+            </div>
+            <div class="rs-item">
+              <div class="rs-line"><h3>DeFiner</h3><span>Jan – May 2022</span></div>
+              <p class="rs-sub">UI/UX and Graphic Design Intern</p>
+              <ul><li>Designed logos, web screens and mascots.</li></ul>
+            </div>
+          </section>
+
+          <section class="rs-block">
+            <h2>Awards</h2>
+            <ul>
+              <li><b>FYERS Force Award</b> — best project, successfully launched; ownership and consistent impact.</li>
+              <li><b>Exceptional Team Player Award</b> — nominated by the entire design team.</li>
+            </ul>
+          </section>
+
+          <div class="rs-cols">
+            <section class="rs-block">
+              <h2>Education</h2>
+              <p><b>B.Tech, Electronics &amp; Communication Engineering</b><br>Christ (Deemed to be University), Bengaluru · 2017 – 2021 · CGPA 9.03</p>
+              <p class="rs-note">Final project: BEAM, a student collaboration app — UX and front-end, team of 5, 50+ students across 10+ colleges.</p>
+            </section>
+            <section class="rs-block">
+              <h2>Certifications</h2>
+              <ul class="rs-tight">
+                <li>NISM Series 7 &amp; 8</li>
+                <li>Google UX Design</li>
+                <li>Georgia Tech · Intro to UX</li>
+                <li>IxDF · AI for Designers</li>
+              </ul>
+            </section>
+          </div>
+
+          <section class="rs-block">
+            <h2>Skills &amp; tools</h2>
+            <p class="rs-chips"><span>UX research</span><span>Interaction design</span><span>Prototyping</span><span>Claude Code</span><span>Claude Design</span><span>VS Code</span><span>GitHub</span><span>ElevenLabs</span><span>HeyGen</span></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Nikita Joseph</span>
+      <span class="made">Designed with care <svg class="heart" viewBox="0 0 24 24" aria-label="love" role="img"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg></span>
+    </div>
+  </footer>
+
+  <script src="music.js?v=1"></script>
+  <script src="main.js?v=12"></script>
+</body>
+</html>

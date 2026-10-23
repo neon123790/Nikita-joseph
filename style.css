@@ -72,68 +72,10 @@
   --grain-opacity: .35;
   --grain-blend: multiply;
 
-  color-scheme: light;
+  color-scheme: light only;
 }
 
-:root[data-theme="dark"] {
-  --bg: #0f1220;
-  --paper: #151a2b;
-  --surface: #1b2136;
-  --board: #141a2b;
-  --line: #262e48;
-  --line-strong: #39425f;
-  --text: #f4ede1;
-  --ink: #ddd5c6;
-  --muted: #a8a193;
 
-  --note-yellow: #e0cf8e;
-  --note-coral: #dea997;
-  --note-blue: #b0c3d8;
-  --note-sage: #b7c9a4;
-  --note-glow: rgba(242, 222, 160, .08);
-
-  --p-magenta: #dd5f96;
-  --p-cobalt: #5b80d6;
-  --p-lime: #aed05c;
-  --p-orange: #ee9a50;
-  --p-mustard: #ebc357;
-  --p-violet: #9373d0;
-  --p-teal: #46b0a4;
-  --p-cobalt-hi: #86a7ff;
-  --p-violet-hi: #b893ff;
-  --block-opacity: .92;
-  --bleed-opacity: .22;
-  --wash-opacity: .32;
-
-  --outline: #0b0d16;
-  --ink-stroke: #e3dacb;
-  --accent: #f0a07f;
-
-  --route: #7b9dff;
-  --route-planned: #3a4566;
-  --map-land: #161c2e;
-  --map-street: #20283f;
-  --map-water: #1c3053;
-  --map-park: #1d3329;
-
-  --shadow-note: 0 1px 1px rgba(0, 0, 0, .3), 0 12px 24px -12px rgba(0, 0, 0, .75), 0 0 22px var(--note-glow);
-  --shadow-lift: 0 2px 2px rgba(0, 0, 0, .3), 0 24px 40px -16px rgba(0, 0, 0, .85), 0 0 28px var(--note-glow);
-  --grain-opacity: .22;
-  --grain-blend: overlay;
-
-  color-scheme: dark;
-}
-
-/* dark mode: soft paint glows behind everything, like colour bleeding through paper */
-:root[data-theme="dark"] body {
-  background:
-    radial-gradient(900px 520px at 10% -4%, rgba(221, 95, 150, .13), transparent 62%),
-    radial-gradient(820px 480px at 94% 6%, rgba(91, 128, 214, .16), transparent 62%),
-    radial-gradient(760px 520px at 50% 105%, rgba(174, 208, 92, .06), transparent 62%),
-    var(--bg);
-}
-:root[data-theme="dark"] .section-alt { background: color-mix(in srgb, var(--paper) 82%, transparent); }
-:root[data-theme="dark"] .site-header { background: color-mix(in srgb, var(--bg) 80%, transparent); }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -190,7 +132,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
 
 .brand { font-family: var(--serif); font-size: 1.2rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
-.brand-dot { width: 12px; height: 12px; border-radius: 50%; background: conic-gradient(var(--p-magenta), var(--p-orange), var(--p-mustard), var(--p-lime), var(--p-cobalt), var(--p-magenta)); }
 
 .nav-right { display: flex; align-items: center; gap: clamp(14px, 2.6vw, 32px); }
 .nav-links { display: flex; gap: clamp(14px, 2.6vw, 32px); list-style: none; margin: 0; padding: 0; }
@@ -199,20 +140,46 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 .nav-links a:hover { color: var(--text); }
 .nav-links a:hover::after { transform: scaleX(1); }
 
-.theme-toggle {
-  width: 40px; height: 40px;
+
+/* the record player: a little vinyl disc that spins while music plays */
+.music-toggle {
+  position: relative;
+  width: 42px; height: 42px;
   display: grid; place-items: center;
-  border-radius: 50%;
-  border: 1px solid var(--line-strong);
-  background: var(--paper);
-  cursor: pointer;
-  transition: background-color .3s ease, transform .3s var(--ease);
+  padding: 0; border: 0; border-radius: 50%;
+  background: none; cursor: pointer;
+  transition: transform .3s var(--ease);
 }
-.theme-toggle:hover { transform: rotate(-12deg); }
-.theme-toggle svg { width: 18px; height: 18px; }
-.theme-toggle .moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .moon { display: block; }
+.music-toggle:hover { transform: scale(1.06); }
+.music-toggle .disc {
+  position: relative;
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .22), transparent 40%, transparent 60%, rgba(255, 255, 255, .12)),
+    repeating-radial-gradient(circle, #1b1820 0 1.6px, #2a2630 1.6px 2.6px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .25), inset 0 0 0 1px rgba(255, 255, 255, .06);
+  animation: spin 2.4s linear infinite;
+  animation-play-state: paused;
+}
+.music-toggle .disc-label {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: conic-gradient(var(--p-magenta), var(--p-orange), var(--p-mustard), var(--p-lime), var(--p-cobalt), var(--p-magenta));
+  display: grid; place-items: center;
+}
+.music-toggle .disc-label::after { content: ""; width: 3px; height: 3px; border-radius: 50%; background: var(--bg); }
+.music-toggle.is-playing .disc { animation-play-state: running; }
+@keyframes spin { to { transform: rotate(360deg); } }
+/* little notes drift up while it plays */
+.music-toggle::before, .music-toggle::after {
+  content: "\266A"; position: absolute; top: -4px; font-size: 13px; color: var(--muted);
+  opacity: 0; pointer-events: none;
+}
+.music-toggle::before { left: -6px; }
+.music-toggle::after { right: -8px; content: "\266B"; }
+.music-toggle.is-playing::before { animation: note-up 2.6s ease-out infinite; }
+.music-toggle.is-playing::after { animation: note-up 2.6s ease-out 1.3s infinite; }
+@keyframes note-up { 0% { opacity: 0; transform: translateY(6px); } 25% { opacity: .9; } 100% { opacity: 0; transform: translateY(-14px); } }
 
 /* ---------- Shared ---------- */
 .label { display: inline-block; font-size: .76rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
@@ -344,7 +311,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 
 /* journal — a real notebook: cloth cover, wire-o binding, dot-grid pages */
 .journal { position: relative; padding-right: 118px; --page: #fbf7ee; --page-ink: #2b2622; --page-muted: #6f675e; --page-line: #e6dccb; --cover: #33425f; }
-:root[data-theme="dark"] .journal { --page: #efe8da; --page-ink: #2b2622; --page-muted: #6f675e; --page-line: #ddd1bd; --cover: #0a0d18; }
 
 /* index tabs sticking out of the right edge of the notebook */
 .bookmarks { position: absolute; top: 54px; right: 0; display: flex; flex-direction: column; gap: 8px; z-index: 0; }
@@ -990,7 +956,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
     #c79a6b;
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .12), inset 0 6px 22px rgba(60, 30, 10, .35), 0 24px 50px -30px rgba(40, 20, 5, .6);
 }
-:root[data-theme="dark"] .board { border-color: #4a3324; background-color: #7d5f42; }
 .board-hint { right: 22px; left: auto; bottom: 12px; color: #4a3220; opacity: .8; }
 
 /* polaroids are always white, in light and dark mode */
@@ -1118,8 +1083,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 @media (max-width: 560px) {
   .nav { height: auto; flex-wrap: wrap; row-gap: 8px; padding-block: 12px; }
   .nav-right { display: contents; }
-  .theme-toggle { order: 2; width: 36px; height: 36px; }
-  .nav-links { order: 3; width: 100%; justify-content: space-between; }
+    .nav-links { order: 3; width: 100%; justify-content: space-between; }
   html { scroll-padding-top: 110px; }
   .principles { grid-template-columns: 1fr; }
   .entry .meta { grid-template-columns: 1fr; gap: 2px; }

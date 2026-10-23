@@ -1739,3 +1739,9 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
 .kind3 .quote blockquote, .kind3 .quote.feature blockquote { font-family: var(--sans); font-weight: 400; font-size: 1.05rem; line-height: 1.55; }
 .kind3 .quote-mark, .kind3 .quote.feature .quote-mark { background: var(--qc); }
 @media (max-width: 560px) { .kind3 .quote, .kind3 .quote.feature { flex-basis: 84%; } }
+
+/* one page width for header, hero and every section, so all edges line up */
+:root { --max: 1440px; }
+.hero3 { max-width: calc(var(--max) - 2 * var(--gutter)); margin-inline: auto; }
+@media (min-width: 761px) { .hero3 { width: calc(100% - 2 * var(--gutter)); } }
+@media (max-width: 760px) { .hero3 { margin-inline: var(--gutter); } }

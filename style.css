@@ -978,6 +978,63 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   .journey-map { top: 104px; height: 40vh; }
 }
 
+/* ---------- the noticeboard: cork, a wooden frame, polaroids ---------- */
+.board {
+  height: 1000px;
+  border-radius: 14px;
+  border: 14px solid #8a5d3b;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(90, 55, 25, .18) 1px, transparent 1.6px) 0 0 / 7px 7px,
+    radial-gradient(circle at 70% 60%, rgba(255, 235, 200, .25) 1px, transparent 1.6px) 3px 4px / 9px 9px,
+    radial-gradient(ellipse at 30% 20%, rgba(255, 230, 190, .35), transparent 60%),
+    #c79a6b;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .12), inset 0 6px 22px rgba(60, 30, 10, .35), 0 24px 50px -30px rgba(40, 20, 5, .6);
+}
+:root[data-theme="dark"] .board { border-color: #4a3324; background-color: #7d5f42; }
+.board-hint { right: 22px; left: auto; bottom: 12px; color: #4a3220; opacity: .8; }
+
+/* polaroids are always white, in light and dark mode */
+.pin-card {
+  width: 16%;
+  min-width: 160px;
+  background: #fbf9f4;
+  color: #2b2622;
+  border-radius: 2px;
+  padding: 10px 10px 12px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .12), 0 12px 22px -12px rgba(30, 15, 5, .55);
+}
+.pin-card:hover, .pin-card:focus-visible, .pin-card.is-open { box-shadow: 0 2px 2px rgba(0, 0, 0, .12), 0 26px 40px -18px rgba(30, 15, 5, .6); }
+.pin-card .pin-art { aspect-ratio: 1; border-radius: 0; background: #efe9de; }
+.pin-card .pin-art svg { background: #f4efe6; }
+.pin-card .pin-art img + svg { background: none; }
+.pin-card .pin-art .ln { stroke: #3a3430; }
+.polaroid-cap { margin: 10px 2px 0; font-family: var(--hand); font-size: 1.12rem; line-height: 1.15; color: #4d453f; }
+.polaroid-cap b { display: block; font-weight: 600; font-size: 1.32rem; color: #2b2622; }
+
+.photo-card { width: 24%; min-width: 220px; padding: 12px 12px 14px; }
+.photo-card .pin-art { aspect-ratio: 4 / 5; }
+.photo-card figcaption { position: static; margin: 10px 2px 0; text-align: center; font-family: var(--hand); font-size: 1.5rem; color: #2b2622; }
+
+/* a note from Nikita, on lined notepaper */
+.note-card {
+  width: 22%;
+  min-width: 200px;
+  padding: 18px 18px 16px 30px;
+  background:
+    linear-gradient(90deg, transparent 20px, rgba(200, 80, 90, .45) 20px 21px, transparent 21px),
+    repeating-linear-gradient(transparent 0 25px, rgba(80, 120, 170, .28) 25px 26px),
+    #fffdf6;
+  background-position: 0 0, 0 14px, 0 0;
+  font-family: var(--hand);
+  color: #2b2622;
+}
+.note-card p { margin: 0; }
+.note-card .note-hello { font-size: 1.05rem; color: #8a5d3b; letter-spacing: .02em; line-height: 26px; }
+.note-card .note-body { font-size: 1.22rem; line-height: 26px; }
+.note-card .note-sign { margin-top: 4px; font-size: 1.35rem; line-height: 26px; text-align: right; display: flex; justify-content: flex-end; align-items: center; gap: 6px; }
+.note-card .heart { width: 16px; height: 16px; fill: var(--p-magenta); }
+
+
 /* ==========================================================
    Line illustrations — process, noticeboard, awards
    ========================================================== */
@@ -1021,7 +1078,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 @media (max-width: 1000px) {
   .board { height: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 22px; padding: 34px 22px 64px; }
   .pin-card, .photo-card { position: relative; left: auto; top: auto; width: auto; min-width: 0; }
-  .photo-card { grid-column: 1 / -1; justify-self: center; width: min(320px, 100%); order: -1; }
+  .photo-card { grid-column: 1 / -1; justify-self: center; width: min(320px, 100%); order: -2; }
+  .note-card { grid-column: 1 / -1; justify-self: center; width: min(360px, 100%); order: -1; }
 }
 
 @media (max-width: 860px) {

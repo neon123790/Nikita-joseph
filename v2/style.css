@@ -1745,3 +1745,26 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
 .hero3 { max-width: calc(var(--max) - 2 * var(--gutter)); margin-inline: auto; }
 @media (min-width: 761px) { .hero3 { width: calc(100% - 2 * var(--gutter)); } }
 @media (max-width: 760px) { .hero3 { margin-inline: var(--gutter); } }
+
+/* how I work: clear flat-colour illustrations with bold ink outlines */
+.work3 .proc-art svg .o { stroke: var(--stk-ink); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.work3 .proc-art svg .o.thin { stroke-width: 3; opacity: .35; fill: none; }
+.work3 .proc-art svg .o:not([fill]) { fill: none; }
+.work3 .p-ask .big-q { font: 900 96px/1 var(--bold); fill: #ff6a2b; }
+.work3 .p-ask .typing { stroke: var(--stk-ink); }
+.work3 .p-map .link-line { stroke: var(--stk-ink); stroke-width: 3; }
+.work3 .p-map .node-t { font: 800 17px var(--bold); fill: var(--stk-ink); }
+.work3 .p-map .hand-t { font: 400 20px var(--hand); fill: var(--stk-ink); }
+.work3 .p-simplify .tangle { stroke: #ff3f8e; stroke-width: 3.5; }
+.work3 .p-simplify .arrow-line { stroke: var(--stk-ink); stroke-width: 3.5; }
+.work3 .p-simplify .btn-t { font: 800 15px var(--bold); fill: var(--stk-ink); text-anchor: middle; }
+.work3 .p-ship .flag-p { fill: #1fb36b; }
+.work3 .p-ship .confetti path { stroke-width: 4; }
+
+/* journal: simple text link instead of a pill */
+.entry .read-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; font-family: var(--bold); font-weight: 800; font-size: 1.05rem; color: var(--stk-ink); text-decoration: none; border-bottom: 2.5px solid var(--stk-ink); padding-bottom: 3px; }
+.entry .read-link .arrow { transition: transform .2s ease; }
+.entry .read-link:hover .arrow { transform: translateX(4px); }
+.entry .desc { margin-bottom: 20px; }
+.work3 .p-ask .typing { fill: #fffdf7; }
+.entry .page.left { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }

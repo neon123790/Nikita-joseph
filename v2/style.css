@@ -1768,3 +1768,12 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
 .entry .desc { margin-bottom: 20px; }
 .work3 .p-ask .typing { fill: #fffdf7; }
 .entry .page.left { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+
+/* a smaller journal: narrower, shorter pages, tighter padding */
+.journal { max-width: 1000px; margin-inline: auto; }
+.book { min-height: 440px; }
+.page { padding: clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px); }
+.entry h3 { font-size: clamp(1.7rem, 2.8vw, 2.2rem); }
+.entry .desc { font-size: 1rem; }
+.entry .page.right .print { max-width: 380px; }
+@media (max-width: 860px) { .book { min-height: 0; } }

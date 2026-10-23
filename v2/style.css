@@ -1607,3 +1607,38 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
 .cs-mail { left: 6%; bottom: 8%; }
 .cs-heart { right: 12%; bottom: 8%; }
 @media (max-width: 760px) { .contact-art { height: auto; max-width: 340px; margin: 0 auto; } }
+
+/* ---------- kind words: simple sticker quote cards ---------- */
+.kind3 .section-head h2, .work3 h2 { font-family: var(--bold); font-weight: 900; letter-spacing: -.03em; }
+.kind3 .quote { background: #fffdf7; color: var(--stk-ink); border: 2.5px solid var(--stk-ink); border-radius: 18px; box-shadow: 5px 5px 0 var(--stk-ink); padding: 24px 24px 20px; }
+.kind3 .quote::before { content: none; }
+.kind3 .quote.feature { background: var(--qc); }
+.kind3 .quote-mark { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--qc); border: 2.5px solid var(--stk-ink); font: 900 2rem/1 var(--bold); color: var(--stk-ink); padding-top: 12px; }
+.kind3 .quote.feature .quote-mark { background: #fffdf7; }
+.kind3 .quote blockquote { font-family: var(--sans); font-size: 1.05rem; line-height: 1.55; margin: 14px 0 16px; }
+.kind3 .quote.feature blockquote { font-family: var(--bold); font-weight: 700; font-size: 1.3rem; line-height: 1.35; }
+.kind3 .quote figcaption { border-top: 2px dashed var(--stk-ink); }
+.kind3 .quote .who { font-family: var(--bold); font-weight: 800; }
+.kind3 .quote .role { color: #4a4652; }
+.kind3 .quotes-more a { font-weight: 600; }
+
+/* ---------- how I work: same sticker language, kept calm ---------- */
+.work3 h2 em { font-style: normal; color: #ff6a2b; }
+.work3 .principles { display: flex; flex-wrap: wrap; gap: 10px; }
+.work3 .principles li { padding: 8px 14px; border: 2px solid var(--stk-ink); border-radius: 999px; background: #fffdf7; font-weight: 600; font-size: .95rem; }
+.work3 .principles li::before { font-family: var(--hand); font-size: 1rem; color: var(--stk-ink); }
+.work3 .process { background: var(--mint); border: 2.5px solid var(--stk-ink); border-radius: 26px; box-shadow: 8px 8px 0 var(--stk-ink); }
+.work3 .process-tab { border: 2.5px solid var(--stk-ink); border-radius: 14px; background: #fffdf7; color: var(--stk-ink); font-family: var(--bold); font-weight: 800; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.work3 .process-tab::after { content: none; }
+.work3 .process-tab small { font-family: var(--hand); font-weight: 400; font-size: 1rem; }
+.work3 .process-tab[aria-selected="true"] { background: var(--tc); box-shadow: 4px 4px 0 var(--stk-ink); transform: translate(-2px, -2px); }
+.work3 .proc-art { background: #fffdf7; border: 2.5px solid var(--stk-ink); border-radius: 18px; }
+.work3 .proc-art .ln { stroke: var(--stk-ink); stroke-width: 3; }
+.work3 .proc-art .ln.soft { opacity: .35; }
+.work3 .proc-art .ln.fill-paper { fill: #fff; }
+.work3 .proc-art .acc { stroke: var(--stk-ink); stroke-width: 3; fill: var(--a); }
+.work3 .proc-art path.acc[d*="l 9 9"], .work3 .proc-art path.acc[d*="l 18 -20"] { fill: none; }
+.work3 .proc-copy h3 { font-family: var(--bold); font-weight: 900; letter-spacing: -.02em; line-height: 1.05; }
+.work3 .proc-copy p { color: #3b3744; }
+.work3 .proc-copy li { border-top: 2px dashed rgba(20, 17, 28, .25); }
+.work3 .proc-copy li::before { width: 10px; height: 10px; border: 2px solid var(--stk-ink); background: var(--tc, #ffd65a); }

@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -382,7 +382,11 @@
           <h2 id="feedback-title">What it’s like to work with me.</h2>
           <p>From managers and teammates I’ve designed, researched, and shipped with — excerpts from my LinkedIn recommendations.</p>
         </div>
-        <div class="quotes">
+        <div class="carousel-nav reveal">
+          <button class="car-btn" type="button" data-dir="-1" aria-label="Previous recommendation">←</button>
+          <button class="car-btn" type="button" data-dir="1" aria-label="Next recommendation">→</button>
+        </div>
+        <div class="quotes" tabindex="0" aria-label="Recommendations, scroll sideways">
           <figure class="quote reveal feature" style="--qc:#ff9fb5">
             <span class="quote-mark" aria-hidden="true">“</span>
             <blockquote><p>Nikita is one of those rare people who brings clarity wherever she goes. Give her an ambiguous problem, a loosely structured conversation, or a room full of conflicting ideas, and she’ll find a way to make sense of it all.</p></blockquote>
@@ -716,6 +720,6 @@
   </footer>
 
   <script src="music.js?v=1"></script>
-  <script src="main.js?v=11"></script>
+  <script src="main.js?v=13"></script>
 </body>
 </html>

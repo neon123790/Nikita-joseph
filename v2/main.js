@@ -262,3 +262,20 @@
     });
   }
 })();
+
+/* Kind words: a sideways carousel with arrow buttons */
+(() => {
+  const track = document.querySelector('.kind3 .quotes');
+  if (!track) return;
+  const btns = document.querySelectorAll('.kind3 .car-btn');
+  const step = () => (track.querySelector('.quote')?.offsetWidth || 320) + 24;
+  btns.forEach((b) => b.addEventListener('click', () => track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: 'smooth' })));
+  const update = () => {
+    btns[0].disabled = track.scrollLeft < 4;
+    btns[1].disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+  };
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+

@@ -1710,3 +1710,26 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
   .bookmark { flex-basis: 40px; }
   .bookmark[aria-selected="true"] { font-size: .78rem; padding: 8px 8px 0 10px; }
 }
+
+/* ---------- kind words: carousel ---------- */
+.kind3 .wrap { position: relative; }
+.kind3 .quotes {
+  columns: auto; display: flex; gap: 24px; align-items: stretch;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 4px;
+  padding: 6px 4px 18px; margin: 0 -4px;
+  scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.kind3 .quotes::-webkit-scrollbar { display: none; }
+.kind3 .quote { flex: 0 0 clamp(270px, 32%, 380px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; }
+.kind3 .quote.feature { flex-basis: clamp(290px, 44%, 520px); }
+.kind3 .quote blockquote { flex: 1; }
+.kind3 .quote.reveal { opacity: 1; transform: none; }
+.carousel-nav { display: flex; justify-content: flex-end; gap: 10px; margin: -8px 0 16px; }
+.car-btn { width: 48px; height: 48px; border-radius: 50%; border: 2.5px solid var(--stk-ink); background: #ffd65a; color: var(--stk-ink); font: 800 1.2rem/1 var(--bold); cursor: pointer; box-shadow: 3px 3px 0 var(--stk-ink); transition: transform .15s ease, box-shadow .15s ease, opacity .2s ease; }
+.car-btn:hover:not(:disabled) { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--stk-ink); }
+.car-btn:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--stk-ink); }
+.car-btn:disabled { opacity: .35; cursor: default; }
+@media (max-width: 560px) {
+  .kind3 .quote, .kind3 .quote.feature { flex-basis: 84%; }
+  .carousel-nav { justify-content: flex-start; margin-top: 0; }
+}

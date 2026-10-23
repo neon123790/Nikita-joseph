@@ -1116,6 +1116,9 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
   --muted: #6c6e76;
   --accent: #ff5a1f;
   --bold: "Archivo", "Inter", system-ui, sans-serif;
+  /* one type system: bold grotesk for display, Inter for text, one handwriting */
+  --serif: var(--bold);
+  --hand: "Gochi Hand", "Bradley Hand", cursive;
   --v-orange: #ff6a2b;
   --v-yellow: #ffc21a;
   --v-green: #1fb36b;

@@ -1733,3 +1733,9 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
   .kind3 .quote, .kind3 .quote.feature { flex-basis: 84%; }
   .carousel-nav { justify-content: flex-start; margin-top: 0; }
 }
+
+/* kind words: every card the same — size, colour, type */
+.kind3 .quote, .kind3 .quote.feature { flex: 0 0 clamp(280px, 31%, 360px); background: #fffdf7; min-height: 300px; }
+.kind3 .quote blockquote, .kind3 .quote.feature blockquote { font-family: var(--sans); font-weight: 400; font-size: 1.05rem; line-height: 1.55; }
+.kind3 .quote-mark, .kind3 .quote.feature .quote-mark { background: var(--qc); }
+@media (max-width: 560px) { .kind3 .quote, .kind3 .quote.feature { flex-basis: 84%; } }

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=39">
+    <link rel="stylesheet" href="../style.css?v=42">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -67,18 +67,25 @@
   </header>
 
   <main id="main">
-    <section class="cs-hero">
+    <section class="cs-hero genie-hero">
       <div class="wrap">
         <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All work</a>
         <p class="label">Case study · Project 04</p>
         <h1>Genie</h1>
         <p class="lede">An AI-powered search plugin that finds, saves and shares the links your work depends on.</p>
+        <ul class="genie-feats" aria-label="What Genie does">
+          <li><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span>Search every app</li>
+          <li><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7.5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></span>Save to folders</li>
+          <li><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="3.2"/><path d="M2.5 19c.6-3.3 2.8-5 5.5-5s4.9 1.7 5.5 5"/><circle cx="17" cy="8" r="2.6"/><path d="M15.5 13.2c3 .1 4.9 1.8 5.5 4.8"/></svg></span>Share with people</li>
+          <li><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0Z"/><path d="M12 17v4"/></svg></span>Connect your tools</li>
+        </ul>
         <dl class="cs-facts">
           <div><dt>My role</dt><dd>UI design and the end-to-end UX process</dd></div>
           <div><dt>Team</dt><dd>Nikita Joseph &amp; Aravind A</dd></div>
           <div><dt>Timeline</dt><dd>4 weeks · May 2023</dd></div>
           <div><dt>Platform</dt><dd>Web · browser plugin</dd></div>
         </dl>
+        <figure class="cs-figure genie-cover"><img src="../images/genie/product.jpg" width="1196" height="768" alt="Genie open as a side panel beside the Google search page in a dark browser window, listing recent searches from Gmail, Notion, Figma and Google Docs."></figure>
       </div>
     </section>
 
@@ -101,18 +108,18 @@
           <h2 id="h-problem">The problem</h2>
           <div class="content">
             <h3>Conventional internal search can’t keep up with how teams work.</h3>
-            <ul class="cs-list">
-              <li><b>Irrelevant results.</b> People spend extra time filtering through things they didn’t ask for.</li>
-              <li><b>No personalisation.</b> Search doesn’t learn from behaviour, so it can’t suggest what’s new and useful.</li>
-              <li><b>Rich media is a blind spot.</b> Images, videos, documents and audio are hard to index and find.</li>
+            <ul class="cs-points">
+              <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>Irrelevant results.</b> People spend extra time filtering through things they didn’t ask for.</div></li>
+              <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>No personalisation.</b> Search doesn’t learn from behaviour, so it can’t suggest what’s new and useful.</div></li>
+              <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>Rich media is a blind spot.</b> Images, videos, documents and audio are hard to find.</div></li>
             </ul>
-            <p class="cs-callout"><b>Our goal:</b> a seamless internal search engine, powered by AI, that understands intent, returns accurate results, personalises recommendations and handles every kind of content.</p>
+            <p class="cs-callout"><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span><b>Our goal:</b> an AI-powered internal search that understands intent, returns accurate results, personalises recommendations and handles every kind of content.</span></p>
           </div>
         </section>
         <section class="cs-section" id="process" aria-labelledby="h-process">
           <h2 id="h-process">Process</h2>
           <div class="content">
-            <h3>Four weeks, five steps: concept, MVP, final product.</h3>
+            <h3>Four weeks: concept, MVP, final product.</h3>
             <table class="cs-table">
               <caption class="sr-only">Project timeline by week</caption>
               <thead><tr><th scope="col">Week</th><th scope="col">Stage</th><th scope="col">What we did</th></tr></thead>
@@ -129,39 +136,38 @@
           <h2 id="h-strategy">Strategy</h2>
           <div class="content">
             <h3>Who it’s for, and what success looks like.</h3>
-            <div class="cs-cards">
-              <div class="cs-card" style="--c:#ffd65a"><h4>Business goal</h4><p>A seamless internal search engine powered by AI.</p></div>
-              <div class="cs-card" style="--c:#9ccfff"><h4>Target users</h4><p>Designers, video editors, product managers, sales and marketers.</p></div>
-              <div class="cs-card" style="--c:#9be3bf"><h4>Platform</h4><p>Web, as a browser plugin.</p></div>
-            </div>
-            <div class="cs-cards two">
-              <div class="cs-card" style="--c:#fffdf7"><h4>Success looks like</h4><p>Finding the right information, reaching it whenever it’s needed, sharing links with people and organising them.</p></div>
-              <div class="cs-card" style="--c:#fffdf7"><h4>Everyday tasks</h4><p>Search for information, save links into folders, share them with people — and get more done.</p></div>
-            </div>
+            <dl class="cs-defs">
+              <div><dt>Business goal</dt><dd>A seamless internal search engine powered by AI.</dd></div>
+              <div><dt>Target users</dt><dd>Designers, video editors, product managers, sales and marketers.</dd></div>
+              <div><dt>Platform</dt><dd>Web, as a browser plugin.</dd></div>
+            </dl>
+            <ul class="cs-points">
+              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Success looks like</b> finding the right information, reaching it whenever it’s needed, and sharing and organising links.</div></li>
+              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Everyday tasks:</b> search for information, save links into folders, share them with people.</div></li>
+            </ul>
           </div>
         </section>
         <section class="cs-section" id="research" aria-labelledby="h-research">
           <h2 id="h-research">Research</h2>
           <div class="content">
             <h3>Talking to people first, then checking with numbers.</h3>
-            <h4 class="cs-sub">Qualitative: interviews</h4>
+            <h4 class="cs-sub">Qualitative · interviews</h4>
             <p>Contextual interviews with employees, managers and administrators who rely on internal search — about 10 minutes each, over Google Meet. We asked:</p>
-            <ol class="cs-list">
+            <ol class="cs-qs">
               <li>How often do you use your organisation’s internal search?</li>
-              <li>What challenges or frustrations have you had with it? Can you give an example?</li>
-              <li>What features do you wish it had but it’s missing?</li>
+              <li>What challenges or frustrations have you had with it?</li>
+              <li>What features do you wish it had?</li>
               <li>How important is personalisation in search?</li>
-              <li>How would you rate how easy the current search is to use?</li>
+              <li>How easy is the current search to use?</li>
               <li>Are you looking for any special features?</li>
               <li>What made an experience memorable or effective?</li>
-              <li>What would you expect from an internal search engine powered by AI?</li>
+              <li>What would you expect from an AI-powered internal search?</li>
             </ol>
-            <h4 class="cs-sub">Quantitative: survey</h4>
-            <p>A survey measured how widespread those needs were:</p>
-            <ul class="cs-stats">
-              <li><strong>76%</strong><span>need to save important work into different folders</span></li>
-              <li><strong>52%</strong><span>want to add people to folders and manage their access</span></li>
-              <li><strong>89%</strong><span>need better integrations with the tools they use</span></li>
+            <h4 class="cs-sub">Quantitative · survey</h4>
+            <ul class="cs-dots">
+              <li><div class="dotgrid" role="img" aria-label="76 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>76%</strong><span>need to save important work into different folders</span></li>
+              <li><div class="dotgrid" role="img" aria-label="52 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>52%</strong><span>want to add people to folders and manage their access</span></li>
+              <li><div class="dotgrid" role="img" aria-label="89 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>89%</strong><span>need better integrations with the tools they use</span></li>
             </ul>
           </div>
         </section>
@@ -169,37 +175,46 @@
           <h2 id="h-persona">Persona</h2>
           <div class="content">
             <h3>Meet Robert, a graphic designer who can’t afford to search twice.</h3>
-            <div class="cs-persona has-avatar">
-              <svg class="cs-avatar" viewBox="0 0 120 120" role="img" aria-label="Illustrated avatar of Robert, the persona">
-                <circle cx="60" cy="60" r="56" fill="#9ccfff" stroke="#14111c" stroke-width="3"/>
-                <path d="M24 108 C 28 84, 92 84, 96 108" fill="#5eb6af" stroke="#14111c" stroke-width="3"/>
-                <circle cx="60" cy="54" r="22" fill="#e0a77c" stroke="#14111c" stroke-width="3"/>
-                <path d="M38 50 C 38 30, 82 28, 82 48 C 74 40, 50 40, 38 50 Z" fill="#3b2a20" stroke="#14111c" stroke-width="3"/>
-                <circle cx="52" cy="56" r="2.4" fill="#14111c"/><circle cx="68" cy="56" r="2.4" fill="#14111c"/>
-                <path d="M53 65 q 7 4 14 0" fill="none" stroke="#14111c" stroke-width="2.5" stroke-linecap="round"/>
+            <div class="cs-persona">
+              <svg class="cs-avatar" viewBox="0 0 160 170" role="img" aria-label="Illustration of Robert, the persona: a young man with short dark hair and a grey hoodie">
+                <g class="av-outline">
+                  <path fill="#7a7f8c" d="M22 170 C 24 128, 52 112, 80 112 C 108 112, 136 128, 138 170 Z"/>
+                  <path fill="#c48a5e" d="M68 100 h24 v20 c-6 7 -18 7 -24 0 Z"/>
+                  <ellipse fill="#c48a5e" cx="40" cy="68" rx="7" ry="10"/><ellipse fill="#c48a5e" cx="120" cy="68" rx="7" ry="10"/>
+                  <path fill="#c48a5e" d="M42 60 C 42 30, 118 30, 118 60 C 118 92, 100 110, 80 110 C 60 110, 42 92, 42 60 Z"/>
+                  <path fill="#221a17" d="M38 58 C 34 22, 70 10, 92 16 C 112 20, 126 34, 122 60 C 116 46, 108 40, 96 38 C 86 46, 64 44, 52 40 C 46 46, 42 52, 38 58 Z"/>
+                  <path fill="#5b606c" d="M52 126 C 60 140, 100 140, 108 126 L 112 132 C 102 150, 58 150, 48 132 Z"/>
+                </g>
+                <path d="M56 62 q 7 -5 14 -1 M90 61 q 7 -4 14 1" fill="none" stroke="#221a17" stroke-width="3.2" stroke-linecap="round"/>
+                <ellipse cx="63" cy="71" rx="3.4" ry="4" fill="#221a17"/><ellipse cx="97" cy="71" rx="3.4" ry="4" fill="#221a17"/>
+                <circle cx="64.2" cy="69.6" r="1.1" fill="#fff"/><circle cx="98.2" cy="69.6" r="1.1" fill="#fff"/>
+                <path d="M80 74 q -3 9 1 11" fill="none" stroke="#7a4a2c" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M68 92 q 12 8 24 0" fill="none" stroke="#5a2a20" stroke-width="3" stroke-linecap="round"/>
+                <ellipse cx="54" cy="84" rx="6" ry="3.5" fill="#e0897a" opacity=".5"/><ellipse cx="106" cy="84" rx="6" ry="3.5" fill="#e0897a" opacity=".5"/>
+                <path d="M72 136 v14 M88 136 v14" stroke="#e9e6ee" stroke-width="2.5" stroke-linecap="round"/>
               </svg>
               <div>
                 <p class="cs-persona-name"><b>Robert</b> · Graphic designer, Argentina</p>
-                <p><b>Bio.</b> Gives his best at work and spends his free time learning new design skills and doing a little photography.</p>
+                <p>Gives his best at work and spends his free time learning new design skills and doing a little photography.</p>
+                <blockquote class="cs-quote"><p>“I need search that understands what I’m looking for and saves me time.”</p></blockquote>
               </div>
             </div>
-            <div class="cs-cards">
-              <div class="cs-card" style="--c:#9be3bf"><h4>Goals</h4><p>Find relevant information quickly; spend less time on manual searching; keep up with trends, reports and competitors.</p></div>
-              <div class="cs-card" style="--c:#ff9fb5"><h4>Frustrations</h4><p>Irrelevant results; nothing personalised; poor support for documents, videos and presentations.</p></div>
-              <div class="cs-card" style="--c:#ffd65a"><h4>Needs</h4><p>Accurate results based on his preferences, in an interface that makes searching effortless.</p></div>
-            </div>
-            <blockquote class="cs-quote"><p>“Finding the right information quickly is crucial for my work. I need search that understands what I’m looking for and saves me time.”</p></blockquote>
+            <ul class="cs-points three">
+              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><div><b>Goals</b><br>Find relevant information fast; spend less time searching manually; keep up with trends and competitors.</div></li>
+              <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>Frustrations</b><br>Irrelevant results; nothing personalised; poor support for documents, videos and presentations.</div></li>
+              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9.2C1.4 7.5 3.6 4 7 4c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8C19.5 15.4 12 20 12 20Z"/></svg></span><div><b>Needs</b><br>Accurate results based on his preferences, in an interface that makes searching effortless.</div></li>
+            </ul>
           </div>
         </section>
         <section class="cs-section" id="empathy" aria-labelledby="h-empathy">
           <h2 id="h-empathy">Empathy map</h2>
           <div class="content">
             <h3>What Robert says, thinks, does and feels.</h3>
-            <div class="cs-cards two">
-              <div class="cs-card" style="--c:#ffd65a"><h4>Says</h4><ul class="cs-mini"><li>“I need relevant information quickly for my work.”</li><li>“Current search often shows unrelated results.”</li><li>“I want an interface that saves me time.”</li><li>“It would be great if search understood my preferences.”</li></ul></div>
-              <div class="cs-card" style="--c:#9ccfff"><h4>Thinks</h4><ul class="cs-mini"><li>“I spend too much time sifting through irrelevant results.”</li><li>“I wish search could learn from my behaviour.”</li><li>“It doesn’t support different content formats well.”</li><li>“I need the latest trends and competitor analysis.”</li></ul></div>
-              <div class="cs-card" style="--c:#9be3bf"><h4>Does</h4><ul class="cs-mini"><li>Relies on colleagues and outside sources to find things.</li><li>Struggles to search across content formats.</li><li>Filters results manually.</li><li>Raises his frustration with the team.</li></ul></div>
-              <div class="cs-card" style="--c:#ff9fb5"><h4>Feels</h4><ul class="cs-mini"><li>Annoyed by irrelevant results and wasted time.</li><li>Overwhelmed by the volume of information.</li><li>Impatient when search is slow and cumbersome.</li><li>Unproductive when results miss the mark.</li></ul></div>
+            <div class="cs-quad">
+              <div><h4><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4Z"/></svg></span> Says</h4><ul><li>“I need relevant information quickly.”</li><li>“Search often shows unrelated results.”</li><li>“I want an interface that saves me time.”</li><li>“It should understand my preferences.”</li></ul></div>
+              <div><h4><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6.5"/><circle cx="7" cy="19" r="1.4"/><circle cx="4.5" cy="21.5" r=".8"/></svg></span> Thinks</h4><ul><li>“I spend too long sifting through results.”</li><li>“Search should learn from my behaviour.”</li><li>“It can’t handle different formats.”</li><li>“I need the latest trends and analysis.”</li></ul></div>
+              <div><h4><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12V5.5a1.5 1.5 0 0 1 3 0V11M11 10V4.5a1.5 1.5 0 0 1 3 0V11M14 10.5V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6.5 7S5 18 4.5 15l-1-3a1.5 1.5 0 0 1 2.8-1L8 13"/></svg></span> Does</h4><ul><li>Asks colleagues and outside sources.</li><li>Struggles to search across formats.</li><li>Filters results by hand.</li><li>Raises his frustration with the team.</li></ul></div>
+              <div><h4><span class="ico " aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 14.5c2 2 5 2 7 0"/><path d="M9 9.5v.1M15 9.5v.1"/></svg></span> Feels</h4><ul><li>Annoyed by wasted time.</li><li>Overwhelmed by the volume of information.</li><li>Impatient when search is slow.</li><li>Unproductive when results miss.</li></ul></div>
             </div>
           </div>
         </section>
@@ -207,8 +222,21 @@
           <h2 id="h-wireframes">Wireframes</h2>
           <div class="content">
             <h3>Low fidelity first: structure before style.</h3>
-            <p>Twelve wireframes mapped the plugin panel beside the search page: search and recent searches, results, folders, list and grid views, bookmarks, notifications, settings and integrations.</p>
-            <figure class="cs-figure"><img src="../images/genie/wireframes.jpg" width="1100" height="2146" loading="lazy" alt="Twelve grey low-fidelity wireframes of the Genie panel beside a search page: home, results, folders, folder list and grid, bookmarks, notifications, user settings and integrations."><figcaption>Low-fidelity wireframes for the 12 main states of the panel.</figcaption></figure>
+            <p>Twelve wireframes mapped the plugin panel beside the search page, from the first click to integrations.</p>
+            <div class="cs-wires">
+              <figure class="cs-wire"><img src="../images/genie/wire-1.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: search page, plugin closed."><figcaption>01 · Search page, plugin closed</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-2.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: home: recent searches."><figcaption>02 · Home: recent searches</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-3.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: search results with filters."><figcaption>03 · Search results with filters</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-4.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folders."><figcaption>04 · Folders</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-5.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folder: list view."><figcaption>05 · Folder: list view</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-6.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folder: grid view."><figcaption>06 · Folder: grid view</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-7.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: bookmarks: grid."><figcaption>07 · Bookmarks: grid</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-8.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: bookmarks: list."><figcaption>08 · Bookmarks: list</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-9.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: notifications."><figcaption>09 · Notifications</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-10.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: profile."><figcaption>10 · Profile</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-11.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: user settings."><figcaption>11 · User settings</figcaption></figure>
+              <figure class="cs-wire"><img src="../images/genie/wire-12.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: integrations."><figcaption>12 · Integrations</figcaption></figure>
+            </div>
           </div>
         </section>
         <section class="cs-section" id="visual" aria-labelledby="h-visual">
@@ -216,27 +244,26 @@
           <div class="content">
             <h3>Calm and dark, with one clear accent.</h3>
             <ul class="cs-swatches">
-              <li><span style="background:#5eb6af"></span><b>Green</b> #5EB6AF · accent and actions</li>
-              <li><span style="background:#151515"></span><b>Dark</b> #151515 · background</li>
-              <li><span style="background:#303245"></span><b>Gray</b> #303245 · surfaces</li>
+              <li><span style="background:#5eb6af"></span><b>Green</b> #5EB6AF<br>accent and actions</li>
+              <li><span style="background:#151515"></span><b>Dark</b> #151515<br>background</li>
+              <li><span style="background:#303245"></span><b>Gray</b> #303245<br>surfaces</li>
             </ul>
-            <p><b>Typography: Poppins</b> in ExtraBold, Medium, Regular and Light. Its round, open letterforms stay friendly and readable at the small sizes a side panel needs.</p>
+            <p><b>Typography: Poppins</b> in ExtraBold, Medium, Regular and Light — round, open letters that stay readable at the small sizes a side panel needs.</p>
           </div>
         </section>
         <section class="cs-section" id="screens" aria-labelledby="h-screens">
           <h2 id="h-screens">Final screens</h2>
           <div class="content">
             <h3>The high-fidelity panel, screen by screen.</h3>
-            <figure class="cs-figure"><img src="../images/genie/cover.jpg" width="1400" height="759" loading="lazy" alt="Genie open as a side panel beside the Google search page in a dark browser window, listing recent searches."><figcaption>Genie sits beside search, one click away.</figcaption></figure>
             <div class="cs-gallery">
-              <figure class="cs-shot"><img src="../images/genie/screen-1.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, home screen: Opening Genie lands on search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile."><figcaption><b>Home.</b> Opening Genie lands on search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-2.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, search screen: Results come from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><figcaption><b>Search.</b> Results come from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-3.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, filter by app screen: A filter narrows results to the apps you choose — Gmail, Notion, Figma, Google Docs and more."><figcaption><b>Filter by app.</b> A filter narrows results to the apps you choose — Gmail, Notion, Figma, Google Docs and more.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-4.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, folders screen: Save links into folders and create new ones in a tap."><figcaption><b>Folders.</b> Save links into folders and create new ones in a tap.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-5.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, invite people screen: Add people to a folder, choose who can edit or view, and copy a share link."><figcaption><b>Invite people.</b> Add people to a folder, choose who can edit or view, and copy a share link.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-6.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, grid view screen: Switch a folder between list and grid; the menu offers move, copy and delete."><figcaption><b>Grid view.</b> Switch a folder between list and grid; the menu offers move, copy and delete.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-7.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, notifications screen: Updates from shared folders and members, with new items marked clearly."><figcaption><b>Notifications.</b> Updates from shared folders and members, with new items marked clearly.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-8.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, integrations screen: Connect Gmail, Notion, Figma and Google apps — the integrations 89% of people asked for."><figcaption><b>Integrations.</b> Connect Gmail, Notion, Figma and Google apps — the integrations 89% of people asked for.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-1.jpg" width="450" height="703" loading="lazy" alt="Genie panel, home: Lands on search with recent searches; the bottom bar holds Search, Folders, Bookmarks, Notifications and Profile."><figcaption><b>Home</b><br>Lands on search with recent searches; the bottom bar holds Search, Folders, Bookmarks, Notifications and Profile.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-2.jpg" width="450" height="703" loading="lazy" alt="Genie panel, search: Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><figcaption><b>Search</b><br>Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-3.jpg" width="450" height="703" loading="lazy" alt="Genie panel, filter by app: Narrow results to the apps you choose — Gmail, Notion, Figma, Google Docs."><figcaption><b>Filter by app</b><br>Narrow results to the apps you choose — Gmail, Notion, Figma, Google Docs.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-4.jpg" width="450" height="703" loading="lazy" alt="Genie panel, folders: Save links into folders and create new ones in a tap."><figcaption><b>Folders</b><br>Save links into folders and create new ones in a tap.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-5.jpg" width="450" height="703" loading="lazy" alt="Genie panel, invite people: Add people to a folder, choose who can edit or view, and copy a share link."><figcaption><b>Invite people</b><br>Add people to a folder, choose who can edit or view, and copy a share link.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-6.jpg" width="450" height="703" loading="lazy" alt="Genie panel, grid view: Switch a folder between list and grid; move, copy or delete from the menu."><figcaption><b>Grid view</b><br>Switch a folder between list and grid; move, copy or delete from the menu.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-7.jpg" width="450" height="703" loading="lazy" alt="Genie panel, notifications: Updates from shared folders and members, with new items marked."><figcaption><b>Notifications</b><br>Updates from shared folders and members, with new items marked.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-8.jpg" width="450" height="703" loading="lazy" alt="Genie panel, integrations: Connect Gmail, Notion, Figma and Google apps — what 89% asked for."><figcaption><b>Integrations</b><br>Connect Gmail, Notion, Figma and Google apps — what 89% asked for.</figcaption></figure>
             </div>
           </div>
         </section>
@@ -245,9 +272,9 @@
           <div class="content">
             <h3>Ten people, one prototype.</h3>
             <p>We tested the high-fidelity prototype with ten potential users, asking them to complete everyday tasks.</p>
-            <div class="cs-cards two">
-              <div class="cs-card" style="--c:#9be3bf"><h4>What worked</h4><ul class="cs-mini"><li>Most people completed the tasks successfully.</li><li>The AI understood their queries and returned relevant results.</li><li>The interface was well received.</li></ul></div>
-              <div class="cs-card" style="--c:#ffd65a"><h4>What to improve</h4><ul class="cs-mini"><li>Add advanced search options for more specific queries.</li><li>Give clear feedback when there are no or few results.</li></ul></div>
+            <div class="cs-verdict">
+              <div class="good"><h4><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span> What worked</h4><ul><li>Most people completed the tasks.</li><li>The AI understood their queries and returned relevant results.</li><li>The interface was well received.</li></ul></div>
+              <div class="fix"><h4><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span> What to improve</h4><ul><li>Add advanced search options for specific queries.</li><li>Give clear feedback when there are no or few results.</li></ul></div>
             </div>
           </div>
         </section>
@@ -256,7 +283,7 @@
           <div class="content">
             <h3>Research changed the product more than any screen did.</h3>
             <p>Testing showed the plugin worked well for task completion and relevance, and that personalisation and support for different content types mattered a lot to people.</p>
-            <p>We learned how colour, type and components shape the experience together. <b>Next</b>, we’d research further to flesh out the full web experience and its structure.</p>
+            <p>We learned how colour, type and components shape the experience together. <b>Next</b>, we’d research further to flesh out the full web experience.</p>
             <p class="cs-more"><a href="https://www.behance.net/gallery/172835731/Genie-Search-Engine-Plugin-UIUX-Case-Study" target="_blank" rel="noopener">See the full case study on Behance <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></p>
           </div>
         </section>

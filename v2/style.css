@@ -1777,3 +1777,38 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
 .entry .desc { font-size: 1rem; }
 .entry .page.right .print { max-width: 380px; }
 @media (max-width: 860px) { .book { min-height: 0; } }
+
+/* hero: matching stickers, calmer grid, stronger text */
+.hero3 { background: var(--mint); }
+.hero3::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    linear-gradient(rgba(20, 17, 28, .06) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(20, 17, 28, .06) 1px, transparent 1px) 0 0 / 40px 40px;
+  /* the grid fades out behind the words */
+  -webkit-mask-image: radial-gradient(ellipse 46% 50% at 50% 52%, transparent 35%, #000 85%);
+  mask-image: radial-gradient(ellipse 46% 50% at 50% 52%, transparent 35%, #000 85%);
+}
+.stk svg { width: clamp(52px, 5.4vw, 76px); margin: calc(clamp(52px, 5.4vw, 76px) / -2) 0 0 calc(clamp(52px, 5.4vw, 76px) / -2); }
+.stk svg * { stroke-width: 4; }
+.hero3-inner { padding-bottom: clamp(170px, 17vw, 210px); }
+.hero3-sub { color: #26222e; font-size: clamp(1.05rem, 1.45vw, 1.25rem); max-width: 32em; }
+.nav-links a { color: #3b3744; font-weight: 500; }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--stk-ink); }
+@media (max-width: 760px) {
+  .stk svg { width: 44px; margin: -22px 0 0 -22px; }
+  .hero3-inner { padding-bottom: 120px; }
+}
+@media (max-width: 760px) {
+  .stk:nth-child(1) { --ox: 16% !important; } .stk:nth-child(2) { --ox: 33% !important; } .stk:nth-child(3) { --ox: 50% !important; }
+  .stk:nth-child(4) { --ox: 67% !important; } .stk:nth-child(5) { --ox: 84% !important; }
+}
+@media (max-width: 760px) {
+  .hero3-inner { padding-bottom: 150px; }
+  .stk { --oy: 93% !important; }
+  .stk:nth-child(1) { --mx: 13% !important; --my: 6% !important; }
+  .stk:nth-child(2) { --mx: 87% !important; --my: 7% !important; }
+  .stk:nth-child(3) { --mx: 13% !important; --my: 27% !important; }
+  .stk:nth-child(4) { --mx: 87% !important; --my: 26% !important; }
+  .stk:nth-child(5) { --mx: 87% !important; --my: 16% !important; }
+}

@@ -2296,3 +2296,4 @@ table.sr-only { display: block; }
   .cs-quad > div { padding: 16px 18px !important; }
   .quad-photo { top: 0; translate: -50% 0; width: 88px; }
 }
+@media (max-width: 560px) { .cs-quad { padding-top: 104px; } }

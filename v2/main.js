@@ -279,3 +279,27 @@
   update();
 })();
 
+
+/* Journal: show the sketch or the final screen — a button, so it works by tap, click and keyboard */
+document.querySelectorAll('.flip-btn').forEach((btn) => {
+  const print = btn.closest('.page').querySelector('.print');
+  btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(on));
+    print.classList.toggle('show-ui', on);
+    btn.textContent = on ? 'Show the first sketch' : 'Show the final screen';
+  });
+});
+
+/* Hero: the sticker loop can be paused (WCAG 2.2.2) */
+(() => {
+  const btn = document.querySelector('.motion-btn');
+  const hero = document.querySelector('.hero3');
+  if (!btn || !hero) return;
+  btn.addEventListener('click', () => {
+    const paused = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(paused));
+    hero.classList.toggle('paused', paused);
+    btn.textContent = paused ? 'Play animation' : 'Pause animation';
+  });
+})();

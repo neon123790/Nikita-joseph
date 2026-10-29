@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=35">
+  <link rel="stylesheet" href="style.css?v=36">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -107,36 +107,18 @@
       </div>
     </section>
 
+    <div class="wrap hero-tools">
+      <button class="motion-btn" type="button" aria-pressed="false" aria-controls="top">Pause animation</button>
+    </div>
+
     <!-- ======================= 2. Selected work — the journal ======================= -->
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
         <div class="work-head">
           <div class="section-head reveal">
-            <p class="label">Selected work</p>
-            <h2 id="work-title">Straight from the journal.</h2>
-            <p>A few products that moved from messy notes to shipped experiences.</p>
-          </div>
-
-          <div class="ship-scene reveal" aria-hidden="true">
-            <svg viewBox="0 0 320 170">
-              <path class="gull g1" d="M60 40 q 5 -5 10 0 q 5 -5 10 0"/>
-              <path class="gull g2" d="M92 56 q 4 -4 8 0 q 4 -4 8 0"/>
-              <g class="ship">
-                <g class="ship-rock">
-                  <path class="ln draw-in" pathLength="1" d="M160 120 V 26"/>
-                  <path class="ln flag" d="M160 26 l 22 6 l -22 7 Z"/>
-                  <path class="ln draw-in" pathLength="1" d="M166 32 C 192 52, 208 82, 212 114 L 166 114 Z"/>
-                  <path class="ln draw-in" pathLength="1" d="M154 42 C 138 62, 126 88, 120 114 L 154 114 Z"/>
-                  <path class="ln tick" d="M180 90 l 7 7 l 13 -15"/>
-                  <path class="ln draw-in" pathLength="1" d="M96 120 L 228 120 L 210 144 C 180 150, 140 150, 112 144 Z"/>
-                  <path class="ln" d="M104 128 L 220 128"/>
-                  <circle class="ln" cx="140" cy="136" r="3"/>
-                  <circle class="ln" cx="162" cy="137" r="3"/>
-                  <circle class="ln" cx="184" cy="136" r="3"/>
-                </g>
-              </g>
-            </svg>
-            <span class="ship-note">shipped, and still sailing.</span>
+            <p class="label">Work</p>
+            <h2 id="work-title">Some things I’ve designed.</h2>
+            <p>Early drafts, finished products, and what I learned on the way.</p>
           </div>
         </div>
 
@@ -147,6 +129,7 @@
             <button class="bookmark" role="tab" id="bm-partner" aria-controls="entry-partner" aria-selected="false" tabindex="-1" style="--bm:#9ccfff"><small>03</small>Partner Dashboard</button>
             <button class="bookmark" role="tab" id="bm-trading" aria-controls="entry-trading" aria-selected="false" tabindex="-1" style="--bm:#ff9fb5"><small>04</small>Trading Flows</button>
             <button class="bookmark" role="tab" id="bm-ai" aria-controls="entry-ai" aria-selected="false" tabindex="-1" style="--bm:#c9b6ff"><small>05</small>AI Experiments</button>
+            <button class="bookmark" role="tab" id="bm-genie" aria-controls="entry-genie" aria-selected="false" tabindex="-1" style="--bm:#ffb27a"><small>06</small>Genie</button>
           </div>
 
           <div class="book-cover">
@@ -156,11 +139,11 @@
             <!-- 01 FYERS Academy -->
             <div class="entry is-active" id="entry-academy" role="tabpanel" aria-labelledby="bm-academy" style="--bm:#ffd65a">
               <div class="page left">
-                <span class="num">entry no. 01</span>
-                <h3>Practice before it’s real</h3>
+                <span class="num">Project 01</span>
+                <h3>Practice without the risk</h3>
                 <p class="product">FYERS Academy</p>
-                <p class="desc">A risk-free trading simulator on real past markets — built as a working Android app in 3 months.</p>
-                <a class="read-link" href="work/fyers-academy.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
+                <p class="desc">Real past market data, played out in a working Android app built in three months.</p>
+                <a class="read-link" href="work/fyers-academy.html">See the process <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -180,18 +163,18 @@
                   </div></div>
                 </div>
                 </div>
-                <p class="thumb-hint">hover: from sketch to screen</p>
+                <button class="flip-btn" type="button" aria-pressed="false">Show the final screen</button>
               </div>
             </div>
 
             <!-- 02 Portfolio -->
             <div class="entry" id="entry-portfolio" role="tabpanel" aria-labelledby="bm-portfolio" style="--bm:#9be3bf" hidden>
               <div class="page left">
-                <span class="num">entry no. 02</span>
+                <span class="num">Project 02</span>
                 <h3>Your money, at a glance</h3>
                 <p class="product">Portfolio</p>
                 <p class="desc">Holdings and P&amp;L that read in seconds, on mobile and web.</p>
-                <a class="read-link" href="work/fyers-portfolio.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/fyers-portfolio.html">See the process <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -214,18 +197,18 @@
                   </div></div>
                 </div>
                 </div>
-                <p class="thumb-hint">hover: from sketch to screen</p>
+                <button class="flip-btn" type="button" aria-pressed="false">Show the final screen</button>
               </div>
             </div>
 
             <!-- 03 Partner Dashboard -->
             <div class="entry" id="entry-partner" role="tabpanel" aria-labelledby="bm-partner" style="--bm:#9ccfff" hidden>
               <div class="page left">
-                <span class="num">entry no. 03</span>
+                <span class="num">Project 03</span>
                 <h3>One calm cockpit</h3>
                 <p class="product">Partner Dashboard</p>
                 <p class="desc">Clients, earnings and tickets in one place — designed with the CEO and CXO.</p>
-                <a class="read-link" href="work/partner-dashboard.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/partner-dashboard.html">See the process <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -243,18 +226,18 @@
                   </div></div>
                 </div>
                 </div>
-                <p class="thumb-hint">hover: from sketch to screen</p>
+                <button class="flip-btn" type="button" aria-pressed="false">Show the final screen</button>
               </div>
             </div>
 
             <!-- 04 Trading Flows -->
             <div class="entry" id="entry-trading" role="tabpanel" aria-labelledby="bm-trading" style="--bm:#ff9fb5" hidden>
               <div class="page left">
-                <span class="num">entry no. 04</span>
+                <span class="num">Project 04</span>
                 <h3>Fast trades, calm minds</h3>
                 <p class="product">Trading Flows</p>
                 <p class="desc">Order windows, option chain and watchlists that keep up — without the panic.</p>
-                <a class="read-link" href="work/trading-experience.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/trading-experience.html">See the process <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -275,18 +258,18 @@
                   </div></div>
                 </div>
                 </div>
-                <p class="thumb-hint">hover: from sketch to screen</p>
+                <button class="flip-btn" type="button" aria-pressed="false">Show the final screen</button>
               </div>
             </div>
 
             <!-- 05 AI Experiments -->
             <div class="entry" id="entry-ai" role="tabpanel" aria-labelledby="bm-ai" style="--bm:#c9b6ff" hidden>
               <div class="page left">
-                <span class="num">entry no. 05</span>
+                <span class="num">Project 05</span>
                 <h3>From designer to builder</h3>
                 <p class="product">AI Experiments</p>
                 <p class="desc">From Figma to Claude Code — prototyping and shipping real apps with AI.</p>
-                <a class="read-link" href="work/ai-experiments.html">Read case study <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/ai-experiments.html">See the process <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -307,9 +290,41 @@
                   </div></div>
                 </div>
                 </div>
-                <p class="thumb-hint">hover: from sketch to screen</p>
+                <button class="flip-btn" type="button" aria-pressed="false">Show the final screen</button>
               </div>
             </div>
+
+            <!-- 06 Genie -->
+            <div class="entry" id="entry-genie" role="tabpanel" aria-labelledby="bm-genie" style="--bm:#ffb27a" hidden>
+              <div class="page left">
+                <span class="num">Project 06</span>
+                <h3>Search that knows what you meant</h3>
+                <p class="product">Genie · AI search plugin</p>
+                <p class="desc">A browser plugin that finds, saves and shares work links with AI — shaped by interviews, a survey and testing with 10 people.</p>
+                <a class="read-link" href="work/genie.html">See the process <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+              <div class="page right">
+                <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
+                <div class="thumb" aria-hidden="true">
+                  <div class="sketch"><svg viewBox="0 0 320 200">
+                    <rect class="ln" x="20" y="18" width="280" height="168" rx="10"/><path class="ln" d="M20 38h280"/>
+                    <rect class="ln" x="52" y="96" width="120" height="16" rx="8"/><rect class="ln" x="80" y="62" width="64" height="20" rx="4"/>
+                    <rect class="ln" x="196" y="38" width="104" height="148"/><rect class="ln" x="206" y="50" width="84" height="14" rx="7"/>
+                    <path class="ln" d="M206 78h70 M206 92h56 M206 110h70 M206 124h50 M206 142h70 M206 156h44"/>
+                    <text class="note-hand" x="214" y="12" transform="rotate(4 214 12)">find it fast?</text>
+                  </svg></div>
+                  <div class="ui"><div class="mini">
+                    <div class="row"><span class="pill" style="background:#ffe1c9">Genie</span><span class="muted">Search your work</span></div>
+                    <div class="field" style="margin-top:1.6cqw"><span class="muted">design system tokens</span><span>⌕</span></div>
+                    <table><tr><td>Design system · Trading</td><td class="muted">Figma</td></tr><tr><td>Tokens v2 — notes</td><td class="muted">Docs</td></tr><tr><td>Handoff checklist</td><td class="muted">Drive</td></tr></table>
+                    <div class="btns"><span style="background:#e7f0e9; color:#3f7a52">Save to folder</span><span style="background:#eef0ff; color:#3a46c9">Share</span></div>
+                  </div></div>
+                </div>
+                </div>
+                <button class="flip-btn" type="button" aria-pressed="false">Show the final screen</button>
+              </div>
+            </div>
+
           </div>
           </div>
         </div>
@@ -360,7 +375,7 @@
             <figcaption><span class="who">Shyam Suresh</span><span class="role">Lead UI Designer</span></figcaption>
           </figure>
         </div>
-        <p class="quotes-more reveal"><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6/" target="_blank" rel="noopener">Read all 11 recommendations on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <p class="quotes-more reveal"><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6/" target="_blank" rel="noopener">Read all 11 recommendations on LinkedIn <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></p>
       </div>
     </section>
 
@@ -642,7 +657,7 @@
           <ul class="contact-links">
             <!-- TODO: replace with the email you want public -->
             <li><a href="mailto:hello@example.com"><span>Contact me</span><span class="arrow" aria-hidden="true">→</span></a></li>
-            <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
         </div>
 
@@ -667,6 +682,6 @@
   </footer>
 
   <script src="music.js?v=1"></script>
-  <script src="main.js?v=13"></script>
+  <script src="main.js?v=14"></script>
 </body>
 </html>

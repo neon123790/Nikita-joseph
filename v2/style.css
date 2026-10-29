@@ -1853,3 +1853,122 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
   .hero3-sub { font-size: .95rem; line-height: 1.45; }
 }
 @media (max-width: 380px) { .hero3-label { font-size: .68rem; padding: 6px 12px; } .hero3-inner { padding-top: 52px; } }
+
+/* ---------- work: calmer heading, one motion (sketch → screen), works by tap and keyboard ---------- */
+.work-head { grid-template-columns: 1fr; }
+.entry .product { text-transform: none; letter-spacing: 0; font-size: .95rem; font-weight: 600; }
+/* six bookmarks still fit on the notebook edge */
+.bookmarks { gap: 8px; }
+.bookmark { height: 58px; }
+/* the flip: hover on a mouse, or the button for everyone */
+.print.show-ui .sketch { opacity: 0; transform: scale(1.03); filter: blur(2px); }
+.print.show-ui .ui { opacity: 1; transform: none; filter: none; }
+@media (hover: none) {
+  .thumb .sketch { opacity: 1; }
+  .thumb .ui { opacity: 0; transform: scale(.97); filter: blur(3px); }
+  .print.show-ui .sketch { opacity: 0; }
+  .print.show-ui .ui { opacity: 1; transform: none; filter: none; }
+}
+.print, .print:hover { transform: rotate(1.4deg); }
+.flip-btn {
+  margin-top: 16px; padding: 8px 16px;
+  border: 2px solid var(--stk-ink); border-radius: 999px; background: #fffdf7; color: var(--stk-ink);
+  font: 600 .9rem/1 var(--sans); cursor: pointer;
+  transition: background .2s ease;
+}
+.flip-btn:hover { background: var(--bm, #ffd65a); }
+.flip-btn[aria-pressed="true"] { background: var(--bm, #ffd65a); }
+.bookmark { transition: transform .25s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .thumb .sketch, .thumb .ui { transition: none; filter: none !important; transform: none !important; }
+}
+
+/* ==========================================================
+   Accessibility basics, site-wide
+   ========================================================== */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* a clear focus ring for keyboard users, on every interactive thing */
+:where(a, button, [role="tab"], [tabindex]):focus-visible { outline: 3px solid #3a5cff; outline-offset: 3px; border-radius: 6px; }
+.skip-link:focus { position: fixed; left: 16px; top: 16px; z-index: 1000; padding: 10px 16px; background: #ffd65a; color: var(--stk-ink); border: 2px solid var(--stk-ink); border-radius: 10px; }
+html { scroll-padding-top: 96px; }
+/* people who ask for less motion get a still page */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+/* hero animation can be paused (it loops for longer than 5 seconds) */
+.hero3.paused *, .hero3.paused { animation-play-state: paused !important; }
+.motion-btn {
+  position: absolute; right: 16px; bottom: 16px; z-index: 3;
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px;
+  border: 2px solid var(--stk-ink); border-radius: 999px; background: #fffdf7; color: var(--stk-ink);
+  font: 600 .8rem/1 var(--sans); cursor: pointer;
+}
+.motion-btn:hover { background: #ffd65a; }
+
+/* ==========================================================
+   Case study: Genie (and a layout other case studies can reuse)
+   ========================================================== */
+.cs-layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.cs-toc { position: sticky; top: 96px; padding-top: clamp(40px, 6vw, 72px); }
+.cs-toc-title { margin: 0 0 10px; font: 600 .74rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #4a4652; }
+.cs-toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; border-left: 2px solid rgba(20, 17, 28, .12); }
+.cs-toc a { display: block; padding: 6px 12px; margin-left: -2px; border-left: 2px solid transparent; color: #4a4652; text-decoration: none; font-size: .92rem; }
+.cs-toc a:hover { color: var(--stk-ink); }
+.cs-toc a[aria-current="true"] { color: var(--stk-ink); font-weight: 600; border-left-color: var(--stk-ink); }
+.cs3 { padding-top: clamp(40px, 6vw, 72px); }
+.cs3 .cs-section { grid-template-columns: 1fr; gap: 8px; scroll-margin-top: 96px; }
+.cs3 .cs-section h2 { color: #4a4652; }
+.cs3 .cs-section .content { max-width: 720px; }
+.cs3 .content h3 { font-family: var(--bold); font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
+.cs-sub { font-family: var(--bold); font-weight: 800; font-size: 1.15rem; margin: 26px 0 8px; }
+.cs-list { margin: 0 0 1.1em; padding-left: 1.2em; }
+.cs-list li { margin: 6px 0; font-size: 1.04rem; }
+.cs-callout { padding: 16px 20px; background: #fff5d1; border: 2px solid var(--stk-ink); border-radius: 14px; }
+.cs-table { width: 100%; border-collapse: collapse; font-size: .98rem; border: 2px solid var(--stk-ink); border-radius: 14px; overflow: hidden; }
+.cs-table th, .cs-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid rgba(20, 17, 28, .15); vertical-align: top; }
+.cs-table thead th { background: var(--mint); font-weight: 700; }
+.cs-table tbody tr:last-child td { border-bottom: 0; }
+.cs-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 6px 0 18px; }
+.cs-cards.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cs-card { padding: 16px 18px; background: var(--c); border: 2px solid var(--stk-ink); border-radius: 14px; box-shadow: 4px 4px 0 var(--stk-ink); }
+.cs-card h4 { margin: 0 0 6px; font-family: var(--bold); font-weight: 800; font-size: 1.05rem; }
+.cs-card p { margin: 0 !important; font-size: .98rem !important; }
+.cs-stats { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.cs-stats li { padding: 16px 18px; background: #fffdf7; border: 2px solid var(--stk-ink); border-radius: 14px; }
+.cs-stats strong { display: block; font-family: var(--bold); font-weight: 900; font-size: 2.4rem; line-height: 1; letter-spacing: -.03em; }
+.cs-stats span { display: block; margin-top: 8px; font-size: .95rem; }
+.cs-persona { padding: 18px 20px; background: #fffdf7; border: 2px solid var(--stk-ink); border-radius: 16px; }
+.cs-persona p:last-child { margin-bottom: 0 !important; }
+.cs-quote { margin: 18px 0 0; padding: 4px 0 4px 18px; border-left: 4px solid #ff6a2b; }
+.cs-quote p { font-family: var(--bold); font-weight: 700; font-size: 1.2rem !important; line-height: 1.4; }
+.cs-more a, .cs-top a { font-weight: 600; color: var(--stk-ink); }
+.cs-top { margin: 24px 0 0; }
+@media (max-width: 900px) {
+  .cs-layout { grid-template-columns: 1fr; }
+  .cs-toc { position: static; padding-top: 24px; }
+  .cs-toc ol { display: flex; flex-wrap: wrap; gap: 8px; border: 0; }
+  .cs-toc a { border: 2px solid rgba(20, 17, 28, .2); border-radius: 999px; padding: 6px 12px; margin: 0; }
+  .cs-toc a[aria-current="true"] { border-color: var(--stk-ink); }
+  .cs-cards, .cs-stats, .cs-cards.two { grid-template-columns: 1fr; }
+  .cs-table { font-size: .9rem; }
+  .cs-table th, .cs-table td { padding: 10px; }
+}
+.hero-tools { display: flex; justify-content: flex-end; margin-top: 10px; }
+.hero-tools .motion-btn { position: static; }
+@media (prefers-reduced-motion: reduce) { .hero-tools { display: none; } }
+
+/* contrast fixes (WCAG AA): darker orange for small labels, a touch darker for big orange words */
+.label { color: #c2410c; }
+.hero3 .sense, .work3 h2 em { color: #d9480f; }
+.mat { background-color: #32774f; }
+.mat-head p { color: #fff; }
+@media (max-width: 860px) {
+  .bookmarks { gap: 3px; padding: 0 8px; }
+  .bookmark { flex-basis: 34px; }
+  .bookmark small { font-size: .95rem; }
+  .bookmark[aria-selected="true"] { padding: 8px 6px 0 8px; font-size: .74rem; }
+}
+@media (max-width: 413px) {
+  .bookmark, .bookmark[aria-selected="true"] { flex: 1 1 0; font-size: 0; padding: 8px 0 0; text-align: center; }
+  .bookmark[aria-selected="true"] small { margin: 0; }
+}

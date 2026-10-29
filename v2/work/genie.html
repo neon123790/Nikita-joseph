@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Genie — Nikita Joseph</title>
+  <meta name="description" content="Genie: an AI-powered search plugin. A UI/UX case study by Nikita Joseph and Aravind A — research, persona, testing and design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=36">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+      <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    </filter>
+    <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="7"/>
+    </filter>
+    <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".4"/>
+    </filter>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="../index.html">Nikita Joseph</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../career.html">Career</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button class="music-toggle" type="button" aria-pressed="false" aria-label="Play some soothing music" title="Play some soothing music">
+          <svg class="turntable" viewBox="0 0 72 54" aria-hidden="true">
+            <rect class="tt-base" x="2" y="4" width="68" height="46" rx="10"/>
+            <circle class="tt-knob" cx="62" cy="42" r="3"/>
+            <g class="tt-disc">
+              <circle class="tt-vinyl" cx="28" cy="27" r="19"/>
+              <circle class="tt-groove" cx="28" cy="27" r="15.5"/>
+              <circle class="tt-groove" cx="28" cy="27" r="12.5"/>
+              <circle class="tt-groove" cx="28" cy="27" r="9.5"/>
+              <circle class="tt-label" cx="28" cy="27" r="5.5"/>
+              <circle class="tt-hole" cx="28" cy="27" r="1.2"/>
+            </g>
+            <path class="tt-shine" d="M15 18 A 16 16 0 0 1 25 11.5"/>
+            <g class="tt-arm">
+              <circle class="tt-pivot" cx="60" cy="12" r="4.2"/>
+              <path class="tt-rod" d="M60 12 L 55 30 L 42 37"/>
+              <rect class="tt-head" x="37" y="34.5" width="7.5" height="5" rx="1.2" transform="rotate(-28 40.5 37)"/>
+            </g>
+          </svg>
+          <span class="tt-note n1" aria-hidden="true">♪</span>
+          <span class="tt-note n2" aria-hidden="true">♫</span>
+          <span class="tt-note n3" aria-hidden="true">♪</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="cs-hero">
+      <div class="wrap">
+        <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All work</a>
+        <p class="label">Case study · Project 06</p>
+        <h1>Genie</h1>
+        <p class="lede">An AI-powered search plugin that finds, saves and shares the links your work depends on.</p>
+        <dl class="cs-facts">
+          <div><dt>My role</dt><dd>UI design and the end-to-end UX process</dd></div>
+          <div><dt>Team</dt><dd>Nikita Joseph &amp; Aravind A</dd></div>
+          <div><dt>Timeline</dt><dd>4 weeks · May 2023</dd></div>
+          <div><dt>Platform</dt><dd>Web · browser plugin</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap cs-layout">
+      <nav class="cs-toc" aria-label="On this page">
+        <p class="cs-toc-title">On this page</p>
+        <ol><li><a href="#overview">Overview</a></li><li><a href="#problem">The problem</a></li><li><a href="#process">Process</a></li><li><a href="#strategy">Strategy</a></li><li><a href="#research">Research</a></li><li><a href="#persona">Persona</a></li><li><a href="#empathy">Empathy map</a></li><li><a href="#design">Design</a></li><li><a href="#testing">Testing</a></li><li><a href="#learnings">What we learned</a></li></ol>
+      </nav>
+
+      <article class="cs-body cs3">
+        <section class="cs-section" id="overview" aria-labelledby="h-overview">
+          <h2 id="h-overview">Overview</h2>
+          <div class="content">
+            <h3>Search inside a company is slow, noisy and scattered.</h3>
+            <p>Genie is a plugin that sits beside your browser’s search. It searches across the apps a team already uses, learns what each person cares about, and lets them save and share the links they keep coming back to.</p>
+            <p>Aravind led research; I took care of the user interface and the overall end-to-end UX. Together we went from problem to tested prototype in four weeks.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="problem" aria-labelledby="h-problem">
+          <h2 id="h-problem">The problem</h2>
+          <div class="content">
+            <h3>Conventional internal search can’t keep up with how teams work.</h3>
+            <ul class="cs-list">
+              <li><b>Irrelevant results.</b> People spend extra time filtering through things they didn’t ask for.</li>
+              <li><b>No personalisation.</b> Search doesn’t learn from behaviour, so it can’t suggest what’s new and useful.</li>
+              <li><b>Rich media is a blind spot.</b> Images, videos, documents and audio are hard to index and find.</li>
+            </ul>
+            <p class="cs-callout"><b>Our goal:</b> a seamless internal search engine, powered by AI, that understands intent, returns accurate results and handles every kind of content.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="process" aria-labelledby="h-process">
+          <h2 id="h-process">Process</h2>
+          <div class="content">
+            <h3>Four weeks, five steps: concept, MVP, final product.</h3>
+            <table class="cs-table">
+              <caption class="sr-only">Project timeline by week</caption>
+              <thead><tr><th scope="col">Week</th><th scope="col">Stage</th><th scope="col">What we did</th></tr></thead>
+              <tbody>
+                <tr><td>1 · May 4</td><td>Concept</td><td>Research (problems, existing apps), strategy (challenges, goals), content</td></tr>
+                <tr><td>2 · May 11</td><td>Concept → MVP</td><td>Strategy, information architecture, user flows, paper sketches; UI foundations</td></tr>
+                <tr><td>3 · May 18</td><td>MVP</td><td>Wireframes and prototype; colours, typography and layout; master copy</td></tr>
+                <tr><td>4 · May 25</td><td>Final product</td><td>Prototype, usability testing and presentation</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="cs-section" id="strategy" aria-labelledby="h-strategy">
+          <h2 id="h-strategy">Strategy</h2>
+          <div class="content">
+            <h3>Who it’s for, and what success looks like.</h3>
+            <div class="cs-cards">
+              <div class="cs-card" style="--c:#ffd65a"><h4>Business goal</h4><p>A seamless internal search engine powered by AI.</p></div>
+              <div class="cs-card" style="--c:#9ccfff"><h4>Target users</h4><p>Designers, video editors, product managers, sales and marketers.</p></div>
+              <div class="cs-card" style="--c:#9be3bf"><h4>Platform</h4><p>Web, as a browser plugin.</p></div>
+            </div>
+            <p><b>Success means people can:</b> find the right information and reach it whenever they need it; save links into folders; organise them; and share them with the right people.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="research" aria-labelledby="h-research">
+          <h2 id="h-research">Research</h2>
+          <div class="content">
+            <h3>Talking to people first, then checking with numbers.</h3>
+            <h4 class="cs-sub">Interviews</h4>
+            <p>Contextual interviews over Google Meet, about 10 minutes each, with employees, managers and administrators who rely on internal search. We asked things like:</p>
+            <ul class="cs-list">
+              <li>How often do you use your organisation’s internal search?</li>
+              <li>What frustrates you about it? Can you give an example?</li>
+              <li>What do you wish it could do that it can’t today?</li>
+              <li>How important is personalisation in search?</li>
+              <li>What would you expect from an internal search engine powered by AI?</li>
+            </ul>
+            <h4 class="cs-sub">Survey</h4>
+            <ul class="cs-stats">
+              <li><strong>76%</strong><span>need to save important work into different folders</span></li>
+              <li><strong>52%</strong><span>want to add people to folders and manage their access</span></li>
+              <li><strong>89%</strong><span>need better integrations with the tools they use</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="persona" aria-labelledby="h-persona">
+          <h2 id="h-persona">Persona</h2>
+          <div class="content">
+            <h3>Meet Robert, a graphic designer who can’t afford to search twice.</h3>
+            <div class="cs-persona">
+              <p><b>Bio.</b> A graphic designer who gives his best at work and spends his free time learning new design skills and doing a little photography.</p>
+              <p><b>Goals.</b> Find relevant information quickly; spend less time on manual searching so he can focus on strategy; keep up with trends, reports and competitors.</p>
+              <p><b>Frustrations.</b> Internal search returns irrelevant results; nothing is personalised; and it struggles with documents, videos and presentations.</p>
+              <p><b>Needs.</b> Accurate, relevant results based on his preferences, in an interface that makes searching effortless.</p>
+            </div>
+            <blockquote class="cs-quote"><p>“Finding the right information quickly is crucial for my work. I need search that understands what I’m looking for and saves me time.”</p></blockquote>
+          </div>
+        </section>
+
+        <section class="cs-section" id="empathy" aria-labelledby="h-empathy">
+          <h2 id="h-empathy">Empathy map</h2>
+          <div class="content">
+            <h3>What Robert says, thinks, does and feels.</h3>
+            <div class="cs-cards two">
+              <div class="cs-card" style="--c:#ffd65a"><h4>Says</h4><p>“The current search often shows unrelated results and wastes my time.”</p></div>
+              <div class="cs-card" style="--c:#9ccfff"><h4>Thinks</h4><p>“I wish the search could learn from my behaviour and deliver tailored results.”</p></div>
+              <div class="cs-card" style="--c:#9be3bf"><h4>Does</h4><p>Asks colleagues instead of searching, and manually filters through results.</p></div>
+              <div class="cs-card" style="--c:#ff9fb5"><h4>Feels</h4><p>Unproductive when results are slow, cumbersome or not relevant enough.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="design" aria-labelledby="h-design">
+          <h2 id="h-design">Design</h2>
+          <div class="content">
+            <h3>A side panel that sits next to search, not in its way.</h3>
+            <p>Wireframes explored a panel that opens beside the browser’s search page, with a bottom bar for the main areas:</p>
+            <ul class="cs-list">
+              <li><b>Search</b>: one box across connected apps, with recent searches</li>
+              <li><b>Folders and bookmarks</b>: saved links in a grid or list</li>
+              <li><b>Sharing</b>: add people to a folder and choose their access</li>
+              <li><b>Notifications and settings</b>, including the <b>integrations</b> people asked for</li>
+            </ul>
+            <p><b>Visual design.</b> A calm dark interface with a green accent, set in Poppins for clear, friendly reading at small sizes.</p>
+            <p class="cs-more"><a href="https://www.behance.net/gallery/172835731/Genie-Search-Engine-Plugin-UIUX-Case-Study" target="_blank" rel="noopener">See the wireframes and final screens on Behance <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="testing" aria-labelledby="h-testing">
+          <h2 id="h-testing">Testing</h2>
+          <div class="content">
+            <h3>Ten people, one prototype.</h3>
+            <p>We tested the prototype with ten potential users.</p>
+            <div class="cs-cards two">
+              <div class="cs-card" style="--c:#9be3bf"><h4>What worked</h4><p>Most people completed the tasks. They felt the AI understood their queries and returned relevant results, and they liked the interface.</p></div>
+              <div class="cs-card" style="--c:#ffd65a"><h4>What to improve</h4><p>Add advanced search options for more specific queries, and give clear feedback when there are no or few results.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="learnings" aria-labelledby="h-learnings">
+          <h2 id="h-learnings">What we learned</h2>
+          <div class="content">
+            <h3>Research changed the product more than any screen did.</h3>
+            <p>Testing showed the plugin worked well for task completion and relevance, and that personalisation and support for different content types really mattered to people.</p>
+            <p>We learned how much colour, type and components shape the experience together. Next, we’d research further to flesh out the web experience and its structure.</p>
+          </div>
+        </section>
+        <p class="cs-top"><a href="#main">Back to top <span aria-hidden="true">↑</span></a></p>
+      </article>
+    </div>
+
+    <nav class="cs-next" aria-label="Next case study">
+      <div class="wrap">
+        <a href="fyers-academy.html">
+          <span><small>Next case study</small><strong>FYERS Academy</strong></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Nikita Joseph</span>
+      <span class="made">Designed with care <svg class="heart" viewBox="0 0 24 24" aria-label="love" role="img"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg></span>
+    </div>
+  </footer>
+
+  <script src="../music.js?v=1"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const header = document.querySelector('.site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+  <script>
+    // highlight the section you're reading in "On this page"
+    const links = [...document.querySelectorAll('.cs-toc a')];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id)));
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.cs3 .cs-section').forEach((s) => io.observe(s));
+  </script>
+</body>
+</html>

@@ -2016,3 +2016,34 @@ html { scroll-padding-top: 96px; }
   .cs-swatches { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) { .cs-persona.has-avatar { grid-template-columns: 72px 1fr; } .cs-avatar { width: 72px; height: 72px; } }
+
+/* ---------- journal bookmarks: ribbon bookmarks with a notched tail ---------- */
+.journal .bookmark {
+  isolation: isolate;
+  border: 0; border-radius: 0; box-shadow: none;
+  background: var(--stk-ink);               /* the outline */
+  clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 50%, 100% 100%, 0 100%);
+  padding-right: 26px;
+}
+.journal .bookmark::before {                /* the ribbon fabric */
+  content: ""; position: absolute; z-index: -1;
+  inset: 2.5px 3px 2.5px 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .28), transparent 35%, rgba(0, 0, 0, .06)),
+    var(--bm);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 50%, 100% 100%, 0 100%);
+}
+.journal .bookmark::after {                 /* a stitched edge, like woven ribbon */
+  content: ""; position: absolute; z-index: -1; left: 0; right: 22px; top: 8px; bottom: 8px;
+  border-top: 1.5px dashed rgba(20, 17, 28, .28); border-bottom: 1.5px dashed rgba(20, 17, 28, .28);
+}
+@media (max-width: 860px) {
+  /* on phones the ribbons stick up above the notebook, tail at the top */
+  .journal .bookmark, .journal .bookmark[aria-selected="true"] {
+    clip-path: polygon(0 0, 50% 12px, 100% 0, 100% 100%, 0 100%);
+    padding: 16px 6px 0; border: 0;
+  }
+  .journal .bookmark::before { inset: 0 2.5px 0 2.5px; clip-path: polygon(0 0, 50% 11px, 100% 0, 100% 100%, 0 100%); top: 3px; }
+  .journal .bookmark::after { left: 7px; right: 7px; top: 14px; bottom: 0; border: 0; border-left: 1.5px dashed rgba(20, 17, 28, .28); border-right: 1.5px dashed rgba(20, 17, 28, .28); }
+  .journal .bookmark { height: 52px; }
+}

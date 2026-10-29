@@ -2153,3 +2153,74 @@ html { scroll-padding-top: 96px; }
 .resume-body .rs-head { border-bottom-width: 3px; }
 .resume-body .site-footer { background: #fff; }
 @media print { @page { size: A4; margin: 14mm; } }
+
+/* ==========================================================
+   Genie refinements: lighter type, tighter corners, Gantt, viewer
+   ========================================================== */
+.cs3 .content h3 { font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.8rem); letter-spacing: -.015em; }
+.genie-hero h1 { font-weight: 800; }
+.cs-sub, .cs-quad h4, .cs-verdict h4, .cs-card h4 { font-weight: 700 !important; }
+.cs-dots strong { font-weight: 700; font-size: 2.1rem; }
+.cs-quote p { font-weight: 600 !important; }
+.cs-points b, .cs-defs dd, .genie-feats li { font-weight: 600; }
+/* corners: a little less round */
+.cs-points li, .cs-defs div, .cs-dots li, .cs-persona, .cs-quad, .cs-verdict > div, .cs-callout, .cs-table, .cs-swatches li { border-radius: 8px; }
+.ico { border-radius: 6px; }
+.cs-shot img, .cs-figure img, .genie-cover img { border-radius: 6px; }
+.cs-swatches span { border-radius: 4px; }
+.genie-feats li { border-radius: 999px; }
+.cs-defs.one { grid-template-columns: 1fr; }
+
+/* the design process as a Gantt chart, like the Behance timeline */
+.gantt { --cols: 4; margin: 18px 0 6px; padding: 18px; border: 2px solid var(--stk-ink); border-radius: 8px; background: #fffdf7; }
+.gantt-phases, .gantt-weeks { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); }
+.gantt-phases { display: block; height: 22px; margin-bottom: 8px; }
+.gantt-phases span { position: absolute; left: calc(var(--s) * 100%); width: calc((var(--e) - var(--s)) * 100%); font: 700 .78rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: #4a4652; }
+.gantt-weeks { padding-bottom: 10px; border-bottom: 2px solid rgba(20, 17, 28, .12); }
+.gantt-weeks span { font-weight: 600; font-size: .92rem; padding-left: 8px; border-left: 2px dashed rgba(20, 17, 28, .25); }
+.gantt-weeks small { display: block; font-weight: 400; color: #4a4652; font-size: .8rem; }
+.gantt-bars { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(25% - 1px), rgba(20, 17, 28, .12) calc(25% - 1px) 25%); }
+.gantt-bars li { position: relative; height: 36px; }
+.gantt-bars .bar { position: absolute; top: 0; bottom: 0; left: calc(var(--s) * 100%); width: calc((var(--e) - var(--s)) * 100%); display: flex; align-items: center; gap: 6px; padding: 0 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; background: #5eb6af; color: #0f2e2b; border: 2px solid var(--stk-ink); border-radius: 999px; font-size: .9rem; }
+.gantt-bars .bar b { font-weight: 700; }
+.gantt-bars .bar small { font-size: .8rem; opacity: .85; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 640px) {
+  .gantt { padding: 12px; overflow-x: auto; }
+  .gantt > * { min-width: 520px; }
+}
+
+/* tap to enlarge */
+.zoom { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 6px; }
+.zoom-hint { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 6px; background: rgba(255, 253, 247, .92); border: 2px solid var(--stk-ink); font-size: 14px; opacity: 0; transition: opacity .2s ease; }
+.zoom:hover .zoom-hint, .zoom:focus-visible .zoom-hint { opacity: 1; }
+@media (hover: none) { .zoom-hint { opacity: 1; } }
+.viewer { width: min(1200px, 94vw); max-height: 92vh; padding: 14px; border: 2px solid var(--stk-ink); border-radius: 10px; background: #fffdf7; }
+.viewer::backdrop { background: rgba(20, 17, 28, .7); }
+.viewer figure { margin: 0; }
+.viewer img { display: block; width: 100%; max-height: 74vh; object-fit: contain; border-radius: 6px; background: #111; }
+.viewer figcaption { margin-top: 10px; font-size: .95rem; }
+.viewer-bar { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.viewer-bar button { padding: 8px 14px; border: 2px solid var(--stk-ink); border-radius: 999px; background: #fff; font: 600 .9rem/1 var(--sans); cursor: pointer; }
+.viewer-bar .v-close { margin-left: auto; background: #ffd65a; }
+.v-count { font-size: .9rem; color: #4a4652; }
+
+/* reading progress */
+.read-progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; z-index: 60; pointer-events: none; }
+.read-progress i { display: block; height: 100%; width: 0; background: #1f9e8f; }
+
+/* contents: collapsible on small screens */
+.cs-toc-box summary { list-style: none; cursor: default; }
+.cs-toc-box summary::-webkit-details-marker { display: none; }
+@media (max-width: 900px) {
+  .cs-toc-box { border: 2px solid var(--stk-ink); border-radius: 8px; padding: 10px 14px; background: #fffdf7; }
+  .cs-toc-box summary { cursor: pointer; margin: 0; display: flex; justify-content: space-between; }
+  .cs-toc-box summary::after { content: "＋"; }
+  .cs-toc-box[open] summary::after { content: "－"; }
+  .cs-toc-box[open] ol { margin-top: 10px; }
+}
+.cs-layout > * { min-width: 0; }
+@media (max-width: 900px) { .cs-toc, .cs-toc-box { max-width: 100%; } .cs-toc ol { flex-wrap: wrap; } }
+.cs3 .cs-section { grid-template-columns: minmax(0, 1fr); }
+.cs3 .cs-section > .content { min-width: 0; }
+table.sr-only { display: block; }

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=44">
+    <link rel="stylesheet" href="../style.css?v=47">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -66,6 +66,7 @@
     </nav>
   </header>
 
+  <div class="read-progress" aria-hidden="true"><i></i></div>
   <main id="main">
     <section class="cs-hero genie-hero">
       <div class="wrap">
@@ -91,8 +92,8 @@
 
     <div class="wrap cs-layout">
       <nav class="cs-toc" aria-label="On this page">
-        <p class="cs-toc-title">On this page</p>
-        <ol><li><a href="#overview">Overview</a></li><li><a href="#problem">The problem</a></li><li><a href="#process">Process</a></li><li><a href="#strategy">Strategy</a></li><li><a href="#research">Research</a></li><li><a href="#persona">Persona</a></li><li><a href="#empathy">Empathy map</a></li><li><a href="#wireframes">Wireframes</a></li><li><a href="#visual">Visual design</a></li><li><a href="#screens">Final screens</a></li><li><a href="#testing">Testing</a></li><li><a href="#learnings">What we learned</a></li></ol>
+        <details class="cs-toc-box" open><summary class="cs-toc-title">On this page</summary>
+        <ol><li><a href="#overview">Overview</a></li><li><a href="#problem">Problem &amp; solution</a></li><li><a href="#process">Design process</a></li><li><a href="#strategy">Strategy</a></li><li><a href="#interviews">User interviews</a></li><li><a href="#persona">Persona</a></li><li><a href="#empathy">Empathy map</a></li><li><a href="#qualitative">Qualitative research</a></li><li><a href="#quantitative">Quantitative research</a></li><li><a href="#visual">Visual design</a></li><li><a href="#wireframes">Wireframes</a></li><li><a href="#screens">Final screens</a></li><li><a href="#testing">Usability testing</a></li><li><a href="#learnings">Learnings</a></li></ol></details>
       </nav>
 
       <article class="cs-body cs3">
@@ -105,7 +106,7 @@
           </div>
         </section>
         <section class="cs-section" id="problem" aria-labelledby="h-problem">
-          <h2 id="h-problem">The problem</h2>
+          <h2 id="h-problem">Problem &amp; solution</h2>
           <div class="content">
             <h3>Conventional internal search can’t keep up with how teams work.</h3>
             <ul class="cs-points">
@@ -114,22 +115,33 @@
               <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>Rich media is a blind spot.</b> Images, videos, documents and audio are hard to find.</div></li>
             </ul>
             <p class="cs-callout"><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span><b>Our goal:</b> an AI-powered internal search that understands intent, returns accurate results, personalises recommendations and handles every kind of content.</span></p>
+            <h4 class="cs-sub">Our solution</h4>
+            <p>An AI plugin that learns from behaviour to personalise results, indexes rich media alongside documents, and lets people save, organise and share what they find — so the right information is always a search away.</p>
           </div>
         </section>
         <section class="cs-section" id="process" aria-labelledby="h-process">
-          <h2 id="h-process">Process</h2>
+          <h2 id="h-process">Design process</h2>
           <div class="content">
-            <h3>Four weeks: concept, MVP, final product.</h3>
-            <table class="cs-table">
-              <caption class="sr-only">Project timeline by week</caption>
-              <thead><tr><th scope="col">Week</th><th scope="col">Stage</th><th scope="col">What we did</th></tr></thead>
-              <tbody>
-                <tr><td>1 · May 4</td><td>Concept</td><td>Research (problems, existing apps), strategy (challenges, goals), content</td></tr>
-                <tr><td>2 · May 11</td><td>Concept → MVP</td><td>Information architecture, user flows, paper sketches; UI foundations</td></tr>
-                <tr><td>3 · May 18</td><td>MVP</td><td>Wireframes and prototype; colours, typography and layout; master copy</td></tr>
-                <tr><td>4 · May 25</td><td>Final product</td><td>High-fidelity prototype, usability testing and presentation</td></tr>
-              </tbody>
-            </table>
+            <h3>Five steps in four weeks: concept, MVP, final product.</h3>
+            <p>We researched the problems people face, defined the issues, explored wireframe concepts and finished with polished interface designs.</p>
+            <div class="gantt" aria-hidden="true">
+              <div class="gantt-phases"><span style="--s:0; --e:.5">Concept</span><span style="--s:.5; --e:.75">MVP</span><span style="--s:.75; --e:1">Final product</span></div>
+              <div class="gantt-weeks"><span>Week 1<small>May 4</small></span><span>Week 2<small>May 11</small></span><span>Week 3<small>May 18</small></span><span>Week 4<small>May 25</small></span></div>
+              <ul class="gantt-bars">
+                <li style="--s:0.000; --e:0.350"><span class="bar"><b>Research</b> <small>Problems, existing apps</small></span></li>
+                <li style="--s:0.000; --e:0.500"><span class="bar"><b>Strategy</b> <small>Challenges, goals</small></span></li>
+                <li style="--s:0.075; --e:0.550"><span class="bar"><b>Content</b> <small>Copy, master copy</small></span></li>
+                <li style="--s:0.250; --e:0.912"><span class="bar"><b>UX</b> <small>IA, user flows, paper sketch, wireframes, prototype</small></span></li>
+                <li style="--s:0.250; --e:0.750"><span class="bar"><b>UI</b> <small>Colours, typography, layout</small></span></li>
+                <li style="--s:0.750; --e:0.912"><span class="bar"><b>Presentation</b></span></li>
+              </ul>
+            </div>
+            <table class="sr-only"><caption>Design process timeline</caption><thead><tr><th scope="col">Step</th><th scope="col">Includes</th><th scope="col">When</th></tr></thead><tbody><tr><th scope="row">Research</th><td>Problems, existing apps</td><td>Week 1 to week 2</td></tr>
+<tr><th scope="row">Strategy</th><td>Challenges, goals</td><td>Week 1 to week 2</td></tr>
+<tr><th scope="row">Content</th><td>Copy, master copy</td><td>Week 1 to week 3</td></tr>
+<tr><th scope="row">UX</th><td>IA, user flows, paper sketch, wireframes, prototype</td><td>Week 2 to week 4</td></tr>
+<tr><th scope="row">UI</th><td>Colours, typography, layout</td><td>Week 2 to week 3</td></tr>
+<tr><th scope="row">Presentation</th><td>—</td><td>Week 4 to week 4</td></tr></tbody></table>
           </div>
         </section>
         <section class="cs-section" id="strategy" aria-labelledby="h-strategy">
@@ -147,28 +159,14 @@
             </ul>
           </div>
         </section>
-        <section class="cs-section" id="research" aria-labelledby="h-research">
-          <h2 id="h-research">Research</h2>
+        <section class="cs-section" id="interviews" aria-labelledby="h-interviews">
+          <h2 id="h-interviews">User interviews</h2>
           <div class="content">
-            <h3>Talking to people first, then checking with numbers.</h3>
-            <h4 class="cs-sub">Qualitative · interviews</h4>
-            <p>Contextual interviews with employees, managers and administrators who rely on internal search — about 10 minutes each, over Google Meet. We asked:</p>
-            <ol class="cs-qs">
-              <li>How often do you use your organisation’s internal search?</li>
-              <li>What challenges or frustrations have you had with it?</li>
-              <li>What features do you wish it had?</li>
-              <li>How important is personalisation in search?</li>
-              <li>How easy is the current search to use?</li>
-              <li>Are you looking for any special features?</li>
-              <li>What made an experience memorable or effective?</li>
-              <li>What would you expect from an AI-powered internal search?</li>
-            </ol>
-            <h4 class="cs-sub">Quantitative · survey</h4>
-            <ul class="cs-dots">
-              <li><div class="dotgrid" role="img" aria-label="76 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>76%</strong><span>need to save important work into different folders</span></li>
-              <li><div class="dotgrid" role="img" aria-label="52 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>52%</strong><span>want to add people to folders and manage their access</span></li>
-              <li><div class="dotgrid" role="img" aria-label="89 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>89%</strong><span>need better integrations with the tools they use</span></li>
-            </ul>
+            <h3>Starting with the people who search every day.</h3>
+            <p>We interviewed people in person and over video calls (Zoom, WhatsApp, Google Meet), and used an online survey to reach more potential users — aiming for 8–10 participants to gather what we needed.</p>
+            <dl class="cs-defs one">
+              <div><dt>Target audience</dt><dd>Designers, video editors, sales and marketers who want to be more productive and keep their links in order.</dd></div>
+            </dl>
           </div>
         </section>
         <section class="cs-section" id="persona" aria-labelledby="h-persona">
@@ -218,25 +216,39 @@
             </div>
           </div>
         </section>
-        <section class="cs-section" id="wireframes" aria-labelledby="h-wireframes">
-          <h2 id="h-wireframes">Wireframes</h2>
+        <section class="cs-section" id="qualitative" aria-labelledby="h-qualitative">
+          <h2 id="h-qualitative">Qualitative research</h2>
           <div class="content">
-            <h3>Low fidelity first: structure before style.</h3>
-            <p>Twelve wireframes mapped the plugin panel beside the search page, from the first click to integrations.</p>
-            <div class="cs-wires">
-              <figure class="cs-wire"><img src="../images/genie/wire-1.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: search page, plugin closed."><figcaption>01 · Search page, plugin closed</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-2.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: home: recent searches."><figcaption>02 · Home: recent searches</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-3.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: search results with filters."><figcaption>03 · Search results with filters</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-4.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folders."><figcaption>04 · Folders</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-5.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folder: list view."><figcaption>05 · Folder: list view</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-6.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folder: grid view."><figcaption>06 · Folder: grid view</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-7.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: bookmarks: grid."><figcaption>07 · Bookmarks: grid</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-8.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: bookmarks: list."><figcaption>08 · Bookmarks: list</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-9.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: notifications."><figcaption>09 · Notifications</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-10.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: profile."><figcaption>10 · Profile</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-11.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: user settings."><figcaption>11 · User settings</figcaption></figure>
-              <figure class="cs-wire"><img src="../images/genie/wire-12.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: integrations."><figcaption>12 · Integrations</figcaption></figure>
-            </div>
+            <h3>Understanding experiences, not just opinions.</h3>
+            <p>Individual interviews and focus groups with employees, managers and administrators who rely on internal search, to uncover feedback that would shape the AI plugin.</p>
+            <dl class="cs-defs">
+              <div><dt>Interview type</dt><dd>Contextual interview</dd></div>
+              <div><dt>Duration</dt><dd>10 minutes per person</dd></div>
+              <div><dt>Channel</dt><dd>Google Meet</dd></div>
+            </dl>
+            <h4 class="cs-sub">Questions we asked</h4>
+            <ol class="cs-qs">
+              <li>How often do you use your organisation’s internal search?</li>
+              <li>What challenges or frustrations have you had with it?</li>
+              <li>What features do you wish it had?</li>
+              <li>How important is personalisation in search?</li>
+              <li>How easy is the current search to use?</li>
+              <li>Are you looking for any special features?</li>
+              <li>What made an experience memorable or effective?</li>
+              <li>What would you expect from an AI-powered internal search?</li>
+            </ol>
+          </div>
+        </section>
+        <section class="cs-section" id="quantitative" aria-labelledby="h-quantitative">
+          <h2 id="h-quantitative">Quantitative research</h2>
+          <div class="content">
+            <h3>Putting numbers to what we heard.</h3>
+            <p>A survey measured how widespread each need was, to guide what the plugin should do first.</p>
+            <ul class="cs-dots">
+              <li><div class="dotgrid" role="img" aria-label="76 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>76%</strong><span>need to save important work into different folders</span></li>
+              <li><div class="dotgrid" role="img" aria-label="52 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>52%</strong><span>want to add people to folders and manage their access</span></li>
+              <li><div class="dotgrid" role="img" aria-label="89 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>89%</strong><span>need better integrations with the tools they use</span></li>
+            </ul>
           </div>
         </section>
         <section class="cs-section" id="visual" aria-labelledby="h-visual">
@@ -251,28 +263,49 @@
             <p><b>Typography: Poppins</b> in ExtraBold, Medium, Regular and Light — round, open letters that stay readable at the small sizes a side panel needs.</p>
           </div>
         </section>
+        <section class="cs-section" id="wireframes" aria-labelledby="h-wireframes">
+          <h2 id="h-wireframes">Wireframes</h2>
+          <div class="content">
+            <h3>Low fidelity first: structure before style.</h3>
+            <p>Twelve wireframes mapped the plugin panel beside the search page, from the first click to integrations.</p>
+            <div class="cs-wires">
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: search page, plugin closed."><img src="../images/genie/wire-1.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: search page, plugin closed."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>01 · Search page, plugin closed</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: home: recent searches."><img src="../images/genie/wire-2.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: home: recent searches."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>02 · Home: recent searches</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: search results with filters."><img src="../images/genie/wire-3.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: search results with filters."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>03 · Search results with filters</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: folders."><img src="../images/genie/wire-4.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folders."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>04 · Folders</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: folder: list view."><img src="../images/genie/wire-5.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folder: list view."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>05 · Folder: list view</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: folder: grid view."><img src="../images/genie/wire-6.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: folder: grid view."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>06 · Folder: grid view</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: bookmarks: grid."><img src="../images/genie/wire-7.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: bookmarks: grid."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>07 · Bookmarks: grid</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: bookmarks: list."><img src="../images/genie/wire-8.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: bookmarks: list."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>08 · Bookmarks: list</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: notifications."><img src="../images/genie/wire-9.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: notifications."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>09 · Notifications</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: profile."><img src="../images/genie/wire-10.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: profile."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>10 · Profile</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: user settings."><img src="../images/genie/wire-11.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: user settings."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>11 · User settings</figcaption></figure>
+              <figure class="cs-wire"><button class="zoom" type="button" aria-label="Enlarge: Low-fidelity wireframe: integrations."><img src="../images/genie/wire-12.jpg" width="640" height="376" loading="lazy" alt="Low-fidelity wireframe: integrations."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>12 · Integrations</figcaption></figure>
+            </div>
+          </div>
+        </section>
         <section class="cs-section" id="screens" aria-labelledby="h-screens">
           <h2 id="h-screens">Final screens</h2>
           <div class="content">
             <h3>The high-fidelity panel, screen by screen.</h3>
             <div class="cs-gallery big">
-              <figure class="cs-shot"><img src="../images/genie/screen-1.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: home. Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile."><figcaption><b>Home.</b> Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-2.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: search. Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><figcaption><b>Search.</b> Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-3.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: filter by app. Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more."><figcaption><b>Filter by app.</b> Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-4.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: quick actions. Every result can be opened, copied as a link, copied to a folder or added to bookmarks."><figcaption><b>Quick actions.</b> Every result can be opened, copied as a link, copied to a folder or added to bookmarks.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/screen-5.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: folders. Save links into folders and create new ones in a tap."><figcaption><b>Folders.</b> Save links into folders and create new ones in a tap.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: home. Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile."><img src="../images/genie/screen-1.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: home. Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Home.</b> Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: search. Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><img src="../images/genie/screen-2.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: search. Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Search.</b> Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: filter by app. Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more."><img src="../images/genie/screen-3.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: filter by app. Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Filter by app.</b> Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: quick actions. Every result can be opened, copied as a link, copied to a folder or added to bookmarks."><img src="../images/genie/screen-4.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: quick actions. Every result can be opened, copied as a link, copied to a folder or added to bookmarks."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Quick actions.</b> Every result can be opened, copied as a link, copied to a folder or added to bookmarks.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: folders. Save links into folders and create new ones in a tap."><img src="../images/genie/screen-5.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: folders. Save links into folders and create new ones in a tap."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Folders.</b> Save links into folders and create new ones in a tap.</figcaption></figure>
             </div>
             <h4 class="cs-sub">More screens</h4>
             <div class="cs-gallery small">
-              <figure class="cs-shot"><img src="../images/genie/more-1.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: invite people. Add people to a folder and choose who can edit or view."><figcaption><b>Invite people.</b> Add people to a folder and choose who can edit or view.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/more-2.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: grid view. See a folder’s files as a grid of previews."><figcaption><b>Grid view.</b> See a folder’s files as a grid of previews.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/more-3.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: notifications. Updates from shared folders and members."><figcaption><b>Notifications.</b> Updates from shared folders and members.</figcaption></figure>
-              <figure class="cs-shot"><img src="../images/genie/more-4.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: integrations. Connect Gmail, Notion, Figma and Google apps."><figcaption><b>Integrations.</b> Connect Gmail, Notion, Figma and Google apps.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel: invite people. Add people to a folder and choose who can edit or view."><img src="../images/genie/more-1.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: invite people. Add people to a folder and choose who can edit or view."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Invite people.</b> Add people to a folder and choose who can edit or view.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel: grid view. See a folder’s files as a grid of previews."><img src="../images/genie/more-2.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: grid view. See a folder’s files as a grid of previews."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Grid view.</b> See a folder’s files as a grid of previews.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel: notifications. Updates from shared folders and members."><img src="../images/genie/more-3.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: notifications. Updates from shared folders and members."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Notifications.</b> Updates from shared folders and members.</figcaption></figure>
+              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel: integrations. Connect Gmail, Notion, Figma and Google apps."><img src="../images/genie/more-4.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: integrations. Connect Gmail, Notion, Figma and Google apps."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Integrations.</b> Connect Gmail, Notion, Figma and Google apps.</figcaption></figure>
             </div>
           </div>
         </section>
         <section class="cs-section" id="testing" aria-labelledby="h-testing">
-          <h2 id="h-testing">Testing</h2>
+          <h2 id="h-testing">Usability testing</h2>
           <div class="content">
             <h3>Ten people, one prototype.</h3>
             <p>We tested the high-fidelity prototype with ten potential users, asking them to complete everyday tasks.</p>
@@ -283,7 +316,7 @@
           </div>
         </section>
         <section class="cs-section" id="learnings" aria-labelledby="h-learnings">
-          <h2 id="h-learnings">What we learned</h2>
+          <h2 id="h-learnings">Learnings &amp; next steps</h2>
           <div class="content">
             <h3>Research changed the product more than any screen did.</h3>
             <p>Testing showed the plugin worked well for task completion and relevance, and that personalisation and support for different content types mattered a lot to people.</p>
@@ -294,6 +327,16 @@
         <p class="cs-top"><a href="#main">Back to top <span aria-hidden="true">↑</span></a></p>
       </article>
     </div>
+
+    <dialog class="viewer" aria-label="Image viewer">
+      <figure><img alt=""><figcaption></figcaption></figure>
+      <div class="viewer-bar">
+        <button type="button" class="v-prev" aria-label="Previous image">←</button>
+        <span class="v-count" aria-live="polite"></span>
+        <button type="button" class="v-next" aria-label="Next image">→</button>
+        <button type="button" class="v-close" aria-label="Close image viewer">Close ✕</button>
+      </div>
+    </dialog>
 
     <nav class="cs-next" aria-label="Next case study">
       <div class="wrap">
@@ -330,6 +373,43 @@
       });
     }, { rootMargin: '-30% 0px -60% 0px' });
     document.querySelectorAll('.cs3 .cs-section').forEach((s) => io.observe(s));
+  </script>
+  <script>
+    // tap to enlarge: an accessible viewer for screens and wireframes
+    (() => {
+      const dlg = document.querySelector('.viewer');
+      const items = [...document.querySelectorAll('.zoom')];
+      if (!dlg || !items.length) return;
+      const img = dlg.querySelector('img'), cap = dlg.querySelector('figcaption'), count = dlg.querySelector('.v-count');
+      let i = 0, opener = null;
+      let group = items; // the images of one section: wireframes or final screens
+      const show = (n) => {
+        i = (n + group.length) % group.length;
+        const src = group[i].querySelector('img');
+        img.src = src.currentSrc || src.src; img.alt = src.alt;
+        cap.textContent = group[i].closest('figure').querySelector('figcaption')?.textContent || '';
+        count.textContent = `${i + 1} of ${group.length}`;
+      };
+      items.forEach((b) => b.addEventListener('click', () => {
+        opener = b; group = [...b.closest('section').querySelectorAll('.zoom')];
+        show(group.indexOf(b)); dlg.showModal(); dlg.querySelector('.v-close').focus();
+      }));
+      dlg.querySelector('.v-prev').addEventListener('click', () => show(i - 1));
+      dlg.querySelector('.v-next').addEventListener('click', () => show(i + 1));
+      dlg.querySelector('.v-close').addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+      dlg.addEventListener('close', () => opener && opener.focus());
+    })();
+    // reading progress, and the contents list collapses on small screens
+    (() => {
+      const bar = document.querySelector('.read-progress i');
+      const onScroll = () => { const h = document.documentElement; bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'; };
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const box = document.querySelector('.cs-toc-box');
+      if (box && matchMedia('(max-width: 900px)').matches) box.open = false;
+      else if (box) box.querySelector('summary').addEventListener('click', (e) => e.preventDefault()); // always open on desktop
+    })();
   </script>
 </body>
 </html>

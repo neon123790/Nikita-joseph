@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=47">
+    <link rel="stylesheet" href="../style.css?v=48">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -93,7 +93,7 @@
     <div class="wrap cs-layout">
       <nav class="cs-toc" aria-label="On this page">
         <details class="cs-toc-box" open><summary class="cs-toc-title">On this page</summary>
-        <ol><li><a href="#overview">Overview</a></li><li><a href="#problem">Problem &amp; solution</a></li><li><a href="#process">Design process</a></li><li><a href="#strategy">Strategy</a></li><li><a href="#interviews">User interviews</a></li><li><a href="#persona">Persona</a></li><li><a href="#empathy">Empathy map</a></li><li><a href="#qualitative">Qualitative research</a></li><li><a href="#quantitative">Quantitative research</a></li><li><a href="#visual">Visual design</a></li><li><a href="#wireframes">Wireframes</a></li><li><a href="#screens">Final screens</a></li><li><a href="#testing">Usability testing</a></li><li><a href="#learnings">Learnings</a></li></ol></details>
+        <ol><li><a href="#overview">Overview</a></li><li><a href="#problem">Problem &amp; solution</a></li><li><a href="#process">Design process</a></li><li><a href="#strategy">Strategy</a></li><li class="has-sub"><a href="#interviews" data-group="Research">Research</a><ol><li><a href="#interviews">User interviews</a></li><li><a href="#persona">Persona</a></li><li><a href="#empathy">Empathy map</a></li><li><a href="#qualitative">Qualitative</a></li><li><a href="#quantitative">Quantitative</a></li></ol></li><li class="has-sub"><a href="#visual" data-group="Design">Design</a><ol><li><a href="#visual">Visual design</a></li><li><a href="#wireframes">Wireframes</a></li><li><a href="#screens">Final screens</a></li></ol></li><li><a href="#testing">Usability testing</a></li><li><a href="#learnings">Learnings</a></li></ol></details>
       </nav>
 
       <article class="cs-body cs3">
@@ -173,7 +173,7 @@
           <h2 id="h-persona">Persona</h2>
           <div class="content">
             <h3>Meet Robert, a graphic designer who can’t afford to search twice.</h3>
-            <div class="cs-persona">
+            <div class="persona2">
               <svg class="cs-avatar" viewBox="0 0 160 170" role="img" aria-label="Illustration of Robert, the persona: a young man with short dark hair and a grey hoodie">
                 <g class="av-outline">
                   <path fill="#7a7f8c" d="M22 170 C 24 128, 52 112, 80 112 C 108 112, 136 128, 138 170 Z"/>
@@ -192,16 +192,16 @@
                 <path d="M72 136 v14 M88 136 v14" stroke="#e9e6ee" stroke-width="2.5" stroke-linecap="round"/>
               </svg>
               <div>
-                <p class="cs-persona-name"><b>Robert</b> · Graphic designer, Argentina</p>
+                <p class="persona2-name"><b>Robert</b>, graphic designer · Argentina</p>
                 <p>Gives his best at work and spends his free time learning new design skills and doing a little photography.</p>
                 <blockquote class="cs-quote"><p>“I need search that understands what I’m looking for and saves me time.”</p></blockquote>
               </div>
             </div>
-            <ul class="cs-points three">
-              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><div><b>Goals</b><br>Find relevant information fast; spend less time searching manually; keep up with trends and competitors.</div></li>
-              <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>Frustrations</b><br>Irrelevant results; nothing personalised; poor support for documents, videos and presentations.</div></li>
-              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9.2C1.4 7.5 3.6 4 7 4c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8C19.5 15.4 12 20 12 20Z"/></svg></span><div><b>Needs</b><br>Accurate results based on his preferences, in an interface that makes searching effortless.</div></li>
-            </ul>
+            <div class="persona2-cols">
+              <div><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><h4>Goals</h4><p>Find relevant information fast; spend less time searching manually; keep up with trends and competitors.</p></div>
+              <div><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><h4>Frustrations</h4><p>Irrelevant results; nothing personalised; poor support for documents, videos and presentations.</p></div>
+              <div><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9.2C1.4 7.5 3.6 4 7 4c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8C19.5 15.4 12 20 12 20Z"/></svg></span><h4>Needs</h4><p>Accurate results based on his preferences, in an interface that makes searching effortless.</p></div>
+            </div>
           </div>
         </section>
         <section class="cs-section" id="empathy" aria-labelledby="h-empathy">
@@ -351,7 +351,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>© <span id="year">2026</span> Nikita Joseph</span>
-      <span class="made">Designed with care <svg class="heart" viewBox="0 0 24 24" aria-label="love" role="img"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg></span>
+      <span class="made">Designed with care in Bengaluru <svg class="heart" viewBox="0 0 24 24" aria-label="love" role="img"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg></span>
     </div>
   </footer>
 
@@ -369,7 +369,12 @@
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
-        links.forEach((a) => a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id)));
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        // the deepest matching link is the current one; its group heading lights up too
+        const match = links.filter((a) => a.getAttribute('href') === '#' + e.target.id);
+        const cur = match[match.length - 1];
+        if (cur) { cur.setAttribute('aria-current', 'true'); cur.closest('.has-sub')?.classList.add('in'); }
+        document.querySelectorAll('.cs-toc .has-sub').forEach((li) => li.classList.toggle('in', !!cur && li.contains(cur)));
       });
     }, { rootMargin: '-30% 0px -60% 0px' });
     document.querySelectorAll('.cs3 .cs-section').forEach((s) => io.observe(s));

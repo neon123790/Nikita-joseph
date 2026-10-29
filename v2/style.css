@@ -2140,3 +2140,16 @@ html { scroll-padding-top: 96px; }
 .contact-email a { color: var(--stk-ink); font-weight: 600; word-break: break-all; }
 .det-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 860px) { .det-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; } .det-card { aspect-ratio: auto; } }
+
+/* chips: no invisible dot, so no empty gap at the start */
+.j-stop .chip::before { content: none; }
+.j-stop .chip { gap: 0; padding: 4px 12px; }
+
+/* resume: a full page document, not a card */
+.resume-body { background: #fff; }
+.resume-body .resume-page { padding-top: clamp(20px, 3vw, 36px); }
+.resume-body .resume-page .wrap { max-width: 920px; }
+.resume-body .resume-sheet { border: 0; border-radius: 0; box-shadow: none; padding: clamp(8px, 2vw, 24px) 0 clamp(40px, 6vw, 72px); background: none; }
+.resume-body .rs-head { border-bottom-width: 3px; }
+.resume-body .site-footer { background: #fff; }
+@media print { @page { size: A4; margin: 14mm; } }

@@ -2136,3 +2136,5 @@ html { scroll-padding-top: 96px; }
 .cs-shot img { border: 0; border-radius: 10px; box-shadow: 0 10px 24px -14px rgba(20, 17, 28, .5); }
 @media (max-width: 900px) { .cs-gallery.small { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .cs-gallery.big { grid-template-columns: 1fr; } }
+.contact-email { margin: 18px 0 0; font-size: 1rem; color: #3b3744; }
+.contact-email a { color: var(--stk-ink); font-weight: 600; word-break: break-all; }

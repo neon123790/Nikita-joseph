@@ -2127,3 +2127,12 @@ html { scroll-padding-top: 96px; }
 .print .thumb { border-radius: 8px; overflow: hidden; }
 .thumb:has(.thumb-img) { aspect-ratio: 1196 / 768; background: #202124; }
 .thumb-img { object-position: center; }
+/* wireframes: plain, no frame */
+.cs-wire img { border: 0; border-radius: 0; background: none; }
+/* final screens: sharp ones large, the rest smaller */
+.cs-gallery.big { grid-template-columns: 1fr 1fr; gap: 22px 18px; }
+.cs-gallery.big .cs-shot:first-child { grid-column: 1 / -1; }
+.cs-gallery.small { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 8px; }
+.cs-shot img { border: 0; border-radius: 10px; box-shadow: 0 10px 24px -14px rgba(20, 17, 28, .5); }
+@media (max-width: 900px) { .cs-gallery.small { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .cs-gallery.big { grid-template-columns: 1fr; } }

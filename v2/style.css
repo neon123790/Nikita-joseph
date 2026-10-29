@@ -2297,3 +2297,24 @@ table.sr-only { display: block; }
   .quad-photo { top: 0; translate: -50% 0; width: 88px; }
 }
 @media (max-width: 560px) { .cs-quad { padding-top: 104px; } }
+/* persona: a bigger circle, and Robert fills more of it */
+.persona2 { grid-template-columns: 190px 1fr; gap: 28px; }
+.persona-photo { width: 190px; }
+.persona-photo img, .quad-photo img { transform: scale(1.18); transform-origin: 50% 0%; }
+@media (max-width: 700px) { .persona2 { grid-template-columns: 1fr; justify-items: start; } .persona-photo { width: 150px; } }
+
+/* Genie: heading levels fixed — small label stays decorative, big title is the h2 */
+.cs-kicker { margin: 0 0 6px; font: 600 .8rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #4a4652; padding-top: 8px; }
+.cs3 .cs-title { font-family: var(--bold); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.8rem); letter-spacing: -.015em; line-height: 1.15; margin: 0 0 18px; }
+.cs3 h3.cs-sub { font-family: var(--bold); font-weight: 700; font-size: 1.15rem; margin: 26px 0 8px; }
+.cs-quad h3, .cs-verdict h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-family: var(--bold); font-weight: 700; font-size: 1.1rem; }
+.persona2-cols h3 { margin: 8px 0 4px; font-family: var(--bold); font-weight: 700; font-size: 1.05rem; }
+.cs-hint { margin: -6px 0 12px; font-size: .9rem; color: #4a4652; }
+.gantt-hint { display: none; }
+@media (max-width: 640px) { .gantt-hint { display: block; margin-top: 8px; } }
+.cs-next-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 640px) { .cs-next-row { grid-template-columns: 1fr; } }
+.cs3 .cs-section h2.cs-title { font-family: var(--bold); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.8rem); letter-spacing: -.015em; line-height: 1.15; text-transform: none; color: var(--stk-ink); padding-top: 0; margin: 0 0 18px; }
+.cs3 .content h3.cs-sub { font-size: 1.15rem; margin: 26px 0 8px; letter-spacing: 0; }
+.cs3 .content .persona2-cols h3 { font-size: 1.05rem; margin: 8px 0 4px; letter-spacing: 0; }
+.cs3 .content .cs-quad h3, .cs3 .content .cs-verdict h3 { font-size: 1.1rem; margin: 0 0 10px; letter-spacing: 0; }

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=36">
+    <link rel="stylesheet" href="../style.css?v=38">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -70,7 +70,7 @@
     <section class="cs-hero">
       <div class="wrap">
         <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> All work</a>
-        <p class="label">Case study · Project 06</p>
+        <p class="label">Case study · Project 04</p>
         <h1>Genie</h1>
         <p class="lede">An AI-powered search plugin that finds, saves and shares the links your work depends on.</p>
         <dl class="cs-facts">
@@ -85,7 +85,7 @@
     <div class="wrap cs-layout">
       <nav class="cs-toc" aria-label="On this page">
         <p class="cs-toc-title">On this page</p>
-        <ol><li><a href="#overview">Overview</a></li><li><a href="#problem">The problem</a></li><li><a href="#process">Process</a></li><li><a href="#strategy">Strategy</a></li><li><a href="#research">Research</a></li><li><a href="#persona">Persona</a></li><li><a href="#empathy">Empathy map</a></li><li><a href="#design">Design</a></li><li><a href="#testing">Testing</a></li><li><a href="#learnings">What we learned</a></li></ol>
+        <ol><li><a href="#overview">Overview</a></li><li><a href="#problem">The problem</a></li><li><a href="#process">Process</a></li><li><a href="#strategy">Strategy</a></li><li><a href="#research">Research</a></li><li><a href="#persona">Persona</a></li><li><a href="#empathy">Empathy map</a></li><li><a href="#wireframes">Wireframes</a></li><li><a href="#visual">Visual design</a></li><li><a href="#screens">Final screens</a></li><li><a href="#testing">Testing</a></li><li><a href="#learnings">What we learned</a></li></ol>
       </nav>
 
       <article class="cs-body cs3">
@@ -93,11 +93,10 @@
           <h2 id="h-overview">Overview</h2>
           <div class="content">
             <h3>Search inside a company is slow, noisy and scattered.</h3>
-            <p>Genie is a plugin that sits beside your browser’s search. It searches across the apps a team already uses, learns what each person cares about, and lets them save and share the links they keep coming back to.</p>
-            <p>Aravind led research; I took care of the user interface and the overall end-to-end UX. Together we went from problem to tested prototype in four weeks.</p>
+            <p>Genie is an AI-powered plugin that sits beside your browser’s search. It searches across the apps a team already uses, learns what each person cares about, and lets them save, organise and share the links they keep coming back to.</p>
+            <p>Aravind took care of research; I took care of the user interface and the overall end-to-end UX. Together we went from problem to tested prototype in four weeks.</p>
           </div>
         </section>
-
         <section class="cs-section" id="problem" aria-labelledby="h-problem">
           <h2 id="h-problem">The problem</h2>
           <div class="content">
@@ -107,10 +106,9 @@
               <li><b>No personalisation.</b> Search doesn’t learn from behaviour, so it can’t suggest what’s new and useful.</li>
               <li><b>Rich media is a blind spot.</b> Images, videos, documents and audio are hard to index and find.</li>
             </ul>
-            <p class="cs-callout"><b>Our goal:</b> a seamless internal search engine, powered by AI, that understands intent, returns accurate results and handles every kind of content.</p>
+            <p class="cs-callout"><b>Our goal:</b> a seamless internal search engine, powered by AI, that understands intent, returns accurate results, personalises recommendations and handles every kind of content.</p>
           </div>
         </section>
-
         <section class="cs-section" id="process" aria-labelledby="h-process">
           <h2 id="h-process">Process</h2>
           <div class="content">
@@ -120,14 +118,13 @@
               <thead><tr><th scope="col">Week</th><th scope="col">Stage</th><th scope="col">What we did</th></tr></thead>
               <tbody>
                 <tr><td>1 · May 4</td><td>Concept</td><td>Research (problems, existing apps), strategy (challenges, goals), content</td></tr>
-                <tr><td>2 · May 11</td><td>Concept → MVP</td><td>Strategy, information architecture, user flows, paper sketches; UI foundations</td></tr>
+                <tr><td>2 · May 11</td><td>Concept → MVP</td><td>Information architecture, user flows, paper sketches; UI foundations</td></tr>
                 <tr><td>3 · May 18</td><td>MVP</td><td>Wireframes and prototype; colours, typography and layout; master copy</td></tr>
-                <tr><td>4 · May 25</td><td>Final product</td><td>Prototype, usability testing and presentation</td></tr>
+                <tr><td>4 · May 25</td><td>Final product</td><td>High-fidelity prototype, usability testing and presentation</td></tr>
               </tbody>
             </table>
           </div>
         </section>
-
         <section class="cs-section" id="strategy" aria-labelledby="h-strategy">
           <h2 id="h-strategy">Strategy</h2>
           <div class="content">
@@ -137,24 +134,30 @@
               <div class="cs-card" style="--c:#9ccfff"><h4>Target users</h4><p>Designers, video editors, product managers, sales and marketers.</p></div>
               <div class="cs-card" style="--c:#9be3bf"><h4>Platform</h4><p>Web, as a browser plugin.</p></div>
             </div>
-            <p><b>Success means people can:</b> find the right information and reach it whenever they need it; save links into folders; organise them; and share them with the right people.</p>
+            <div class="cs-cards two">
+              <div class="cs-card" style="--c:#fffdf7"><h4>Success looks like</h4><p>Finding the right information, reaching it whenever it’s needed, sharing links with people and organising them.</p></div>
+              <div class="cs-card" style="--c:#fffdf7"><h4>Everyday tasks</h4><p>Search for information, save links into folders, share them with people — and get more done.</p></div>
+            </div>
           </div>
         </section>
-
         <section class="cs-section" id="research" aria-labelledby="h-research">
           <h2 id="h-research">Research</h2>
           <div class="content">
             <h3>Talking to people first, then checking with numbers.</h3>
-            <h4 class="cs-sub">Interviews</h4>
-            <p>Contextual interviews over Google Meet, about 10 minutes each, with employees, managers and administrators who rely on internal search. We asked things like:</p>
-            <ul class="cs-list">
+            <h4 class="cs-sub">Qualitative: interviews</h4>
+            <p>Contextual interviews with employees, managers and administrators who rely on internal search — about 10 minutes each, over Google Meet. We asked:</p>
+            <ol class="cs-list">
               <li>How often do you use your organisation’s internal search?</li>
-              <li>What frustrates you about it? Can you give an example?</li>
-              <li>What do you wish it could do that it can’t today?</li>
+              <li>What challenges or frustrations have you had with it? Can you give an example?</li>
+              <li>What features do you wish it had but it’s missing?</li>
               <li>How important is personalisation in search?</li>
+              <li>How would you rate how easy the current search is to use?</li>
+              <li>Are you looking for any special features?</li>
+              <li>What made an experience memorable or effective?</li>
               <li>What would you expect from an internal search engine powered by AI?</li>
-            </ul>
-            <h4 class="cs-sub">Survey</h4>
+            </ol>
+            <h4 class="cs-sub">Quantitative: survey</h4>
+            <p>A survey measured how widespread those needs were:</p>
             <ul class="cs-stats">
               <li><strong>76%</strong><span>need to save important work into different folders</span></li>
               <li><strong>52%</strong><span>want to add people to folders and manage their access</span></li>
@@ -162,68 +165,99 @@
             </ul>
           </div>
         </section>
-
         <section class="cs-section" id="persona" aria-labelledby="h-persona">
           <h2 id="h-persona">Persona</h2>
           <div class="content">
             <h3>Meet Robert, a graphic designer who can’t afford to search twice.</h3>
-            <div class="cs-persona">
-              <p><b>Bio.</b> A graphic designer who gives his best at work and spends his free time learning new design skills and doing a little photography.</p>
-              <p><b>Goals.</b> Find relevant information quickly; spend less time on manual searching so he can focus on strategy; keep up with trends, reports and competitors.</p>
-              <p><b>Frustrations.</b> Internal search returns irrelevant results; nothing is personalised; and it struggles with documents, videos and presentations.</p>
-              <p><b>Needs.</b> Accurate, relevant results based on his preferences, in an interface that makes searching effortless.</p>
+            <div class="cs-persona has-avatar">
+              <svg class="cs-avatar" viewBox="0 0 120 120" role="img" aria-label="Illustrated avatar of Robert, the persona">
+                <circle cx="60" cy="60" r="56" fill="#9ccfff" stroke="#14111c" stroke-width="3"/>
+                <path d="M24 108 C 28 84, 92 84, 96 108" fill="#5eb6af" stroke="#14111c" stroke-width="3"/>
+                <circle cx="60" cy="54" r="22" fill="#e0a77c" stroke="#14111c" stroke-width="3"/>
+                <path d="M38 50 C 38 30, 82 28, 82 48 C 74 40, 50 40, 38 50 Z" fill="#3b2a20" stroke="#14111c" stroke-width="3"/>
+                <circle cx="52" cy="56" r="2.4" fill="#14111c"/><circle cx="68" cy="56" r="2.4" fill="#14111c"/>
+                <path d="M53 65 q 7 4 14 0" fill="none" stroke="#14111c" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <div>
+                <p class="cs-persona-name"><b>Robert</b> · Graphic designer, Argentina</p>
+                <p><b>Bio.</b> Gives his best at work and spends his free time learning new design skills and doing a little photography.</p>
+              </div>
+            </div>
+            <div class="cs-cards">
+              <div class="cs-card" style="--c:#9be3bf"><h4>Goals</h4><p>Find relevant information quickly; spend less time on manual searching; keep up with trends, reports and competitors.</p></div>
+              <div class="cs-card" style="--c:#ff9fb5"><h4>Frustrations</h4><p>Irrelevant results; nothing personalised; poor support for documents, videos and presentations.</p></div>
+              <div class="cs-card" style="--c:#ffd65a"><h4>Needs</h4><p>Accurate results based on his preferences, in an interface that makes searching effortless.</p></div>
             </div>
             <blockquote class="cs-quote"><p>“Finding the right information quickly is crucial for my work. I need search that understands what I’m looking for and saves me time.”</p></blockquote>
           </div>
         </section>
-
         <section class="cs-section" id="empathy" aria-labelledby="h-empathy">
           <h2 id="h-empathy">Empathy map</h2>
           <div class="content">
             <h3>What Robert says, thinks, does and feels.</h3>
             <div class="cs-cards two">
-              <div class="cs-card" style="--c:#ffd65a"><h4>Says</h4><p>“The current search often shows unrelated results and wastes my time.”</p></div>
-              <div class="cs-card" style="--c:#9ccfff"><h4>Thinks</h4><p>“I wish the search could learn from my behaviour and deliver tailored results.”</p></div>
-              <div class="cs-card" style="--c:#9be3bf"><h4>Does</h4><p>Asks colleagues instead of searching, and manually filters through results.</p></div>
-              <div class="cs-card" style="--c:#ff9fb5"><h4>Feels</h4><p>Unproductive when results are slow, cumbersome or not relevant enough.</p></div>
+              <div class="cs-card" style="--c:#ffd65a"><h4>Says</h4><ul class="cs-mini"><li>“I need relevant information quickly for my work.”</li><li>“Current search often shows unrelated results.”</li><li>“I want an interface that saves me time.”</li><li>“It would be great if search understood my preferences.”</li></ul></div>
+              <div class="cs-card" style="--c:#9ccfff"><h4>Thinks</h4><ul class="cs-mini"><li>“I spend too much time sifting through irrelevant results.”</li><li>“I wish search could learn from my behaviour.”</li><li>“It doesn’t support different content formats well.”</li><li>“I need the latest trends and competitor analysis.”</li></ul></div>
+              <div class="cs-card" style="--c:#9be3bf"><h4>Does</h4><ul class="cs-mini"><li>Relies on colleagues and outside sources to find things.</li><li>Struggles to search across content formats.</li><li>Filters results manually.</li><li>Raises his frustration with the team.</li></ul></div>
+              <div class="cs-card" style="--c:#ff9fb5"><h4>Feels</h4><ul class="cs-mini"><li>Annoyed by irrelevant results and wasted time.</li><li>Overwhelmed by the volume of information.</li><li>Impatient when search is slow and cumbersome.</li><li>Unproductive when results miss the mark.</li></ul></div>
             </div>
           </div>
         </section>
-
-        <section class="cs-section" id="design" aria-labelledby="h-design">
-          <h2 id="h-design">Design</h2>
+        <section class="cs-section" id="wireframes" aria-labelledby="h-wireframes">
+          <h2 id="h-wireframes">Wireframes</h2>
           <div class="content">
-            <h3>A side panel that sits next to search, not in its way.</h3>
-            <p>Wireframes explored a panel that opens beside the browser’s search page, with a bottom bar for the main areas:</p>
-            <ul class="cs-list">
-              <li><b>Search</b>: one box across connected apps, with recent searches</li>
-              <li><b>Folders and bookmarks</b>: saved links in a grid or list</li>
-              <li><b>Sharing</b>: add people to a folder and choose their access</li>
-              <li><b>Notifications and settings</b>, including the <b>integrations</b> people asked for</li>
-            </ul>
-            <p><b>Visual design.</b> A calm dark interface with a green accent, set in Poppins for clear, friendly reading at small sizes.</p>
-            <p class="cs-more"><a href="https://www.behance.net/gallery/172835731/Genie-Search-Engine-Plugin-UIUX-Case-Study" target="_blank" rel="noopener">See the wireframes and final screens on Behance <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></p>
+            <h3>Low fidelity first: structure before style.</h3>
+            <p>Twelve wireframes mapped the plugin panel beside the search page: search and recent searches, results, folders, list and grid views, bookmarks, notifications, settings and integrations.</p>
+            <figure class="cs-figure"><img src="../images/genie/wireframes.jpg" width="1100" height="2146" loading="lazy" alt="Twelve grey low-fidelity wireframes of the Genie panel beside a search page: home, results, folders, folder list and grid, bookmarks, notifications, user settings and integrations."><figcaption>Low-fidelity wireframes for the 12 main states of the panel.</figcaption></figure>
           </div>
         </section>
-
+        <section class="cs-section" id="visual" aria-labelledby="h-visual">
+          <h2 id="h-visual">Visual design</h2>
+          <div class="content">
+            <h3>Calm and dark, with one clear accent.</h3>
+            <ul class="cs-swatches">
+              <li><span style="background:#5eb6af"></span><b>Green</b> #5EB6AF · accent and actions</li>
+              <li><span style="background:#151515"></span><b>Dark</b> #151515 · background</li>
+              <li><span style="background:#303245"></span><b>Gray</b> #303245 · surfaces</li>
+            </ul>
+            <p><b>Typography: Poppins</b> in ExtraBold, Medium, Regular and Light. Its round, open letterforms stay friendly and readable at the small sizes a side panel needs.</p>
+          </div>
+        </section>
+        <section class="cs-section" id="screens" aria-labelledby="h-screens">
+          <h2 id="h-screens">Final screens</h2>
+          <div class="content">
+            <h3>The high-fidelity panel, screen by screen.</h3>
+            <figure class="cs-figure"><img src="../images/genie/cover.jpg" width="1400" height="759" loading="lazy" alt="Genie open as a side panel beside the Google search page in a dark browser window, listing recent searches."><figcaption>Genie sits beside search, one click away.</figcaption></figure>
+            <div class="cs-gallery">
+              <figure class="cs-shot"><img src="../images/genie/screen-1.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, home screen: Opening Genie lands on search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile."><figcaption><b>Home.</b> Opening Genie lands on search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-2.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, search screen: Results come from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><figcaption><b>Search.</b> Results come from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-3.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, filter by app screen: A filter narrows results to the apps you choose — Gmail, Notion, Figma, Google Docs and more."><figcaption><b>Filter by app.</b> A filter narrows results to the apps you choose — Gmail, Notion, Figma, Google Docs and more.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-4.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, folders screen: Save links into folders and create new ones in a tap."><figcaption><b>Folders.</b> Save links into folders and create new ones in a tap.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-5.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, invite people screen: Add people to a folder, choose who can edit or view, and copy a share link."><figcaption><b>Invite people.</b> Add people to a folder, choose who can edit or view, and copy a share link.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-6.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, grid view screen: Switch a folder between list and grid; the menu offers move, copy and delete."><figcaption><b>Grid view.</b> Switch a folder between list and grid; the menu offers move, copy and delete.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-7.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, notifications screen: Updates from shared folders and members, with new items marked clearly."><figcaption><b>Notifications.</b> Updates from shared folders and members, with new items marked clearly.</figcaption></figure>
+              <figure class="cs-shot"><img src="../images/genie/screen-8.jpg" width="448" height="700" loading="lazy" alt="Genie plugin, integrations screen: Connect Gmail, Notion, Figma and Google apps — the integrations 89% of people asked for."><figcaption><b>Integrations.</b> Connect Gmail, Notion, Figma and Google apps — the integrations 89% of people asked for.</figcaption></figure>
+            </div>
+          </div>
+        </section>
         <section class="cs-section" id="testing" aria-labelledby="h-testing">
           <h2 id="h-testing">Testing</h2>
           <div class="content">
             <h3>Ten people, one prototype.</h3>
-            <p>We tested the prototype with ten potential users.</p>
+            <p>We tested the high-fidelity prototype with ten potential users, asking them to complete everyday tasks.</p>
             <div class="cs-cards two">
-              <div class="cs-card" style="--c:#9be3bf"><h4>What worked</h4><p>Most people completed the tasks. They felt the AI understood their queries and returned relevant results, and they liked the interface.</p></div>
-              <div class="cs-card" style="--c:#ffd65a"><h4>What to improve</h4><p>Add advanced search options for more specific queries, and give clear feedback when there are no or few results.</p></div>
+              <div class="cs-card" style="--c:#9be3bf"><h4>What worked</h4><ul class="cs-mini"><li>Most people completed the tasks successfully.</li><li>The AI understood their queries and returned relevant results.</li><li>The interface was well received.</li></ul></div>
+              <div class="cs-card" style="--c:#ffd65a"><h4>What to improve</h4><ul class="cs-mini"><li>Add advanced search options for more specific queries.</li><li>Give clear feedback when there are no or few results.</li></ul></div>
             </div>
           </div>
         </section>
-
         <section class="cs-section" id="learnings" aria-labelledby="h-learnings">
           <h2 id="h-learnings">What we learned</h2>
           <div class="content">
             <h3>Research changed the product more than any screen did.</h3>
-            <p>Testing showed the plugin worked well for task completion and relevance, and that personalisation and support for different content types really mattered to people.</p>
-            <p>We learned how much colour, type and components shape the experience together. Next, we’d research further to flesh out the web experience and its structure.</p>
+            <p>Testing showed the plugin worked well for task completion and relevance, and that personalisation and support for different content types mattered a lot to people.</p>
+            <p>We learned how colour, type and components shape the experience together. <b>Next</b>, we’d research further to flesh out the full web experience and its structure.</p>
+            <p class="cs-more"><a href="https://www.behance.net/gallery/172835731/Genie-Search-Engine-Plugin-UIUX-Case-Study" target="_blank" rel="noopener">See the full case study on Behance <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></p>
           </div>
         </section>
         <p class="cs-top"><a href="#main">Back to top <span aria-hidden="true">↑</span></a></p>

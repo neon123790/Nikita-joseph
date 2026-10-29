@@ -2318,3 +2318,17 @@ table.sr-only { display: block; }
 .cs3 .content h3.cs-sub { font-size: 1.15rem; margin: 26px 0 8px; letter-spacing: 0; }
 .cs3 .content .persona2-cols h3 { font-size: 1.05rem; margin: 8px 0 4px; letter-spacing: 0; }
 .cs3 .content .cs-quad h3, .cs3 .content .cs-verdict h3 { font-size: 1.1rem; margin: 0 0 10px; letter-spacing: 0; }
+
+/* Genie: easier reading — comfortable size, line height and line length */
+.cs3 .content p, .cs3 .content li, .cs3 .content dd { font-size: 1.08rem; line-height: 1.7; }
+.cs3 .content > p, .cs3 .content > ul, .cs3 .content > ol { max-width: 66ch; }
+.cs3 .cs-section { padding: 56px 0; }
+.cs3 .cs-quad li, .cs3 .cs-verdict li, .cs3 .persona2-cols p, .cs3 .cs-dots span { font-size: 1rem !important; line-height: 1.6; }
+
+/* Strategy: no dividing lines, just space */
+#strategy .cs-defs div { border-top: 0; padding: 0; }
+#strategy .cs-defs { gap: 22px; margin-bottom: 22px; }
+#strategy .cs-points li { border: 0 !important; padding: 6px 0; }
+
+/* the contact section closes every page; it isn't printed with the resume */
+@media print { .contact3 { display: none !important; } }

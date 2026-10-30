@@ -2877,3 +2877,13 @@ main h2:not(.sr-only):not(.now-title), .cs3 .cs-section h2.cs-title, .mat-head h
   .sec-sheet a[aria-current] { background: #eaf2ef; font-weight: 700; color: #13786c; }
 }
 @media (max-width: 900px) and (prefers-reduced-motion: reduce) { .sec-fab { transition: none; } }
+
+/* heading hierarchy inside each heading: soft words, strong key words */
+main h2:not(.sr-only), .career-hero h1 { font-weight: 500 !important; color: #57525f; }
+main h2 b, .career-hero h1 b, .cs3 .cs-title mark { font-weight: 900; color: var(--stk-ink); }
+main h2 b em, .work3 h2 em { color: #d9480f; font-style: normal; }
+.career-hero h1 b { color: #c2410c; }
+.cs3 .cs-section h2.cs-title { font-weight: 500 !important; color: #57525f !important; }
+.cs3 .cs-title mark { background: none; padding: 0; }
+.mat-head h2 { color: rgba(255,255,255,.82) !important; }
+.mat-head h2 b { color: #fff; }

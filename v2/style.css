@@ -2498,3 +2498,34 @@ table.sr-only { display: block; }
 .skill-chips.one { margin-top: 22px; }
 .skill-chips.one li { background: #fffdf7; }
 @media (max-width: 560px) { .drive-art svg { width: 70px; } .xp { padding: 18px; } }
+
+/* career: plain intro, headings on the left, content on the right */
+.career-hero h1 { max-width: 12em; }
+.career-hero .lede { font-family: var(--sans); font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.6; color: #3b3744; max-width: 38em; }
+.career-hero .resume-link { margin-top: 26px; }
+.part-grid { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.part-head { position: sticky; top: 100px; }
+.part-head h2 { font-family: var(--bold); font-weight: 800; letter-spacing: -.02em; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.1; margin: 0 0 12px; }
+.part-sub { margin: 0; color: #3b3744; font-size: 1.02rem; line-height: 1.6; }
+.part-body > :first-child { margin-top: 0; }
+.part-body .aw-grid { grid-template-columns: 1fr; }
+.part-body .det-paper { margin: 0; padding: 26px 22px 30px; }
+.part-body .det-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.part-body .skill-chips.one { margin-top: 0; }
+.part-body .edu-grid { margin-top: 0; grid-template-columns: 1fr; }
+.part-body .drive-cta { margin-top: 22px; }
+#experience { padding-bottom: clamp(48px, 7vw, 88px); }
+@media (max-width: 860px) {
+  .part-grid { grid-template-columns: 1fr; gap: 18px; }
+  .part-head { position: static; }
+  .part-body .det-grid { grid-template-columns: 1fr; }
+}
+
+/* hero: interactive dot field replaces the grid and the line */
+.untangle-wrap { display: none; }
+.hero3::before { display: none; }
+.dotfield { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero3-inner { padding-bottom: clamp(48px, 9vh, 96px); }
+@media (max-width: 760px) { .hero3-inner { padding-bottom: 56px; } }
+.dotfield { -webkit-mask-image: radial-gradient(ellipse 40% 34% at 50% 62%, transparent 40%, #000 90%); mask-image: radial-gradient(ellipse 40% 34% at 50% 62%, transparent 40%, #000 90%); }
+@media (max-width: 760px) { .dotfield { -webkit-mask-image: radial-gradient(ellipse 60% 26% at 50% 66%, transparent 45%, #000 95%); mask-image: radial-gradient(ellipse 60% 26% at 50% 66%, transparent 45%, #000 95%); } }

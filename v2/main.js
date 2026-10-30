@@ -390,3 +390,51 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
     }
   });
 })();
+
+/* Hero: a quiet field of dots. Near the pointer (or a finger) they swell and warm up,
+   then fade back slowly — a soft trail. When nobody is interacting, a slow wave drifts across. */
+(() => {
+  const cv = document.querySelector('.dotfield');
+  const hero = document.querySelector('.hero3');
+  if (!cv || !hero) return;
+  const ctx = cv.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W = 0, H = 0, dpr = 1, dots = [], gap = 26;
+  const build = () => {
+    const r = hero.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    gap = W < 600 ? 22 : 26;
+    dots = [];
+    for (let y = gap / 2; y < H; y += gap) for (let x = gap / 2; x < W; x += gap) dots.push({ x, y, e: 0 });
+  };
+  let px = -999, py = -999, lastMove = 0;
+  const setP = (cx, cy) => { const r = cv.getBoundingClientRect(); px = cx - r.left; py = cy - r.top; lastMove = performance.now(); };
+  hero.addEventListener('pointermove', (e) => setP(e.clientX, e.clientY));
+  hero.addEventListener('pointerdown', (e) => setP(e.clientX, e.clientY));
+  hero.addEventListener('pointerleave', () => { px = py = -999; });
+  const draw = (now) => {
+    const paused = hero.classList.contains('paused');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const idle = now - lastMove > 2500;
+    const wave = ((now / 9000) % 1) * (W + H) - H * .3;   // slow diagonal wave position
+    for (const d of dots) {
+      let t = 0;
+      const dist = Math.hypot(d.x - px, d.y - py);
+      if (dist < 130) t = Math.max(t, 1 - dist / 130);
+      if (idle && !reduce && !paused) { const w = Math.abs((d.x + d.y * .6) - wave); if (w < 90) t = Math.max(t, (1 - w / 90) * .45); }
+      // rise quickly, fade back slowly
+      d.e += (t - d.e) * (t > d.e ? .25 : .035);
+      const e = d.e;
+      const r = 1.3 + e * 2.6;
+      ctx.fillStyle = e > .02 ? `rgba(${Math.round(20 + 211 * e)}, ${Math.round(17 + 55 * e)}, ${Math.round(28 - 13 * e)}, ${.16 + e * .6})` : 'rgba(20, 17, 28, .16)';
+      ctx.beginPath(); ctx.arc(d.x, d.y, r, 0, Math.PI * 2); ctx.fill();
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  };
+  build();
+  window.addEventListener('resize', build);
+  requestAnimationFrame(draw);
+})();

@@ -2701,3 +2701,55 @@ table.sr-only { display: block; }
 .maze-dot { r: 4; fill: #f2a07b; stroke: #fff; stroke-width: 2; }
 .hero3-label { padding: 0; background: none; border: 0; border-radius: 0; transform: none; box-shadow: none;
   font: 600 .8rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: #c2410c; }
+
+/* ==========================================================
+   Noticeboard: pinned photos + pockets that hold more
+   ========================================================== */
+.board2 { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
+.pinned { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 18px; }
+.pol { position: relative; background: #fffdf7; padding: 10px 10px 12px; border-radius: 3px; transform: rotate(var(--r)); box-shadow: 0 12px 18px -10px rgba(10, 30, 15, .6); transition: transform .35s cubic-bezier(.3, 1.4, .5, 1); }
+.pol:hover { transform: rotate(0deg) translateY(-3px); }
+.pol img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.pol-cap { display: block; margin-top: 8px; font: 400 1.05rem/1.2 var(--hand); color: #14111c; text-align: center; }
+.pol .nb-pin { top: -8px; }
+.pockets { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 18px; padding-top: 30px; }
+.pocket { position: relative; display: block; width: 100%; min-height: 150px; padding: 0; border: 0; background: none; cursor: pointer; text-align: left; font: inherit; }
+.pocket-peek { position: absolute; left: 12%; right: 12%; top: -26px; height: 90px; display: flex; justify-content: center; }
+.pocket-peek img { width: 44%; aspect-ratio: 3 / 4; object-fit: cover; border: 4px solid #fffdf7; border-radius: 2px; box-shadow: 0 4px 8px rgba(0, 0, 0, .25); margin: 0 -10px; transition: transform .35s cubic-bezier(.3, 1.4, .5, 1); }
+.pocket-peek img:nth-child(1) { transform: rotate(-8deg); }
+.pocket-peek img:nth-child(2) { transform: translateY(-6px); z-index: 1; }
+.pocket-peek img:nth-child(3) { transform: rotate(8deg); }
+.pocket:hover .pocket-peek img, .pocket:focus-visible .pocket-peek img { translate: 0 -14px; }
+.pocket-front { position: absolute; left: 0; right: 0; bottom: 0; height: 104px; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 14px 16px; background: var(--pc); border: 2.5px solid var(--stk-ink); border-radius: 4px 4px 12px 12px; box-shadow: 0 10px 16px -10px rgba(10, 30, 15, .6);
+  background-image: linear-gradient(transparent 0 12px, rgba(20, 17, 28, .12) 12px 13px, transparent 13px), repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 2px, transparent 2px 6px); }
+.pocket-front::before { content: ""; position: absolute; left: 10px; right: 10px; top: 6px; border-top: 2px dashed rgba(20, 17, 28, .35); }
+.pocket-name { font: 400 1.35rem/1.1 var(--hand); color: #14111c; }
+.pocket-count { margin-top: 4px; font-size: .82rem; font-weight: 600; color: #2d2a36; }
+.pocket-view { width: min(900px, 94vw); max-height: 90vh; padding: 20px; border: 2.5px solid var(--stk-ink); border-radius: 12px; background: #3d8a5c; color: #fff; }
+.pocket-view::backdrop { background: rgba(20, 17, 28, .6); }
+.pv-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.pv-head h3 { margin: 0; font: 400 1.8rem/1 var(--hand); color: #fff; }
+.pv-close { padding: 8px 14px; border: 2px solid var(--stk-ink); border-radius: 999px; background: #ffd65a; font: 600 .9rem/1 var(--sans); cursor: pointer; }
+.pv-grid { list-style: none; margin: 0; padding: 0 4px 6px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 22px 18px; }
+.pv-grid li { background: #fffdf7; padding: 10px 10px 12px; transform: rotate(var(--r)); box-shadow: 0 10px 16px -10px rgba(0,0,0,.6); }
+.pv-grid img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.pv-grid span { display: block; margin-top: 8px; font: 400 1.05rem/1.25 var(--hand); color: #14111c; text-align: center; }
+@media (max-width: 900px) { .board2 { grid-template-columns: 1fr; } .pinned { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .pockets { gap: 44px 14px; } .pocket-name { font-size: 1.15rem; } .pv-grid { grid-template-columns: 1fr 1fr; gap: 14px; } }
+
+/* tighter rhythm between sections */
+.section { padding: clamp(52px, 6.5vw, 88px) 0; }
+.section-head { margin-bottom: clamp(24px, 3vw, 40px); }
+.work-head { margin-bottom: clamp(28px, 4vw, 48px); }
+.hero-tools + .section, .hero3 + .section { padding-top: clamp(56px, 7vw, 96px); }
+
+/* kind words: subtle — one calm card colour, small quote mark, people up front */
+.kind3 .quote, .kind3 .quote.feature { background: #fffdf7; border: 1.5px solid rgba(20, 17, 28, .18); box-shadow: 0 10px 24px -18px rgba(20, 17, 28, .35); border-radius: 14px; }
+.kind3 .quote-mark, .kind3 .quote.feature .quote-mark { width: auto; height: auto; padding: 0; border: 0; background: none !important; color: #c9c4bb; font: 800 2.6rem/0.6 var(--bold); display: block; }
+.kind3 .quote blockquote { color: #2d2a36; }
+.kind3 .quote figcaption { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(20, 17, 28, .1); }
+.kw-avatar { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #eceffd; color: #2f3a78; font: 700 .9rem/1 var(--sans); letter-spacing: .02em; }
+.kw-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.kw-id { display: grid; gap: 2px; }
+.car-btn { background: #fffdf7; box-shadow: none; border-width: 1.5px; }
+.car-btn:hover:not(:disabled) { background: #ffd65a; box-shadow: none; transform: none; }

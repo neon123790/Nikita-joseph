@@ -545,3 +545,22 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   requestAnimationFrame(step);
 })();
 
+
+/* Noticeboard pockets: tap a pocket to see the photos tucked inside */
+(() => {
+  const dlg = document.querySelector('.pocket-view');
+  if (!dlg) return;
+  const grid = dlg.querySelector('.pv-grid'), title = dlg.querySelector('#pv-title');
+  let opener = null;
+  document.querySelectorAll('.pocket').forEach((p) => p.addEventListener('click', () => {
+    opener = p;
+    title.textContent = p.dataset.title.replace('&amp;', '&');
+    grid.innerHTML = JSON.parse(p.dataset.photos).map((ph, i) =>
+      `<li style="--r:${[-2, 1.5, -1, 2, -1.5][i % 5]}deg"><img src="${ph.src}" alt="${ph.cap}"><span>${ph.cap}</span></li>`).join('');
+    dlg.showModal();
+    dlg.querySelector('.pv-close').focus();
+  }));
+  dlg.querySelector('.pv-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', () => opener && opener.focus());
+})();

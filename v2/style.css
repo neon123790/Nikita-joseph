@@ -2693,3 +2693,11 @@ table.sr-only { display: block; }
 .gh-text h1 { margin-bottom: 22px; }
 .gh-facts { gap: 18px 24px; }
 @media (max-width: 760px) and (max-height: 700px) { .hero3 .me-sticker { width: 100px; } .hero3 h1 { font-size: 1.7rem; } }
+
+/* hero: a calmer maze, and a plain label */
+.maze { transition: opacity 1.2s ease; }
+.maze-walls { stroke: rgba(47, 58, 120, .09); stroke-width: 1.5; transition: opacity 1.2s ease; }
+.maze-path { stroke: #f2a07b; stroke-width: 2.5; opacity: .85; }
+.maze-dot { r: 4; fill: #f2a07b; stroke: #fff; stroke-width: 2; }
+.hero3-label { padding: 0; background: none; border: 0; border-radius: 0; transform: none; box-shadow: none;
+  font: 600 .8rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: #c2410c; }

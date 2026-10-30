@@ -480,7 +480,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   const make = () => {
     const r = hero.getBoundingClientRect();
     W = r.width; H = r.height;
-    cell = W < 600 ? 34 : 46;
+    cell = W < 600 ? 56 : 76;   // big, calm cells
     cols = Math.floor(W / cell); rows = Math.floor(H / cell);
     const ox = (W - cols * cell) / 2, oy = (H - rows * cell) / 2;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
@@ -528,12 +528,12 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   };
   const step = (now) => {
     if (!visible) return;
-    const T = 9000, k = ((now - t0) % (T + 3500));
-    if (now - t0 > T + 3500) { make(); }
-    const p = Math.min(1, k / T), ease = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-    const fade = k > T + 1800 ? 1 - (k - T - 1800) / 1700 : 1;
+    const T = 14000, HOLD = 2500, OUT = 1800, k = (now - t0);
+    if (k > T + HOLD + OUT) { make(); svg.style.opacity = 0; requestAnimationFrame(() => { svg.style.opacity = 1; }); }
+    const p = Math.min(1, k / T), ease = p * p * (3 - 2 * p);
+    const fade = k > T + HOLD ? Math.max(0, 1 - (k - T - HOLD) / OUT) : 1;
     path.style.strokeDashoffset = len * (1 - ease);
-    path.style.opacity = fade; dot.style.opacity = fade;
+    path.style.opacity = fade; dot.style.opacity = fade; walls.style.opacity = .4 + fade * .6;
     const pt = path.getPointAtLength(len * ease);
     dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
     requestAnimationFrame(step);

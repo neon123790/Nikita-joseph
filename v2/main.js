@@ -467,3 +467,87 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
   });
 });
+
+/* Hero: a faint maze behind the words. A soft line finds its way from the entrance to the exit,
+   rests, fades, and a new maze appears — "lost in a maze of clicks? let's find you a way out." */
+(() => {
+  const svg = document.querySelector('.maze');
+  const hero = document.querySelector('.hero3');
+  if (!svg || !hero) return;
+  const walls = svg.querySelector('.maze-walls'), path = svg.querySelector('.maze-path'), dot = svg.querySelector('.maze-dot');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, cell, cols, rows, len = 0, t0 = 0, visible = true;
+  const make = () => {
+    const r = hero.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cell = W < 600 ? 34 : 46;
+    cols = Math.floor(W / cell); rows = Math.floor(H / cell);
+    const ox = (W - cols * cell) / 2, oy = (H - rows * cell) / 2;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    // recursive-backtracker maze
+    const N = cols * rows, seen = new Uint8Array(N), right = new Uint8Array(N).fill(1), down = new Uint8Array(N).fill(1);
+    const stack = [0]; seen[0] = 1;
+    while (stack.length) {
+      const c = stack[stack.length - 1], x = c % cols, y = (c / cols) | 0;
+      const n = [];
+      if (x > 0 && !seen[c - 1]) n.push(c - 1);
+      if (x < cols - 1 && !seen[c + 1]) n.push(c + 1);
+      if (y > 0 && !seen[c - cols]) n.push(c - cols);
+      if (y < rows - 1 && !seen[c + cols]) n.push(c + cols);
+      if (!n.length) { stack.pop(); continue; }
+      const k = n[(Math.random() * n.length) | 0];
+      if (k === c + 1) right[c] = 0; else if (k === c - 1) right[k] = 0; else if (k === c + cols) down[c] = 0; else down[k] = 0;
+      seen[k] = 1; stack.push(k);
+    }
+    let d = `M${ox} ${oy}H${ox + cols * cell}M${ox} ${oy}V${oy + rows * cell}`;
+    for (let c = 0; c < N; c++) {
+      const x = ox + (c % cols) * cell, y = oy + ((c / cols) | 0) * cell;
+      if (right[c]) d += `M${x + cell} ${y}V${y + cell}`;
+      if (down[c]) d += `M${x} ${y + cell}H${x + cell}`;
+    }
+    walls.setAttribute('d', d);
+    // solve from a left entrance to a right exit (breadth-first search)
+    const s = ((rows / 2) | 0) * cols, e = (((rows / 2) | 0) + 1) * cols - 1;
+    const prev = new Int32Array(N).fill(-1), q = [s]; prev[s] = s;
+    while (q.length) {
+      const c = q.shift(); if (c === e) break;
+      const x = c % cols;
+      const go = (k) => { if (prev[k] === -1) { prev[k] = c; q.push(k); } };
+      if (x < cols - 1 && !right[c]) go(c + 1);
+      if (x > 0 && !right[c - 1]) go(c - 1);
+      if (c + cols < N && !down[c]) go(c + cols);
+      if (c - cols >= 0 && !down[c - cols]) go(c - cols);
+    }
+    const pts = []; for (let c = e; ; c = prev[c]) { pts.push(c); if (c === s) break; }
+    pts.reverse();
+    const cx = (c) => ox + (c % cols) * cell + cell / 2, cy = (c) => oy + ((c / cols) | 0) * cell + cell / 2;
+    path.setAttribute('d', `M${ox - 10} ${cy(s)}` + pts.map((c) => `L${cx(c)} ${cy(c)}`).join('') + `L${ox + cols * cell + 10} ${cy(e)}`);
+    len = path.getTotalLength();
+    path.style.strokeDasharray = `${len} ${len}`;
+    t0 = performance.now();
+  };
+  const step = (now) => {
+    if (!visible) return;
+    const T = 9000, k = ((now - t0) % (T + 3500));
+    if (now - t0 > T + 3500) { make(); }
+    const p = Math.min(1, k / T), ease = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    const fade = k > T + 1800 ? 1 - (k - T - 1800) / 1700 : 1;
+    path.style.strokeDashoffset = len * (1 - ease);
+    path.style.opacity = fade; dot.style.opacity = fade;
+    const pt = path.getPointAtLength(len * ease);
+    dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
+    requestAnimationFrame(step);
+  };
+  make();
+  if (reduce) { path.style.strokeDashoffset = 0; const pt = path.getPointAtLength(len); dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y); return; }
+  new IntersectionObserver((es) => { const was = visible; visible = es[0].isIntersecting; if (visible && !was) requestAnimationFrame(step); }).observe(hero);
+  let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(make, 200); });
+  requestAnimationFrame(step);
+})();
+
+/* Hero: the sticker flips to a photo of Nikita every 10 seconds, and back */
+(() => {
+  const card = document.querySelector('.flip-card');
+  if (!card || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setInterval(() => { if (!document.hidden) card.classList.toggle('flipped'); }, 10000);
+})();

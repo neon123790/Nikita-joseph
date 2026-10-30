@@ -2661,3 +2661,28 @@ table.sr-only { display: block; }
 .cs-heart { right: 14%; bottom: 10%; rotate: 10deg; }
 .cs-mail { left: 8%; bottom: 10%; rotate: -8deg; }
 .cs-chat { right: 4%; top: 8%; rotate: 5deg; }
+
+/* ---------- hero: the maze ---------- */
+.dotfield { display: none; }
+.maze { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.45) 50%, #000 75%); mask-image: linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.45) 50%, #000 75%); }
+.maze-walls { fill: none; stroke: rgba(47, 58, 120, .16); stroke-width: 2; stroke-linecap: round; }
+.maze-path { fill: none; stroke: #f08a5d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: .9; }
+.maze-dot { fill: #f08a5d; stroke: #fff; stroke-width: 3; }
+.hero3 .sense { white-space: normal; }
+@media (max-width: 760px) { .maze { -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 28%, rgba(0,0,0,.4) 42%, rgba(0,0,0,.4) 100%); mask-image: linear-gradient(180deg, #000 0%, #000 28%, rgba(0,0,0,.4) 42%, rgba(0,0,0,.4) 100%); } }
+
+/* ---------- hero: sticker ⇄ photo flip ---------- */
+.flip-card { width: min(100%, 226px); aspect-ratio: 226 / 318; perspective: 1000px; }
+.flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 1s cubic-bezier(.5, 0, .2, 1); }
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+.flip-inner .face { position: absolute; inset: 0; width: 100% !important; height: 100%; object-fit: contain; object-position: bottom center; backface-visibility: hidden; -webkit-backface-visibility: hidden; margin: 0 !important; }
+.flip-inner .back { transform: rotateY(180deg); }
+@media (max-width: 760px) { .flip-card { width: min(38vw, 150px); margin-bottom: -6px; } }
+@media (max-width: 760px) and (max-height: 700px) { .flip-card { width: 120px; } }
+.flip-inner .face { animation: none !important; filter: none !important; }
+.flip-inner .face.back { transform: rotateY(180deg) !important; }
+.flip-card { animation: sticker-pop .9s .2s cubic-bezier(.3, 1.5, .5, 1) both; }
+.maze { -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.16) 0%, rgba(0,0,0,.16) 48%, #000 72%); mask-image: linear-gradient(90deg, rgba(0,0,0,.16) 0%, rgba(0,0,0,.16) 48%, #000 72%); }
+@media (max-width: 760px) { .maze { -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 26%, rgba(0,0,0,.14) 40%, rgba(0,0,0,.14) 100%); mask-image: linear-gradient(180deg, #000 0%, #000 26%, rgba(0,0,0,.14) 40%, rgba(0,0,0,.14) 100%); } }
+@media (max-width: 760px) and (max-height: 700px) { .flip-card { width: 100px; } .hero3 h1 { font-size: 1.75rem; } .hero3-sub { font-size: .92rem; line-height: 1.45; margin-top: 10px; } .hero3-actions { margin-top: 14px; } .hero3-inner { padding-top: 16px; padding-bottom: 20px; } }

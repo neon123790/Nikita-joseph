@@ -2465,3 +2465,8 @@ table.sr-only { display: block; }
 }
 @media (prefers-reduced-motion: reduce) { .now-dot { animation: none; } }
 #work { overflow-x: clip; }
+/* journal titles: the highlighter follows the words instead of running past them */
+.entry h3 { display: block; }
+.entry h3::after { content: none; }
+.entry h3 .hl, .entry h3 { background: none; }
+.entry h3 > span.hl { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--bm) 85%, transparent) 60% 92%, transparent 92%); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .08em; }

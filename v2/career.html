@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=104">
+  <link rel="stylesheet" href="style.css?v=106">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -90,7 +90,7 @@
         <div class="ch-grid">
           <div class="ch-text">
         <p class="label">Career</p>
-        <h1>From first sketch to <b>shipped</b>, with <b>curiosity</b> at every step.</h1>
+        <h1>From first sketch to <b class="ship-word"><span class="sw-text">shipped</span><svg class="sw-ship" viewBox="0 0 64 40" aria-hidden="true"><path d="M30 4v24M30 6l16 8-16 4z" /><path d="M6 28h52l-7 9H13z"/></svg></b>, with <b>curiosity</b> at every step.</h1>
         <div class="career-intro">
           <p>Senior UX designer with 4+ years at FYERS, growing from UX Designer I to Senior by shipping products traders rely on daily.</p>
           <p>Now in the Innovation Lab, a small, hand-picked team with one goal: find and pitch the ideas that can bring in the company’s next ₹100 crore this decade. I’m designing a financial-education product that turns market knowledge into better trading, and building an AI product from research to a working app.</p>
@@ -113,8 +113,16 @@
         <div class="part-grid">
           <header class="part-head">
             <p class="label">Experience</p>
-            <h2 class="h-split" id="experience-title">Every role, a lesson I <b>shipped.</b></h2>
+            <h2 class="h-split" id="experience-title">Three roles, <b>10+ launches.</b></h2>
             <p class="part-sub">Three roles at FYERS and an internship that started it all.</p>
+
+            <button class="drive-cta" type="button" aria-expanded="false" aria-controls="journey">
+              <span class="drive-art" aria-hidden="true">
+                <svg viewBox="0 0 120 70"><rect x="1" y="1" width="118" height="68" rx="8" fill="#f1efe8" stroke="#14111c" stroke-width="2"/><path d="M14 58 V40 H44 V22 H76 V40 H104 V14" fill="none" stroke="#2f6bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="104" cy="14" r="6" fill="#ff3f8e" stroke="#14111c" stroke-width="2"/></svg>
+              </span>
+              <span class="drive-text"><b>Prefer a story? Take the drive</b><small>The same journey as a road trip on a map</small></span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </button>
           </header>
           <div class="part-body">
         
@@ -172,14 +180,6 @@
             </li>
           </ol>
         </article>
-
-        <button class="drive-cta" type="button" aria-expanded="false" aria-controls="journey">
-          <span class="drive-art" aria-hidden="true">
-            <svg viewBox="0 0 120 70"><rect x="1" y="1" width="118" height="68" rx="8" fill="#f1efe8" stroke="#14111c" stroke-width="2"/><path d="M14 58 V40 H44 V22 H76 V40 H104 V14" fill="none" stroke="#2f6bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="104" cy="14" r="6" fill="#ff3f8e" stroke="#14111c" stroke-width="2"/></svg>
-          </span>
-          <span class="drive-text"><b>Prefer a story? Take the drive</b><small>The same journey as a road trip on a map</small></span>
-          <span class="arrow" aria-hidden="true">→</span>
-        </button>
       
           </div>
         </div>
@@ -287,11 +287,11 @@
           <header class="part-head">
             <p class="label">Skills</p>
             <h2 id="skills-title">Things I’m good at, and still sharpening.</h2>
-            <p class="part-sub">The craft I use every day, plus the tools I build with.</p>
+            <p class="part-sub">The craft I bring to every project, from research to release.</p>
           </header>
           <div class="part-body">
         
-        <ul class="skill-chips one"><li>End-to-end product design</li><li>Wireframing</li><li>User flows</li><li>Interaction design</li><li>Prototyping</li><li>Design systems</li><li>Thumb-zone &amp; reachability</li><li>Light &amp; dark mode</li><li>User interviews</li><li>Usability testing</li><li>Primary &amp; secondary research</li><li>Insight analysis</li><li>Figma</li><li>FigJam</li><li>After Effects</li><li>Claude Code</li><li>Claude Design</li><li>VS Code</li><li>GitHub</li><li>ElevenLabs</li><li>HeyGen</li></ul>
+        <ul class="skill-chips one"><li>Product design</li><li>Low-fidelity wireframing</li><li>High-fidelity wireframing</li><li>User flows</li><li>Interaction design</li><li>Prototyping</li><li>Design systems</li><li>Thumb-zone &amp; reachability</li><li>User research</li><li>User interviews</li><li>Usability testing</li><li>Insight analysis</li><li>AI / LLM product integration</li><li>Cross-platform &amp; mobile UX</li></ul>
       
           </div>
         </div>
@@ -390,27 +390,18 @@
           <header class="part-head">
             <p class="label">Education</p>
             <h2 id="education-title">Before the pixels.</h2>
-            <p class="part-sub">Engineering taught me systems; courses taught me the craft.</p>
+            <p class="part-sub">Engineering taught me to think in systems.</p>
           </header>
           <div class="part-body">
         
         <div class="edu-grid">
           <article class="edu-card">
+            <span class="edu-stamp" aria-hidden="true">Graduated<br><b>2021</b></span>
             <p class="edu-when">2017 – 2021 · Bengaluru</p>
             <h3>Christ (Deemed to be University)</h3>
             <p>B.Tech in Electronics &amp; Communication Engineering · CGPA 9.03</p>
-            <p class="edu-note">Final project: BEAM, a student collaboration app. I worked on UX and front-end in a team of five; 50+ students across 10+ colleges used it.</p>
+            <p class="edu-note">Final project: BEAM, a student collaboration app. I worked on the UX and front end in a team of 5, and the app was used by 50+ students across 2 campuses.</p>
           </article>
-          <div class="edu-certs">
-            <h3>Certifications</h3>
-            <ul>
-              <li>Google UX Design</li>
-              <li>Georgia Tech · Introduction to UX Design</li>
-              <li>AI for Designers, IxDF</li>
-              <li>The Design of Everyday Things, IxDF</li>
-              <li>NISM Series 7 and 8</li>
-            </ul>
-          </div>
         </div>
       
           </div>
@@ -428,7 +419,6 @@
           <ul class="contact-links">
                         <li><a href="mailto:nikkijoseph1998@gmail.com"><span>Contact me</span><span class="arrow" aria-hidden="true">→</span></a></li>
             <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
-            <li><a href="https://www.behance.net/nikitajoseph1" target="_blank" rel="noopener"><span>Behance</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
         </div>
 

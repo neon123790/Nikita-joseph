@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=104">
+    <link rel="stylesheet" href="../style.css?v=106">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -195,7 +195,7 @@
               <div>
                 <p class="persona2-name"><b>Robert</b>, graphic designer · Argentina</p>
                 <p>He gives his best at work and spends his free time learning new design skills and doing a little photography.</p>
-                <blockquote class="cs-quote"><p>“I need search that understands what I’m looking for and saves me time.”</p></blockquote>
+                <blockquote class="cs-quote"><p>“I need a search engine that understands what I’m looking for and saves me time.”</p></blockquote>
               </div>
             </div>
             <div class="persona2-cols">
@@ -364,7 +364,6 @@
           <ul class="contact-links">
                         <li><a href="mailto:nikkijoseph1998@gmail.com"><span>Contact me</span><span class="arrow" aria-hidden="true">→</span></a></li>
             <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
-            <li><a href="https://www.behance.net/nikitajoseph1" target="_blank" rel="noopener"><span>Behance</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
         </div>
 
@@ -492,10 +491,10 @@
         i = (n + frames.length) % frames.length;
         frames.forEach((f, k) => f.classList.toggle('on', k === i));
         bars.forEach((b, k) => { b.classList.toggle('done', k < i); b.classList.toggle('now', k === i); });
-        label.textContent = frames[i].dataset.step;
+        label.textContent = `Step ${i + 1} of ${frames.length} · ${frames[i].dataset.step}`;
         cur.style.left = frames[i].dataset.cx + '%'; cur.style.top = frames[i].dataset.cy + '%';
         click.style.left = frames[i].dataset.cx + '%'; click.style.top = frames[i].dataset.cy + '%';
-        click.classList.remove('pop'); setTimeout(() => click.classList.add('pop'), 900);
+        click.classList.remove('pop'); cur.classList.remove('press'); setTimeout(() => { click.classList.add('pop'); cur.classList.add('press'); }, 1100);
       };
       const play = () => { clearInterval(timer); timer = setInterval(() => go(i + 1), D); v.classList.remove('paused'); };
       const stop = () => { clearInterval(timer); v.classList.add('paused'); };

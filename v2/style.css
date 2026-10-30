@@ -2692,3 +2692,4 @@ table.sr-only { display: block; }
 /* Genie hero: just the essentials */
 .gh-text h1 { margin-bottom: 22px; }
 .gh-facts { gap: 18px 24px; }
+@media (max-width: 760px) and (max-height: 700px) { .hero3 .me-sticker { width: 100px; } .hero3 h1 { font-size: 1.7rem; } }

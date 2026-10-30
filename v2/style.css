@@ -3006,3 +3006,24 @@ main h2.h-split b, main h2.h-split b em { font-weight: 800 !important; color: va
 #learnings .torn p { font: 400 1.35rem/28px var(--hand) !important; color: #1f2a5a; margin: 0 0 28px !important; }
 #learnings .torn p:last-child { margin-bottom: 0 !important; }
 #learnings .torn b { font-weight: 400; color: #c2410c; }
+
+/* career top: Nikita peeking up over a ledge, eyes just above the edge */
+.ch-art { height: clamp(300px, 30vw, 380px); place-items: end center; }
+.ch-art::before { display: none; }
+.ch-peek { position: absolute; left: 50%; bottom: 46px; width: clamp(240px, 24vw, 320px); height: calc(clamp(240px, 24vw, 320px) * .36); translate: -50% 0; overflow: hidden; }
+.ch-peek img { position: absolute; left: 0; top: 0; width: 100%; height: auto; transform: translateY(100%); animation: peek-up .9s cubic-bezier(.3, 1.4, .5, 1) .3s forwards, peek-bob 4s ease-in-out 1.4s infinite; filter: drop-shadow(0 -2px 0 #fff); }
+@keyframes peek-up { to { transform: translateY(0); } }
+@keyframes peek-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+.ch-ledge { position: absolute; left: 6%; right: 6%; bottom: 20px; height: 30px; border-radius: 12px; background: #eceffd; border: 2px solid var(--stk-ink); box-shadow: 4px 4px 0 var(--stk-ink); }
+.ch-stat.s1 { left: 2%; top: 14%; }
+.ch-stat.s2 { right: 0; top: 30%; }
+.ch-stat.s3 { left: auto; right: 10%; bottom: auto; top: 2%; }
+@media (prefers-reduced-motion: reduce) { .ch-peek img { animation: none; transform: none; } }
+@media (max-width: 860px) { .ch-art { height: 280px; } .ch-peek { width: 240px; height: 86px; } }
+.ch-art { height: clamp(320px, 32vw, 400px); }
+.ch-peek { width: clamp(300px, 32vw, 420px); height: calc(clamp(300px, 32vw, 420px) * .44); bottom: 44px; }
+.ch-ledge { left: 0; right: 0; }
+.ch-stat.s1 { left: 0; top: 8%; }
+.ch-stat.s2 { right: 0; top: 22%; }
+.ch-stat.s3 { right: auto; left: 34%; top: 0; }
+@media (max-width: 860px) { .ch-art { height: 300px; } .ch-peek { width: 280px; height: 123px; } .ch-stat { font-size: .82rem; } }

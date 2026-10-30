@@ -2641,3 +2641,23 @@ table.sr-only { display: block; }
 .gh-text .back-link { display: flex; width: fit-content; }
 .gh-text .label { display: block; width: fit-content; }
 .cs3 mark { background: linear-gradient(transparent 56%, #bfe3d9 56%, #bfe3d9 94%, transparent 94%); }
+
+/* How I work: UX artefacts, drawn in the sticker style */
+.work3 .proc-art .pi { opacity: 0; transform: translateY(8px); }
+.work3 .process-panel.is-active .pi { animation: write-in .5s cubic-bezier(.25, .8, .3, 1) var(--d) both; }
+.work3 .proc-art .pi-t { font: 800 22px var(--bold); fill: var(--stk-ink); text-anchor: middle; }
+.work3 .proc-art .pi-s { font: 700 15px var(--bold); fill: var(--stk-ink); text-anchor: middle; }
+.work3 .proc-art .pi-h { font: 400 18px var(--hand); fill: #4a4652; text-anchor: middle; }
+.work3 .proc-art .pi-r { font: 700 13px var(--sans); fill: #c2410c; text-anchor: middle; }
+@media (prefers-reduced-motion: reduce) { .work3 .proc-art .pi { opacity: 1; transform: none; animation: none !important; } }
+
+/* contact: stickers at one consistent size */
+.cs-star1, .cs-star2, .cs-spark, .cs-heart { width: 48px; }
+.cs-mail { width: 64px; }
+.cs-chat { width: 96px; }
+.cs-star1 { left: 8%; top: 10%; rotate: -12deg; }
+.cs-star2 { right: 6%; top: 50%; rotate: 12deg; }
+.cs-spark { left: 6%; top: 52%; }
+.cs-heart { right: 14%; bottom: 10%; rotate: 10deg; }
+.cs-mail { left: 8%; bottom: 10%; rotate: -8deg; }
+.cs-chat { right: 4%; top: 8%; rotate: 5deg; }

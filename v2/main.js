@@ -414,7 +414,7 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
   hero.addEventListener('pointermove', (e) => setP(e.clientX, e.clientY));
   hero.addEventListener('pointerdown', (e) => setP(e.clientX, e.clientY));
   hero.addEventListener('pointerleave', () => { px = py = -999; });
-  const draw = (now) => {
+  let draw = (now) => {
     const paused = hero.classList.contains('paused');
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
@@ -440,7 +440,30 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
     }
     if (!reduce) requestAnimationFrame(draw);
   };
+  // stop drawing while the hero is off screen, so the rest of the page stays smooth
+  let visible = true;
+  new IntersectionObserver((es) => { const was = visible; visible = es[0].isIntersecting; if (visible && !was && !reduce) requestAnimationFrame(draw); }).observe(hero);
+  const _draw = draw;
+  draw = (now) => { if (visible) _draw(now); };
   build();
   window.addEventListener('resize', build);
   requestAnimationFrame(draw);
 })();
+
+/* In-page links ("See my work", "Get in touch", …): glide to the section's heading, already visible */
+document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target || target.closest('.cs-toc')) return;
+    e.preventDefault();
+    target.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
+    const anchor = target.querySelector('.section-head, .label, h2') || target;
+    const header = document.querySelector('.site-header');
+    const offset = (header ? header.getBoundingClientRect().height : 0) + 24;
+    const y = anchor.getBoundingClientRect().top + window.scrollY - offset;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+    history.replaceState(null, '', a.getAttribute('href'));
+    target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
+  });
+});

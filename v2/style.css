@@ -2791,3 +2791,12 @@ main h2:not(.sr-only):not(.now-title), .cs3 .cs-section h2.cs-title, .mat-head h
 .entry h3 { font-size: clamp(1.2rem, 1.6vw, 1.375rem) !important; }
 .det-card h3, .pv-head h3 { font-size: var(--t-h3) !important; }
 .contact3 .contact-links span:not(.arrow) { font-size: 1rem !important; } .contact3 .contact-links a { padding: 10px 18px; box-shadow: 3px 3px 0 var(--stk-ink); border-width: 2px; }
+/* type scale, one step up: H1 64 · H2 40 · H3 24 · body 18 (desktop) */
+:root {
+  --t-h1: clamp(2.1rem, 5vw, 4rem);
+  --t-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --t-h3: clamp(1.2rem, 1.7vw, 1.5rem);
+  --t-body: clamp(1.02rem, 1.2vw, 1.125rem);
+}
+.entry h3 { font-size: clamp(1.35rem, 2vw, 1.75rem) !important; }
+.contact3 .contact-links span:not(.arrow) { font-size: 1.08rem !important; }

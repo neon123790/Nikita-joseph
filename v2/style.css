@@ -2756,3 +2756,8 @@ table.sr-only { display: block; }
 .pockets { grid-template-columns: 1fr; max-width: 300px; margin-inline: auto; }
 @media (max-width: 900px) { .pockets { grid-template-columns: 1fr 1fr 1fr; max-width: none; } }
 @media (max-width: 560px) { .pockets { grid-template-columns: 1fr; } }
+/* pockets: a proper column of three, full width */
+.pockets { width: 100%; max-width: none; margin: 0; grid-template-columns: 1fr; gap: 56px; padding-top: 34px; }
+.pocket { min-height: 150px; }
+@media (max-width: 900px) { .pockets { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } }
+@media (max-width: 560px) { .pockets { grid-template-columns: 1fr; gap: 50px; } }

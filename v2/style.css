@@ -2470,3 +2470,31 @@ table.sr-only { display: block; }
 .entry h3::after { content: none; }
 .entry h3 .hl, .entry h3 { background: none; }
 .entry h3 > span.hl { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--bm) 85%, transparent) 60% 92%, transparent 92%); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .08em; }
+
+/* career: experience as in the CV */
+.xp { margin-top: 26px; padding: 22px 24px; background: #fffdf7; border: 2px solid var(--stk-ink); border-radius: 10px; }
+.xp h3 { margin: 0; font-family: var(--bold); font-weight: 800; font-size: 1.4rem; letter-spacing: -.01em; }
+.xp-place { font-weight: 500; color: #4a4652; font-size: 1.05rem; }
+.xp-when { margin: 6px 0 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: #3b3744; font-weight: 600; font-size: .95rem; }
+.now-badge.small { padding: 3px 10px; font-size: .68rem; }
+.xp-roles { list-style: none; margin: 18px 0 0; padding: 0 0 0 18px; border-left: 2px solid rgba(20, 17, 28, .15); display: grid; gap: 18px; }
+.xp-roles > li { position: relative; }
+.xp-roles > li::before { content: ""; position: absolute; left: -25px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #fffdf7; border: 2px solid var(--stk-ink); }
+.xp-roles > li:first-child::before { background: #1fb36b; }
+.xp-role { margin: 0 0 6px; font-family: var(--bold); font-weight: 700; font-size: 1.08rem; }
+.xp-role span { font-family: var(--sans); font-weight: 500; color: #4a4652; font-size: .92rem; }
+.xp-roles ul { margin: 0; padding-left: 1.1em; }
+.xp-roles ul li { margin: 5px 0; line-height: 1.6; }
+.xp-also { margin: 16px 0 0; padding-top: 14px; border-top: 1px dashed rgba(20, 17, 28, .25); color: #3b3744; font-size: .98rem; }
+/* the optional drive */
+.drive-cta { margin-top: 26px; width: 100%; display: flex; align-items: center; gap: 16px; padding: 14px 18px; background: var(--mint); border: 2px solid var(--stk-ink); border-radius: 10px; box-shadow: 5px 5px 0 var(--stk-ink); color: var(--stk-ink); text-align: left; font: inherit; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
+.drive-cta:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--stk-ink); }
+.drive-art svg { width: 96px; height: auto; display: block; }
+.drive-text { flex: 1; display: grid; gap: 2px; }
+.drive-text b { font-family: var(--bold); font-weight: 700; font-size: 1.1rem; }
+.drive-text small { color: #3b3744; font-size: .92rem; }
+.drive-cta .arrow { font-size: 1.4rem; transition: transform .2s ease; }
+.drive-cta[aria-expanded="true"] .arrow { transform: rotate(90deg); }
+.skill-chips.one { margin-top: 22px; }
+.skill-chips.one li { background: #fffdf7; }
+@media (max-width: 560px) { .drive-art svg { width: 70px; } .xp { padding: 18px; } }

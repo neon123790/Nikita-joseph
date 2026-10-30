@@ -97,7 +97,7 @@
      Career: a car drives through the city as you scroll
      ========================================================== */
   const mapSvg = document.getElementById('map');
-  if (mapSvg) {
+  const initDrive = () => {
     const SVGNS = 'http://www.w3.org/2000/svg';
     const card = document.getElementById('map-card');
     const planned = mapSvg.querySelector('.route-planned');
@@ -217,6 +217,12 @@
     window.addEventListener('resize', onScroll);
     target = current = measure();
     render();
+  };
+  // the drive is optional: it sets itself up only once someone chooses to take it
+  if (mapSvg) {
+    const journey = document.getElementById('journey');
+    if (journey && journey.hidden) document.addEventListener('drive:open', initDrive, { once: true });
+    else initDrive();
   }
 
   /* ==========================================================
@@ -363,4 +369,24 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
   hero.addEventListener('pointerleave', () => { pointerX = -1; });
   hero.addEventListener('touchend', () => { setTimeout(() => { pointerX = -1; }, 1200); });
   requestAnimationFrame(tick);
+})();
+
+/* Career: "Take the drive" reveals the road trip and scrolls to it */
+(() => {
+  const btn = document.querySelector('.drive-cta');
+  const journey = document.getElementById('journey');
+  if (!btn || !journey) return;
+  btn.addEventListener('click', () => {
+    const open = journey.hidden;
+    journey.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.querySelector('.drive-text b').textContent = open ? 'Hide the drive' : 'Prefer a story? Take the drive';
+    if (open) {
+      document.dispatchEvent(new Event('drive:open'));
+      requestAnimationFrame(() => {
+        journey.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+        window.dispatchEvent(new Event('scroll'));
+      });
+    }
+  });
 })();

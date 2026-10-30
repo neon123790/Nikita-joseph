@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=62">
+  <link rel="stylesheet" href="style.css?v=63">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -108,11 +108,67 @@
       <div class="wrap">
         <p class="label">Experience</p>
         <h2 id="experience-title">Where I’ve done the work.</h2>
-        <p class="part-lede">From my first design internship to the Innovation Lab. Scroll to take the drive.</p>
+
+        <article class="xp">
+          <div class="xp-head">
+            <div>
+              <h3>FYERS <span class="xp-place">· Bengaluru</span></h3>
+              <p class="xp-when">Jul 2022 – Present <span class="now-badge small"><span class="now-dot" aria-hidden="true"></span>Current</span></p>
+            </div>
+          </div>
+          <ol class="xp-roles">
+            <li>
+              <p class="xp-role">Senior UX Designer <span>· Apr 2025 – Present</span></p>
+              <ul>
+                <li>Own research, flows and product decisions end to end, including primary and secondary research for a new advisory product.</li>
+                <li>Handpicked for the Innovation Lab as UX researcher and designer, prototyping AI-assisted product ideas.</li>
+                <li>Designed and built FYERS Academy, a working Android trading simulator, in 3 months using Claude Code, VS Code and GitHub.</li>
+              </ul>
+            </li>
+            <li>
+              <p class="xp-role">UX Designer II <span>· Jan 2024 – Mar 2025</span></p>
+              <ul>
+                <li>Led Portfolio across mobile and web.</li>
+                <li>Designed Single and Multi Order Windows on charts, a Watchlist revamp with tags and pinning, and a 30-day challenge with a trading journal.</li>
+              </ul>
+            </li>
+            <li>
+              <p class="xp-role">UX Designer I <span>· Jul 2022 – Dec 2023</span></p>
+              <ul>
+                <li>Shipped Onboarding, Open Account, Funds, Option Chain and Advanced Screeners.</li>
+                <li>Designed the Partner Dashboard with the CEO and CXO, the My Account app and News.</li>
+              </ul>
+            </li>
+          </ol>
+          <p class="xp-also">Also at FYERS: interviewed and helped hire 3–4 designers across junior, senior and UX research roles.</p>
+        </article>
+
+        <article class="xp">
+          <div class="xp-head">
+            <div>
+              <h3>DeFiner</h3>
+              <p class="xp-when">Jan – May 2022</p>
+            </div>
+          </div>
+          <ol class="xp-roles">
+            <li>
+              <p class="xp-role">UI/UX and Graphic Design Intern</p>
+              <ul><li>Designed logos, web screens and mascots.</li></ul>
+            </li>
+          </ol>
+        </article>
+
+        <button class="drive-cta" type="button" aria-expanded="false" aria-controls="journey">
+          <span class="drive-art" aria-hidden="true">
+            <svg viewBox="0 0 120 70"><rect x="1" y="1" width="118" height="68" rx="8" fill="#f1efe8" stroke="#14111c" stroke-width="2"/><path d="M14 58 V40 H44 V22 H76 V40 H104 V14" fill="none" stroke="#2f6bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="104" cy="14" r="6" fill="#ff3f8e" stroke="#14111c" stroke-width="2"/></svg>
+          </span>
+          <span class="drive-text"><b>Prefer a story? Take the drive</b><small>The same journey as a road trip on a map</small></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </button>
       </div>
     </section>
 
-    <section class="journey" id="journey" aria-labelledby="journey-title">
+    <section class="journey" id="journey" aria-labelledby="journey-title" hidden>
       <h2 id="journey-title" class="sr-only">Career timeline, stop by stop</h2>
       <div class="wrap journey-grid">
         <ol class="journey-list">
@@ -211,12 +267,7 @@
       <div class="wrap">
         <p class="label">Skills</p>
         <h2 id="skills-title">What I bring to the table.</h2>
-        <div class="skill-groups">
-          <div><h3>Research</h3><ul class="skill-chips"><li style="--c:#9ccfff">User interviews</li><li style="--c:#9ccfff">Usability testing</li><li style="--c:#9ccfff">Primary &amp; secondary research</li><li style="--c:#9ccfff">Insight synthesis</li></ul></div>
-          <div><h3>Design</h3><ul class="skill-chips"><li style="--c:#ffd65a">User flows &amp; journey maps</li><li style="--c:#ffd65a">Edge cases &amp; states</li><li style="--c:#ffd65a">Wireframes to high fidelity</li><li style="--c:#ffd65a">Prototyping</li><li style="--c:#ffd65a">Microcopy</li></ul></div>
-          <div><h3>Building with AI</h3><ul class="skill-chips"><li style="--c:#9be3bf">Claude Code</li><li style="--c:#9be3bf">Claude Design</li><li style="--c:#9be3bf">VS Code</li><li style="--c:#9be3bf">GitHub</li><li style="--c:#9be3bf">ElevenLabs</li><li style="--c:#9be3bf">HeyGen</li></ul></div>
-          <div><h3>Domain</h3><ul class="skill-chips"><li style="--c:#ff9fb5">Trading &amp; investing</li><li style="--c:#ff9fb5">NISM Series 7 &amp; 8</li><li style="--c:#ff9fb5">Fintech onboarding</li><li style="--c:#ff9fb5">Advisory products</li></ul></div>
-        </div>
+        <ul class="skill-chips one"><li>User interviews</li><li>Usability testing</li><li>Primary &amp; secondary research</li><li>Insight synthesis</li><li>User flows &amp; journey maps</li><li>Edge cases &amp; states</li><li>Wireframes to high fidelity</li><li>Prototyping</li><li>Microcopy</li><li>Trading &amp; investing</li><li>Claude Code</li><li>Claude Design</li><li>VS Code</li><li>GitHub</li><li>ElevenLabs</li><li>HeyGen</li></ul>
       </div>
     </section>
 
@@ -354,7 +405,7 @@
   </footer>
 
   <script src="music.js?v=1"></script>
-  <script src="main.js?v=15"></script>
+  <script src="main.js?v=16"></script>
   <script src="header.js?v=1"></script>
 </body>
 </html>

@@ -2887,3 +2887,86 @@ main h2 b em, .work3 h2 em { color: #d9480f; font-style: normal; }
 .cs3 .cs-title mark { background: none; padding: 0; }
 .mat-head h2 { color: rgba(255,255,255,.82) !important; }
 .mat-head h2 b { color: #fff; }
+
+/* stress only where it matters: most headings are plain bold; a few split soft/strong */
+main h2:not(.sr-only) { font-weight: 800 !important; color: var(--stk-ink); }
+main h2.h-split { font-weight: 500 !important; color: #57525f; }
+main h2.h-split b { font-weight: 900; color: var(--stk-ink); }
+.mat-head h2 { color: #fff !important; }
+.cs3 .cs-section h2.cs-title { font-weight: 800 !important; color: var(--stk-ink) !important; }
+.cs3 .cs-title mark { font-weight: inherit; color: inherit; background: linear-gradient(transparent 60%, #bfe3d9 60%, #bfe3d9 92%, transparent 92%); padding: 0 .06em; }
+
+/* ==========================================================
+   Genie: the hero video
+   ========================================================== */
+.genie-video { position: relative; margin: 0; transform: rotate(1.2deg); }
+.gv-badge { position: absolute; z-index: 3; left: -10px; top: -14px; padding: 6px 12px; background: #ffd65a; border: 2px solid var(--stk-ink); border-radius: 999px; font: 700 .8rem/1 var(--sans); transform: rotate(-4deg); box-shadow: 3px 3px 0 var(--stk-ink); }
+.gv-screen { position: relative; aspect-ratio: 1600 / 1028; border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 30px 50px -22px rgba(20, 40, 36, .7), 0 0 0 2px var(--stk-ink); }
+.gv-frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity .7s ease, transform 3.2s ease-out; }
+.gv-frame.on { opacity: 1; transform: scale(1); }
+.gv-cursor { position: absolute; z-index: 2; width: 22px; height: 22px; left: 50%; top: 50%; transition: left 1s cubic-bezier(.5, 0, .2, 1), top 1s cubic-bezier(.5, 0, .2, 1); filter: drop-shadow(0 2px 2px rgba(0,0,0,.5)); }
+.gv-cursor svg { width: 100%; height: 100%; fill: #fff; stroke: #111; stroke-width: 1.5; }
+.gv-click { position: absolute; z-index: 1; width: 34px; height: 34px; margin: -10px 0 0 -10px; border-radius: 50%; border: 2px solid #5eb6af; opacity: 0; }
+.gv-click.pop { animation: gv-pop .6s ease-out; }
+@keyframes gv-pop { from { opacity: .9; transform: scale(.4); } to { opacity: 0; transform: scale(1.6); } }
+.gv-bar { display: flex; align-items: center; gap: 12px; margin-top: 12px; transform: rotate(-1.2deg); }
+.gv-steps { display: flex; gap: 4px; flex: 0 0 120px; }
+.gv-steps i { flex: 1; height: 4px; border-radius: 2px; background: rgba(20, 17, 28, .15); overflow: hidden; }
+.gv-steps i b { display: block; height: 100%; width: 0; background: #13786c; }
+.gv-steps i.done b { width: 100%; }
+.gv-steps i.now b { animation: gv-fill 2.8s linear forwards; }
+.genie-video.paused .gv-steps i.now b { animation-play-state: paused; }
+@keyframes gv-fill { to { width: 100%; } }
+.gv-label { flex: 1; font: 400 1.15rem/1.2 var(--hand); color: var(--stk-ink); }
+.gv-toggle { min-height: 36px; padding: 0 14px; border: 2px solid var(--stk-ink); border-radius: 999px; background: #fffdf7; font: 600 .85rem/1 var(--sans); cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .gv-frame, .gv-cursor { transition: none; } .gv-click { display: none; } }
+
+/* ==========================================================
+   Genie: final screens as a stack you flip through
+   ========================================================== */
+.screen-stack { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 28px; align-items: center; margin-top: 10px; }
+.stack { position: relative; list-style: none; margin: 0; padding: 0; aspect-ratio: 1600 / 1028; cursor: pointer; }
+.stack-card { position: absolute; inset: 0; transition: transform .5s cubic-bezier(.3, 1, .4, 1), opacity .4s ease; transform: translate(calc(var(--d) * 14px), calc(var(--d) * -12px)) rotate(calc(var(--d) * 2deg)) scale(calc(1 - var(--d) * .04)); z-index: calc(10 - var(--d)); opacity: calc(1 - var(--d) * .18); }
+.stack-card img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: 0 18px 30px -16px rgba(20, 17, 28, .6); }
+.stack-card.front img { box-shadow: 0 24px 40px -18px rgba(20, 17, 28, .7), 0 0 0 2px var(--stk-ink); }
+.stack-cap { margin: 0 0 14px; font-size: 1rem; line-height: 1.55; }
+.stack-cap b { display: block; font: 400 1.5rem/1.15 var(--hand); margin-bottom: 4px; }
+.stack-ctrl { display: flex; align-items: center; gap: 12px; }
+.stack-btn { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--stk-ink); background: #fffdf7; font: 700 1.1rem/1 var(--sans); cursor: pointer; }
+.stack-btn:hover { background: #ffd65a; }
+.stack-count { font-weight: 600; font-size: .9rem; color: #3b3744; }
+@media (max-width: 760px) { .screen-stack { grid-template-columns: 1fr; gap: 26px; } .stack { margin: 16px 18px 0 0; } }
+
+/* ==========================================================
+   Genie: less boxy — sticky notes, torn paper, handwriting
+   ========================================================== */
+.cs-points.notes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.cs-points.notes li { flex-direction: column; gap: 8px; padding: 18px 16px 20px !important; border: 0 !important; border-radius: 2px 2px 14px 2px !important; box-shadow: 0 12px 16px -12px rgba(20, 17, 28, .5); transform: rotate(var(--r, -1.5deg)); }
+.cs-points.notes li:nth-child(1) { background: #fff1a8; --r: -1.8deg; }
+.cs-points.notes li:nth-child(2) { background: #ffd9e2; --r: 1.4deg; }
+.cs-points.notes li:nth-child(3) { background: #d8ecff; --r: -.8deg; }
+.cs-points.notes li b { font: 400 1.25rem/1.15 var(--hand); }
+.cs-points.notes li::before { content: ""; position: absolute; }
+.torn { position: relative; padding: 26px 26px 30px !important; border: 0 !important; border-left: 0 !important; border-radius: 0 !important;
+  background: repeating-linear-gradient(#fffdf7 0 27px, #dfe7f5 27px 28px) !important; box-shadow: 0 14px 20px -16px rgba(20, 17, 28, .45);
+  -webkit-mask: radial-gradient(7px at 50% 0, transparent 98%, #000) 50% 0 / 18px 51% repeat-x, linear-gradient(#000 0 0) 0 100% / 100% 50% no-repeat;
+          mask: radial-gradient(7px at 50% 0, transparent 98%, #000) 50% 0 / 18px 51% repeat-x, linear-gradient(#000 0 0) 0 100% / 100% 50% no-repeat;
+  transform: rotate(-.6deg); line-height: 28px; }
+.torn .ico { display: none; }
+.hand-h { display: block; font: 400 1.4rem/1.1 var(--hand); color: #c2410c; margin-bottom: 4px; }
+.cs-callout.torn { display: block; }
+.persona2-cols > div { padding: 16px 16px 18px; border-radius: 2px 2px 12px 2px; box-shadow: 0 12px 16px -12px rgba(20, 17, 28, .45); }
+.persona2-cols > div:nth-child(1) { background: #dff5e8; transform: rotate(-1deg); }
+.persona2-cols > div:nth-child(2) { background: #ffe3d0; transform: rotate(.8deg); }
+.persona2-cols > div:nth-child(3) { background: #fff1a8; transform: rotate(-.6deg); }
+.persona2-cols { border-top: 0; padding-top: 6px; }
+.persona2-cols h3 { font: 400 1.3rem/1.1 var(--hand) !important; }
+.cs-persona .cs-quote p, .persona2 .cs-quote p { font: 400 1.4rem/1.35 var(--hand) !important; }
+.cs-verdict > div { border-radius: 2px 2px 14px 2px !important; box-shadow: 0 12px 16px -12px rgba(20, 17, 28, .45); }
+.cs-verdict .good { background: #dff5e8 !important; transform: rotate(-.8deg); }
+.cs-verdict .fix { background: #fff1a8 !important; transform: rotate(.8deg); }
+.cs-verdict h3 { font: 400 1.35rem/1.1 var(--hand) !important; }
+@media (max-width: 760px) {
+  .cs-points.notes { grid-template-columns: 1fr; }
+  .persona2-cols > div, .cs-verdict > div, .cs-points.notes li { transform: none; }
+}

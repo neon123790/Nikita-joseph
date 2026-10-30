@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=96">
+    <link rel="stylesheet" href="../style.css?v=98">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -82,8 +82,19 @@
               <div><dt>Team</dt><dd>2 designers</dd></div>
             </dl>
           </div>
-          <figure class="gh-shot">
-            <button class="zoom" type="button" aria-label="Enlarge: Genie open as a side panel beside the Google search page"><img src="../images/genie/product.jpg?v=2" width="1600" height="1028" alt="Genie open as a side panel beside the Google search page in a dark browser window, listing recent searches from Gmail, Notion, Figma and Google Docs."><span class="zoom-hint" aria-hidden="true">⤢</span></button>
+          <figure class="gh-shot genie-video" aria-label="A short walkthrough of Genie: open it beside search, see recent searches, search across apps, filter by app, use quick actions and save to folders.">
+            <span class="gv-badge" aria-hidden="true">▶ Genie in action</span>
+            <div class="gv-screen" aria-hidden="true">
+                <img class="gv-frame on" src="../images/genie/product.jpg?v=2" width="1600" height="1028" alt="" data-step="Open Genie beside search" data-cx="78" data-cy="22">
+                <img class="gv-frame" src="../images/genie/screen-1.jpg?v=2" width="1600" height="1028" alt="" data-step="Recent searches, one tap away" data-cx="80" data-cy="40" loading="lazy">
+                <img class="gv-frame" src="../images/genie/screen-2.jpg?v=2" width="1600" height="1028" alt="" data-step="Results from every app" data-cx="84" data-cy="30" loading="lazy">
+                <img class="gv-frame" src="../images/genie/screen-3.jpg?v=2" width="1600" height="1028" alt="" data-step="Filter by the apps you use" data-cx="88" data-cy="26" loading="lazy">
+                <img class="gv-frame" src="../images/genie/screen-4.jpg?v=2" width="1600" height="1028" alt="" data-step="Quick actions on any result" data-cx="86" data-cy="48" loading="lazy">
+                <img class="gv-frame" src="../images/genie/screen-5.jpg?v=2" width="1600" height="1028" alt="" data-step="Save to folders" data-cx="80" data-cy="60" loading="lazy">
+              <span class="gv-cursor"><svg viewBox="0 0 24 24"><path d="M4 3l7 17 2.5-7 7-2.5z"/></svg></span>
+              <span class="gv-click"></span>
+            </div>
+            <div class="gv-bar"><span class="gv-steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></span><span class="gv-label" aria-live="off"></span><button class="gv-toggle" type="button" aria-pressed="false">Pause</button></div>
           </figure>
         </div>
       </div>
@@ -114,12 +125,12 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">02</span>Problem &amp; solution</p>
           <div class="content">
             <h2 id="h-problem" class="cs-title">Internal search <mark>can’t keep up</mark> with how teams work.</h2>
-            <ul class="cs-points">
+            <ul class="cs-points notes">
               <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>Irrelevant results.</b> People spend extra time filtering through things they didn’t ask for.</div></li>
               <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>No personalisation.</b> Search doesn’t learn from behaviour, so it can’t suggest what’s new and useful.</div></li>
               <li><span class="ico warn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19Z"/><path d="M12 10v4.5M12 17.4v.1"/></svg></span><div><b>Rich media is a blind spot.</b> Images, videos, documents and audio are hard to find.</div></li>
             </ul>
-            <p class="cs-callout"><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span><b>Our goal:</b> an AI-powered internal search that understands intent, returns accurate results, personalises recommendations and handles every kind of content.</span></p>
+            <p class="cs-callout torn"><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span><b class="hand-h">Our goal</b> an AI-powered internal search that understands intent, returns accurate results, personalises recommendations and handles every kind of content.</span></p>
             <h3 class="cs-sub">Our solution</h3>
             <p>An AI plugin that learns from behaviour to personalise results, indexes rich media alongside documents, and lets people save, organise and share what they find — so the right information is always a search away.</p>
           </div>
@@ -268,14 +279,24 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">11</span>Final screens</p>
           <div class="content">
             <h2 id="h-screens" class="cs-title">The high-fidelity panel, <mark>screen by screen</mark>.</h2>
-            <p class="cs-hint"><span aria-hidden="true">⤢</span> Select any image to see it larger.</p>
-            <div class="cs-gallery big">
-              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: home. Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile."><img src="../images/genie/screen-1.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: home. Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Home.</b> Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile.</figcaption></figure>
-              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: search. Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><img src="../images/genie/screen-2.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: search. Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Search.</b> Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks.</figcaption></figure>
-              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: filter by app. Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more."><img src="../images/genie/screen-3.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: filter by app. Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Filter by app.</b> Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more.</figcaption></figure>
-              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: quick actions. Every result can be opened, copied as a link, copied to a folder or added to bookmarks."><img src="../images/genie/screen-4.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: quick actions. Every result can be opened, copied as a link, copied to a folder or added to bookmarks."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Quick actions.</b> Every result can be opened, copied as a link, copied to a folder or added to bookmarks.</figcaption></figure>
-              <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel open beside Google search: folders. Save links into folders, or create a new folder in one tap."><img src="../images/genie/screen-5.jpg?v=2" width="1600" height="1028" loading="lazy" alt="Genie panel open beside Google search: folders. Save links into folders, or create a new folder in one tap."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Folders.</b> Save links into folders, or create a new folder in one tap.</figcaption></figure>
+            <div class="screen-stack">
+            <ul class="stack" aria-live="polite">
+              <li class="stack-card" style="--i:0"><img src="../images/genie/screen-1.jpg?v=2" alt="Genie panel open beside Google search: home. Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile." loading="lazy"></li>
+              <li class="stack-card" style="--i:1"><img src="../images/genie/screen-2.jpg?v=2" alt="Genie panel open beside Google search: search. Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks." loading="lazy"></li>
+              <li class="stack-card" style="--i:2"><img src="../images/genie/screen-3.jpg?v=2" alt="Genie panel open beside Google search: filter by app. Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more." loading="lazy"></li>
+              <li class="stack-card" style="--i:3"><img src="../images/genie/screen-4.jpg?v=2" alt="Genie panel open beside Google search: quick actions. Every result can be opened, copied as a link, copied to a folder or added to bookmarks." loading="lazy"></li>
+              <li class="stack-card" style="--i:4"><img src="../images/genie/screen-5.jpg?v=2" alt="Genie panel open beside Google search: folders. Save links into folders, or create a new folder in one tap." loading="lazy"></li>
+            </ul>
+            <div class="stack-side">
+              <p class="stack-cap"><span data-k="0"><b>Home.</b> Genie opens beside search, with recent searches and a bottom bar for Search, Folders, Bookmarks, Notifications and Profile.</span><span data-k="1"><b>Search.</b> Results from every connected app, with quick tabs for All, Emails, Files, Messages and Tasks.</span><span data-k="2"><b>Filter by app.</b> Narrow results to the apps you choose: Gmail, Notion, Figma, Google Docs and more.</span><span data-k="3"><b>Quick actions.</b> Every result can be opened, copied as a link, copied to a folder or added to bookmarks.</span><span data-k="4"><b>Folders.</b> Save links into folders, or create a new folder in one tap.</span></p>
+              <div class="stack-ctrl">
+                <button class="stack-btn prev" type="button" aria-label="Previous screen">←</button>
+                <span class="stack-count"></span>
+                <button class="stack-btn next" type="button" aria-label="Next screen">→</button>
+              </div>
+              <p class="cs-hint">Tap the screen or use the arrows to flip through.</p>
             </div>
+          </div>
             <h3 class="cs-sub">More screens</h3>
             <div class="cs-gallery small">
               <figure class="cs-shot"><button class="zoom" type="button" aria-label="Enlarge: Genie panel: invite people. Add people to a folder and choose who can edit or view."><img src="../images/genie/more-1.jpg?v=2" width="800" height="514" loading="lazy" alt="Genie panel: invite people. Add people to a folder and choose who can edit or view."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Invite people.</b> Add people to a folder and choose who can edit or view.</figcaption></figure>
@@ -301,8 +322,10 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">13</span>Learnings &amp; next steps</p>
           <div class="content">
             <h2 id="h-learnings" class="cs-title"><mark>Research</mark> changed the product more than any screen did.</h2>
+            <div class="torn">
             <p>Testing showed that people could complete their tasks and found the results relevant, and that personalisation and support for different content types mattered a lot to them.</p>
             <p>We also learned how colour, type and components work together to shape the experience. <b>Next</b>, we’d do more research to flesh out the full web experience.</p>
+                        </div>
             <p class="cs-more"><a href="https://www.behance.net/gallery/172835731/Genie-Search-Engine-Plugin-UIUX-Case-Study" target="_blank" rel="noopener">See the full case study on Behance <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></p>
           </div>
         </section>
@@ -336,7 +359,7 @@
       <div class="wrap contact3-grid">
         <div class="contact-copy">
           <span class="tape-label">say hello</span>
-          <h2 id="contact-title">Have a <b>messy product problem?</b></h2>
+          <h2 class="h-split" id="contact-title">Have a <b>messy product problem?</b></h2>
           <p>I’d love to help make it make sense.</p>
           <ul class="contact-links">
                         <li><a href="mailto:nikkijoseph1998@gmail.com"><span>Contact me</span><span class="arrow" aria-hidden="true">→</span></a></li>
@@ -361,7 +384,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>© <span id="year">2026</span> Nikita Joseph</span>
-      <span class="made">Designed with users in mind <svg class="heart" viewBox="0 0 24 24" aria-label="love" role="img"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg></span>
+      <span class="made">Senior UX Designer</span>
     </div>
   </footer>
 
@@ -454,6 +477,50 @@
         fab.classList.toggle('on', window.scrollY > 500 && end > window.innerHeight);
       };
       addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
+  </script>
+  <script>
+    // hero "video": the real screens play like a short screen recording
+    (() => {
+      const v = document.querySelector('.genie-video'); if (!v) return;
+      const frames = [...v.querySelectorAll('.gv-frame')], bars = [...v.querySelectorAll('.gv-steps i')];
+      const label = v.querySelector('.gv-label'), cur = v.querySelector('.gv-cursor'), click = v.querySelector('.gv-click'), btn = v.querySelector('.gv-toggle');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let i = 0, timer = null, paused = reduce;
+      const D = 2800;
+      const go = (n) => {
+        i = (n + frames.length) % frames.length;
+        frames.forEach((f, k) => f.classList.toggle('on', k === i));
+        bars.forEach((b, k) => { b.classList.toggle('done', k < i); b.classList.toggle('now', k === i); });
+        label.textContent = frames[i].dataset.step;
+        cur.style.left = frames[i].dataset.cx + '%'; cur.style.top = frames[i].dataset.cy + '%';
+        click.style.left = frames[i].dataset.cx + '%'; click.style.top = frames[i].dataset.cy + '%';
+        click.classList.remove('pop'); setTimeout(() => click.classList.add('pop'), 900);
+      };
+      const play = () => { clearInterval(timer); timer = setInterval(() => go(i + 1), D); v.classList.remove('paused'); };
+      const stop = () => { clearInterval(timer); v.classList.add('paused'); };
+      btn.addEventListener('click', () => { paused = !paused; btn.setAttribute('aria-pressed', String(paused)); btn.textContent = paused ? 'Play' : 'Pause'; paused ? stop() : play(); });
+      new IntersectionObserver((es) => { if (paused) return; es[0].isIntersecting ? play() : stop(); }).observe(v);
+      go(0); if (reduce) { btn.textContent = 'Play'; btn.setAttribute('aria-pressed', 'true'); stop(); }
+    })();
+    // final screens: a stack you flip through
+    (() => {
+      const st = document.querySelector('.screen-stack'); if (!st) return;
+      const cards = [...st.querySelectorAll('.stack-card')], caps = [...st.querySelectorAll('.stack-cap span')], count = st.querySelector('.stack-count');
+      let top = 0;
+      const lay = () => {
+        cards.forEach((c, k) => { const d = (k - top + cards.length) % cards.length; c.style.setProperty('--d', d); c.classList.toggle('front', d === 0); c.setAttribute('aria-hidden', String(d !== 0)); });
+        caps.forEach((c, k) => c.hidden = k !== top);
+        count.textContent = `${top + 1} / ${cards.length}`;
+      };
+      const go = (n) => { top = (n + cards.length) % cards.length; lay(); };
+      st.querySelector('.next').addEventListener('click', () => go(top + 1));
+      st.querySelector('.prev').addEventListener('click', () => go(top - 1));
+      st.querySelector('.stack').addEventListener('click', () => go(top + 1));
+      let x0 = null; const s = st.querySelector('.stack');
+      s.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+      s.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) { e.preventDefault(); go(top + (dx < 0 ? 1 : -1)); } x0 = null; });
+      lay();
     })();
   </script>
   <script src="../header.js?v=1"></script>

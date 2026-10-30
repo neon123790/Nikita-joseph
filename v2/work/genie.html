@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=94">
+    <link rel="stylesheet" href="../style.css?v=95">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -320,6 +320,9 @@
       </div>
     </dialog>
 
+    <button class="sec-fab" type="button" aria-haspopup="dialog" aria-controls="sec-sheet"><span aria-hidden="true">☰</span> Sections</button>
+    <dialog class="sec-sheet" id="sec-sheet" aria-label="Jump to a section"><p class="sec-sheet-title">On this page</p><ol></ol></dialog>
+
     <nav class="cs-next" aria-label="Next project">
       <div class="wrap">
         <a href="fyers-academy.html">
@@ -425,6 +428,32 @@
       const box = document.querySelector('.cs-toc-box');
       if (box && matchMedia('(max-width: 900px)').matches) box.open = false;
       else if (box) box.querySelector('summary').addEventListener('click', (e) => e.preventDefault()); // always open on desktop
+    })();
+  </script>
+  <script>
+    // phones: a floating "Sections" button opens a quick-jump list (like a food-app menu)
+    (() => {
+      const fab = document.querySelector('.sec-fab'), sheet = document.querySelector('.sec-sheet');
+      if (!fab || !sheet) return;
+      const list = sheet.querySelector('ol');
+      list.innerHTML = [...document.querySelectorAll('.cs3 .cs-section')].map((s) => {
+        const name = (s.querySelector('.cs-kicker')?.textContent || '').replace(/^\d+/, '').trim();
+        return `<li><a href="#${s.id}">${name}</a></li>`;
+      }).join('');
+      fab.addEventListener('click', () => {
+        const cur = document.querySelector('.cs-toc a[aria-current="true"]')?.getAttribute('href');
+        list.querySelectorAll('a').forEach((a) => a.toggleAttribute('aria-current', a.getAttribute('href') === cur));
+        sheet.showModal();
+        (list.querySelector('[aria-current]') || list.querySelector('a')).focus();
+      });
+      list.addEventListener('click', (e) => { if (e.target.closest('a')) sheet.close(); });
+      sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
+      sheet.addEventListener('close', () => fab.focus({ preventScroll: true }));
+      const onScroll = () => {
+        const end = document.querySelector('.cs-next')?.getBoundingClientRect().top ?? 1e9;
+        fab.classList.toggle('on', window.scrollY > 500 && end > window.innerHeight);
+      };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
     })();
   </script>
   <script src="../header.js?v=1"></script>

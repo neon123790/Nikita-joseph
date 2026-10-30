@@ -2856,3 +2856,24 @@ main h2:not(.sr-only):not(.now-title), .cs3 .cs-section h2.cs-title, .mat-head h
   .pv-photo img { height: 48vh; }
 }
 @media (prefers-reduced-motion: reduce) { .pv-photo img.in { animation: none; } }
+
+/* career intro */
+.career-hero h1 { max-width: 16em; }
+.career-intro { max-width: 40em; margin-top: 22px; display: grid; gap: 14px; }
+.career-intro p { margin: 0; font-size: var(--t-body); line-height: 1.7; color: #2d2a36; }
+.career-hero .resume-link { margin-top: 26px; }
+
+/* case study: floating "Sections" button + sheet on phones */
+.sec-fab, .sec-sheet { display: none; }
+@media (max-width: 900px) {
+  .cs-toc { display: none; }
+  .sec-fab { display: inline-flex; align-items: center; gap: 8px; position: fixed; right: 16px; bottom: 18px; z-index: 50; min-height: 48px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--stk-ink); color: #fff; font: 700 .95rem/1 var(--sans); letter-spacing: .02em; box-shadow: 0 10px 24px -8px rgba(20, 17, 28, .55); cursor: pointer; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
+  .sec-fab.on { opacity: 1; transform: none; pointer-events: auto; }
+  .sec-sheet[open] { display: block; position: fixed; inset: auto 12px 82px auto; margin: 0; width: min(300px, calc(100vw - 24px)); max-height: 70vh; overflow: auto; padding: 14px 8px; border: 0; border-radius: 16px; background: #fff; box-shadow: 0 20px 40px -12px rgba(20, 17, 28, .45); }
+  .sec-sheet::backdrop { background: rgba(20, 17, 28, .35); }
+  .sec-sheet-title { margin: 0 10px 8px; font: 700 .78rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #4a4652; }
+  .sec-sheet ol { list-style: none; margin: 0; padding: 0; }
+  .sec-sheet a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: var(--stk-ink); text-decoration: none; font-weight: 500; }
+  .sec-sheet a[aria-current] { background: #eaf2ef; font-weight: 700; color: #13786c; }
+}
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) { .sec-fab { transition: none; } }

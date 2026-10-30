@@ -2761,3 +2761,12 @@ table.sr-only { display: block; }
 .pocket { min-height: 150px; }
 @media (max-width: 900px) { .pockets { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } }
 @media (max-width: 560px) { .pockets { grid-template-columns: 1fr; gap: 50px; } }
+
+/* one type scale: section headings sit clearly below the hero headline */
+:root { --h2: clamp(1.7rem, 2.8vw, 2.5rem); }
+.section-head h2, .philosophy h2, .work3 h2, .mat-head h2, .contact3 h2, .kind3 .section-head h2,
+.career-part h2, .part-head h2, .det-head h2, .awards3 .section-head h2, .story-card h2, .career-cta h2 {
+  font-size: var(--h2) !important; line-height: 1.1 !important; letter-spacing: -.02em;
+}
+@media (max-width: 760px) { :root { --h2: clamp(1.55rem, 6.6vw, 1.9rem); } }
+.career-hero h1 { font-size: clamp(2.2rem, 4.4vw, 3.9rem); line-height: 1.02; }

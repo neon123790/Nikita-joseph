@@ -545,9 +545,3 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   requestAnimationFrame(step);
 })();
 
-/* Hero: the sticker flips to a photo of Nikita every 10 seconds, and back */
-(() => {
-  const card = document.querySelector('.flip-card');
-  if (!card || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  setInterval(() => { if (!document.hidden) card.classList.toggle('flipped'); }, 10000);
-})();

@@ -2985,3 +2985,4 @@ main h2.h-split b, main h2.h-split b em { font-weight: 800 !important; color: va
 .mat-head h2 { color: #fff !important; }
 .entry h3, .proc-copy h3, .xp h3, .aw-card h3, .edu-card h3, .j-stop h3, .now-title, .cs-sub, .xp-role { font-weight: 600 !important; }
 .gh-text h1, .cs-hero h1, .rs-head h1 { color: var(--stk-ink) !important; }
+.brand { font-weight: 600 !important; }

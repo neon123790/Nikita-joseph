@@ -2332,3 +2332,30 @@ table.sr-only { display: block; }
 
 /* the contact section closes every page; it isn't printed with the resume */
 @media print { .contact3 { display: none !important; } }
+
+/* ---------- mobile fixes from the walkthrough ---------- */
+@media (max-width: 860px) {
+  /* career: the sticky map sits below the (taller) phone header */
+  .journey-map { top: 112px; }
+}
+@media (max-width: 900px) {
+  /* genie: no big gap under the collapsed contents box */
+  .cs-toc { padding-top: 16px; }
+  .cs3 { padding-top: 8px; }
+}
+@media (max-width: 760px) {
+  /* hero: arms rest on the headline without hiding "messy" */
+  .hero3 .me-sticker { margin-bottom: calc(min(40vw, 22vh) * -.04); }
+}
+@media (max-width: 700px) {
+  /* viewer: full screen on phones; drag to look around a larger image */
+  .viewer { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; padding: 12px; border: 0; border-radius: 0; display: none; flex-direction: column; }
+  .viewer[open] { display: flex; }
+  .viewer figure { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .viewer .v-pan { flex: 1; min-height: 0; overflow: auto; border-radius: 6px; background: #111; -webkit-overflow-scrolling: touch; }
+  .viewer img { width: 220%; max-width: none; max-height: none; height: auto; border-radius: 0; }
+  .viewer figcaption { font-size: .9rem; }
+  .viewer .v-tip { display: block; margin-top: 6px; font-size: .8rem; color: #4a4652; }
+}
+.viewer .v-tip { display: none; }
+@media (max-width: 700px) { .viewer .v-pan { display: flex; align-items: center; } .viewer .v-pan img { flex: 0 0 auto; } }

@@ -2393,3 +2393,75 @@ table.sr-only { display: block; }
   .hero3-label { font-size: .8rem; }
   .cs-next small { font-size: .82rem; }
 }
+
+/* ---------- hero: the untangling line ---------- */
+.hero3 .stickers { display: none; }
+.untangle-wrap { position: absolute; left: 6%; right: 6%; bottom: clamp(18px, 4vh, 40px); height: clamp(90px, 15vh, 150px); z-index: 1; pointer-events: none; }
+.untangle { width: 100%; height: 100%; overflow: visible; }
+.ut-line { fill: none; stroke: var(--stk-ink); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; opacity: calc(.45 + var(--clean, 0) * .55); }
+.ut-dot { fill: #1fb36b; stroke: var(--stk-ink); stroke-width: 3; vector-effect: non-scaling-stroke; opacity: var(--clean, 0); transform-box: fill-box; transform-origin: center; }
+.hero3 { touch-action: pan-y; }
+.hero3-inner { padding-bottom: clamp(110px, 18vh, 180px); }
+@media (max-width: 760px) { .untangle-wrap { left: 8%; right: 8%; height: 80px; bottom: 22px; } .hero3-inner { padding-bottom: 108px; } }
+
+/* ---------- SHIPPED: stamped onto the page ---------- */
+.shipped-stamp.reveal { opacity: 0; transform: rotate(-10deg) scale(2.2); transition: none; }
+.shipped-stamp.reveal.is-in { animation: stamp-in .42s cubic-bezier(.2, .9, .3, 1.2) .2s forwards; }
+@keyframes stamp-in {
+  0% { opacity: 0; transform: rotate(-24deg) scale(2.4); filter: blur(2px); }
+  60% { opacity: 1; transform: rotate(-9deg) scale(.94); filter: none; }
+  75% { transform: rotate(-11deg) scale(1.03); }
+  100% { opacity: .92; transform: rotate(-10deg) scale(1); }
+}
+.shipped-stamp { position: relative; background-image: radial-gradient(rgba(194, 65, 12, .08) 1px, transparent 1.5px); background-size: 5px 5px; }
+@media (prefers-reduced-motion: reduce) { .shipped-stamp.reveal { opacity: .92; transform: rotate(-10deg); animation: none; } }
+
+/* ---------- bookmarks: only the selected one is in colour ---------- */
+.journal .bookmark:not([aria-selected="true"])::before { background: #fffdf7; }
+.journal .bookmark:not([aria-selected="true"]):hover::before { background: color-mix(in srgb, var(--bm) 45%, #fffdf7); }
+.journal .bookmark:not([aria-selected="true"]) { color: #4a4652; }
+
+/* ---------- Genie in the journal: its logo card ---------- */
+.genie-logo-card { position: absolute; inset: 0; display: grid; place-content: center; gap: 6px; text-align: center; color: #fff;
+  background: radial-gradient(70% 90% at 70% 110%, #6f9a5c 0%, rgba(111, 154, 92, 0) 60%), radial-gradient(60% 70% at 20% -10%, #1d4d47 0%, rgba(29, 77, 71, 0) 70%), #0b1716; }
+.gl-name { font: 400 clamp(2.4rem, 7cqw, 3.6rem)/1 "Pacifico", cursive; }
+.gl-line { font: 500 clamp(.7rem, 2.2cqw, .95rem)/1.3 var(--sans); color: #8fd3c9; }
+.thumb:has(.genie-logo-card) { aspect-ratio: 16 / 10; }
+
+/* ==========================================================
+   Career: intro → experience → skills → awards → achievements → education
+   ========================================================== */
+.career-hero .lede { color: #3b3744; max-width: 36em; }
+.now-card { max-width: 640px; margin: 26px 0 0; padding: 18px 20px; background: #fffdf7; border: 2px solid var(--stk-ink); border-radius: 10px; box-shadow: 5px 5px 0 var(--stk-ink); }
+.now-badge { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: #d4f5e2; color: #13633c; font: 700 .74rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; }
+.now-dot { width: 8px; height: 8px; border-radius: 50%; background: #1fb36b; box-shadow: 0 0 0 0 rgba(31, 179, 107, .5); animation: now-pulse 2.4s ease-out infinite; }
+@keyframes now-pulse { 0% { box-shadow: 0 0 0 0 rgba(31, 179, 107, .5); } 70%, 100% { box-shadow: 0 0 0 8px rgba(31, 179, 107, 0); } }
+.now-title { margin: 12px 0 6px; font-family: var(--bold); font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; }
+.now-card p { margin: 0; color: #3b3744; }
+.career-actions { margin-top: 22px; }
+.career-actions .resume-link { margin-top: 0; }
+.career-jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.career-jump a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 2px solid var(--stk-ink); border-radius: 999px; background: #fffdf7; color: var(--stk-ink); font-weight: 600; font-size: .92rem; text-decoration: none; }
+.career-jump a:hover { background: #ffd65a; }
+.career-part h2 { font-family: var(--bold); font-weight: 800; letter-spacing: -.02em; font-size: clamp(2rem, 4.4vw, 3rem); margin: 0 0 10px; }
+.part-lede { margin: 0; color: #3b3744; font-size: 1.08rem; }
+#experience { padding-bottom: 0; }
+.skill-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; margin-top: 26px; }
+.skill-groups h3 { margin: 0 0 12px; font-family: var(--bold); font-weight: 700; font-size: 1.15rem; }
+.skill-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-chips li { padding: 7px 14px; border: 2px solid var(--stk-ink); border-radius: 999px; background: color-mix(in srgb, var(--c) 55%, #fffdf7); font-weight: 600; font-size: .92rem; }
+.edu-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; margin-top: 26px; align-items: start; }
+.edu-card { padding: 20px 22px; background: #fffdf7; border: 2px solid var(--stk-ink); border-radius: 10px; }
+.edu-when { margin: 0 0 6px; font: 600 .8rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: #4a4652; }
+.edu-card h3 { margin: 0 0 6px; font-family: var(--bold); font-weight: 700; font-size: 1.3rem; }
+.edu-card p { margin: 0 0 8px; }
+.edu-note { color: #3b3744; font-size: .98rem; }
+.edu-certs h3 { margin: 0 0 10px; font-family: var(--bold); font-weight: 700; font-size: 1.15rem; }
+.edu-certs ul { margin: 0; padding-left: 1.1em; }
+.edu-certs li { margin: 6px 0; }
+@media (max-width: 760px) {
+  .skill-groups, .edu-grid { grid-template-columns: 1fr; }
+  .career-jump a { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { .now-dot { animation: none; } }
+#work { overflow-x: clip; }

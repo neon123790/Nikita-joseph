@@ -303,3 +303,64 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
     btn.textContent = paused ? 'Play animation' : 'Pause animation';
   });
 })();
+
+/* Hero: a messy scribble slowly combs itself into a clear upward line — messy money moments, making sense.
+   Move the pointer (or drag a finger) across it to untangle the part behind you. */
+(() => {
+  const svg = document.querySelector('.untangle');
+  const hero = document.querySelector('.hero3');
+  if (!svg || !hero) return;
+  const line = svg.querySelector('.ut-line'), dot = svg.querySelector('.ut-dot');
+  const N = 120, W = 1000;
+  // seeded randomness so the scribble looks the same on every visit
+  let s = 7; const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const messy = [], clean = [];
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    const loop = Math.sin(t * 38 + rnd() * .6);
+    messy.push([t * W + loop * 46 + (rnd() - .5) * 30, 100 + Math.cos(t * 41) * 62 * (0.5 + rnd() * .6) + (rnd() - .5) * 28]);
+    clean.push([t * W, 168 - 128 * (t * t * (3 - 2 * t)) + Math.sin(t * Math.PI * 3) * 8]);
+  }
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const f = new Float32Array(N).fill(reduce ? 1 : 0);   // how untangled each point is (0 messy → 1 clean)
+  let pointerX = -1, start = performance.now();
+  const ease = (x) => x * x * (3 - 2 * x);
+  const auto = (now) => {           // slow loop: hold messy, untangle, hold clean, tangle back (16s)
+    const c = ((now - start) / 16000) % 1;
+    if (c < .18) return 0;
+    if (c < .48) return ease((c - .18) / .3);
+    if (c < .82) return 1;
+    return 1 - ease((c - .82) / .18);
+  };
+  const draw = () => {
+    let d = '';
+    for (let i = 0; i < N; i++) {
+      const x = messy[i][0] + (clean[i][0] - messy[i][0]) * f[i];
+      const y = messy[i][1] + (clean[i][1] - messy[i][1]) * f[i];
+      d += (i ? ' L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+      if (i === N - 1) { dot.setAttribute('cx', x); dot.setAttribute('cy', y); }
+    }
+    line.setAttribute('d', d);
+    const avg = f.reduce((a, b) => a + b, 0) / N;
+    svg.style.setProperty('--clean', avg.toFixed(3));
+  };
+  if (reduce) { draw(); return; }
+  const tick = (now) => {
+    const paused = hero.classList.contains('paused');
+    if (paused) start += 16;        // freeze the loop while paused
+    const a = auto(now);
+    for (let i = 0; i < N; i++) {
+      const px = i / (N - 1) * W;
+      const byPointer = pointerX < 0 ? 0 : ease(Math.min(1, Math.max(0, (pointerX - px) / 140 + .5)));
+      const target = Math.max(a, byPointer);
+      if (!paused) f[i] += (target - f[i]) * .035;   // slow, calm easing
+    }
+    draw();
+    requestAnimationFrame(tick);
+  };
+  const toLocal = (clientX) => { const r = svg.getBoundingClientRect(); return (clientX - r.left) / r.width * W; };
+  hero.addEventListener('pointermove', (e) => { pointerX = toLocal(e.clientX); });
+  hero.addEventListener('pointerleave', () => { pointerX = -1; });
+  hero.addEventListener('touchend', () => { setTimeout(() => { pointerX = -1; }, 1200); });
+  requestAnimationFrame(tick);
+})();

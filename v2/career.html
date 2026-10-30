@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=58">
+  <link rel="stylesheet" href="style.css?v=61">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -89,13 +89,31 @@
       <div class="wrap">
         <p class="label">Career</p>
         <h1>The road so far.</h1>
-        <p class="lede">My experience so far — from my first design internship to Senior UX Designer at FYERS. Scroll to take the drive.</p>
-        <a class="btn btn-ghost resume-link" href="resume.html">View resume <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="lede">I’m a Senior UX Designer at FYERS in Bengaluru, turning complex trading and investing journeys into calm, usable products.</p>
+        <div class="now-card">
+          <span class="now-badge"><span class="now-dot" aria-hidden="true"></span>Right now</span>
+          <h2 class="now-title">Senior UX Designer · Innovation Lab, FYERS</h2>
+          <p>Handpicked for the Innovation Lab, I research and prototype AI-assisted product ideas, and take the promising ones from idea to a working build.</p>
+        </div>
+        <div class="career-actions">
+          <a class="btn btn-ghost resume-link" href="resume.html">View resume <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <nav class="career-jump" aria-label="On this page">
+          <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#awards">Awards</a><a href="#along-the-way">Achievements</a><a href="#education">Education</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section career-part" id="experience" aria-labelledby="experience-title">
+      <div class="wrap">
+        <p class="label">Experience</p>
+        <h2 id="experience-title">Where I’ve done the work.</h2>
+        <p class="part-lede">From my first design internship to the Innovation Lab. Scroll to take the drive.</p>
       </div>
     </section>
 
     <section class="journey" id="journey" aria-labelledby="journey-title">
-      <h2 id="journey-title" class="sr-only">Career timeline</h2>
+      <h2 id="journey-title" class="sr-only">Career timeline, stop by stop</h2>
       <div class="wrap journey-grid">
         <ol class="journey-list">
           <li class="j-stop">
@@ -189,38 +207,15 @@
       </div>
     </section>
 
-
-    <section class="section detours" id="along-the-way" aria-labelledby="extras-title">
+    <section class="section career-part" id="skills" aria-labelledby="skills-title">
       <div class="wrap">
-        <div class="det-paper">
-          <div class="det-head">
-            <span class="tape-label">along the way</span>
-            <h2 id="extras-title">Detours worth taking.</h2>
-            <p>The bits between the job titles — numbers I’m quietly proud of.</p>
-          </div>
-          <ul class="det-grid">
-          <li class="det-card reveal" style="--dc:#ffd65a; --r:-2deg">
-            <span class="nb-tape" aria-hidden="true"></span>
-            <svg class="det-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="14" width="32" height="26" rx="4"/><path d="M8 22h32M16 10v8M32 10v8"/></svg>
-            <strong>4+</strong>
-            <h3>years at FYERS</h3>
-            <p>From UX Designer I to Senior, with two promotions on the way.</p>
-          </li>
-          <li class="det-card reveal" style="--dc:#9be3bf; --r:1.6deg">
-            <span class="nb-tape" aria-hidden="true"></span>
-            <svg class="det-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4c10 8 12 22 6 32H18C12 26 14 12 24 4z"/><circle cx="24" cy="18" r="4"/><path d="M18 30l-8 8h8M30 30l8 8h-8"/></svg>
-            <strong>10+</strong>
-            <h3>products shipped</h3>
-            <p>Portfolio, Option Chain, Onboarding, Funds, Screeners and more — all live.</p>
-          </li>
-          <li class="det-card reveal" style="--dc:#ff9fb5; --r:-1.2deg">
-            <span class="nb-tape" aria-hidden="true"></span>
-            <svg class="det-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="16" r="6"/><circle cx="32" cy="16" r="6"/><path d="M4 40c0-10 24-10 24 0M22 40c0-10 22-10 22 0"/></svg>
-            <strong>3–4</strong>
-            <h3>designers hired</h3>
-            <p>Sat on interview panels across junior, senior and research roles.</p>
-          </li>
-          </ul>
+        <p class="label">Skills</p>
+        <h2 id="skills-title">What I bring to the table.</h2>
+        <div class="skill-groups">
+          <div><h3>Research</h3><ul class="skill-chips"><li style="--c:#9ccfff">User interviews</li><li style="--c:#9ccfff">Usability testing</li><li style="--c:#9ccfff">Primary &amp; secondary research</li><li style="--c:#9ccfff">Insight synthesis</li></ul></div>
+          <div><h3>Design</h3><ul class="skill-chips"><li style="--c:#ffd65a">User flows &amp; journey maps</li><li style="--c:#ffd65a">Edge cases &amp; states</li><li style="--c:#ffd65a">Wireframes to high fidelity</li><li style="--c:#ffd65a">Prototyping</li><li style="--c:#ffd65a">Microcopy</li></ul></div>
+          <div><h3>Building with AI</h3><ul class="skill-chips"><li style="--c:#9be3bf">Claude Code</li><li style="--c:#9be3bf">Claude Design</li><li style="--c:#9be3bf">VS Code</li><li style="--c:#9be3bf">GitHub</li><li style="--c:#9be3bf">ElevenLabs</li><li style="--c:#9be3bf">HeyGen</li></ul></div>
+          <div><h3>Domain</h3><ul class="skill-chips"><li style="--c:#ff9fb5">Trading &amp; investing</li><li style="--c:#ff9fb5">NISM Series 7 &amp; 8</li><li style="--c:#ff9fb5">Fintech onboarding</li><li style="--c:#ff9fb5">Advisory products</li></ul></div>
         </div>
       </div>
     </section>
@@ -265,28 +260,65 @@
       </div>
     </section>
 
-    <section class="section career-cta story-cta">
-      <div class="wrap story-card reveal">
-        <svg class="storybook" viewBox="0 0 220 170" aria-hidden="true">
-          <path class="sb-spark s1" fill="#ffd65a" d="M40 20 l 5 12 l 13 1 l -10 8 l 3 13 l -11 -7 l -11 7 l 3 -13 l -10 -8 l 13 -1 Z"/>
-          <path class="sb-spark s2" fill="#ff9fb5" d="M184 14 C 186 24, 190 28, 200 30 C 190 32, 186 36, 184 46 C 182 36, 178 32, 168 30 C 178 28, 182 24, 184 14 Z"/>
-          <path class="sb-spark s3" fill="#9ccfff" d="M150 4 l 3 7 l 7 1 l -5 5 l 1 7 l -6 -3 l -6 3 l 1 -7 l -5 -5 l 7 -1 Z"/>
-          <path fill="#4b7bff" d="M14 70 L 110 84 L 206 70 L 206 156 L 110 166 L 14 156 Z"/>
-          <path fill="#fffdf7" d="M22 62 C 50 54, 86 58, 110 76 L 110 158 C 86 142, 50 140, 22 148 Z"/>
-          <path fill="#fffdf7" d="M198 62 C 170 54, 134 58, 110 76 L 110 158 C 134 142, 170 140, 198 148 Z"/>
-          <path fill="none" d="M38 80 C 56 76, 76 78, 96 88 M38 96 C 56 92, 76 94, 96 104 M38 112 C 56 108, 70 110, 84 116"/>
-          <path fill="#ffd65a" d="M126 84 C 140 76, 160 74, 180 78 L 180 118 C 160 114, 140 116, 126 124 Z"/>
-          <path fill="none" d="M136 108 l 10 -12 l 8 8 l 10 -14 l 10 16"/>
-          <path fill="#ff6a2b" d="M150 60 L 150 96 L 158 90 L 166 96 L 166 58 Z"/>
-        </svg>
-        <h2>Want the full story?</h2>
-        <p>Every chapter so far, page by page.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="resume.html">Read my resume <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="index.html#work">See the work</a>
+    <section class="section detours" id="along-the-way" aria-labelledby="extras-title">
+      <div class="wrap">
+        <div class="det-paper">
+          <div class="det-head">
+            <span class="tape-label">along the way</span>
+            <h2 id="extras-title">Numbers I’m proud of.</h2>
+            <p>The bits between the job titles.</p>
+          </div>
+          <ul class="det-grid">
+          <li class="det-card reveal" style="--dc:#ffd65a; --r:-2deg">
+            <span class="nb-tape" aria-hidden="true"></span>
+            <svg class="det-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="14" width="32" height="26" rx="4"/><path d="M8 22h32M16 10v8M32 10v8"/></svg>
+            <strong>4+</strong>
+            <h3>years at FYERS</h3>
+            <p>From UX Designer I to Senior, with two promotions on the way.</p>
+          </li>
+          <li class="det-card reveal" style="--dc:#9be3bf; --r:1.6deg">
+            <span class="nb-tape" aria-hidden="true"></span>
+            <svg class="det-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4c10 8 12 22 6 32H18C12 26 14 12 24 4z"/><circle cx="24" cy="18" r="4"/><path d="M18 30l-8 8h8M30 30l8 8h-8"/></svg>
+            <strong>10+</strong>
+            <h3>products shipped</h3>
+            <p>Portfolio, Option Chain, Onboarding, Funds, Screeners and more — all live.</p>
+          </li>
+          <li class="det-card reveal" style="--dc:#ff9fb5; --r:-1.2deg">
+            <span class="nb-tape" aria-hidden="true"></span>
+            <svg class="det-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="16" r="6"/><circle cx="32" cy="16" r="6"/><path d="M4 40c0-10 24-10 24 0M22 40c0-10 22-10 22 0"/></svg>
+            <strong>3–4</strong>
+            <h3>designers hired</h3>
+            <p>Sat on interview panels across junior, senior and research roles.</p>
+          </li>
+          </ul>
         </div>
       </div>
     </section>
+
+    <section class="section career-part" id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <p class="label">Education</p>
+        <h2 id="education-title">Where it started.</h2>
+        <div class="edu-grid">
+          <article class="edu-card">
+            <p class="edu-when">2017 – 2021 · Bengaluru</p>
+            <h3>Christ (Deemed to be University)</h3>
+            <p>B.Tech in Electronics &amp; Communication Engineering · CGPA 9.03</p>
+            <p class="edu-note">Final project: BEAM, a student collaboration app. I worked on UX and front-end in a team of five; 50+ students across 10+ colleges used it.</p>
+          </article>
+          <div class="edu-certs">
+            <h3>Certifications</h3>
+            <ul>
+              <li>Google UX Design</li>
+              <li>Georgia Tech · Introduction to UX</li>
+              <li>IxDF · AI for Designers</li>
+              <li>NISM Series 7 &amp; 8</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ======================= 7. Contact ======================= -->
     <section class="section contact3" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact3-grid">
@@ -299,7 +331,6 @@
             <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
             <li><a href="https://www.behance.net/nikitajoseph1" target="_blank" rel="noopener"><span>Behance</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
-          <p class="contact-email">or write to <a href="mailto:nikkijoseph1998@gmail.com">nikkijoseph1998@gmail.com</a></p>
         </div>
 
         <div class="contact-art" aria-hidden="true">
@@ -323,7 +354,7 @@
   </footer>
 
   <script src="music.js?v=1"></script>
-  <script src="main.js?v=12"></script>
+  <script src="main.js?v=15"></script>
   <script src="header.js?v=1"></script>
 </body>
 </html>

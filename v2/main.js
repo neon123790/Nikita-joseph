@@ -418,7 +418,7 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
     const paused = hero.classList.contains('paused');
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
-    const idle = now - lastMove > 2500;
+    const idle = true; // the slow wave always passes; the pointer adds to it
     const wave = ((now / 9000) % 1) * (W + H) - H * .3;   // slow diagonal wave position
     for (const d of dots) {
       let t = 0;
@@ -431,6 +431,8 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
       // dots near the pointer drift gently away from it, then settle back
       let ox = 0, oy = 0;
       if (dist < 130 && dist > 0.1) { const push = (1 - dist / 130) * 14; ox = (d.x - px) / dist * push; oy = (d.y - py) / dist * push; }
+      // a slow, gentle float so the field is never completely still
+      if (!reduce && !paused) { const ph = (d.x * .013 + d.y * .017); ox += Math.sin(now / 2600 + ph) * 1.6; oy += Math.cos(now / 3100 + ph) * 1.6; }
       d.ox = (d.ox || 0) + (ox - (d.ox || 0)) * .12; d.oy = (d.oy || 0) + (oy - (d.oy || 0)) * .12;
       const r = 1.3 + e * 2.4;
       ctx.fillStyle = e > .02 ? `rgba(${Math.round(20 + 211 * e)}, ${Math.round(17 + 55 * e)}, ${Math.round(28 - 13 * e)}, ${.18 + e * .6})` : 'rgba(20, 17, 28, .18)';

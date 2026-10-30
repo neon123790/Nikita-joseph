@@ -2572,3 +2572,72 @@ table.sr-only { display: block; }
   .hero3-actions .btn { padding-inline: 16px; font-size: .95rem; }
 }
 @media (max-width: 760px) and (max-height: 700px) { .hero3 .me-sticker { width: 120px; } .hero3 h1 { font-size: 2rem; } .hero3-sub { font-size: .95rem; } }
+
+/* hero: softer periwinkle, smaller crisp sticker */
+.hero3 { background: #eceffd; }
+.hero3 .me-sticker { width: min(100%, 226px); filter: none; image-rendering: auto; }
+.hero3 h1 { max-width: 11em; }
+.hero3 .sense { color: #c2410c; white-space: nowrap; }
+.hero3-sub { color: #2d2a36; }
+@media (max-width: 760px) { .hero3 .me-sticker { width: min(38vw, 150px); } }
+
+/* journal: the page fills in when you pick a bookmark */
+.entry .hl { background-size: 0% 100% !important; background-repeat: no-repeat !important; }
+.entry.is-active .hl { animation: hl-fill .7s cubic-bezier(.3, .7, .2, 1) .35s forwards; }
+@keyframes hl-fill { to { background-size: 100% 100%; } }
+.entry.is-active .page.left > * { animation: write-in .5s cubic-bezier(.25, .8, .3, 1) both; }
+.entry.is-active .page.left > :nth-child(1) { animation-delay: .05s; }
+.entry.is-active .page.left > :nth-child(2) { animation-delay: .15s; }
+.entry.is-active .page.left > :nth-child(3) { animation-delay: .3s; }
+.entry.is-active .page.left > :nth-child(4) { animation-delay: .4s; }
+.entry.is-active .page.left > :nth-child(5) { animation-delay: .5s; }
+@keyframes write-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.entry.is-active .print { animation: drop-in .6s cubic-bezier(.3, 1.3, .5, 1) .2s both; }
+@keyframes drop-in { from { opacity: 0; transform: translateY(-16px) rotate(3deg) scale(.96); } to { opacity: 1; transform: rotate(-1deg); } }
+.entry.is-active .print .tape { animation: tape-on .35s ease .65s both; }
+@keyframes tape-on { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .entry .hl { background-size: 100% 100% !important; }
+  .entry.is-active .page.left > *, .entry.is-active .print, .entry.is-active .print .tape, .entry.is-active .hl { animation: none; }
+}
+/* Genie: just the logo, on a smaller card */
+#entry-genie .print { max-width: 300px; }
+.thumb:has(.genie-logo-card) { aspect-ratio: 4 / 3; }
+.gl-name { font-size: clamp(2.6rem, 14cqw, 3.4rem); }
+
+/* ==========================================================
+   Genie: calmer, friendlier case study
+   ========================================================== */
+.genie-hero2 { padding: clamp(18px, 3vw, 32px) 0 clamp(8px, 2vw, 16px); }
+.gh-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(24px, 4vw, 52px); background: #eaf2ef; border-radius: 18px; }
+.gh-text .back-link { display: inline-flex; margin-bottom: 18px; }
+.gh-text .label { margin-bottom: 10px; }
+.gh-text h1 { font-family: var(--bold); font-weight: 800; font-size: clamp(2.6rem, 5.5vw, 4.2rem); letter-spacing: -.03em; line-height: 1; margin: 0 0 14px; }
+.gh-intro { margin: 0 0 22px; font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.6; color: #2d2a36; max-width: 30em; }
+.gh-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin: 0; }
+.gh-facts dt { font: 600 .74rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: #4a6660; margin-bottom: 6px; }
+.gh-facts dd { margin: 0; font-weight: 600; font-size: .98rem; }
+.gh-shot { margin: 0; }
+.gh-shot img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 24px 40px -24px rgba(20, 40, 36, .55); }
+.genie-hero2 + .wrap.cs-layout .cs-toc { padding-top: 32px; }
+/* stressed words: a soft marker, not a loud one */
+.cs3 mark { background: linear-gradient(transparent 58%, #cdebe4 58%, #cdebe4 92%, transparent 92%); color: inherit; padding: 0 .06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+/* numbered, gently alternating sections */
+.cs-num { display: inline-grid; place-items: center; min-width: 30px; height: 22px; margin-right: 10px; padding: 0 6px; border-radius: 999px; background: #e3ecf9; color: #2f4a7a; font-weight: 700; letter-spacing: 0; font-size: .74rem; vertical-align: middle; }
+.cs3 .cs-section { border-top: 0; padding: 40px clamp(0px, 2.4vw, 28px); margin: 0 0 12px; border-radius: 16px; }
+.cs3 .cs-section:nth-of-type(even) { background: #f1efe9; }
+/* overview at a glance */
+.glance { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.glance li { padding: 14px 0 0; border-top: 2px solid var(--stk-ink); }
+.glance strong { display: block; font-family: var(--bold); font-weight: 800; font-size: 2rem; line-height: 1; color: #13786c; }
+.glance span { display: block; margin-top: 6px; font-size: .92rem !important; line-height: 1.4 !important; color: #3b3744; }
+.cs-inline-shot { max-width: 640px; margin: 18px 0 22px; }
+@media (max-width: 860px) {
+  .gh-panel { grid-template-columns: 1fr; }
+  .gh-shot { order: 2; }
+  .glance { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) { .gh-facts { grid-template-columns: 1fr; } }
+.gh-text .back-link { display: flex; width: fit-content; }
+.gh-text .label { display: block; width: fit-content; }
+.cs3 mark { background: linear-gradient(transparent 56%, #bfe3d9 56%, #bfe3d9 94%, transparent 94%); }

@@ -2753,3 +2753,6 @@ table.sr-only { display: block; }
 .kw-id { display: grid; gap: 2px; }
 .car-btn { background: #fffdf7; box-shadow: none; border-width: 1.5px; }
 .car-btn:hover:not(:disabled) { background: #ffd65a; box-shadow: none; transform: none; }
+.pockets { grid-template-columns: 1fr; max-width: 300px; margin-inline: auto; }
+@media (max-width: 900px) { .pockets { grid-template-columns: 1fr 1fr 1fr; max-width: none; } }
+@media (max-width: 560px) { .pockets { grid-template-columns: 1fr; } }

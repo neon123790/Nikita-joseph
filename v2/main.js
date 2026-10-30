@@ -428,9 +428,13 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
       // rise quickly, fade back slowly
       d.e += (t - d.e) * (t > d.e ? .25 : .035);
       const e = d.e;
-      const r = 1.3 + e * 2.6;
-      ctx.fillStyle = e > .02 ? `rgba(${Math.round(20 + 211 * e)}, ${Math.round(17 + 55 * e)}, ${Math.round(28 - 13 * e)}, ${.16 + e * .6})` : 'rgba(20, 17, 28, .16)';
-      ctx.beginPath(); ctx.arc(d.x, d.y, r, 0, Math.PI * 2); ctx.fill();
+      // dots near the pointer drift gently away from it, then settle back
+      let ox = 0, oy = 0;
+      if (dist < 130 && dist > 0.1) { const push = (1 - dist / 130) * 14; ox = (d.x - px) / dist * push; oy = (d.y - py) / dist * push; }
+      d.ox = (d.ox || 0) + (ox - (d.ox || 0)) * .12; d.oy = (d.oy || 0) + (oy - (d.oy || 0)) * .12;
+      const r = 1.3 + e * 2.4;
+      ctx.fillStyle = e > .02 ? `rgba(${Math.round(20 + 211 * e)}, ${Math.round(17 + 55 * e)}, ${Math.round(28 - 13 * e)}, ${.18 + e * .6})` : 'rgba(20, 17, 28, .18)';
+      ctx.beginPath(); ctx.arc(d.x + d.ox, d.y + d.oy, r, 0, Math.PI * 2); ctx.fill();
     }
     if (!reduce) requestAnimationFrame(draw);
   };

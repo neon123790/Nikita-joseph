@@ -2359,3 +2359,37 @@ table.sr-only { display: block; }
 }
 .viewer .v-tip { display: none; }
 @media (max-width: 700px) { .viewer .v-pan { display: flex; align-items: center; } .viewer .v-pan img { flex: 0 0 auto; } }
+
+/* ==========================================================
+   Mobile polish: tap targets, readable small text, header, contact
+   ========================================================== */
+.site-header { transition: transform .25s ease; }
+@media (max-width: 760px) {
+  .site-header.hdr-hide { transform: translateY(-100%); }
+  html.hdr-hidden .journey-map { top: 10px; }
+  .journey-map { transition: top .25s ease; }
+  /* tap targets of at least 44px */
+  .nav-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; }
+  .nav-links { margin-inline: -6px; }
+  .brand { min-height: 44px; }
+  .nav { padding-block: 6px; row-gap: 0; }
+  .motion-btn, .back-link, .entry .read-link, .resume-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .rs-contact { flex-wrap: wrap; gap: 4px 16px; }
+  .rs-contact a { display: inline-flex; align-items: center; min-height: 44px; }
+  .cs-toc-box summary { min-height: 44px; align-items: center; }
+  .cs-toc a { min-height: 44px; display: flex; align-items: center; }
+  /* small text that is still easy to read */
+  .hero3-label { font-size: .74rem; }
+  .j-stop .stamp { font-size: .8rem; }
+  .chip, .j-stop .chip { font-size: .85rem; }
+  .cs-facts dt, .cs-defs dt, .label, .cs-kicker { font-size: .8rem; }
+  /* contact: on phones the words and buttons are enough */
+  .contact-art { display: none; }
+  .contact3 .contact-links a { min-height: 48px; }
+}
+@media (max-width: 760px) {
+  .btn { min-height: 44px; }
+  .cs-more a, .cs-top a { display: inline-flex; align-items: center; min-height: 44px; }
+  .hero3-label { font-size: .8rem; }
+  .cs-next small { font-size: .82rem; }
+}

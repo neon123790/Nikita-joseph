@@ -2529,3 +2529,12 @@ table.sr-only { display: block; }
 @media (max-width: 760px) { .hero3-inner { padding-bottom: 56px; } }
 .dotfield { -webkit-mask-image: radial-gradient(ellipse 40% 34% at 50% 62%, transparent 40%, #000 90%); mask-image: radial-gradient(ellipse 40% 34% at 50% 62%, transparent 40%, #000 90%); }
 @media (max-width: 760px) { .dotfield { -webkit-mask-image: radial-gradient(ellipse 60% 26% at 50% 66%, transparent 45%, #000 95%); mask-image: radial-gradient(ellipse 60% 26% at 50% 66%, transparent 45%, #000 95%); } }
+
+/* noticeboard: grouped under little taped headings */
+.nb-groups { display: grid; gap: clamp(28px, 4vw, 44px); }
+.nb-group-title { display: inline-block; margin: 0 0 18px; padding: 5px 16px; background: var(--gc); border: 2px solid var(--stk-ink); color: var(--stk-ink); font: 400 1.25rem/1.1 var(--hand); transform: rotate(-1.5deg); box-shadow: 3px 3px 0 rgba(20, 17, 28, .35); }
+.nb-group .nb-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+@media (min-width: 900px) {
+  .nb-groups { grid-template-columns: 1fr 1fr; gap: 40px 36px; align-items: start; }
+  .nb-group .nb-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 26px 16px; }
+}

@@ -2970,3 +2970,18 @@ main h2.h-split b { font-weight: 900; color: var(--stk-ink); }
   .cs-points.notes { grid-template-columns: 1fr; }
   .persona2-cols > div, .cs-verdict > div, .cs-points.notes li { transform: none; }
 }
+
+/* ==========================================================
+   Heading weights — one colour, weight does the work
+   H1 800 · H2 700 · stressed H2: 500 + key words 800 · H3 600
+   ========================================================== */
+.hero3 h1, .career-hero h1, .gh-text h1, .cs-hero h1, .rs-head h1 { font-weight: 800 !important; }
+.career-hero h1 { font-weight: 500 !important; color: var(--stk-ink) !important; }
+.career-hero h1 b { font-weight: 800 !important; color: var(--stk-ink) !important; }
+main h2:not(.sr-only), .cs3 .cs-section h2.cs-title { font-weight: 700 !important; color: var(--stk-ink) !important; }
+main h2.h-split { font-weight: 500 !important; color: var(--stk-ink) !important; }
+main h2.h-split b, main h2.h-split b em { font-weight: 800 !important; color: var(--stk-ink) !important; }
+.work3 h2 em { color: var(--stk-ink) !important; font-style: normal; }
+.mat-head h2 { color: #fff !important; }
+.entry h3, .proc-copy h3, .xp h3, .aw-card h3, .edu-card h3, .j-stop h3, .now-title, .cs-sub, .xp-role { font-weight: 600 !important; }
+.gh-text h1, .cs-hero h1, .rs-head h1 { color: var(--stk-ink) !important; }

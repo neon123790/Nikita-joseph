@@ -546,21 +546,39 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
 })();
 
 
-/* Noticeboard pockets: tap a pocket to see the photos tucked inside */
+/* Noticeboard pockets: open one photo at a time, with a short note */
 (() => {
   const dlg = document.querySelector('.pocket-view');
   if (!dlg) return;
-  const grid = dlg.querySelector('.pv-grid'), title = dlg.querySelector('#pv-title');
-  let opener = null;
+  const title = dlg.querySelector('#pv-title'), img = dlg.querySelector('.pv-photo img');
+  const cap = dlg.querySelector('.pv-cap'), note = dlg.querySelector('.pv-note'), count = dlg.querySelector('.pv-count'), thumbs = dlg.querySelector('.pv-thumbs');
+  let photos = [], i = 0, opener = null;
+  const show = (n) => {
+    i = (n + photos.length) % photos.length;
+    const p = photos[i];
+    img.classList.remove('in'); void img.offsetWidth;
+    img.src = p.src; img.alt = p.cap; img.classList.add('in');
+    cap.textContent = p.cap; note.textContent = p.note || '';
+    count.textContent = `${i + 1} / ${photos.length}`;
+    thumbs.querySelectorAll('button').forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
+    thumbs.children[i]?.scrollIntoView({ block: 'nearest', inline: 'center' });
+  };
   document.querySelectorAll('.pocket').forEach((p) => p.addEventListener('click', () => {
     opener = p;
+    photos = JSON.parse(p.dataset.photos);
     title.textContent = p.dataset.title.replace('&amp;', '&');
-    grid.innerHTML = JSON.parse(p.dataset.photos).map((ph, i) =>
-      `<li style="--r:${[-2, 1.5, -1, 2, -1.5][i % 5]}deg"><img src="${ph.src}" alt="${ph.cap}"><span>${ph.cap}</span></li>`).join('');
-    dlg.showModal();
-    dlg.querySelector('.pv-close').focus();
+    thumbs.innerHTML = photos.map((ph, k) => `<li><button type="button" aria-label="Photo ${k + 1}: ${ph.cap}"><img src="${ph.src}" alt=""></button></li>`).join('');
+    thumbs.querySelectorAll('button').forEach((b, k) => b.addEventListener('click', () => show(k)));
+    dlg.showModal(); show(0);
+    dlg.querySelector('.pv-nav.next').focus();
   }));
+  dlg.querySelector('.prev').addEventListener('click', () => show(i - 1));
+  dlg.querySelector('.next').addEventListener('click', () => show(i + 1));
   dlg.querySelector('.pv-close').addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+  let x0 = null;
+  dlg.querySelector('.pv-photo').addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  dlg.querySelector('.pv-photo').addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
   dlg.addEventListener('close', () => opener && opener.focus());
 })();

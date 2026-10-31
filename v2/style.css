@@ -3187,3 +3187,74 @@ main .mat-head h2 { color: #fff !important; }
 .edu-card h3, .edu-card .edu-when, .edu-card p { padding-right: 0 !important; }
 
 .edu-top { row-gap:10px; margin-bottom:16px; }
+
+/* ---------- Phone hamburger menu (button injected by header.js) ---------- */
+.nav-burger { display: none; }
+@media (max-width: 760px) {
+  .has-burger .nav { height: 64px; flex-wrap: nowrap; padding-block: 0; }
+  .has-burger .nav-right { display: flex; align-items: center; gap: 12px; }
+  html { scroll-padding-top: 80px; }
+  .nav-burger {
+    display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    width: 44px; height: 44px; padding: 0; border: 2px solid var(--stk-ink); border-radius: 10px;
+    background: #fff; cursor: pointer; box-shadow: 2px 2px 0 var(--stk-ink);
+  }
+  .nav-burger span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--stk-ink); transition: transform .25s ease, opacity .2s ease; }
+  .menu-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-open .nav-burger span:nth-child(2) { opacity: 0; }
+  .menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-burger:focus-visible { outline: 3px solid #c2410c; outline-offset: 2px; }
+
+  .has-burger .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0; width: auto; order: 0;
+    display: flex; flex-direction: column; gap: 0; margin: 0; padding: 4px 16px 14px;
+    background: var(--bg); border-bottom: 2px solid var(--stk-ink);
+    box-shadow: 0 10px 18px rgba(20, 17, 28, .08);
+    visibility: hidden; opacity: 0; transform: translateY(-6px);
+  }
+  .burger-ready .nav-links { transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s; }
+  .has-burger.menu-open .nav-links { visibility: visible; opacity: 1; transform: none; }
+  .burger-ready.menu-open .nav-links { transition: opacity .2s ease, transform .2s ease; }
+  .has-burger .nav-links li { border-bottom: 1px solid var(--line); }
+  .has-burger .nav-links li:last-child { border-bottom: 0; }
+  .has-burger .nav-links a { display: flex; width: 100%; min-height: 52px; padding: 0 4px; font-size: 1.1rem; color: var(--stk-ink); }
+  .has-burger .nav-links a::after { display: none; }
+  .has-burger .nav-links a[aria-current="page"] { color: #c2410c; font-weight: 600; }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  .nav-burger span, .burger-ready .nav-links, .burger-ready.menu-open .nav-links { transition: none; }
+}
+
+/* "shipped" v3: the ship sails across, letters rise in its wake. No SVG filter, so it runs on the GPU. */
+.sw-goo, .ship-word.done .sw-goo { filter: none !important; opacity: 1 !important; }
+.sw-crisp { display: none !important; }
+.sw-l { opacity: 0; transform: translateY(.28em) scale(.55); transform-origin: 50% 80%; will-change: transform, opacity; }
+.ship-word.go .sw-l { animation: sw-rise .62s cubic-bezier(.34, 1.45, .64, 1) forwards; animation-delay: calc(var(--d, 1s) + .1s); }
+@keyframes sw-rise { 0% { opacity: 0; transform: translateY(.28em) scale(.55); } 45% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+.sw-blob { left: 0 !important; top: 0 !important; width: .26em !important; height: .26em !important; margin: -.13em 0 0 -.13em !important;
+  opacity: 0; transform: translate(var(--tx, 0), var(--ty, 0)) scale(0); will-change: transform, opacity; }
+.ship-word.go .sw-blob { animation: sw-drop .55s cubic-bezier(.3, 0, .3, 1) forwards; animation-delay: var(--d, 1s); }
+@keyframes sw-drop {
+  0%   { opacity: 0;  transform: translate(var(--tx), calc(var(--ty) - .1em)) scale(.3); }
+  35%  { opacity: 1;  transform: translate(var(--tx), var(--ty)) scale(1.15, .9); }
+  100% { opacity: 0;  transform: translate(var(--tx), calc(var(--ty) - .15em)) scale(.2); }
+}
+.sw-ship { left: 0 !important; margin-left: -.62em !important; opacity: 0; will-change: transform, opacity; }
+.ship-word.go .sw-ship { animation: sw-sail3 1.85s cubic-bezier(.45, .05, .55, .95) forwards !important; }
+@keyframes sw-sail3 {
+  0%   { opacity: 0; transform: translateX(-.4em) rotate(-4deg); }
+  10%  { opacity: 1; }
+  30%  { transform: translateX(calc(var(--w, 3em) * .28)) rotate(3deg); }
+  55%  { transform: translateX(calc(var(--w, 3em) * .58)) rotate(-3deg); }
+  82%  { opacity: 1; transform: translateX(calc(var(--w, 3em) * .92)) rotate(2deg); }
+  100% { opacity: 0; transform: translateX(calc(var(--w, 3em) + .5em)) rotate(0) scale(.7); }
+}
+@media (prefers-reduced-motion: reduce) { .sw-l { opacity: 1 !important; transform: none !important; animation: none !important; } .sw-ship, .sw-blob { display: none !important; } }
+
+/* lighter hamburger: no box, soft grey lines */
+@media (max-width: 760px) {
+  .nav-burger { border: 0; background: transparent; box-shadow: none; border-radius: 8px; gap: 5px; }
+  .nav-burger span { width: 22px; height: 2px; background: #6b6676; }
+  .nav-burger:hover span { background: var(--stk-ink); }
+  .has-burger .nav-links { border-bottom: 1px solid var(--line); box-shadow: 0 12px 20px rgba(20, 17, 28, .05); }
+}

@@ -3153,3 +3153,37 @@ main .mat-head h2 { color: #fff !important; }
   .ch-peek { bottom: 44px; }
 }
 @media (max-width: 860px) { .ch-art { padding-bottom: 170px; } }
+
+/* "shipped", smoother: transforms only, soft hand-off to a crisp word */
+.ship-word { position: relative; }
+.sw-crisp { position: absolute; left: 0; top: 0; color: #c2410c; opacity: 0; transition: opacity .6s ease; pointer-events: none; white-space: nowrap; }
+.ship-word.done .sw-crisp { opacity: 1; }
+.sw-goo { transition: opacity .6s ease; }
+.ship-word.done .sw-goo { filter: url(#goo); opacity: 0; }
+.sw-blob { left: 0 !important; top: 0 !important; transform: translate(var(--sx, 0), var(--sy, 0)) scale(0); will-change: transform; }
+.ship-word.go .sw-blob { animation: sw-flow2 1.5s cubic-bezier(.65, 0, .35, 1) forwards; animation-delay: calc(.9s + var(--k) * .07s); }
+@keyframes sw-flow2 {
+  0%   { opacity: 1; transform: translate(var(--sx), var(--sy)) scale(1.6); }
+  65%  { opacity: 1; transform: translate(var(--tx), var(--ty)) scale(1.25); }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(.3); }
+}
+.ship-word.go .sw-ship { animation: sw-melt2 1.7s cubic-bezier(.45, 0, .25, 1) forwards !important; }
+@keyframes sw-melt2 {
+  0%   { transform: translateX(-1.6em) rotate(-5deg); opacity: 0; }
+  12%  { opacity: 1; }
+  45%  { transform: translateX(0) rotate(3deg) scale(1); }
+  70%  { transform: translateX(0) rotate(0) scale(.85, .6); opacity: 1; }
+  100% { transform: translateX(0) scale(.2); opacity: 0; }
+}
+.ship-word.go .sw-l { animation: sw-grow2 .9s cubic-bezier(.34, 1.3, .64, 1) forwards; animation-delay: calc(1.45s + var(--k) * .07s); }
+@keyframes sw-grow2 { 0% { transform: scale(0); opacity: 0; } 30% { opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .sw-crisp { opacity: 1; transition: none; } .sw-goo { opacity: 0; } }
+
+/* education: a tidy in-line stamp */
+.edu-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.edu-top .edu-when { margin: 0; }
+.edu-stamp, .edu-stamp:is(*) { position: static !important; width: auto !important; height: auto !important; display: inline-flex !important; align-items: center; gap: 6px; margin: 0 !important; padding: 6px 12px; border: 3px double #13786c; border-radius: 8px; color: #13786c; font: 700 .72rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; transform: rotate(-4deg); opacity: .9; }
+.edu-stamp b { font: 800 1rem/1 var(--bold); letter-spacing: 0; }
+.edu-card h3, .edu-card .edu-when, .edu-card p { padding-right: 0 !important; }
+
+.edu-top { row-gap:10px; margin-bottom:16px; }

@@ -3140,3 +3140,16 @@ main .mat-head h2 { color: #fff !important; }
   100% { opacity: 0; left: var(--tx); top: var(--ty); transform: scale(.2); }
 }
 @media (prefers-reduced-motion: reduce) { .sw-l { transform: none; opacity: 1; } .sw-ship, .sw-blob { display: none; } .sw-goo { filter: none; } }
+@media (max-width: 860px) {
+  .ch-art { height: 250px; }
+  .ch-stat.s1 { left: 0; top: 0; }
+  .ch-stat.s3 { left: auto; right: 0; top: 0; }
+  .ch-stat.s2 { left: 50%; right: auto; top: 54px; transform: translateX(-50%) rotate(2deg); }
+}
+@media (max-width: 860px) {
+  .ch-art { display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 10px 8px; height: auto; min-height: 0; padding-bottom: 150px; }
+  .ch-stat, .ch-stat.s1, .ch-stat.s2, .ch-stat.s3 { position: relative; left: auto; right: auto; top: auto; bottom: auto; transform: rotate(-2deg); }
+  .ch-stat.s2 { transform: rotate(2deg); }
+  .ch-peek { bottom: 44px; }
+}
+@media (max-width: 860px) { .ch-art { padding-bottom: 170px; } }

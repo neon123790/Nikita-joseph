@@ -3290,3 +3290,45 @@ html.jr-lock, html.jr-lock body { overflow: hidden; }
   .journey .journey-list { padding: 4vh 0 30vh; }
 }
 @media (prefers-reduced-motion: reduce) { .journey, .jr-backdrop { transition: none; } }
+
+/* ==========================================================
+   Softer headings: a deep warm ink instead of near-black,
+   and hierarchy from size first, weight second (no heavy-on-heavy)
+   H1 700 · H2 600 · split H2 400 + key words 600 · H3 600
+   ========================================================== */
+:root { --head: #322e3b; }
+.hero3 h1, .gh-text h1, .cs-hero h1, .rs-head h1 { font-weight: 700 !important; color: var(--head) !important; letter-spacing: -.025em; }
+.career-hero h1 { font-weight: 400 !important; color: var(--head) !important; }
+.career-hero h1 b { font-weight: 600 !important; }
+main h2:not(.sr-only), .cs3 .cs-section h2.cs-title { font-weight: 600 !important; color: var(--head) !important; }
+main h2.h-split { font-weight: 400 !important; color: var(--head) !important; }
+main h2.h-split b, main h2.h-split b em { font-weight: 600 !important; color: var(--head) !important; }
+.work3 h2 em { color: var(--head) !important; }
+main .mat-head h2 { color: #fff !important; }
+main h3:not(.sr-only) { color: var(--head); }
+
+/* ==========================================================
+   Project pages: a soft wash of the project's colour behind the top,
+   fading seamlessly into the page; back arrow sits beside the title
+   ========================================================== */
+.proj-hero { --wash: color-mix(in srgb, var(--proj) 62%, #fff);
+  background:
+    radial-gradient(90% 120% at 100% 0%, color-mix(in srgb, var(--proj) 35%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, var(--wash) 0%, color-mix(in srgb, var(--proj) 22%, var(--bg)) 55%, var(--bg) 100%); }
+body:has(.proj-hero[style*="#bfe9d3"]) .site-header:not(.scrolled) { background: color-mix(in srgb, #bfe9d3 62%, #fff); }
+body:has(.proj-hero[style*="#ffe08a"]) .site-header:not(.scrolled) { background: color-mix(in srgb, #ffe08a 62%, #fff); }
+body:has(.proj-hero[style*="#ffcfaa"]) .site-header:not(.scrolled) { background: color-mix(in srgb, #ffcfaa 62%, #fff); }
+body:has(.proj-hero[style*="#bfdcff"]) .site-header:not(.scrolled) { background: color-mix(in srgb, #bfdcff 62%, #fff); }
+.genie-hero2.proj-hero { padding: clamp(28px, 4vw, 56px) 0 clamp(40px, 5vw, 72px); }
+.proj-hero .gh-panel { background: none !important; padding: 0 !important; border-radius: 0; }
+.cs-hero.proj-hero { padding-top: clamp(28px, 4vw, 56px); }
+.cs-titlerow { display: flex; align-items: center; gap: clamp(12px, 1.6vw, 18px); margin-bottom: 10px; }
+.cs-titlerow h1 { margin: 0 !important; }
+.proj-kicker { margin: 0 0 clamp(18px, 2.4vw, 28px) !important; }
+.back-btn { flex: none; display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255, 255, 255, .7); border: 1px solid rgba(50, 46, 59, .14); color: var(--head);
+  box-shadow: 0 1px 2px rgba(20, 17, 28, .08); transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.back-btn svg { width: 20px; height: 20px; }
+.back-btn:hover { background: #fff; box-shadow: 0 2px 8px rgba(20, 17, 28, .14); transform: translateX(-2px); }
+.back-btn:focus-visible { outline: 3px solid #c2410c; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .back-btn:hover { transform: none; } }

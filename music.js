@@ -125,7 +125,7 @@
 
   // ---- the lo-fi track: routed through a gain node, because phones ignore <audio>.volume ----
   const TRACK = new URL('audio/lofi.m4a', document.currentScript ? document.currentScript.src : location.href).href;
-  const LOW = 0.12;            // very low: background, never in the way
+  const LOW = 0.06;            // very low: background, never in the way
   let audio = null, trackGain = null, useTrack = true;
   const startTrack = async () => {
     if (!ctx) setup();

@@ -100,9 +100,8 @@
   const initDrive = () => {
     const SVGNS = 'http://www.w3.org/2000/svg';
     const card = document.getElementById('map-card');
-    const planned = mapSvg.querySelector('.route-planned');
-    const casing = mapSvg.querySelector('.route-casing');
-    const done = mapSvg.querySelector('.route-done');
+    const linesLayer = mapSvg.querySelector('.mt-lines');
+    const labelsLayer = mapSvg.querySelector('.mt-labels');
     const pinsLayer = mapSvg.querySelector('.pins');
     const car = mapSvg.querySelector('.car');
     const stops = [...document.querySelectorAll('.j-stop')];
@@ -112,45 +111,74 @@
     const bar = document.getElementById('map-progress');
     const dirIcon = document.getElementById('dir-icon');
     const dirThen = document.getElementById('dir-then');
-
-    // The drive: Dubai → DeFiner → one and a half laps of the FYERS roundabout → exit to the destination
-    const RX = 310, RY = 290, RR = 80;
-    const path = `M70 525 L70 418 Q70 400 88 400 L172 400 Q190 400 190 382 L190 308 Q190 290 208 290 L${RX - RR} ${RY} `
-      + `A${RR} ${RR} 0 0 1 ${RX + RR} ${RY} A${RR} ${RR} 0 0 1 ${RX - RR} ${RY} A${RR} ${RR} 0 0 1 ${RX + RR} ${RY} `
-      + `L512 290 Q530 290 530 272 L530 90`;
-    [planned, casing, done].forEach((p) => p.setAttribute('d', path));
-    const total = done.getTotalLength();
-    [casing, done].forEach((p) => { p.style.strokeDasharray = `${total} ${total}`; p.style.strokeDashoffset = `${total}`; });
-
-    // where each stop sits on the route: the start, DeFiner, six points spread round the roundabout, the end
-    const N = stops.length;
-    const findLen = (x, y, from = 0) => {
-      for (let L = from; L <= total; L += 1) {
-        const p = done.getPointAtLength(L);
-        if (Math.hypot(p.x - x, p.y - y) < 2) return L;
-      }
-      return from;
+    const el = (tag, attrs, parent) => {
+      const e = document.createElementNS(SVGNS, tag);
+      Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+      parent.appendChild(e);
+      return e;
     };
-    const entry = findLen(RX - RR, RY), lap = 2 * Math.PI * RR;
-    const ring = [0, 80, 160, 240, 320, 400].map((deg) => entry + lap * deg / 360);
-    const stopLen = [0, findLen(190, 345), ...ring, total].slice(0, N);
-    while (stopLen.length < N) stopLen.push(total);
-    const SVGNS2 = SVGNS;
+
+    // One track from Dubai to the last station, with 45° bends like a transit diagram
+    const way = [[60, 500], [170, 500], [220, 450], [220, 380], [270, 330], [400, 330], [450, 280], [450, 150]];
+    const R = 16;
+    let d = `M ${way[0][0]} ${way[0][1]}`;
+    for (let i = 1; i < way.length - 1; i++) {
+      const [px, py] = way[i - 1], [cx, cy] = way[i], [nx, ny] = way[i + 1];
+      const l1 = Math.hypot(cx - px, cy - py), l2 = Math.hypot(nx - cx, ny - cy);
+      const inX = cx - (cx - px) / l1 * R, inY = cy - (cy - py) / l1 * R;
+      const outX = cx + (nx - cx) / l2 * R, outY = cy + (ny - cy) / l2 * R;
+      d += ` L ${inX} ${inY} Q ${cx} ${cy} ${outX} ${outY}`;
+    }
+    d += ` L ${way[way.length - 1][0]} ${way[way.length - 1][1]}`;
+    const track = el('path', { d, fill: 'none', stroke: 'none' }, linesLayer);
+    const total = track.getTotalLength();
+    const nearest = (x, y, from = 0) => {
+      let best = from, bd = Infinity;
+      for (let L = from; L <= total; L += 1) {
+        const p = track.getPointAtLength(L), dd = Math.hypot(p.x - x, p.y - y);
+        if (dd < bd) { bd = dd; best = L; }
+      }
+      return best;
+    };
+
+    // stations, in order along the track
+    const N = stops.length;
+    const at = [[60, 500], [170, 500], [220, 450], [220, 380], [310, 330], [400, 330], [450, 280], [450, 215], [450, 150]];
+    const stopLen = [];
+    at.slice(0, N).forEach(([x, y], i) => stopLen.push(i === 0 ? 0 : i === N - 1 ? total : nearest(x, y, stopLen[i - 1] + 1)));
+
+    // each line is the same track, shown only over its own stretch; a faint copy sits underneath
+    const sections = [
+      { c: '#e64980', from: 0, to: stopLen[2] },
+      { c: '#2f5fd0', from: stopLen[2], to: stopLen[6] },
+      { c: '#f08c00', from: stopLen[6], to: stopLen[7] }
+    ];
+    const win = (from, len) => `0 ${from} ${Math.max(0, len)} ${total * 2}`;
+    sections.forEach((sec) => {
+      el('path', { d, class: 'mt-line base', stroke: sec.c, 'stroke-dasharray': win(sec.from, sec.to - sec.from) }, linesLayer);
+      sec.live = el('path', { d, class: 'mt-line live', stroke: sec.c, 'stroke-dasharray': win(sec.from, 0) }, linesLayer);
+    });
+    el('path', { d, class: 'mt-line future', 'stroke-dasharray': `0 ${stopLen[7] + 8} 6 8 6 8 6 8 6 8 6 8 6 ${total * 2}` }, linesLayer);
+
     const pins = stopLen.map((len, i) => {
-      const p = done.getPointAtLength(Math.min(len, total - 0.01));
-      const g = document.createElementNS(SVGNS2, 'g');
-      const logo = stops[i].dataset.logo;
-      g.setAttribute('class', (i === N - 1 ? 'pin final' : 'pin') + (logo ? ' pin-logo' : ''));
-      g.setAttribute('transform', `translate(${p.x} ${p.y})`);
-      g.innerHTML = logo
-        ? `<circle class="ring" r="16"/><clipPath id="pin-clip-${i}"><circle r="13"/></clipPath><circle class="dot" r="15"/><image href="${logo}" x="-13" y="-13" width="26" height="26" clip-path="url(#pin-clip-${i})"/>`
-        : `<circle class="ring" r="11"/><circle class="dot" r="11"/><text>${i === N - 1 ? '♥' : i + 1}</text>`;
-      pinsLayer.appendChild(g);
-      return g;
+      const p = track.getPointAtLength(Math.min(len, total - 0.01));
+      const s = stops[i], lc = s.dataset.lc || '#2f6bff', logo = s.dataset.logo, big = s.dataset.interchange || logo;
+      const g = el('g', { class: 'pin' + (big ? ' pin-big' : '') + (i === N - 1 ? ' final' : ''), transform: `translate(${p.x} ${p.y})`, style: `--lc:${lc}` }, pinsLayer);
+      el('circle', { class: 'ring', r: big ? 17 : 12 }, g);
+      el('circle', { class: 'dot', r: big ? 12 : 7 }, g);
+      if (logo) {
+        const cp = el('clipPath', { id: `st-clip-${i}` }, g);
+        el('circle', { r: 9.5 }, cp);
+        el('image', { href: logo, x: -9.5, y: -9.5, width: 19, height: 19, 'clip-path': `url(#st-clip-${i})` }, g);
+      }
+      const [lx, ly, anchor] = (s.dataset.lpos || `${p.x + 16},${p.y + 4},start`).split(',');
+      const t = el('text', { class: 'mt-label', x: lx, y: ly, 'text-anchor': anchor }, labelsLayer);
+      t.textContent = s.dataset.label || s.querySelector('h3').textContent;
+      return { g, t };
     });
 
-    let target = 0;   // where the scroll says the car should be (in stop units)
-    let current = 0;  // where the car is now; eased towards target every frame
+    let target = 0;   // where the scroll says the train should be (in stop units)
+    let current = 0;  // where the train is now; eased towards target every frame
     let raf = null;
     let lastActive = -1;
 
@@ -166,51 +194,48 @@
       if (focus <= centers[0]) return 0;
       if (focus >= centers[N - 1]) return N - 1;
       for (let i = 0; i < N - 1; i++) {
-        if (focus >= centers[i] && focus < centers[i + 1]) {
-          return i + (focus - centers[i]) / (centers[i + 1] - centers[i]);
-        }
+        if (focus >= centers[i] && focus < centers[i + 1]) return i + (focus - centers[i]) / (centers[i + 1] - centers[i]);
       }
       return 0;
     };
 
     const render = () => {
-      const i0 = Math.floor(current);
-      const f = current - i0;
+      const i0 = Math.floor(current), f = current - i0;
       const L = i0 >= N - 1 ? total : stopLen[i0] + (stopLen[i0 + 1] - stopLen[i0]) * f;
-      const a = done.getPointAtLength(Math.min(L, total - 0.5));
-      const b = done.getPointAtLength(Math.min(L + 0.5, total));
+      const a = track.getPointAtLength(Math.min(L, total - 0.5));
+      const b = track.getPointAtLength(Math.min(L + 0.5, total));
       const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
       car.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${angle})`);
-      [casing, done].forEach((p) => { p.style.strokeDashoffset = `${total - L}`; });
+      sections.forEach((sec) => sec.live.setAttribute('stroke-dasharray', win(sec.from, Math.min(L, sec.to) - sec.from)));
       bar.style.width = `${(L / total) * 100}%`;
 
       const active = Math.min(N - 1, Math.round(current));
       card.classList.toggle('complete', current > N - 1.05);
       if (active !== lastActive) {
         lastActive = active;
-        pins.forEach((p, i) => {
-          p.classList.toggle('past', i < active);
-          p.classList.toggle('current', i === active);
+        pins.forEach(({ g, t }, i) => {
+          g.classList.toggle('past', i < active); g.classList.toggle('current', i === active);
+          t.classList.toggle('current', i === active);
         });
         stops.forEach((s, i) => {
           s.classList.toggle('is-current', i === active);
           s.classList.toggle('is-past', i < active);
         });
-        // like turn-by-turn directions: this manoeuvre, then the next one
+        // like the display inside a metro coach: this station, then the next one
         dirStep.textContent = `${active + 1} / ${N}`;
         dirTitle.textContent = stops[active].querySelector('h3').textContent;
         dirMeta.textContent = stops[active].querySelector('.stamp').textContent;
-        const turn = stops[active].querySelector('.turn svg');
-        if (dirIcon && turn) dirIcon.innerHTML = turn.outerHTML;
+        const badge = stops[active].querySelector('.line-badge');
+        if (dirIcon && badge) { dirIcon.textContent = badge.textContent; dirIcon.style.setProperty('--lc', stops[active].dataset.lc); }
         if (dirThen) {
           const next = stops[active + 1];
-          dirThen.innerHTML = next ? `Then <b>${next.querySelector('h3').textContent}</b>` : 'You have arrived ♥';
+          dirThen.innerHTML = next ? `Next station <b>${next.dataset.label || next.querySelector('h3').textContent}</b>` : 'Terminus. Thanks for riding ♥';
         }
       }
     };
 
     const tick = () => {
-      // ease towards the target so the drive feels smooth, never jumpy
+      // ease towards the target so the ride feels smooth, never jumpy
       current += (target - current) * (reduceMotion ? 1 : 0.09);
       if (Math.abs(target - current) < 0.001) current = target;
       render();

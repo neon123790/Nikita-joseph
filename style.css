@@ -3453,3 +3453,46 @@ mark.hl.on { background-size: 100% 78%; }
 .m-label-sm { font-size: 10px; letter-spacing: .14em; }
 .pin-logo circle.dot { fill: #fff; stroke: #fff; stroke-width: 3; }
 .pin-logo.current circle.dot, .pin-logo.past circle.dot { fill: #fff; stroke: var(--route); }
+
+/* ==========================================================
+   Career metro map
+   ========================================================== */
+.metro .m-land { fill: #fbfaf6; }
+.mt-sea { fill: #dcebf7; }
+.mt-burj { fill: #9aa3b5; }
+.mt-place { font: 600 8px/1 var(--sans); letter-spacing: .2em; fill: #8fb0cc; }
+.mt-title { font: 800 15px/1 var(--bold); letter-spacing: .06em; fill: #2c2836; }
+.mt-sub { font: 500 11px/1 var(--sans); fill: #8a8594; }
+.mt-line { fill: none; stroke-width: 9; stroke-linecap: butt; stroke-linejoin: round; }
+.mt-line.base { opacity: .22; }
+.mt-line.future { stroke: #b4b8c3; stroke-width: 5; }
+.mt-label { font: 700 11.5px/1 var(--sans); fill: #5b5666; paint-order: stroke; stroke: #fbfaf6; stroke-width: 4px; stroke-linejoin: round; transition: fill .3s ease; }
+.mt-label.current { fill: #1f1b29; }
+.mt-legend-box { fill: #fff; stroke: #e3e0d7; }
+.mt-legend path { stroke-width: 8; stroke-linecap: round; }
+.mt-legend text { font: 600 12px/1 var(--sans); fill: #4a4558; }
+.metro .pin circle.dot { fill: #fff; stroke: var(--lc); stroke-width: 4; transition: fill .3s ease, stroke .3s ease; }
+.metro .pin.pin-big circle.dot { stroke: #2c2836; stroke-width: 3.5; }
+.metro .pin.past:not(.pin-big) circle.dot { fill: var(--lc); stroke: #fff; stroke-width: 2.5; }
+.metro .pin .ring { fill: none; stroke: var(--lc); stroke-width: 2.5; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.metro .pin.current .ring { animation: ring 1.8s ease-out infinite; }
+.metro .pin.final { opacity: 1; }
+.metro .pin.final circle.dot { stroke: #9aa0ad; stroke-dasharray: 3 3; }
+.metro .train-body { fill: #fff; stroke: #2c2836; stroke-width: 2.2; }
+.metro .train-win { fill: #2f5fd0; }
+.metro .light { fill: #ffd36b; }
+.map-card.complete .metro .train-win { fill: #f08c00; }
+
+/* station code badges on the stop cards and in the display */
+.line-badge { display: inline-grid; place-items: center; min-width: 34px; height: 26px; padding: 0 6px; border-radius: 8px; background: var(--lc); color: #fff; font: 700 .78rem/1 var(--sans); letter-spacing: .04em; }
+.line-badge svg { display: none; }
+/* the top display reads like the board inside a metro coach */
+.dir-box .dir-panel { background: #1f1b29 !important; color: #fff; }
+.dir-box #dir-title { color: #ffd36b; }
+.dir-box #dir-meta, .dir-box #dir-step { color: rgba(255, 255, 255, .7); }
+.dir-icon { background: var(--lc, #2f5fd0) !important; font: 700 .9rem/1 var(--sans); letter-spacing: .04em; color: #fff; }
+.dir-then { background: #2c2836 !important; color: rgba(255, 255, 255, .8) !important; }
+.dir-then b { color: #fff; }
+.j-stop .turn.line-badge { background: var(--lc) !important; color: #fff !important; width: auto; border: 0; }
+/* the coloured lines already show progress, so the old bar is not needed on the metro map */
+.map-card:has(.metro) .map-progress { display: none; }

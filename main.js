@@ -98,9 +98,12 @@
      ========================================================== */
   const mapSvg = document.getElementById('map');
   const initDrive = () => {
+    const SVGNS = 'http://www.w3.org/2000/svg';
     const card = document.getElementById('map-card');
-    const floorsEl = mapSvg.querySelector('.lift-floors');
-    const cab = mapSvg.querySelector('.lift-cab');
+    const labelsLayer = mapSvg.querySelector('.mt-labels');
+    const pinsLayer = mapSvg.querySelector('.pins');
+    const plane = mapSvg.querySelector('.pl-plane');
+    const ahead = mapSvg.querySelector('.pl-ahead'), trail = mapSvg.querySelector('.pl-trail'), reveal = mapSvg.querySelector('.pl-reveal');
     const stops = [...document.querySelectorAll('.j-stop')];
     const N = stops.length;
     const dirStep = document.getElementById('dir-step');
@@ -108,24 +111,59 @@
     const dirMeta = document.getElementById('dir-meta');
     const dirIcon = document.getElementById('dir-icon');
     const dirThen = document.getElementById('dir-then');
+    const el = (tag, attrs, parent) => {
+      const e = document.createElementNS(SVGNS, tag);
+      Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+      parent.appendChild(e);
+      return e;
+    };
     const name = (s) => s.dataset.label || s.querySelector('h3').textContent;
 
-    // one row per floor, ground floor at the bottom
-    mapSvg.style.setProperty('--n', N);
-    const rows = stops.map((s, i) => {
-      const row = document.createElement('div');
-      row.className = 'lf-row';
-      const logo = s.dataset.logo ? `<img src="${s.dataset.logo}" alt="">` : '';
-      row.innerHTML = `<span class="lf-num">${i + 1}</span><span class="lf-name">${logo}${name(s)}</span><span class="lf-date">${s.querySelector('.stamp').textContent.split(' · ')[0]}</span>`;
-      floorsEl.appendChild(row);
-      return row;
+    // a loopy flight path (with one loop-the-loop), drawn as a smooth curve through these points;
+    // everything sits below the display at the top of the card
+    const Y = (y) => 160 + (y - 90) * 0.88;
+    const pts = [[60, 500], [105, 440], [160, 405], [220, 435], [280, 420], [325, 370], [340, 300], [310, 250], [262, 262], [258, 312], [300, 332],
+      [370, 300], [440, 330], [490, 295], [480, 250], [445, 205], [450, 170], [490, 120], [530, 90]].map(([x, y]) => [x, Y(y)]);
+    const stopAt = [0, 2, 4, 7, 11, 12, 14, 16, 18];
+    let d = `M ${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += ` C ${c1[0].toFixed(1)} ${c1[1].toFixed(1)}, ${c2[0].toFixed(1)} ${c2[1].toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+    }
+    [ahead, trail, reveal].forEach((p) => p.setAttribute('d', d));
+    const total = trail.getTotalLength();
+    const firstNear = (x, y, from) => {
+      for (let L = from; L <= total; L += 0.5) {
+        const p = trail.getPointAtLength(L);
+        if (Math.hypot(p.x - x, p.y - y) < 1.5) return L;
+      }
+      return from;
+    };
+    const stopLen = [];
+    stopAt.slice(0, N).forEach((k, i) => stopLen.push(i === 0 ? 0 : i === N - 1 ? total : firstNear(pts[k][0], pts[k][1], stopLen[i - 1] + 2)));
+
+    const pins = stopLen.map((len, i) => {
+      const p = trail.getPointAtLength(Math.min(len, total - 0.01));
+      const s = stops[i], logo = s.dataset.logo;
+      const g = el('g', { class: 'pl-pin' + (i === N - 1 ? ' final' : '') + (logo ? ' logo' : ''), transform: `translate(${p.x} ${p.y})` }, pinsLayer);
+      el('circle', { class: 'ring', r: logo ? 17 : 14 }, g);
+      el('circle', { class: 'dot', r: logo ? 13 : 10 }, g);
+      if (logo) {
+        const cp = el('clipPath', { id: `pl-clip-${i}` }, g);
+        el('circle', { r: 11 }, cp);
+        el('image', { href: logo, x: -11, y: -11, width: 22, height: 22, 'clip-path': `url(#pl-clip-${i})` }, g);
+      } else {
+        el('text', {}, g).textContent = i === N - 1 ? '♥' : i + 1;
+      }
+      const [lx, ly, anchor] = (s.dataset.lpos || `${p.x + 18},${p.y + 4},start`).split(',');
+      const t = el('text', { class: 'pl-label', x: lx, y: Y(+ly), 'text-anchor': anchor }, labelsLayer);
+      t.textContent = name(s);
+      return { g, t };
     });
 
-    let target = 0;   // which floor the scroll asks for (fractions while between floors)
-    let current = 0;  // where the lift is now; eased towards target every frame
-    let raf = null;
-    let lastActive = -1;
-
+    let target = 0, current = 0, raf = null, lastActive = -1;
     const measure = () => {
       const mapBox = card.getBoundingClientRect();
       const stacked = window.matchMedia('(max-width: 860px)').matches;
@@ -140,35 +178,36 @@
     };
 
     const render = () => {
-      cab.style.transform = `translateY(${(-current * 100).toFixed(2)}%)`;
-      // the doors open only when the lift has stopped at a floor
-      const settled = Math.abs(target - current) < 0.01 && Math.abs(current - Math.round(current)) < 0.06;
-      cab.classList.toggle('open', settled);
+      const i0 = Math.floor(current), f = current - i0;
+      const L = i0 >= N - 1 ? total : stopLen[i0] + (stopLen[i0 + 1] - stopLen[i0]) * f;
+      const a = trail.getPointAtLength(Math.max(0, Math.min(L, total - 0.5)));
+      const b = trail.getPointAtLength(Math.min(Math.max(L, 0) + 0.5, total));
+      const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+      // a gentle bob so the plane feels like it's floating, not on rails
+      const bob = Math.sin(L / 18) * 2;
+      plane.setAttribute('transform', `translate(${a.x.toFixed(1)} ${(a.y + bob).toFixed(1)}) rotate(${angle.toFixed(1)}) scale(1.25)`);
+      reveal.setAttribute('stroke-dasharray', `${L.toFixed(1)} ${total * 2}`);
       const active = Math.min(N - 1, Math.round(current));
       card.classList.toggle('complete', current > N - 1.05);
       if (active !== lastActive) {
         lastActive = active;
-        rows.forEach((r, i) => { r.classList.toggle('current', i === active); r.classList.toggle('past', i < active); });
+        pins.forEach(({ g, t }, i) => { g.classList.toggle('past', i < active); g.classList.toggle('current', i === active); t.classList.toggle('current', i === active); });
         stops.forEach((s, i) => { s.classList.toggle('is-current', i === active); s.classList.toggle('is-past', i < active); });
         dirIcon.textContent = active + 1;
-        dirStep.textContent = `Floor ${active + 1} of ${N}`;
+        dirStep.textContent = `${active + 1} / ${N}`;
         dirTitle.textContent = stops[active].querySelector('h3').textContent;
         dirMeta.textContent = stops[active].querySelector('.stamp').textContent;
         const next = stops[active + 1];
-        dirThen.innerHTML = next ? `▲ Next floor <b>${name(next)}</b>` : 'Top floor. Thanks for riding ♥';
+        dirThen.innerHTML = next ? `Next stop <b>${name(next)}</b>` : 'Landed. Thanks for flying ♥';
       }
     };
-
     const tick = () => {
-      current += (target - current) * (reduceMotion ? 1 : 0.09);
+      current += (target - current) * (reduceMotion ? 1 : 0.08);
       if (Math.abs(target - current) < 0.001) current = target;
       render();
       raf = current === target ? null : requestAnimationFrame(tick);
     };
-    const onScroll = () => {
-      target = measure();
-      if (!raf) raf = requestAnimationFrame(tick);
-    };
+    const onScroll = () => { target = measure(); if (!raf) raf = requestAnimationFrame(tick); };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     const jr = document.getElementById('journey');

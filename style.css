@@ -3681,3 +3681,20 @@ main .pv-head h3, .pocket-view .pv-head h3 { color: #fff !important; }
 @keyframes entry-stamp { from { opacity: 0; scale: 2; } to { opacity: .9; scale: 1; } }
 @media (prefers-reduced-motion: reduce) { .entry.is-active .entry-stamp { animation: none; } }
 .pocket-view .pv-close { color: #14111c !important; }
+
+/* every small label above a heading looks the same, site-wide */
+main .section-head p.label, main p.label { color: #c2410c !important; font-size: var(--t-label) !important; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
+/* How I work: its intro reads like every other section's intro */
+.work3 .philosophy-copy p { color: var(--muted) !important; font-size: var(--t-body) !important; line-height: 1.6; }
+
+/* album viewer on phones: round previous / next buttons over the photo */
+@media (max-width: 760px) {
+  .pv-stage { position: relative; }
+  .pocket-view .pv-nav { display: grid !important; place-items: center; position: absolute; z-index: 4; top: 38%; width: 42px; height: 42px; padding: 0;
+    background: rgba(255, 253, 247, .94); box-shadow: 0 4px 12px rgba(20, 17, 28, .25); }
+  .pocket-view .pv-nav.prev { left: 8px; }
+  .pocket-view .pv-nav.next { right: 8px; }
+}
+.pocket-view .pv-nav { color: #14111c !important; font: 700 1.15rem/1 var(--sans) !important; }
+/* an open pop-up is always on screen, even if its section is scrolled away */
+.offscreen dialog[open] *, .offscreen dialog[open] *::before, .offscreen dialog[open] *::after { animation-play-state: running !important; }

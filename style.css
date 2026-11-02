@@ -3398,3 +3398,26 @@ mark.hl.on { background-size: 100% 78%; }
 .ch-stat.s1 { --r: -5deg; } .ch-stat.s2 { --r: 4deg; animation-delay: -1.6s; } .ch-stat.s3 { --r: -2deg; animation-delay: -3.2s; }
 @keyframes tag-sway { 0%, 100% { transform: rotate(var(--r, 0deg)); } 50% { transform: rotate(calc(var(--r, 0deg) * -.4)); } }
 @media (prefers-reduced-motion: reduce) { .ch-stat { animation: none; transform: rotate(var(--r, 0deg)); } }
+
+/* rocket smoke */
+.sx-smoke { position: absolute; left: 0; top: 0; width: .42em; height: .42em; margin: -.21em 0 0 -.21em; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, .95), rgba(214, 206, 222, .9) 60%, rgba(194, 180, 205, .0) 72%);
+  opacity: 0; will-change: transform, opacity; }
+.career-hero { overflow-x: clip; }
+
+/* career hero: team photo as a print, with the stat tags pinned around it */
+.ch-art.ch-art--photo { display: block; height: auto; padding: 28px 8% 36px; }
+.ch-art--photo::before { display: none; }
+.ch-polaroid { margin: 0 auto; width: min(100%, 400px); padding: 12px 12px 14px; background: #fff; border-radius: 6px; transform: rotate(2deg);
+  box-shadow: 0 22px 44px -20px rgba(20, 17, 28, .45), 0 2px 6px rgba(20, 17, 28, .08); }
+.ch-polaroid img { display: block; width: 100%; height: auto; border-radius: 3px; }
+.ch-polaroid figcaption { margin-top: 10px; text-align: center; font: 400 1.3rem/1.2 var(--hand); color: #4a4558; }
+.ch-art--photo .ch-stat { position: absolute; z-index: 2; }
+.ch-art--photo .ch-stat.s1 { left: 0; right: auto; top: 10%; bottom: auto; }
+.ch-art--photo .ch-stat.s2 { right: 0; left: auto; top: 44%; bottom: auto; }
+.ch-art--photo .ch-stat.s3 { left: 2%; right: auto; top: auto; bottom: 18%; }
+@media (max-width: 860px) {
+  .ch-art.ch-art--photo { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 8px; padding: 8px 0 0; max-width: none; }
+  .ch-art--photo .ch-stat, .ch-art--photo .ch-stat.s1, .ch-art--photo .ch-stat.s2, .ch-art--photo .ch-stat.s3 { position: relative; inset: auto; }
+  .ch-art--photo .ch-polaroid { order: 5; flex: 0 0 100%; max-width: 380px; margin-top: 10px; transform: rotate(1.5deg); }
+}

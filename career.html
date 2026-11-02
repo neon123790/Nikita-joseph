@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=117">
+  <link rel="stylesheet" href="style.css?v=118">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -90,7 +90,7 @@
         <div class="ch-grid">
           <div class="ch-text">
         <p class="label">Career</p>
-        <h1>From first sketch to <b class="sx"><span class="sr-only">shipped</span><span class="sx-word" aria-hidden="true"><span class="sx-l">s</span><span class="sx-l">h</span><span class="sx-l">i</span><span class="sx-l">p</span><span class="sx-l">p</span><span class="sx-l">e</span><span class="sx-l">d</span></span><span class="sx-fx" aria-hidden="true"><svg class="sx-ship" viewBox="0 0 64 44"><path d="M30 2v26h-2V2z"/><path d="M32 4l18 10-18 6z"/><path d="M4 30h56l-8 12H12z"/></svg><svg class="sx-rocket" viewBox="0 0 40 64"><path class="sx-flame" d="M14 46 Q20 66 26 46 Z"/><path class="sx-body" d="M20 2 C31 12 33 28 30 46 H10 C7 28 9 12 20 2 Z"/><path class="sx-fin" d="M10 32 L2 48 L10 45 Z M30 32 L38 48 L30 45 Z"/><circle class="sx-win" cx="20" cy="22" r="5.5"/></svg><i class="sx-puff"></i><i class="sx-puff"></i></span></b>, with <b>curiosity</b> at every step.</h1>
+        <h1>From first sketch to <b class="sx"><span class="sr-only">shipped</span><span class="sx-word" aria-hidden="true"><span class="sx-l">s</span><span class="sx-l">h</span><span class="sx-l">i</span><span class="sx-l">p</span><span class="sx-l">p</span><span class="sx-l">e</span><span class="sx-l">d</span></span><span class="sx-fx" aria-hidden="true"><svg class="sx-rocket" viewBox="0 0 40 64"><path class="sx-flame" d="M14 46 Q20 66 26 46 Z"/><path class="sx-body" d="M20 2 C31 12 33 28 30 46 H10 C7 28 9 12 20 2 Z"/><path class="sx-fin" d="M10 32 L2 48 L10 45 Z M30 32 L38 48 L30 45 Z"/><circle class="sx-win" cx="20" cy="22" r="5.5"/></svg></span></b>, with <b>curiosity</b> at every step.</h1>
         <div class="career-intro">
           <p>Senior UX designer with 4+ years at FYERS, growing from UX Designer I to Senior by shipping products traders rely on daily.</p>
           <p>Now in the Innovation Lab, a small, hand-picked team with one goal: find and pitch the ideas that can bring in the company’s next ₹100 crore this decade. I’m designing a financial-education product that turns market knowledge into better trading, and building an AI product from research to a working app.</p>
@@ -98,12 +98,14 @@
         </div>
         <a class="btn btn-ghost resume-link" href="resume.html">View resume <span class="arrow" aria-hidden="true">→</span></a>
           </div>
-        <div class="ch-art" aria-hidden="true">
-          <span class="ch-peek"><img src="images/me-sticker.png?v=2" width="226" height="318" alt=""></span><span class="ch-ledge"></span>
-          <span class="ch-wonder w1">?</span><span class="ch-wonder w2">!</span>
-          <span class="ch-stat s1"><b>4+</b> years at FYERS</span>
-          <span class="ch-stat s2"><b>2</b> promotions</span>
-          <span class="ch-stat s3"><b>10+</b> products shipped</span>
+        <div class="ch-art ch-art--photo">
+          <figure class="ch-polaroid">
+            <img src="images/career/fyers-team.jpg" width="900" height="1040" alt="Nikita with her FYERS teammates at the FYERS booth">
+            <figcaption>Team FYERS, at our booth</figcaption>
+          </figure>
+          <span class="ch-stat s1" aria-hidden="true"><b>4+</b> years at FYERS</span>
+          <span class="ch-stat s2" aria-hidden="true"><b>2</b> promotions</span>
+          <span class="ch-stat s3" aria-hidden="true"><b>10+</b> products shipped</span>
         </div>
         </div>
       </div>
@@ -470,60 +472,67 @@
   <script src="music.js?v=1"></script>
   <script src="main.js?v=26"></script>
   <script>
-    // "shipped": a little ship sails a loop around the word, turns into a rocket,
-    // lifts off, lands on the spot and the word pops out. Transforms and opacity only.
+    // "shipped": a rocket lifts off from the word, loops around the heading leaving a smoke trail,
+    // comes back to the same spot, and its smoke settles into the letters. Transforms and opacity only.
     (() => {
       const w = document.querySelector('.sx'); if (!w || !w.animate) return;
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const word = w.querySelector('.sx-word'), ls = [...w.querySelectorAll('.sx-l')];
-      const ship = w.querySelector('.sx-ship'), rocket = w.querySelector('.sx-rocket'), puffs = [...w.querySelectorAll('.sx-puff')];
+      const fx = w.querySelector('.sx-fx'), rocket = w.querySelector('.sx-rocket'), h1 = w.closest('h1');
       w.classList.add('arm');
+      const n = (v) => (+v).toFixed(2);
+      const smooth = (t) => t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t);
       const run = () => {
-        const r = word.getBoundingClientRect(), W = r.width, H = r.height;
-        const n = (v) => (+v).toFixed(2);
-        const T = (x, y, rot = 0, sx = 1, sy = 1) => `translate(${n(x)}px, ${n(y)}px) rotate(${n(rot)}deg) scale(${n(sx)}, ${n(sy)})`;
-        const ease = (t) => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-        // 1 · the ship sails a loop: in from the left, under the word, up the right side
-        const cx = .5 * W, cy = .5 * H, rx = .56 * W, ry = .42 * H, N = 14, frames = [];
-        let mx = 0, my = 0;
+        const r = word.getBoundingClientRect(), hb = h1.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+        // everything is measured from the word's top-left corner
+        const wx = r.width / 2, wy = r.height * .55;
+        const cx = hb.left + hb.width / 2 - r.left, cy = hb.top + hb.height / 2 - r.top;
+        const rx = Math.min(hb.width / 2 + 26, vw / 2 - 14), ry = hb.height / 2 + 30;
+        const th0 = Math.atan2((wy - cy) / ry, (wx - cx) / rx);
+        // lift off from the word, one loop around the heading, then glide back to the word
+        const P = (t) => {
+          const th = th0 - Math.PI * 2 * t;
+          const ex = cx + rx * Math.cos(th), ey = cy + ry * Math.sin(th);
+          const k = smooth(t / .18) * (1 - smooth((t - .78) / .22));
+          return [wx + (ex - wx) * k, wy + (ey - wy) * k];
+        };
+        const D = 1700, N = 60, frames = [];
+        const speed = (u) => u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+        let prevA = -90;
         for (let i = 0; i < N; i++) {
-          const t = i / (N - 1), th = (170 - 235 * ease(t)) * Math.PI / 180;
-          const x = cx + rx * Math.cos(th), y = cy + ry * Math.sin(th);
-          const vx = rx * Math.sin(th), vy = -ry * Math.cos(th);
-          let a = Math.atan2(vy, vx) * 180 / Math.PI, flip = 1;
-          if (vx < 0) { flip = -1; a = ((a - 180) % 360 + 540) % 360 - 180; }
-          a = Math.max(-28, Math.min(28, a));
-          frames.push({ transform: T(x, y, a, flip * (i === N - 1 ? .2 : 1), i === N - 1 ? .2 : 1), opacity: i === 0 || i === N - 1 ? 0 : 1, offset: t });
-          mx = x; my = y;
+          const u = i / (N - 1), t = speed(u);
+          const [x, y] = P(t), [x2, y2] = P(Math.min(1, t + .01));
+          let a = Math.abs(x2 - x) + Math.abs(y2 - y) < .01 ? prevA : Math.atan2(y2 - y, x2 - x) * 180 / Math.PI;
+          while (a - prevA > 180) a -= 360; while (a - prevA < -180) a += 360; prevA = a;
+          frames.push({ transform: `translate(${n(x)}px, ${n(y)}px) rotate(${n(a + 90)}deg) scale(${i === 0 || i === N - 1 ? .4 : 1})`, opacity: i === N - 1 ? 0 : 1, offset: u });
         }
-        frames[N - 2].opacity = 1;
-        const SHIP = 820;
-        ship.animate(frames, { duration: SHIP, fill: 'forwards' });
-        // 2 · it turns into a rocket, climbs, and comes down to land on the word
-        const lx = .5 * W, ly = .32 * H, ROCKET = 860, LAND = SHIP - 60 + ROCKET;
-        rocket.animate([
-          { transform: T(mx, my, -30, .2, .2), opacity: 0, easing: 'cubic-bezier(.2,.8,.3,1)' },
-          { transform: T(mx, my - .12 * H, -12), opacity: 1, offset: .16, easing: 'cubic-bezier(.4,0,.6,1)' },
-          { transform: T(.66 * W, -1.05 * H, 8), opacity: 1, offset: .5, easing: 'cubic-bezier(.3,0,.15,1)' },
-          { transform: T(lx, ly, 0), opacity: 1, offset: .93 },
-          { transform: T(lx, ly + .06 * H, 0, 1.18, .7), opacity: 0 }
-        ], { duration: ROCKET, delay: SHIP - 60, fill: 'forwards' });
-        const puff = (el, x, y, delay) => el.animate([
-          { transform: T(x, y, 0, .2, .2), opacity: .7 },
-          { transform: T(x, y, 0, 1.7, 1.1), opacity: 0 }
-        ], { duration: 420, delay, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'forwards' });
-        puff(puffs[0], mx, my, SHIP - 80);
-        puff(puffs[1], lx, .62 * H, LAND - 70);
-        // 3 · the word pops out from where the rocket touched down, centre first
+        rocket.animate(frames, { duration: D, fill: 'forwards' });
+        // a smoke trail: soft puffs left behind along the way
+        const puff = (x, y, delay, size, to) => {
+          const p = document.createElement('i'); p.className = 'sx-smoke'; fx.appendChild(p);
+          const end = to || [x, y - 6];
+          const a = p.animate([
+            { transform: `translate(${n(x)}px, ${n(y)}px) scale(${n(size * .35)})`, opacity: .55 },
+            { transform: `translate(${n(end[0])}px, ${n(end[1])}px) scale(${n(size)})`, opacity: 0 }
+          ], { duration: to ? 520 : 700, delay, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'forwards' });
+          a.onfinish = () => p.remove();
+        };
+        for (let i = 2; i < N - 4; i += 3) {
+          const u = i / (N - 1), [x, y] = P(speed(u));
+          puff(x, y, u * D, 1);
+        }
+        // back on the word: the last puff of smoke spreads out and becomes each letter
+        const land = D - 120;
         ls.forEach((l, k) => {
-          const q = l.getBoundingClientRect(), dx = lx - (q.left - r.left + q.width / 2), dy = .62 * H - (q.top - r.top + q.height / 2);
+          const q = l.getBoundingClientRect(), lx = q.left - r.left + q.width / 2, ly = q.top - r.top + q.height / 2;
+          puff(wx, wy, land + k * 18, 1.6, [lx, ly]);
           l.animate([
-            { transform: `translate(${n(dx * .9)}px, ${n(dy * .9)}px) scale(.2)`, opacity: 0 },
-            { opacity: 1, offset: .35 },
+            { transform: `translate(${n((wx - lx) * .35)}px, ${n((wy - ly) * .35)}px) scale(.6)`, opacity: 0 },
+            { opacity: .6, offset: .45 },
             { transform: 'none', opacity: 1 }
-          ], { duration: 420, delay: LAND - 60 + Math.abs(k - 3) * 40, easing: 'cubic-bezier(.34,1.5,.64,1)', fill: 'forwards' });
+          ], { duration: 520, delay: land + 80 + Math.abs(k - 3) * 30, easing: 'cubic-bezier(.3,1.25,.5,1)', fill: 'forwards' });
         });
-        setTimeout(() => { w.classList.remove('arm'); w.classList.add('done'); ls.forEach((l) => l.getAnimations().forEach((an) => an.cancel())); }, LAND + 700);
+        setTimeout(() => { w.classList.remove('arm'); w.classList.add('done'); ls.forEach((l) => l.getAnimations().forEach((an) => an.cancel())); }, land + 900);
       };
       (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(run, 250));
     })();

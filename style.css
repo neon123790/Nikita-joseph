@@ -3773,3 +3773,15 @@ main h2.h-split b, main h2.h-split b em { color: #c2410c !important; }
 .entry .print > .wip-tape span { animation-duration: 22s; }
 .wip-line { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0; font: 600 .8rem/1.2 var(--sans); color: #a86a00; }
 .wip-line::before { content: ""; width: 14px; height: 8px; border-radius: 2px; background: repeating-linear-gradient(-45deg, #ffd23f 0 4px, #14111c 4px 6px); }
+
+/* header: the page you're on is clear, the others step back */
+.nav-links a { color: #8a8594 !important; font-weight: 500; transition: color .2s ease; }
+.nav-links a:hover { color: #2c2836 !important; }
+.nav-links a[aria-current="page"] { color: #1f1b29 !important; font-weight: 600; }
+@media (min-width: 761px) {
+  .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2.5px; border-radius: 2px; background: #c2410c; transform: scaleX(0); transform-origin: center; transition: transform .25s ease; }
+  .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+  .nav-links a:hover::after { transform: scaleX(0); }
+  .nav-links a[aria-current="page"]:hover::after { transform: scaleX(1); }
+}
+@media (max-width: 760px) { .has-burger .nav-links a { color: #6b6676 !important; } .has-burger .nav-links a[aria-current="page"] { color: #c2410c !important; } }

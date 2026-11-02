@@ -50,3 +50,14 @@
   document.addEventListener('click', (e) => { if (!header.contains(e.target)) set(false); });
   window.matchMedia('(max-width: 760px)').addEventListener('change', () => set(false));
 })();
+
+/* Highlighter marks draw themselves in when they scroll into view */
+(() => {
+  const marks = document.querySelectorAll('mark.hl');
+  if (!marks.length) return;
+  if (!('IntersectionObserver' in window)) { marks.forEach((m) => m.classList.add('on')); return; }
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -12% 0px' });
+  marks.forEach((m) => io.observe(m));
+})();

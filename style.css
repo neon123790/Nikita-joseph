@@ -3636,3 +3636,13 @@ mark.hl.on { background-size: 100% 78%; }
   .art3 .art-pockets { grid-template-columns: minmax(0, 250px) !important; gap: 96px !important; margin-top: 70px !important; }
 }
 @media (prefers-reduced-motion: reduce) { .art3 .pocket, .art3 .pocket-peek img { transition: none; } }
+/* phones: the two albums sit side by side */
+@media (max-width: 600px) {
+  .art3 .art-pockets { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 22px !important; margin-top: 56px !important; }
+  .art3 .pocket::after { left: -7px; width: 22px; top: 8px; bottom: 8px; background-size: 22px 14px;
+    background-image: radial-gradient(ellipse 11px 3px at 50% 50%, transparent 0 6px, #8f93a0 6.5px 8px, #e8eaf0 8.5px 9px, #7e828f 9.5px 10.5px, transparent 11px); }
+  .art3 .pocket-peek img { padding: 3px; }
+  .art3 .album-text { left: 16%; right: 8%; bottom: 10%; padding: 8px 6px; }
+  .art3 .pocket-name { font-size: 1.05rem; }
+  .art3 .pocket-count { font-size: .62rem; }
+}

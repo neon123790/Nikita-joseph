@@ -3486,13 +3486,17 @@ mark.hl.on { background-size: 100% 78%; }
 /* station code badges on the stop cards and in the display */
 .line-badge { display: inline-grid; place-items: center; min-width: 34px; height: 26px; padding: 0 6px; border-radius: 8px; background: var(--lc); color: #fff; font: 700 .78rem/1 var(--sans); letter-spacing: .04em; }
 .line-badge svg { display: none; }
-/* the top display reads like the board inside a metro coach */
-.dir-box .dir-panel { background: #1f1b29 !important; color: #fff; }
-.dir-box #dir-title { color: #ffd36b; }
-.dir-box #dir-meta, .dir-box #dir-step { color: rgba(255, 255, 255, .7); }
-.dir-icon { background: var(--lc, #2f5fd0) !important; font: 700 .9rem/1 var(--sans); letter-spacing: .04em; color: #fff; }
-.dir-then { background: #2c2836 !important; color: rgba(255, 255, 255, .8) !important; }
-.dir-then b { color: #fff; }
+
 .j-stop .turn.line-badge { background: var(--lc) !important; color: #fff !important; width: auto; border: 0; }
 /* the coloured lines already show progress, so the old bar is not needed on the metro map */
 .map-card:has(.metro) .map-progress { display: none; }
+
+/* simple metro: one line, grey ahead, blue behind */
+.mt-line { stroke-linecap: round; }
+.mt-line.base { stroke: #dcdfe6; opacity: 1; }
+.mt-line.live { stroke: #2f5fd0; }
+.dir-icon { background: #2f5fd0 !important; color: #fff; font: 700 .95rem/1 var(--sans); }
+.map-card:has(.metro) .dir-panel { background: #fff !important; color: #2c2836; border: 1px solid #e3e0d7 !important; border-radius: 14px 14px 0 0; }
+.map-card:has(.metro) #dir-meta, .map-card:has(.metro) #dir-step { color: #6b6676; }
+.map-card:has(.metro) .dir-then { background: #f2f4fb !important; color: #4a4558 !important; border: 1px solid #e3e0d7 !important; border-top: 0 !important; }
+.map-card:has(.metro) .dir-then b { color: #2f5fd0; }

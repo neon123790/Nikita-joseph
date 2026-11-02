@@ -148,17 +148,9 @@
     at.slice(0, N).forEach(([x, y], i) => stopLen.push(i === 0 ? 0 : i === N - 1 ? total : nearest(x, y, stopLen[i - 1] + 1)));
 
     // each line is the same track, shown only over its own stretch; a faint copy sits underneath
-    const sections = [
-      { c: '#e64980', from: 0, to: stopLen[2] },
-      { c: '#2f5fd0', from: stopLen[2], to: stopLen[6] },
-      { c: '#f08c00', from: stopLen[6], to: stopLen[7] }
-    ];
-    const win = (from, len) => `0 ${from} ${Math.max(0, len)} ${total * 2}`;
-    sections.forEach((sec) => {
-      el('path', { d, class: 'mt-line base', stroke: sec.c, 'stroke-dasharray': win(sec.from, sec.to - sec.from) }, linesLayer);
-      sec.live = el('path', { d, class: 'mt-line live', stroke: sec.c, 'stroke-dasharray': win(sec.from, 0) }, linesLayer);
-    });
-    el('path', { d, class: 'mt-line future', 'stroke-dasharray': `0 ${stopLen[7] + 8} 6 8 6 8 6 8 6 8 6 8 6 ${total * 2}` }, linesLayer);
+    // one line: grey ahead of the train, blue behind it
+    el('path', { d, class: 'mt-line base' }, linesLayer);
+    const live = el('path', { d, class: 'mt-line live', 'stroke-dasharray': `0 ${total * 2}` }, linesLayer);
 
     const pins = stopLen.map((len, i) => {
       const p = track.getPointAtLength(Math.min(len, total - 0.01));
@@ -206,7 +198,7 @@
       const b = track.getPointAtLength(Math.min(L + 0.5, total));
       const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
       car.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${angle})`);
-      sections.forEach((sec) => sec.live.setAttribute('stroke-dasharray', win(sec.from, Math.min(L, sec.to) - sec.from)));
+      live.setAttribute('stroke-dasharray', `${L} ${total * 2}`);
       bar.style.width = `${(L / total) * 100}%`;
 
       const active = Math.min(N - 1, Math.round(current));

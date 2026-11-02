@@ -3421,3 +3421,13 @@ mark.hl.on { background-size: 100% 78%; }
   .ch-art--photo .ch-stat, .ch-art--photo .ch-stat.s1, .ch-art--photo .ch-stat.s2, .ch-art--photo .ch-stat.s3 { position: relative; inset: auto; }
   .ch-art--photo .ch-polaroid { order: 5; flex: 0 0 100%; max-width: 380px; margin-top: 10px; transform: rotate(1.5deg); }
 }
+
+/* career hero photo: just the print, taped on at both top corners */
+.ch-polaroid { position: relative; padding: 10px; transform: rotate(1.5deg); }
+.ch-tape { position: absolute; z-index: 2; top: -12px; width: 96px; height: 28px; background: rgba(255, 226, 140, .72);
+  box-shadow: 0 1px 2px rgba(20, 17, 28, .12); backdrop-filter: blur(1px);
+  -webkit-mask: linear-gradient(90deg, transparent 0 3px, #000 3px calc(100% - 3px), transparent calc(100% - 3px));
+  clip-path: polygon(0 8%, 6% 0, 12% 10%, 20% 0, 30% 8%, 100% 0, 100% 92%, 94% 100%, 86% 90%, 78% 100%, 70% 92%, 0 100%); }
+.ch-tape.t1 { left: -26px; transform: rotate(-38deg); top: 4px; }
+.ch-tape.t2 { right: -26px; transform: rotate(38deg); top: 4px; background: rgba(190, 230, 210, .75); }
+@media (max-width: 860px) { .ch-art--photo .ch-polaroid { margin-top: 18px; } .ch-tape { width: 80px; height: 24px; } .ch-tape.t1 { left: -18px; } .ch-tape.t2 { right: -18px; } }

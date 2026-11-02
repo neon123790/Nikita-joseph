@@ -103,7 +103,7 @@
     const labelsLayer = mapSvg.querySelector('.mt-labels');
     const pinsLayer = mapSvg.querySelector('.pins');
     const plane = mapSvg.querySelector('.pl-plane');
-    const ahead = mapSvg.querySelector('.pl-ahead'), trail = mapSvg.querySelector('.pl-trail'), reveal = mapSvg.querySelector('.pl-reveal');
+    const ahead = mapSvg.querySelector('.pl-ahead'), trail = mapSvg.querySelector('.pl-trail'), reveal = mapSvg.querySelector('.pl-reveal'), glow = mapSvg.querySelector('.pl-glow');
     const stops = [...document.querySelectorAll('.j-stop')];
     const N = stops.length;
     const dirStep = document.getElementById('dir-step');
@@ -124,7 +124,7 @@
     const Y = (y) => 160 + (y - 90) * 0.88;
     const pts = [[60, 500], [105, 440], [160, 405], [220, 435], [280, 420], [325, 370], [340, 300], [310, 250], [262, 262], [258, 312], [300, 332],
       [370, 300], [440, 330], [490, 295], [480, 250], [445, 205], [450, 170], [490, 120], [530, 90]].map(([x, y]) => [x, Y(y)]);
-    const stopAt = [0, 2, 4, 7, 11, 12, 14, 16, 18];
+    const stopAt = [0, 2, 4, 7, 11, 14, 16, 18];
     let d = `M ${pts[0][0]} ${pts[0][1]}`;
     for (let i = 0; i < pts.length - 1; i++) {
       const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
@@ -132,7 +132,7 @@
       const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
       d += ` C ${c1[0].toFixed(1)} ${c1[1].toFixed(1)}, ${c2[0].toFixed(1)} ${c2[1].toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
     }
-    [ahead, trail, reveal].forEach((p) => p.setAttribute('d', d));
+    [ahead, trail, reveal, glow].forEach((p) => p && p.setAttribute('d', d));
     const total = trail.getTotalLength();
     const firstNear = (x, y, from) => {
       for (let L = from; L <= total; L += 0.5) {

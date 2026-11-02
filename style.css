@@ -3646,3 +3646,38 @@ mark.hl.on { background-size: 100% 78%; }
   .art3 .pocket-name { font-size: 1.05rem; }
   .art3 .pocket-count { font-size: .62rem; }
 }
+
+/* album viewer: keep the title white on its green bar */
+main .pv-head h3, .pocket-view .pv-head h3 { color: #fff !important; }
+
+/* "Take the flight": a compact button with a paper plane */
+.part-head .drive-cta { flex-direction: row !important; align-items: center !important; gap: 12px !important; width: auto; max-width: 340px; padding: 10px 16px 10px 10px !important; margin-top: 18px; box-shadow: 4px 4px 0 var(--stk-ink); border-radius: 12px; }
+.part-head .drive-cta .drive-art { flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 10px; background: #e4efff; }
+.part-head .drive-cta .drive-art svg { width: 40px; height: 40px; }
+.part-head .drive-cta .drive-text b { font-size: 1rem; }
+.part-head .drive-cta .drive-text small { font-size: .82rem; }
+.part-head .drive-cta:hover .drive-art svg { transform: translate(2px, -2px) rotate(-4deg); transition: transform .25s ease; }
+
+/* the flight path: a highlighter stroke under the travelled trail, and a clearer path ahead */
+.pl-glow { fill: none; stroke: #ffe27a; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; opacity: .85; }
+.pl-trail { stroke-width: 3.2; }
+.pl-ahead { stroke: #94a0b8; stroke-width: 3; stroke-dasharray: 1 8; }
+
+/* project pages: "← All work" sits on its own line above the title */
+.back-btn { display: inline-flex !important; place-items: unset; align-items: center; gap: 8px; width: auto !important; height: 40px !important; padding: 0 16px 0 12px; margin-bottom: 18px;
+  border-radius: 999px !important; font: 500 .92rem/1 var(--sans); color: var(--head); text-decoration: none; }
+.back-btn svg { width: 18px !important; height: 18px !important; }
+
+/* each project in the journal carries its own status stamp */
+.entry .page.left { position: relative; }
+.entry-stamp { position: absolute; right: clamp(12px, 2vw, 24px); top: clamp(12px, 2vw, 22px); z-index: 2; display: inline-block; padding: 6px 12px;
+  border: 3px double var(--st); border-radius: 8px; color: var(--st); font: 900 .95rem/1 var(--bold); letter-spacing: .14em; text-transform: uppercase;
+  transform: rotate(-8deg); opacity: .9; background-image: radial-gradient(color-mix(in srgb, var(--st) 10%, transparent) 1px, transparent 1.5px); background-size: 5px 5px;
+  -webkit-mask-image: radial-gradient(circle at 30% 40%, #000 60%, rgba(0, 0, 0, .75) 61%, #000 75%); mask-image: radial-gradient(circle at 30% 40%, #000 60%, rgba(0, 0, 0, .75) 61%, #000 75%); }
+.entry-stamp.shipped { --st: #c2410c; }
+.entry-stamp.in-progress { --st: #a86a00; transform: rotate(6deg); }
+.entry-stamp.prototyped { --st: #13786c; }
+.entry.is-active .entry-stamp { animation: entry-stamp .4s cubic-bezier(.2, .9, .3, 1.2) .15s both; }
+@keyframes entry-stamp { from { opacity: 0; scale: 2; } to { opacity: .9; scale: 1; } }
+@media (prefers-reduced-motion: reduce) { .entry.is-active .entry-stamp { animation: none; } }
+.pocket-view .pv-close { color: #14111c !important; }

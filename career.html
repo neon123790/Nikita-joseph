@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=114">
+  <link rel="stylesheet" href="style.css?v=115">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -117,7 +117,7 @@
             <h2 class="h-split" id="experience-title">Three roles, <b>10+ launches.</b></h2>
             <p class="part-sub">Three roles at FYERS and an internship that started it all.</p>
 
-            <button class="drive-cta" type="button" aria-expanded="false" aria-controls="journey">
+            <button class="drive-cta" type="button" aria-haspopup="dialog" aria-controls="journey">
               <span class="drive-art" aria-hidden="true">
                 <svg viewBox="0 0 120 70"><rect x="1" y="1" width="118" height="68" rx="8" fill="#f1efe8" stroke="#14111c" stroke-width="2"/><path d="M14 58 V40 H44 V22 H76 V40 H104 V14" fill="none" stroke="#2f6bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="104" cy="14" r="6" fill="#ff3f8e" stroke="#14111c" stroke-width="2"/></svg>
               </span>
@@ -188,7 +188,10 @@
     </section>
 
     <section class="journey" id="journey" aria-labelledby="journey-title" hidden>
-      <h2 id="journey-title" class="sr-only">Career timeline, stop by stop</h2>
+      <div class="jr-bar">
+        <h2 id="journey-title" class="jr-title">Take the drive <span>· my career as a road trip</span></h2>
+        <button class="jr-close" type="button" aria-label="Close the drive"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
       <div class="wrap journey-grid">
         <ol class="journey-list">
           <li class="j-stop">
@@ -443,7 +446,7 @@
   </footer>
 
   <script src="music.js?v=1"></script>
-  <script src="main.js?v=25"></script>
+  <script src="main.js?v=26"></script>
   <script>
     // "shipped": the ship sails across the word; each letter rises out of a small drop in its wake.
     // Transforms and opacity only (no blur filter), so it stays smooth on phones.

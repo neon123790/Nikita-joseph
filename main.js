@@ -215,6 +215,8 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
+    const jr = document.getElementById('journey');
+    if (jr) jr.addEventListener('scroll', onScroll, { passive: true });
     target = current = measure();
     render();
   };
@@ -371,22 +373,57 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
   requestAnimationFrame(tick);
 })();
 
-/* Career: "Take the drive" reveals the road trip and scrolls to it */
+/* Career: "Take the drive" opens the road trip as a pop-up (full screen on phones).
+   Close with the round ✕, Escape, a tap on the dimmed backdrop, or the phone's back button. */
 (() => {
   const btn = document.querySelector('.drive-cta');
   const journey = document.getElementById('journey');
   if (!btn || !journey) return;
-  btn.addEventListener('click', () => {
-    const open = journey.hidden;
-    journey.hidden = !open;
-    btn.setAttribute('aria-expanded', String(open));
-    btn.querySelector('.drive-text b').textContent = open ? 'Hide the drive' : 'Prefer a story? Take the drive';
-    if (open) {
-      document.dispatchEvent(new Event('drive:open'));
-      requestAnimationFrame(() => {
-        journey.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-        window.dispatchEvent(new Event('scroll'));
-      });
+  const closeBtn = journey.querySelector('.jr-close');
+  const backdrop = document.createElement('div');
+  backdrop.className = 'jr-backdrop';
+  backdrop.hidden = true;
+  journey.before(backdrop);
+  journey.setAttribute('role', 'dialog');
+  journey.setAttribute('aria-modal', 'true');
+  const isOpen = () => !journey.hidden;
+
+  const open = () => {
+    journey.hidden = false;
+    backdrop.hidden = false;
+    document.documentElement.classList.add('jr-lock');
+    requestAnimationFrame(() => { journey.classList.add('jr-in'); backdrop.classList.add('jr-in'); });
+    journey.scrollTop = 0;
+    history.pushState({ drive: 1 }, '');
+    document.dispatchEvent(new Event('drive:open'));
+    closeBtn.focus({ preventScroll: true });
+    requestAnimationFrame(() => journey.dispatchEvent(new Event('scroll')));
+  };
+  const close = () => {
+    if (!isOpen()) return;
+    journey.classList.remove('jr-in');
+    backdrop.classList.remove('jr-in');
+    journey.hidden = true;
+    backdrop.hidden = true;
+    document.documentElement.classList.remove('jr-lock');
+    btn.focus({ preventScroll: true });
+  };
+  // closing goes through history so the phone's back button and the ✕ behave the same
+  const requestClose = () => { if (history.state && history.state.drive) history.back(); else close(); };
+
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', requestClose);
+  backdrop.addEventListener('click', requestClose);
+  window.addEventListener('popstate', close);
+  journey.addEventListener('click', (e) => { if (e.target.closest('a[href]')) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { e.preventDefault(); requestClose(); }
+    if (e.key === 'Tab') {
+      const f = [...journey.querySelectorAll('a[href], button:not([disabled])')].filter((el) => el.offsetParent);
+      if (!f.length) return;
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
     }
   });
 })();

@@ -3258,3 +3258,35 @@ main .mat-head h2 { color: #fff !important; }
   .nav-burger:hover span { background: var(--stk-ink); }
   .has-burger .nav-links { border-bottom: 1px solid var(--line); box-shadow: 0 12px 20px rgba(20, 17, 28, .05); }
 }
+
+/* ---------- "Take the drive" as a pop-up ---------- */
+html.jr-lock, html.jr-lock body { overflow: hidden; }
+.jr-backdrop { position: fixed; inset: 0; z-index: 190; background: rgba(20, 17, 28, .45); opacity: 0; transition: opacity .25s ease; }
+.jr-backdrop.jr-in { opacity: 1; }
+.journey { position: fixed; inset: 24px; z-index: 200; overflow-y: auto; overscroll-behavior: contain; padding: 0 !important;
+  background: var(--bg); border: 2.5px solid var(--stk-ink); border-radius: 18px; box-shadow: 0 24px 60px rgba(20, 17, 28, .28);
+  opacity: 0; transform: translateY(16px) scale(.985); transition: opacity .25s ease, transform .3s cubic-bezier(.2, .8, .2, 1); }
+.journey.jr-in { opacity: 1; transform: none; }
+.journey[hidden] { display: none; }
+.jr-bar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px clamp(16px, 3vw, 28px); background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.jr-title { margin: 0; font-size: 1.05rem; font-weight: 700; color: var(--stk-ink); }
+.jr-title span { font-weight: 400; color: #5b5666; }
+/* round white button with a soft shadow, like the close button in Google Maps */
+.jr-close { flex: none; display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid rgba(20, 17, 28, .08); border-radius: 50%;
+  background: #fff; color: #3b3744; cursor: pointer; box-shadow: 0 1px 3px rgba(20, 17, 28, .2), 0 4px 10px rgba(20, 17, 28, .12); transition: background-color .15s ease, box-shadow .15s ease; }
+.jr-close svg { width: 20px; height: 20px; }
+.jr-close:hover { background: #f4f3f0; box-shadow: 0 2px 5px rgba(20, 17, 28, .25), 0 6px 14px rgba(20, 17, 28, .14); }
+.jr-close:focus-visible { outline: 3px solid #c2410c; outline-offset: 2px; }
+.journey .journey-grid { padding-top: 8px; }
+.journey .journey-list { padding: 8vh 0 40vh; }
+.journey .journey-map, html.hdr-hidden .journey .journey-map { top: 84px !important; height: min(640px, calc(100vh - 140px)); }
+@media (max-width: 860px) {
+  .journey { inset: 0; border: 0; border-radius: 0; box-shadow: none; transform: translateY(24px); }
+  .jr-title span { display: none; }
+  .jr-bar { padding: 8px 16px; }
+  .journey .journey-map, html.hdr-hidden .journey .journey-map { top: 68px !important; height: 42vh; }
+  .journey .journey-list { padding: 4vh 0 30vh; }
+}
+@media (prefers-reduced-motion: reduce) { .journey, .jr-backdrop { transition: none; } }

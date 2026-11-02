@@ -113,30 +113,38 @@
     const dirIcon = document.getElementById('dir-icon');
     const dirThen = document.getElementById('dir-then');
 
-    // A drive through the city: along the streets, with rounded corners at each turn
-    const way = [[70,510],[70,400],[190,400],[190,290],[310,290],[310,400],[430,400],[430,180],[310,180],[190,180],[190,80],[530,80],[530,290]];
-    const R = 18;
-    let path = `M ${way[0][0]} ${way[0][1]}`;
-    for (let i = 1; i < way.length - 1; i++) {
-      const [px, py] = way[i - 1], [cx, cy] = way[i], [nx, ny] = way[i + 1];
-      const inX = cx - Math.sign(cx - px) * R, inY = cy - Math.sign(cy - py) * R;
-      const outX = cx + Math.sign(nx - cx) * R, outY = cy + Math.sign(ny - cy) * R;
-      path += ` L ${inX} ${inY} Q ${cx} ${cy} ${outX} ${outY}`;
-    }
-    path += ` L ${way[way.length - 1][0]} ${way[way.length - 1][1]}`;
+    // The drive: Dubai → DeFiner → one and a half laps of the FYERS roundabout → exit to the destination
+    const RX = 310, RY = 290, RR = 80;
+    const path = `M70 525 L70 418 Q70 400 88 400 L172 400 Q190 400 190 382 L190 308 Q190 290 208 290 L${RX - RR} ${RY} `
+      + `A${RR} ${RR} 0 0 1 ${RX + RR} ${RY} A${RR} ${RR} 0 0 1 ${RX - RR} ${RY} A${RR} ${RR} 0 0 1 ${RX + RR} ${RY} `
+      + `L512 290 Q530 290 530 272 L530 90`;
     [planned, casing, done].forEach((p) => p.setAttribute('d', path));
     const total = done.getTotalLength();
     [casing, done].forEach((p) => { p.style.strokeDasharray = `${total} ${total}`; p.style.strokeDashoffset = `${total}`; });
 
-    // pins evenly spaced along the route; the last one is the destination
+    // where each stop sits on the route: the start, DeFiner, six points spread round the roundabout, the end
     const N = stops.length;
-    const stopLen = stops.map((_, i) => (total * i) / (N - 1));
+    const findLen = (x, y, from = 0) => {
+      for (let L = from; L <= total; L += 1) {
+        const p = done.getPointAtLength(L);
+        if (Math.hypot(p.x - x, p.y - y) < 2) return L;
+      }
+      return from;
+    };
+    const entry = findLen(RX - RR, RY), lap = 2 * Math.PI * RR;
+    const ring = [0, 80, 160, 240, 320, 400].map((deg) => entry + lap * deg / 360);
+    const stopLen = [0, findLen(190, 345), ...ring, total].slice(0, N);
+    while (stopLen.length < N) stopLen.push(total);
+    const SVGNS2 = SVGNS;
     const pins = stopLen.map((len, i) => {
       const p = done.getPointAtLength(Math.min(len, total - 0.01));
-      const g = document.createElementNS(SVGNS, 'g');
-      g.setAttribute('class', i === N - 1 ? 'pin final' : 'pin');
+      const g = document.createElementNS(SVGNS2, 'g');
+      const logo = stops[i].dataset.logo;
+      g.setAttribute('class', (i === N - 1 ? 'pin final' : 'pin') + (logo ? ' pin-logo' : ''));
       g.setAttribute('transform', `translate(${p.x} ${p.y})`);
-      g.innerHTML = `<circle class="ring" r="11"/><circle class="dot" r="11"/><text>${i === N - 1 ? '♥' : i + 1}</text>`;
+      g.innerHTML = logo
+        ? `<circle class="ring" r="16"/><clipPath id="pin-clip-${i}"><circle r="13"/></clipPath><circle class="dot" r="15"/><image href="${logo}" x="-13" y="-13" width="26" height="26" clip-path="url(#pin-clip-${i})"/>`
+        : `<circle class="ring" r="11"/><circle class="dot" r="11"/><text>${i === N - 1 ? '♥' : i + 1}</text>`;
       pinsLayer.appendChild(g);
       return g;
     });

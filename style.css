@@ -3431,3 +3431,25 @@ mark.hl.on { background-size: 100% 78%; }
 .ch-tape.t1 { left: -26px; transform: rotate(-38deg); top: 4px; }
 .ch-tape.t2 { right: -26px; transform: rotate(38deg); top: 4px; background: rgba(190, 230, 210, .75); }
 @media (max-width: 860px) { .ch-art--photo .ch-polaroid { margin-top: 18px; } .ch-tape { width: 80px; height: 24px; } .ch-tape.t1 { left: -18px; } .ch-tape.t2 { right: -18px; } }
+
+/* ---------- More about me: the note, then the pinned photos in rows ---------- */
+.board3 { display: grid; gap: clamp(26px, 3vw, 40px); }
+.board3 .board-note { justify-self: center; max-width: 560px; margin: 0; text-align: center; }
+.board3 .pinned { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 20px; }
+.board3 .pol { flex: 0 0 calc((100% - 60px) / 4); }
+@media (max-width: 900px) { .board3 .pol { flex-basis: calc((100% - 40px) / 3); } }
+@media (max-width: 600px) { .board3 .pinned { gap: 22px 14px; } .board3 .pol { flex-basis: calc((100% - 14px) / 2); } }
+
+/* ---------- Art: its own section, two albums side by side ---------- */
+.art3 .section-head { text-align: center; max-width: 620px; margin-inline: auto; }
+.art3 .art-pockets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 24px !important; max-width: 760px; margin: clamp(24px, 3vw, 40px) auto 0 !important; padding: 0 !important; }
+@media (max-width: 600px) { .art3 .art-pockets { grid-template-columns: 1fr !important; } }
+
+/* road trip map: Dubai shore, the FYERS roundabout, logo pins */
+.m-sand { fill: #f3e4c2; }
+.m-burj { fill: #7d869b; }
+.m-ring { fill: none; stroke: #fff; stroke-width: 22; }
+.m-island { fill: #cfe7c2; stroke: #b9dbaa; stroke-width: 2; }
+.m-label-sm { font-size: 10px; letter-spacing: .14em; }
+.pin-logo circle.dot { fill: #fff; stroke: #fff; stroke-width: 3; }
+.pin-logo.current circle.dot, .pin-logo.past circle.dot { fill: #fff; stroke: var(--route); }

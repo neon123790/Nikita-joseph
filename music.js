@@ -1,6 +1,7 @@
 /* A little record player in the header.
-   Click the disc to play a soft, slowly changing ambient piece, generated live
-   with the Web Audio API (no audio files, no licences). Click again to fade it out. */
+   Click the disc to play a lo-fi track (audio/lofi.m4a: "LoFi - LoFi Music" by MondaMusic on Pixabay, free to use) very quietly,
+   fading in and out. If the file can't be loaded, it falls back to a soft ambient piece generated
+   live with the Web Audio API. Click again to fade it out. */
 (() => {
   const midi = (n) => 440 * Math.pow(2, (n - 69) / 12);
 
@@ -108,7 +109,7 @@
     }
     master.gain.cancelScheduledValues(ctx.currentTime);
     master.gain.setValueAtTime(master.gain.value, ctx.currentTime);
-    master.gain.linearRampToValueAtTime(0.9, ctx.currentTime + 2.5);
+    master.gain.linearRampToValueAtTime(0.35, ctx.currentTime + 2.5);
     playing = true;
   };
 
@@ -122,16 +123,48 @@
     playing = false;
   };
 
+  // ---- the lo-fi track: routed through a gain node, because phones ignore <audio>.volume ----
+  const TRACK = new URL('audio/lofi.m4a', document.currentScript ? document.currentScript.src : location.href).href;
+  const LOW = 0.12;            // very low: background, never in the way
+  let audio = null, trackGain = null, useTrack = true;
+  const startTrack = async () => {
+    if (!ctx) setup();
+    if (!audio) {
+      audio = new Audio(TRACK);
+      audio.loop = true;
+      audio.preload = 'auto';
+      audio.crossOrigin = 'anonymous';
+      const src = ctx.createMediaElementSource(audio);
+      trackGain = ctx.createGain(); trackGain.gain.value = 0;
+      src.connect(trackGain).connect(ctx.destination);
+    }
+    await ctx.resume();
+    await audio.play();
+    trackGain.gain.cancelScheduledValues(ctx.currentTime);
+    trackGain.gain.setValueAtTime(trackGain.gain.value, ctx.currentTime);
+    trackGain.gain.linearRampToValueAtTime(LOW, ctx.currentTime + 3);
+    playing = true;
+  };
+  const stopTrack = () => {
+    trackGain.gain.cancelScheduledValues(ctx.currentTime);
+    trackGain.gain.setValueAtTime(trackGain.gain.value, ctx.currentTime);
+    trackGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 1.5);
+    setTimeout(() => { if (!playing) audio.pause(); }, 1600);
+    playing = false;
+  };
+  const play = () => (useTrack ? startTrack().catch(() => { useTrack = false; return start(); }) : start());
+  const pause = () => (useTrack && audio ? stopTrack() : stop());
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.music-toggle').forEach((btn) => {
       btn.addEventListener('click', () => {
         const on = !playing;
-        if (on) start(); else stop();
+        if (on) play(); else pause();
         document.querySelectorAll('.music-toggle').forEach((b) => {
           b.classList.toggle('is-playing', on);
           b.setAttribute('aria-pressed', String(on));
-          b.setAttribute('aria-label', on ? 'Pause the music' : 'Play some soothing music');
-          b.title = on ? 'Pause the music' : 'Play some soothing music';
+          b.setAttribute('aria-label', on ? 'Pause the music' : 'Play some soft lo-fi music');
+          b.title = on ? 'Pause the music' : 'Play some soft lo-fi music';
         });
       });
     });

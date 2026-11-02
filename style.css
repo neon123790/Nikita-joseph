@@ -3748,3 +3748,28 @@ main h2.h-split b, main h2.h-split b em { color: #c2410c !important; }
 .pl-pin.final.current .dot.heart, .pl-pin.final.past .dot.heart { fill: #e64980; }
 .pl-pin.final .ring { stroke: #e64980; }
 .pl-birds { fill: none; stroke: #8a93a8; stroke-width: 2; stroke-linecap: round; }
+
+/* ==========================================================
+   Work in progress: caution tape + a friendly note
+   ========================================================== */
+.wip-tape { overflow: hidden; white-space: nowrap; padding: 9px 0; color: #14111c; font: 800 .82rem/1 var(--bold); letter-spacing: .16em; text-transform: uppercase;
+  background: repeating-linear-gradient(-45deg, #ffd23f 0 22px, #ffcb1f 22px 44px); border-block: 3px solid #14111c; box-shadow: 0 6px 14px -6px rgba(20, 17, 28, .35); }
+.wip-tape span { display: inline-block; padding-left: 100%; animation: wip-scroll 28s linear infinite; }
+@keyframes wip-scroll { to { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .wip-tape span { animation: none; padding-left: 12px; } }
+
+/* inner page: the tape runs across the page, then the note */
+.wip { padding: clamp(28px, 4vw, 48px) 0 clamp(40px, 6vw, 72px); }
+.wip > .wip-tape { transform: rotate(-1.2deg); margin: 0 -12px clamp(32px, 4vw, 48px); }
+.wip-card { max-width: 720px; padding: clamp(22px, 3vw, 36px); background: #fffdf7; border: 1.5px solid #e3e0d7; border-radius: 18px; box-shadow: 0 22px 44px -32px rgba(20, 17, 28, .4); }
+.wip-card h2 { margin: 6px 0 12px; }
+.wip-card > p:not(.label) { color: var(--muted); font-size: var(--t-body); line-height: 1.6; margin: 0 0 20px; max-width: 34em; }
+.wip-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.wip { overflow-x: clip; }
+
+/* home journal: tape across the picture, and a plain line under the link */
+.entry .print { position: relative; }
+.entry .print > .wip-tape { position: absolute; z-index: 3; left: -14%; right: -14%; top: 44%; transform: rotate(-9deg); padding: 7px 0; font-size: .7rem; border-width: 2px; }
+.entry .print > .wip-tape span { animation-duration: 22s; }
+.wip-line { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0; font: 600 .8rem/1.2 var(--sans); color: #a86a00; }
+.wip-line::before { content: ""; width: 14px; height: 8px; border-radius: 2px; background: repeating-linear-gradient(-45deg, #ffd23f 0 4px, #14111c 4px 6px); }

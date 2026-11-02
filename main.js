@@ -187,6 +187,13 @@
       const bob = Math.sin(L / 18) * 2;
       plane.setAttribute('transform', `translate(${a.x.toFixed(1)} ${(a.y + bob).toFixed(1)}) rotate(${angle.toFixed(1)}) scale(1.25)`);
       reveal.setAttribute('stroke-dasharray', `${L.toFixed(1)} ${total * 2}`);
+      // a camera that follows the plane, zoomed in; on the last leg it pulls back to show the whole flight
+      const out = Math.min(1, Math.max(0, current - (N - 2)));
+      const z = 1.9 - 0.9 * out * out * (3 - 2 * out);
+      const w = 600 / z, h = 560 / z;
+      const vx = Math.min(600 - w, Math.max(0, a.x - w / 2));
+      const vy = Math.min(560 - h, Math.max(0, a.y - h * 0.6));
+      mapSvg.setAttribute('viewBox', `${vx.toFixed(1)} ${vy.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`);
       const active = Math.min(N - 1, Math.round(current));
       card.classList.toggle('complete', current > N - 1.05);
       if (active !== lastActive) {

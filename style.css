@@ -3698,3 +3698,53 @@ main .section-head p.label, main p.label { color: #c2410c !important; font-size:
 .pocket-view .pv-nav { color: #14111c !important; font: 700 1.15rem/1 var(--sans) !important; }
 /* an open pop-up is always on screen, even if its section is scrolled away */
 .offscreen dialog[open] *, .offscreen dialog[open] *::before, .offscreen dialog[open] *::after { animation-play-state: running !important; }
+
+/* ==========================================================
+   Stressed words in headings: the one orange accent, site-wide
+   ========================================================== */
+main h2.h-split b, main h2.h-split b em { color: #c2410c !important; }
+
+/* ==========================================================
+   How I work: a light card, a numbered stepper, matching illustrations
+   ========================================================== */
+.work3 .process { background: #fff; border: 1.5px solid #e3e0d7; border-radius: 22px; box-shadow: 0 22px 44px -32px rgba(20, 17, 28, .4); padding: clamp(16px, 2.4vw, 26px); }
+.work3 .process-tabs { position: relative; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 !important; margin: 0 0 clamp(16px, 2.4vw, 24px) !important; padding: 0 !important; overflow: visible !important; }
+.work3 .process-tabs::before { content: ""; position: absolute; left: 12.5%; right: 12.5%; top: 21px; height: 2px; background: repeating-linear-gradient(90deg, #d6d2c7 0 6px, transparent 6px 12px); }
+.work3 .process-tab { position: relative; z-index: 1; display: flex !important; flex-direction: column; align-items: center; gap: 8px; min-height: 0; padding: 0 4px 2px !important;
+  background: none !important; border: 0 !important; border-radius: 0; box-shadow: none !important; transform: none !important; font: 600 .95rem/1.1 var(--sans) !important; color: #6b6676; cursor: pointer; }
+.work3 .process-tab small { width: 44px; height: 44px; display: grid !important; place-items: center; margin: 0 !important; border-radius: 50%; background: #fff; border: 2px solid #d6d2c7;
+  font: 700 .85rem/1 var(--sans) !important; color: #6b6676; transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease, color .25s ease; }
+.work3 .process-tab:hover small { border-color: #2c2836; color: #2c2836; }
+.work3 .process-tab[aria-selected="true"] { color: #2c2836; }
+.work3 .process-tab[aria-selected="true"] small { background: var(--tc); border-color: #2c2836; color: #2c2836; box-shadow: 0 0 0 6px color-mix(in srgb, var(--tc) 35%, transparent); }
+.work3 .process-tab:focus-visible { outline: none; }
+.work3 .process-tab:focus-visible small { outline: 3px solid #c2410c; outline-offset: 3px; }
+.work3 .proc-art { background: #f6f3ec; border: 0 !important; border-radius: 16px; }
+.proc-art .il-bg { fill: #f6f3ec; }
+.proc-art .il { stroke: #2c2836; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.proc-art path.il:not([fill]) { fill: none; }
+.proc-art .il-thin { fill: none; stroke: #2c2836; stroke-width: 2; stroke-linecap: round; opacity: .45; }
+.proc-art .il-soft { fill: none; stroke: #2c2836; stroke-width: 2; opacity: .15; }
+.proc-art .il-dash { fill: none; stroke: #2f5fd0; stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; }
+.proc-art .il-star { fill: #ffd65a; stroke: #2c2836; stroke-width: 2; stroke-linejoin: round; }
+.proc-art .il-t { font: 400 22px/1 var(--hand); fill: #2c2836; text-anchor: middle; }
+.proc-art .il-s { font: 600 14px/1 var(--sans); fill: #2c2836; text-anchor: middle; }
+@media (max-width: 760px) {
+  .work3 .process-tabs::before { top: 19px; }
+  .work3 .process-tab { font-size: .8rem !important; gap: 6px; }
+  .work3 .process-tab small { width: 40px; height: 40px; }
+}
+
+/* album viewer: a round ✕ */
+.pocket-view .pv-close { width: 44px; height: 44px; padding: 0 !important; display: grid; place-items: center; border-radius: 50% !important; }
+.pocket-view .pv-close svg { width: 20px; height: 20px; }
+
+/* "shipped": the rocket's smoke is orange, and the last puffs become the letters */
+.sx-smoke { background: radial-gradient(circle at 40% 40%, rgba(255, 222, 200, .95), rgba(240, 150, 100, .75) 55%, rgba(194, 65, 12, 0) 72%); }
+.sx-smoke.to-letter { width: .6em; height: .6em; margin: -.3em 0 0 -.3em; background: radial-gradient(circle, rgba(194, 65, 12, .9), rgba(194, 65, 12, .55) 50%, rgba(194, 65, 12, 0) 72%); }
+
+/* flight map: heart-shaped landing, birds */
+.pl-pin .dot.heart { fill: #ffe0ea; stroke: #e64980; stroke-width: 2.5; stroke-linejoin: round; }
+.pl-pin.final.current .dot.heart, .pl-pin.final.past .dot.heart { fill: #e64980; }
+.pl-pin.final .ring { stroke: #e64980; }
+.pl-birds { fill: none; stroke: #8a93a8; stroke-width: 2; stroke-linecap: round; }

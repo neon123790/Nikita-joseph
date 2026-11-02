@@ -148,14 +148,17 @@
       const p = trail.getPointAtLength(Math.min(len, total - 0.01));
       const s = stops[i], logo = s.dataset.logo;
       const g = el('g', { class: 'pl-pin' + (i === N - 1 ? ' final' : '') + (logo ? ' logo' : ''), transform: `translate(${p.x} ${p.y})` }, pinsLayer);
-      el('circle', { class: 'ring', r: logo ? 17 : 14 }, g);
-      el('circle', { class: 'dot', r: logo ? 13 : 10 }, g);
+      const last = i === N - 1;
+      el('circle', { class: 'ring', r: logo ? 17 : last ? 26 : 14 }, g);
+      // the last stop is a heart: where the plane lands
+      if (last) el('path', { class: 'dot heart', d: 'M0 18 C -30 1, -22 -27, 0 -12 C 22 -27, 30 1, 0 18 Z' }, g);
+      else el('circle', { class: 'dot', r: logo ? 13 : 10 }, g);
       if (logo) {
         const cp = el('clipPath', { id: `pl-clip-${i}` }, g);
         el('circle', { r: 11 }, cp);
         el('image', { href: logo, x: -11, y: -11, width: 22, height: 22, 'clip-path': `url(#pl-clip-${i})` }, g);
-      } else {
-        el('text', {}, g).textContent = i === N - 1 ? '♥' : i + 1;
+      } else if (!last) {
+        el('text', {}, g).textContent = i + 1;
       }
       const [lx, ly, anchor] = (s.dataset.lpos || `${p.x + 18},${p.y + 4},start`).split(',');
       const t = el('text', { class: 'pl-label', x: lx, y: Y(+ly), 'text-anchor': anchor }, labelsLayer);
@@ -186,6 +189,8 @@
       // a gentle bob so the plane feels like it's floating, not on rails
       const bob = Math.sin(L / 18) * 2;
       plane.setAttribute('transform', `translate(${a.x.toFixed(1)} ${(a.y + bob).toFixed(1)}) rotate(${angle.toFixed(1)}) scale(1.25)`);
+      // it touches down on the heart and fades away, so the heart is what you see at the end
+      plane.style.opacity = (1 - Math.min(1, Math.max(0, (current - (N - 1.3)) / 0.3))).toFixed(2);
       reveal.setAttribute('stroke-dasharray', `${L.toFixed(1)} ${total * 2}`);
       // a camera that follows the plane, zoomed in; on the last leg it pulls back to show the whole flight
       const out = Math.min(1, Math.max(0, current - (N - 2)));

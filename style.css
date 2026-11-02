@@ -3500,3 +3500,96 @@ mark.hl.on { background-size: 100% 78%; }
 .map-card:has(.metro) #dir-meta, .map-card:has(.metro) #dir-step { color: #6b6676; }
 .map-card:has(.metro) .dir-then { background: #f2f4fb !important; color: #4a4558 !important; border: 1px solid #e3e0d7 !important; border-top: 0 !important; }
 .map-card:has(.metro) .dir-then b { color: #2f5fd0; }
+
+/* ==========================================================
+   Career lift: each role is a floor, the lift rises as you scroll
+   ========================================================== */
+.map-card:has(.lift) { display: flex; flex-direction: column; background: #fbfaf6; }
+.map-card:has(.lift) .dir-box { position: relative; inset: auto; margin: 12px 12px 0; }
+.map-card:has(.lift) .map-progress { display: none; }
+.map-card:has(.lift) .dir-panel { background: #fff !important; color: #2c2836; border: 1px solid #e3e0d7 !important; border-radius: 14px 14px 0 0; }
+.map-card:has(.lift) #dir-meta, .map-card:has(.lift) #dir-step { color: #6b6676; }
+.map-card:has(.lift) .dir-then { background: #f2f4fb !important; color: #4a4558 !important; border: 1px solid #e3e0d7 !important; border-top: 0 !important; }
+.map-card:has(.lift) .dir-then b { color: #2f5fd0; }
+.map-card:has(.lift) .dir-icon { background: #2f5fd0 !important; color: #fff; font: 700 1.1rem/1 var(--bold); }
+
+.lift { position: relative; flex: 1; min-height: 0; margin: 14px 12px 12px; --shaft: 64px; }
+.lift-floors { position: absolute; inset: 0; display: flex; flex-direction: column-reverse; }
+.lf-row { flex: 1; min-height: 0; display: flex; align-items: center; gap: 12px; padding-left: calc(var(--shaft) + 14px); padding-right: 10px;
+  border-top: 1px solid #ebe8df; font: 500 .9rem/1.2 var(--sans); color: #8a8594; transition: color .3s ease, background-color .3s ease; }
+.lf-row:last-child { border-top: 0; }
+.lf-num { flex: none; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid #d6d2c7; font: 700 .78rem/1 var(--sans); color: #8a8594; transition: all .3s ease; }
+.lf-name { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lf-name img { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; flex: none; }
+.lf-date { flex: none; font-size: .75rem; color: #a5a0ad; }
+.lf-row.past { color: #4a4558; }
+.lf-row.past .lf-num { background: #e8edfb; border-color: #e8edfb; color: #2f5fd0; }
+.lf-row.current { color: #1f1b29; font-weight: 700; background: linear-gradient(90deg, rgba(47, 95, 208, .08), transparent 70%); }
+.lf-row.current .lf-num { background: #2f5fd0; border-color: #2f5fd0; color: #fff; }
+/* the shaft and the cab */
+.lift::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: var(--shaft); border-radius: 10px; background: #eceae3; box-shadow: inset 0 0 0 1px #e1ded4; }
+.lift-cab { position: absolute; left: 6px; bottom: 0; width: calc(var(--shaft) - 12px); height: calc(100% / var(--n, 9)); padding: 4px 0; will-change: transform; }
+.lift-cab::before { content: ""; position: absolute; inset: 4px 0; border-radius: 8px; background: linear-gradient(180deg, #fff6d6, #ffe08a); box-shadow: inset 0 0 0 2px #2c2836; }
+.lift-door { position: absolute; top: 4px; bottom: 4px; width: 50%; background: #c9cfdc; box-shadow: inset 0 0 0 2px #2c2836; transition: transform .45s cubic-bezier(.4, 0, .2, 1); }
+.lift-door.l { left: 0; border-radius: 8px 0 0 8px; transform-origin: left center; }
+.lift-door.r { right: 0; border-radius: 0 8px 8px 0; transform-origin: right center; }
+.lift-cab.open .lift-door { transform: scaleX(.18); }
+@media (max-width: 860px) {
+  .lift { --shaft: 48px; margin: 10px 8px 8px; }
+  .lf-row { gap: 8px; font-size: .8rem; padding-left: calc(var(--shaft) + 10px); }
+  .lf-num { width: 22px; height: 22px; font-size: .7rem; }
+  .lf-date { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .lift-door, .lf-row, .lf-num { transition: none; } }
+.map-card:has(.lift) .dir-box { order: -1; }
+.lift-cab.open::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #c2410c; }
+
+/* ==========================================================
+   Art albums: an old photo album and a CD case
+   ========================================================== */
+.art3 .art-pockets { grid-template-columns: repeat(2, minmax(0, 300px)) !important; justify-content: center; gap: clamp(36px, 6vw, 72px) !important; max-width: none; }
+.art3 .pocket { position: relative; width: 100%; aspect-ratio: 1; min-height: 0; transition: transform .3s cubic-bezier(.3, 1.3, .5, 1); }
+.art3 .pocket-peek { display: none; }
+.art3 .pocket-front { position: absolute; inset: 0; z-index: 2; height: auto; display: block; padding: 0; border: 0; background: none; box-shadow: 0 22px 34px -18px rgba(20, 17, 28, .5); transform: none !important; }
+.art3 .album-cover { position: absolute; padding: 0; transform: none; box-shadow: none; background: none; }
+.art3 .album-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.art3 .album-text { position: absolute; display: flex; flex-direction: column; gap: 2px; padding: 8px 14px; background: #fffdf7; box-shadow: 0 2px 4px rgba(20, 17, 28, .15); }
+.art3 .pocket-name { font: 400 1.35rem/1.1 var(--hand); color: #2c2836; }
+.art3 .pocket-count { font: 500 .72rem/1.2 var(--sans); color: #6b6676; letter-spacing: .02em; }
+.art3 .pocket:hover { transform: translateY(-4px) rotate(-1deg); }
+.art3 .pocket:focus-visible { outline: 3px solid #c2410c; outline-offset: 6px; }
+
+/* 1 · old cloth-bound photo album with brass corners */
+.art3 .pocket:nth-child(1) .pocket-front { border-radius: 4px 10px 10px 4px;
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .04) 0 2px, transparent 2px 5px), linear-gradient(135deg, #8a4f3c, #6d3a2c); }
+.art3 .pocket:nth-child(1) .pocket-front::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 14%; border-radius: 4px 0 0 4px;
+  background: linear-gradient(90deg, #4f281e, #6d3a2c); box-shadow: inset -2px 0 0 rgba(0, 0, 0, .25); }
+.art3 .pocket:nth-child(1) .pocket-front::after { content: ""; position: absolute; inset: 8px 8px 8px calc(14% + 8px); border: 1.5px dashed rgba(255, 220, 180, .45); border-radius: 4px; pointer-events: none; }
+.art3 .pocket:nth-child(1) .album-cover { left: 26%; right: 12%; top: 12%; bottom: 34%; padding: 6px; background: #fffdf7; transform: rotate(-2deg); box-shadow: 0 6px 12px rgba(0, 0, 0, .3); }
+.art3 .pocket:nth-child(1) .album-text { left: 24%; right: 14%; bottom: 9%; transform: rotate(1deg); align-items: center; text-align: center; }
+.art3 .pocket:nth-child(1)::before, .art3 .pocket:nth-child(1)::after { content: ""; position: absolute; z-index: 3; right: 0; width: 22px; height: 22px; background: linear-gradient(135deg, #f3d48a, #b8862f); }
+.art3 .pocket:nth-child(1)::before { top: 0; clip-path: polygon(0 0, 100% 0, 100% 100%); border-top-right-radius: 10px; }
+.art3 .pocket:nth-child(1)::after { bottom: 0; clip-path: polygon(100% 0, 100% 100%, 0 100%); border-bottom-right-radius: 10px; }
+
+/* 2 · CD in a jewel case, the disc peeking out */
+.art3 .pocket:nth-child(2) .pocket-front { border-radius: 3px; overflow: hidden; background: #ddd; }
+.art3 .pocket:nth-child(2) .album-cover { inset: 0 0 0 9%; }
+.art3 .pocket:nth-child(2) .pocket-front::before { content: ""; position: absolute; z-index: 2; left: 0; top: 0; bottom: 0; width: 9%;
+  background: linear-gradient(90deg, rgba(40, 40, 50, .85), rgba(80, 80, 95, .7)); box-shadow: inset -1px 0 0 rgba(255, 255, 255, .5); }
+.art3 .pocket:nth-child(2) .pocket-front::after { content: ""; position: absolute; z-index: 2; inset: 0; pointer-events: none; border: 1px solid rgba(255, 255, 255, .7);
+  background: linear-gradient(125deg, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, .08) 28%, transparent 45%, transparent 80%, rgba(255, 255, 255, .18) 100%); }
+.art3 .pocket:nth-child(2) .album-text { z-index: 3; left: 16%; bottom: 8%; transform: rotate(-2deg); }
+.art3 .pocket:nth-child(2)::before { content: ""; position: absolute; z-index: 1; top: 5%; right: 0; width: 90%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, transparent 0 8%, #cfd3dc 8% 9.5%, #f4f5f8 9.5% 16%, transparent 16.5%),
+              conic-gradient(from 20deg, #e9ecf3, #c9d7ff, #f3d1ff, #fff1c2, #c8f3e3, #dfe6ff, #e9ecf3);
+  -webkit-mask: radial-gradient(circle, transparent 0 7.5%, #000 8%); mask: radial-gradient(circle, transparent 0 7.5%, #000 8%);
+  box-shadow: 0 6px 14px rgba(20, 17, 28, .25); transform: translateX(26%) rotate(0); transition: transform .5s cubic-bezier(.3, 1.2, .5, 1); }
+.art3 .pocket:nth-child(2):hover::before, .art3 .pocket:nth-child(2):focus-visible::before { transform: translateX(42%) rotate(70deg); }
+@media (max-width: 600px) {
+  .art3 .art-pockets { grid-template-columns: minmax(0, 260px) !important; gap: 48px !important; }
+  .art3 .pocket:nth-child(2) { margin-right: 22%; }
+}
+@media (prefers-reduced-motion: reduce) { .art3 .pocket, .art3 .pocket::before { transition: none; } }
+.art3 .album-cover { width: auto !important; height: auto !important; flex: none; }
+.art3 .album-cover::before, .art3 .album-cover::after { display: none !important; }
+.art3 { overflow-x: clip; }

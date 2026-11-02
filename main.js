@@ -98,91 +98,39 @@
      ========================================================== */
   const mapSvg = document.getElementById('map');
   const initDrive = () => {
-    const SVGNS = 'http://www.w3.org/2000/svg';
     const card = document.getElementById('map-card');
-    const linesLayer = mapSvg.querySelector('.mt-lines');
-    const labelsLayer = mapSvg.querySelector('.mt-labels');
-    const pinsLayer = mapSvg.querySelector('.pins');
-    const car = mapSvg.querySelector('.car');
+    const floorsEl = mapSvg.querySelector('.lift-floors');
+    const cab = mapSvg.querySelector('.lift-cab');
     const stops = [...document.querySelectorAll('.j-stop')];
+    const N = stops.length;
     const dirStep = document.getElementById('dir-step');
     const dirTitle = document.getElementById('dir-title');
     const dirMeta = document.getElementById('dir-meta');
-    const bar = document.getElementById('map-progress');
     const dirIcon = document.getElementById('dir-icon');
     const dirThen = document.getElementById('dir-then');
-    const el = (tag, attrs, parent) => {
-      const e = document.createElementNS(SVGNS, tag);
-      Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
-      parent.appendChild(e);
-      return e;
-    };
+    const name = (s) => s.dataset.label || s.querySelector('h3').textContent;
 
-    // One track from Dubai to the last station, with 45° bends like a transit diagram
-    const way = [[60, 500], [170, 500], [220, 450], [220, 380], [270, 330], [400, 330], [450, 280], [450, 150]];
-    const R = 16;
-    let d = `M ${way[0][0]} ${way[0][1]}`;
-    for (let i = 1; i < way.length - 1; i++) {
-      const [px, py] = way[i - 1], [cx, cy] = way[i], [nx, ny] = way[i + 1];
-      const l1 = Math.hypot(cx - px, cy - py), l2 = Math.hypot(nx - cx, ny - cy);
-      const inX = cx - (cx - px) / l1 * R, inY = cy - (cy - py) / l1 * R;
-      const outX = cx + (nx - cx) / l2 * R, outY = cy + (ny - cy) / l2 * R;
-      d += ` L ${inX} ${inY} Q ${cx} ${cy} ${outX} ${outY}`;
-    }
-    d += ` L ${way[way.length - 1][0]} ${way[way.length - 1][1]}`;
-    const track = el('path', { d, fill: 'none', stroke: 'none' }, linesLayer);
-    const total = track.getTotalLength();
-    const nearest = (x, y, from = 0) => {
-      let best = from, bd = Infinity;
-      for (let L = from; L <= total; L += 1) {
-        const p = track.getPointAtLength(L), dd = Math.hypot(p.x - x, p.y - y);
-        if (dd < bd) { bd = dd; best = L; }
-      }
-      return best;
-    };
-
-    // stations, in order along the track
-    const N = stops.length;
-    const at = [[60, 500], [170, 500], [220, 450], [220, 380], [310, 330], [400, 330], [450, 280], [450, 215], [450, 150]];
-    const stopLen = [];
-    at.slice(0, N).forEach(([x, y], i) => stopLen.push(i === 0 ? 0 : i === N - 1 ? total : nearest(x, y, stopLen[i - 1] + 1)));
-
-    // each line is the same track, shown only over its own stretch; a faint copy sits underneath
-    // one line: grey ahead of the train, blue behind it
-    el('path', { d, class: 'mt-line base' }, linesLayer);
-    const live = el('path', { d, class: 'mt-line live', 'stroke-dasharray': `0 ${total * 2}` }, linesLayer);
-
-    const pins = stopLen.map((len, i) => {
-      const p = track.getPointAtLength(Math.min(len, total - 0.01));
-      const s = stops[i], lc = s.dataset.lc || '#2f6bff', logo = s.dataset.logo, big = s.dataset.interchange || logo;
-      const g = el('g', { class: 'pin' + (big ? ' pin-big' : '') + (i === N - 1 ? ' final' : ''), transform: `translate(${p.x} ${p.y})`, style: `--lc:${lc}` }, pinsLayer);
-      el('circle', { class: 'ring', r: big ? 17 : 12 }, g);
-      el('circle', { class: 'dot', r: big ? 12 : 7 }, g);
-      if (logo) {
-        const cp = el('clipPath', { id: `st-clip-${i}` }, g);
-        el('circle', { r: 9.5 }, cp);
-        el('image', { href: logo, x: -9.5, y: -9.5, width: 19, height: 19, 'clip-path': `url(#st-clip-${i})` }, g);
-      }
-      const [lx, ly, anchor] = (s.dataset.lpos || `${p.x + 16},${p.y + 4},start`).split(',');
-      const t = el('text', { class: 'mt-label', x: lx, y: ly, 'text-anchor': anchor }, labelsLayer);
-      t.textContent = s.dataset.label || s.querySelector('h3').textContent;
-      return { g, t };
+    // one row per floor, ground floor at the bottom
+    mapSvg.style.setProperty('--n', N);
+    const rows = stops.map((s, i) => {
+      const row = document.createElement('div');
+      row.className = 'lf-row';
+      const logo = s.dataset.logo ? `<img src="${s.dataset.logo}" alt="">` : '';
+      row.innerHTML = `<span class="lf-num">${i + 1}</span><span class="lf-name">${logo}${name(s)}</span><span class="lf-date">${s.querySelector('.stamp').textContent.split(' · ')[0]}</span>`;
+      floorsEl.appendChild(row);
+      return row;
     });
 
-    let target = 0;   // where the scroll says the train should be (in stop units)
-    let current = 0;  // where the train is now; eased towards target every frame
+    let target = 0;   // which floor the scroll asks for (fractions while between floors)
+    let current = 0;  // where the lift is now; eased towards target every frame
     let raf = null;
     let lastActive = -1;
 
     const measure = () => {
-      // on phones the map sits on top, so read the stop in the space below it
       const mapBox = card.getBoundingClientRect();
       const stacked = window.matchMedia('(max-width: 860px)').matches;
       const focus = stacked ? mapBox.bottom + (window.innerHeight - mapBox.bottom) * 0.4 : window.innerHeight * 0.48;
-      const centers = stops.map((s) => {
-        const r = s.getBoundingClientRect();
-        return r.top + r.height / 2;
-      });
+      const centers = stops.map((s) => { const r = s.getBoundingClientRect(); return r.top + r.height / 2; });
       if (focus <= centers[0]) return 0;
       if (focus >= centers[N - 1]) return N - 1;
       for (let i = 0; i < N - 1; i++) {
@@ -192,48 +140,31 @@
     };
 
     const render = () => {
-      const i0 = Math.floor(current), f = current - i0;
-      const L = i0 >= N - 1 ? total : stopLen[i0] + (stopLen[i0 + 1] - stopLen[i0]) * f;
-      const a = track.getPointAtLength(Math.min(L, total - 0.5));
-      const b = track.getPointAtLength(Math.min(L + 0.5, total));
-      const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
-      car.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${angle})`);
-      live.setAttribute('stroke-dasharray', `${L} ${total * 2}`);
-      bar.style.width = `${(L / total) * 100}%`;
-
+      cab.style.transform = `translateY(${(-current * 100).toFixed(2)}%)`;
+      // the doors open only when the lift has stopped at a floor
+      const settled = Math.abs(target - current) < 0.01 && Math.abs(current - Math.round(current)) < 0.06;
+      cab.classList.toggle('open', settled);
       const active = Math.min(N - 1, Math.round(current));
       card.classList.toggle('complete', current > N - 1.05);
       if (active !== lastActive) {
         lastActive = active;
-        pins.forEach(({ g, t }, i) => {
-          g.classList.toggle('past', i < active); g.classList.toggle('current', i === active);
-          t.classList.toggle('current', i === active);
-        });
-        stops.forEach((s, i) => {
-          s.classList.toggle('is-current', i === active);
-          s.classList.toggle('is-past', i < active);
-        });
-        // like the display inside a metro coach: this station, then the next one
-        dirStep.textContent = `${active + 1} / ${N}`;
+        rows.forEach((r, i) => { r.classList.toggle('current', i === active); r.classList.toggle('past', i < active); });
+        stops.forEach((s, i) => { s.classList.toggle('is-current', i === active); s.classList.toggle('is-past', i < active); });
+        dirIcon.textContent = active + 1;
+        dirStep.textContent = `Floor ${active + 1} of ${N}`;
         dirTitle.textContent = stops[active].querySelector('h3').textContent;
         dirMeta.textContent = stops[active].querySelector('.stamp').textContent;
-        const badge = stops[active].querySelector('.line-badge');
-        if (dirIcon && badge) { dirIcon.textContent = badge.textContent; dirIcon.style.setProperty('--lc', stops[active].dataset.lc); }
-        if (dirThen) {
-          const next = stops[active + 1];
-          dirThen.innerHTML = next ? `Next station <b>${next.dataset.label || next.querySelector('h3').textContent}</b>` : 'Terminus. Thanks for riding ♥';
-        }
+        const next = stops[active + 1];
+        dirThen.innerHTML = next ? `▲ Next floor <b>${name(next)}</b>` : 'Top floor. Thanks for riding ♥';
       }
     };
 
     const tick = () => {
-      // ease towards the target so the ride feels smooth, never jumpy
       current += (target - current) * (reduceMotion ? 1 : 0.09);
       if (Math.abs(target - current) < 0.001) current = target;
       render();
       raf = current === target ? null : requestAnimationFrame(tick);
     };
-
     const onScroll = () => {
       target = measure();
       if (!raf) raf = requestAnimationFrame(tick);

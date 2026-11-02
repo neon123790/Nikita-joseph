@@ -77,7 +77,7 @@
   const narrow = () => window.matchMedia('(max-width: 860px)').matches;
   makeTabs([...document.querySelectorAll('.bookmark')], {
     transition: (from, to, swap) => {
-      if (!book || reduceMotion || narrow()) { swap(); return; }
+      swap(); return; // v2: no page turn, keep it simple
       const forward = to > from;
       const turner = book.querySelector('.turner');
       const oldPage = book.querySelector(`.entry:not([hidden]) .page.${forward ? 'right' : 'left'}`);
@@ -94,16 +94,15 @@
   makeTabs([...document.querySelectorAll('.process-tab')]);
 
   /* ==========================================================
-     Career: a car drives a heart-shaped route as you scroll
+     Career: a car drives through the city as you scroll
      ========================================================== */
   const mapSvg = document.getElementById('map');
-  if (mapSvg) {
+  const initDrive = () => {
     const SVGNS = 'http://www.w3.org/2000/svg';
     const card = document.getElementById('map-card');
     const planned = mapSvg.querySelector('.route-planned');
     const casing = mapSvg.querySelector('.route-casing');
     const done = mapSvg.querySelector('.route-done');
-    const heart = mapSvg.querySelector('.heart-fill');
     const pinsLayer = mapSvg.querySelector('.pins');
     const car = mapSvg.querySelector('.car');
     const stops = [...document.querySelectorAll('.j-stop')];
@@ -111,20 +110,25 @@
     const dirTitle = document.getElementById('dir-title');
     const dirMeta = document.getElementById('dir-meta');
     const bar = document.getElementById('map-progress');
+    const dirIcon = document.getElementById('dir-icon');
+    const dirThen = document.getElementById('dir-then');
 
-    // The classic heart curve, starting at the bottom tip and going clockwise
-    const pts = [];
-    for (let t = -Math.PI; t <= Math.PI + 0.0001; t += 0.01) {
-      const x = 300 + 15 * 16 * Math.pow(Math.sin(t), 3);
-      const y = 282 - 15 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-      pts.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
+    // A drive through the city: along the streets, with rounded corners at each turn
+    const way = [[70,510],[70,400],[190,400],[190,290],[310,290],[310,400],[430,400],[430,180],[310,180],[190,180],[190,80],[530,80],[530,290]];
+    const R = 18;
+    let path = `M ${way[0][0]} ${way[0][1]}`;
+    for (let i = 1; i < way.length - 1; i++) {
+      const [px, py] = way[i - 1], [cx, cy] = way[i], [nx, ny] = way[i + 1];
+      const inX = cx - Math.sign(cx - px) * R, inY = cy - Math.sign(cy - py) * R;
+      const outX = cx + Math.sign(nx - cx) * R, outY = cy + Math.sign(ny - cy) * R;
+      path += ` L ${inX} ${inY} Q ${cx} ${cy} ${outX} ${outY}`;
     }
-    const d = `M ${pts.join(' L ')}`;
-    [planned, casing, done, heart].forEach((p) => p.setAttribute('d', d));
+    path += ` L ${way[way.length - 1][0]} ${way[way.length - 1][1]}`;
+    [planned, casing, done].forEach((p) => p.setAttribute('d', path));
     const total = done.getTotalLength();
     [casing, done].forEach((p) => { p.style.strokeDasharray = `${total} ${total}`; p.style.strokeDashoffset = `${total}`; });
 
-    // pins evenly spaced along the heart; the last stop closes the heart
+    // pins evenly spaced along the route; the last one is the destination
     const N = stops.length;
     const stopLen = stops.map((_, i) => (total * i) / (N - 1));
     const pins = stopLen.map((len, i) => {
@@ -184,9 +188,16 @@
           s.classList.toggle('is-current', i === active);
           s.classList.toggle('is-past', i < active);
         });
-        dirStep.textContent = active === N - 1 ? 'Arrived' : `Stop ${active + 1} of ${N}`;
+        // like turn-by-turn directions: this manoeuvre, then the next one
+        dirStep.textContent = `${active + 1} / ${N}`;
         dirTitle.textContent = stops[active].querySelector('h3').textContent;
         dirMeta.textContent = stops[active].querySelector('.stamp').textContent;
+        const turn = stops[active].querySelector('.turn svg');
+        if (dirIcon && turn) dirIcon.innerHTML = turn.outerHTML;
+        if (dirThen) {
+          const next = stops[active + 1];
+          dirThen.innerHTML = next ? `Then <b>${next.querySelector('h3').textContent}</b>` : 'You have arrived ♥';
+        }
       }
     };
 
@@ -206,6 +217,12 @@
     window.addEventListener('resize', onScroll);
     target = current = measure();
     render();
+  };
+  // the drive is optional: it sets itself up only once someone chooses to take it
+  if (mapSvg) {
+    const journey = document.getElementById('journey');
+    if (journey && journey.hidden) document.addEventListener('drive:open', initDrive, { once: true });
+    else initDrive();
   }
 
   /* ==========================================================
@@ -250,4 +267,318 @@
       card.addEventListener('blur', () => card.classList.remove('is-open'));
     });
   }
+})();
+
+/* Kind words: a sideways carousel with arrow buttons */
+(() => {
+  const track = document.querySelector('.kind3 .quotes');
+  if (!track) return;
+  const btns = document.querySelectorAll('.kind3 .car-btn');
+  const step = () => (track.querySelector('.quote')?.offsetWidth || 320) + 24;
+  btns.forEach((b) => b.addEventListener('click', () => track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: 'smooth' })));
+  const update = () => {
+    btns[0].disabled = track.scrollLeft < 4;
+    btns[1].disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+  };
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+
+/* Journal: show the sketch or the final screen — a button, so it works by tap, click and keyboard */
+document.querySelectorAll('.flip-btn').forEach((btn) => {
+  const print = btn.closest('.page').querySelector('.print');
+  btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(on));
+    print.classList.toggle('show-ui', on);
+    btn.textContent = on ? 'Show the first sketch' : 'Show the final screen';
+  });
+});
+
+/* Hero: the sticker loop can be paused (WCAG 2.2.2) */
+(() => {
+  const btn = document.querySelector('.motion-btn');
+  const hero = document.querySelector('.hero3');
+  if (!btn || !hero) return;
+  btn.addEventListener('click', () => {
+    const paused = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(paused));
+    hero.classList.toggle('paused', paused);
+    btn.textContent = paused ? 'Play animation' : 'Pause animation';
+  });
+})();
+
+/* Hero: a messy scribble slowly combs itself into a clear upward line — messy money moments, making sense.
+   Move the pointer (or drag a finger) across it to untangle the part behind you. */
+(() => {
+  const svg = document.querySelector('.untangle');
+  const hero = document.querySelector('.hero3');
+  if (!svg || !hero) return;
+  const line = svg.querySelector('.ut-line'), dot = svg.querySelector('.ut-dot');
+  const N = 120, W = 1000;
+  // seeded randomness so the scribble looks the same on every visit
+  let s = 7; const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const messy = [], clean = [];
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    const loop = Math.sin(t * 38 + rnd() * .6);
+    messy.push([t * W + loop * 46 + (rnd() - .5) * 30, 100 + Math.cos(t * 41) * 62 * (0.5 + rnd() * .6) + (rnd() - .5) * 28]);
+    clean.push([t * W, 168 - 128 * (t * t * (3 - 2 * t)) + Math.sin(t * Math.PI * 3) * 8]);
+  }
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const f = new Float32Array(N).fill(reduce ? 1 : 0);   // how untangled each point is (0 messy → 1 clean)
+  let pointerX = -1, start = performance.now();
+  const ease = (x) => x * x * (3 - 2 * x);
+  const auto = (now) => {           // slow loop: hold messy, untangle, hold clean, tangle back (16s)
+    const c = ((now - start) / 16000) % 1;
+    if (c < .18) return 0;
+    if (c < .48) return ease((c - .18) / .3);
+    if (c < .82) return 1;
+    return 1 - ease((c - .82) / .18);
+  };
+  const draw = () => {
+    let d = '';
+    for (let i = 0; i < N; i++) {
+      const x = messy[i][0] + (clean[i][0] - messy[i][0]) * f[i];
+      const y = messy[i][1] + (clean[i][1] - messy[i][1]) * f[i];
+      d += (i ? ' L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+      if (i === N - 1) { dot.setAttribute('cx', x); dot.setAttribute('cy', y); }
+    }
+    line.setAttribute('d', d);
+    const avg = f.reduce((a, b) => a + b, 0) / N;
+    svg.style.setProperty('--clean', avg.toFixed(3));
+  };
+  if (reduce) { draw(); return; }
+  const tick = (now) => {
+    const paused = hero.classList.contains('paused');
+    if (paused) start += 16;        // freeze the loop while paused
+    const a = auto(now);
+    for (let i = 0; i < N; i++) {
+      const px = i / (N - 1) * W;
+      const byPointer = pointerX < 0 ? 0 : ease(Math.min(1, Math.max(0, (pointerX - px) / 140 + .5)));
+      const target = Math.max(a, byPointer);
+      if (!paused) f[i] += (target - f[i]) * .035;   // slow, calm easing
+    }
+    draw();
+    requestAnimationFrame(tick);
+  };
+  const toLocal = (clientX) => { const r = svg.getBoundingClientRect(); return (clientX - r.left) / r.width * W; };
+  hero.addEventListener('pointermove', (e) => { pointerX = toLocal(e.clientX); });
+  hero.addEventListener('pointerleave', () => { pointerX = -1; });
+  hero.addEventListener('touchend', () => { setTimeout(() => { pointerX = -1; }, 1200); });
+  requestAnimationFrame(tick);
+})();
+
+/* Career: "Take the drive" reveals the road trip and scrolls to it */
+(() => {
+  const btn = document.querySelector('.drive-cta');
+  const journey = document.getElementById('journey');
+  if (!btn || !journey) return;
+  btn.addEventListener('click', () => {
+    const open = journey.hidden;
+    journey.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.querySelector('.drive-text b').textContent = open ? 'Hide the drive' : 'Prefer a story? Take the drive';
+    if (open) {
+      document.dispatchEvent(new Event('drive:open'));
+      requestAnimationFrame(() => {
+        journey.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+        window.dispatchEvent(new Event('scroll'));
+      });
+    }
+  });
+})();
+
+/* Hero: a quiet field of dots. Near the pointer (or a finger) they swell and warm up,
+   then fade back slowly — a soft trail. When nobody is interacting, a slow wave drifts across. */
+(() => {
+  const cv = document.querySelector('.dotfield');
+  const hero = document.querySelector('.hero3');
+  if (!cv || !hero) return;
+  const ctx = cv.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W = 0, H = 0, dpr = 1, dots = [], gap = 26;
+  const build = () => {
+    const r = hero.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    gap = W < 600 ? 22 : 26;
+    dots = [];
+    for (let y = gap / 2; y < H; y += gap) for (let x = gap / 2; x < W; x += gap) dots.push({ x, y, e: 0 });
+  };
+  let px = -999, py = -999, lastMove = 0;
+  const setP = (cx, cy) => { const r = cv.getBoundingClientRect(); px = cx - r.left; py = cy - r.top; lastMove = performance.now(); };
+  hero.addEventListener('pointermove', (e) => setP(e.clientX, e.clientY));
+  hero.addEventListener('pointerdown', (e) => setP(e.clientX, e.clientY));
+  hero.addEventListener('pointerleave', () => { px = py = -999; });
+  let draw = (now) => {
+    const paused = hero.classList.contains('paused');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const idle = true; // the slow wave always passes; the pointer adds to it
+    const wave = ((now / 9000) % 1) * (W + H) - H * .3;   // slow diagonal wave position
+    for (const d of dots) {
+      let t = 0;
+      const dist = Math.hypot(d.x - px, d.y - py);
+      if (dist < 130) t = Math.max(t, 1 - dist / 130);
+      if (idle && !reduce && !paused) { const w = Math.abs((d.x + d.y * .6) - wave); if (w < 90) t = Math.max(t, (1 - w / 90) * .45); }
+      // rise quickly, fade back slowly
+      d.e += (t - d.e) * (t > d.e ? .25 : .035);
+      const e = d.e;
+      // dots near the pointer drift gently away from it, then settle back
+      let ox = 0, oy = 0;
+      if (dist < 130 && dist > 0.1) { const push = (1 - dist / 130) * 14; ox = (d.x - px) / dist * push; oy = (d.y - py) / dist * push; }
+      // a slow, gentle float so the field is never completely still
+      if (!reduce && !paused) { const ph = (d.x * .013 + d.y * .017); ox += Math.sin(now / 2600 + ph) * 1.6; oy += Math.cos(now / 3100 + ph) * 1.6; }
+      d.ox = (d.ox || 0) + (ox - (d.ox || 0)) * .12; d.oy = (d.oy || 0) + (oy - (d.oy || 0)) * .12;
+      const r = 1.3 + e * 2.4;
+      ctx.fillStyle = e > .02 ? `rgba(${Math.round(20 + 211 * e)}, ${Math.round(17 + 55 * e)}, ${Math.round(28 - 13 * e)}, ${.18 + e * .6})` : 'rgba(20, 17, 28, .18)';
+      ctx.beginPath(); ctx.arc(d.x + d.ox, d.y + d.oy, r, 0, Math.PI * 2); ctx.fill();
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  };
+  // stop drawing while the hero is off screen, so the rest of the page stays smooth
+  let visible = true;
+  new IntersectionObserver((es) => { const was = visible; visible = es[0].isIntersecting; if (visible && !was && !reduce) requestAnimationFrame(draw); }).observe(hero);
+  const _draw = draw;
+  draw = (now) => { if (visible) _draw(now); };
+  build();
+  window.addEventListener('resize', build);
+  requestAnimationFrame(draw);
+})();
+
+/* In-page links ("See my work", "Get in touch", …): glide to the section's heading, already visible */
+document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target || target.closest('.cs-toc')) return;
+    e.preventDefault();
+    target.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
+    const anchor = target.querySelector('.section-head, .label, h2') || target;
+    const header = document.querySelector('.site-header');
+    const offset = (header ? header.getBoundingClientRect().height : 0) + 24;
+    const y = anchor.getBoundingClientRect().top + window.scrollY - offset;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+    history.replaceState(null, '', a.getAttribute('href'));
+    target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
+  });
+});
+
+/* Hero: a faint maze behind the words. A soft line finds its way from the entrance to the exit,
+   rests, fades, and a new maze appears — "lost in a maze of clicks? let's find you a way out." */
+(() => {
+  const svg = document.querySelector('.maze');
+  const hero = document.querySelector('.hero3');
+  if (!svg || !hero) return;
+  const walls = svg.querySelector('.maze-walls'), path = svg.querySelector('.maze-path'), dot = svg.querySelector('.maze-dot');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, cell, cols, rows, len = 0, t0 = 0, visible = true;
+  const make = () => {
+    const r = hero.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cell = W < 600 ? 56 : 76;   // big, calm cells
+    cols = Math.floor(W / cell); rows = Math.floor(H / cell);
+    const ox = (W - cols * cell) / 2, oy = (H - rows * cell) / 2;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    // recursive-backtracker maze
+    const N = cols * rows, seen = new Uint8Array(N), right = new Uint8Array(N).fill(1), down = new Uint8Array(N).fill(1);
+    const stack = [0]; seen[0] = 1;
+    while (stack.length) {
+      const c = stack[stack.length - 1], x = c % cols, y = (c / cols) | 0;
+      const n = [];
+      if (x > 0 && !seen[c - 1]) n.push(c - 1);
+      if (x < cols - 1 && !seen[c + 1]) n.push(c + 1);
+      if (y > 0 && !seen[c - cols]) n.push(c - cols);
+      if (y < rows - 1 && !seen[c + cols]) n.push(c + cols);
+      if (!n.length) { stack.pop(); continue; }
+      const k = n[(Math.random() * n.length) | 0];
+      if (k === c + 1) right[c] = 0; else if (k === c - 1) right[k] = 0; else if (k === c + cols) down[c] = 0; else down[k] = 0;
+      seen[k] = 1; stack.push(k);
+    }
+    let d = `M${ox} ${oy}H${ox + cols * cell}M${ox} ${oy}V${oy + rows * cell}`;
+    for (let c = 0; c < N; c++) {
+      const x = ox + (c % cols) * cell, y = oy + ((c / cols) | 0) * cell;
+      if (right[c]) d += `M${x + cell} ${y}V${y + cell}`;
+      if (down[c]) d += `M${x} ${y + cell}H${x + cell}`;
+    }
+    walls.setAttribute('d', d);
+    // solve from a left entrance to a right exit (breadth-first search)
+    const s = ((rows / 2) | 0) * cols, e = (((rows / 2) | 0) + 1) * cols - 1;
+    const prev = new Int32Array(N).fill(-1), q = [s]; prev[s] = s;
+    while (q.length) {
+      const c = q.shift(); if (c === e) break;
+      const x = c % cols;
+      const go = (k) => { if (prev[k] === -1) { prev[k] = c; q.push(k); } };
+      if (x < cols - 1 && !right[c]) go(c + 1);
+      if (x > 0 && !right[c - 1]) go(c - 1);
+      if (c + cols < N && !down[c]) go(c + cols);
+      if (c - cols >= 0 && !down[c - cols]) go(c - cols);
+    }
+    const pts = []; for (let c = e; ; c = prev[c]) { pts.push(c); if (c === s) break; }
+    pts.reverse();
+    const cx = (c) => ox + (c % cols) * cell + cell / 2, cy = (c) => oy + ((c / cols) | 0) * cell + cell / 2;
+    path.setAttribute('d', `M${ox - 10} ${cy(s)}` + pts.map((c) => `L${cx(c)} ${cy(c)}`).join('') + `L${ox + cols * cell + 10} ${cy(e)}`);
+    len = path.getTotalLength();
+    path.style.strokeDasharray = `${len} ${len}`;
+    t0 = performance.now();
+  };
+  const step = (now) => {
+    if (!visible) return;
+    const T = 14000, HOLD = 2500, OUT = 1800, k = (now - t0);
+    if (k > T + HOLD + OUT) { make(); svg.style.opacity = 0; requestAnimationFrame(() => { svg.style.opacity = 1; }); }
+    const p = Math.min(1, k / T), ease = p * p * (3 - 2 * p);
+    const fade = k > T + HOLD ? Math.max(0, 1 - (k - T - HOLD) / OUT) : 1;
+    path.style.strokeDashoffset = len * (1 - ease);
+    path.style.opacity = fade; dot.style.opacity = fade; walls.style.opacity = .4 + fade * .6;
+    const pt = path.getPointAtLength(len * ease);
+    dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
+    requestAnimationFrame(step);
+  };
+  make();
+  if (reduce) { path.style.strokeDashoffset = 0; const pt = path.getPointAtLength(len); dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y); return; }
+  new IntersectionObserver((es) => { const was = visible; visible = es[0].isIntersecting; if (visible && !was) requestAnimationFrame(step); }).observe(hero);
+  let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(make, 200); });
+  requestAnimationFrame(step);
+})();
+
+
+/* Noticeboard pockets: open one photo at a time, with a short note */
+(() => {
+  const dlg = document.querySelector('.pocket-view');
+  if (!dlg) return;
+  const title = dlg.querySelector('#pv-title'), img = dlg.querySelector('.pv-photo img');
+  const cap = dlg.querySelector('.pv-cap'), note = dlg.querySelector('.pv-note'), count = dlg.querySelector('.pv-count'), thumbs = dlg.querySelector('.pv-thumbs');
+  let photos = [], i = 0, opener = null;
+  const show = (n) => {
+    i = (n + photos.length) % photos.length;
+    const p = photos[i];
+    img.classList.remove('in'); void img.offsetWidth;
+    img.src = p.src; img.alt = p.cap; img.classList.add('in');
+    cap.textContent = p.cap; note.textContent = p.note || '';
+    count.textContent = `${i + 1} / ${photos.length}`;
+    thumbs.querySelectorAll('button').forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
+    thumbs.children[i]?.scrollIntoView({ block: 'nearest', inline: 'center' });
+  };
+  document.querySelectorAll('.pocket').forEach((p) => p.addEventListener('click', () => {
+    opener = p;
+    photos = JSON.parse(p.dataset.photos);
+    title.textContent = p.dataset.title.replace('&amp;', '&');
+    thumbs.innerHTML = photos.map((ph, k) => `<li><button type="button" aria-label="Photo ${k + 1}: ${ph.cap}"><img src="${ph.src}" alt=""></button></li>`).join('');
+    thumbs.querySelectorAll('button').forEach((b, k) => b.addEventListener('click', () => show(k)));
+    dlg.showModal(); show(0);
+    dlg.querySelector('.pv-nav.next').focus();
+  }));
+  dlg.querySelector('.prev').addEventListener('click', () => show(i - 1));
+  dlg.querySelector('.next').addEventListener('click', () => show(i + 1));
+  dlg.querySelector('.pv-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+  let x0 = null;
+  dlg.querySelector('.pv-photo').addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  dlg.querySelector('.pv-photo').addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  dlg.addEventListener('close', () => opener && opener.focus());
 })();

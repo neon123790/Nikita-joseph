@@ -4554,3 +4554,17 @@ body:has(.proj-hero[style*="#ddd0ff"]) { --hl: #e2d6ff; }
   .phones { margin-top: 8px; }
   .nb-page { padding-left: 46px; }
 }
+
+/* Ten Tabs hero: the two screens, straight, blurred and locked until the code is entered */
+.hk-screens { position: relative; margin: 0; display: flex; justify-content: center; align-items: flex-start; gap: clamp(12px, 2vw, 22px); }
+.hk-phone { width: min(44%, 220px); padding: 6px; border-radius: 30px; background: #1f1b29; box-shadow: 0 26px 46px -26px rgba(40, 20, 80, .55); overflow: hidden; }
+.hk-phone + .hk-phone { margin-top: 36px; }
+.hk-shot { display: block; width: 100%; height: auto; aspect-ratio: 260 / 584; object-fit: cover; border-radius: 24px; transition: filter .6s ease; }
+.hk-lockbadge { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px;
+  background: rgba(255, 255, 255, .92); box-shadow: 0 10px 24px -10px rgba(20, 17, 28, .45); font: 600 .85rem/1 var(--sans); color: #2c2836; transition: opacity .4s ease; }
+.hk-lockbadge svg { width: 18px; height: 18px; fill: none; stroke: #6b4fd8; stroke-width: 2.2; stroke-linecap: round; }
+.hk-screens.open .hk-lockbadge { opacity: 0; pointer-events: none; }
+@media (max-width: 760px) { .hk-screens { margin-top: 18px; } .hk-phone { width: 42%; } }
+/* Ten Tabs hero laid out like Genie: title, then the screens, then the details row */
+.hk-hero.gn-hero .hk-screens { width: 100%; max-width: 640px; justify-self: center; }
+.hk-hero.gn-hero .hk-phone + .hk-phone { margin-top: 0; }

@@ -4613,3 +4613,6 @@ body:has(.proj-hero[style*="#ddd0ff"]) { --hl: #e2d6ff; }
 /* design screens: gentle corners, not pills */
 .hk-phone { border-radius: 14px !important; padding: 4px !important; }
 .hk-shot { border-radius: 10px !important; }
+/* "classified" stamp sits in the box's bottom corner, clear of the heading */
+.nb-list .classified { padding-bottom: 40px; }
+.stamp-cls { top: auto !important; bottom: 10px; right: 12px; }

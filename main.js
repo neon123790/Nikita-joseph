@@ -747,28 +747,12 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   });
 })();
 
-// More about me: tap the heart and little hearts burst out of it
+// More about me: the asterisks give a quick extra twirl when touched or hovered
 (() => {
-  const btn = document.querySelector('.heart-pop');
-  if (!btn) return;
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const shape = btn.querySelector('svg').outerHTML;
-  const colours = ['#ff6b8a', '#ffd65a', '#c9b6ff', '#9be3bf', '#ff9fb5'];
-  const burst = () => {
-    btn.classList.remove('jump'); void btn.offsetWidth; btn.classList.add('jump');
-    if (still) return;
-    for (let i = 0; i < 9; i++) {
-      const bit = document.createElement('span');
-      bit.className = 'heart-bit'; bit.innerHTML = shape; bit.style.setProperty('--c', colours[i % colours.length]);
-      btn.appendChild(bit);
-      const a = (-90 + (i - 4) * 22) * Math.PI / 180, r = 50 + Math.random() * 40, s = .5 + Math.random() * .6;
-      bit.animate([
-        { transform: 'translate(0,0) scale(.2)', opacity: 1 },
-        { transform: `translate(${Math.cos(a) * r}px, ${Math.sin(a) * r}px) scale(${s}) rotate(${(Math.random() - .5) * 60}deg)`, opacity: 1, offset: .6 },
-        { transform: `translate(${Math.cos(a) * r * 1.2}px, ${Math.sin(a) * r * 1.2 + 30}px) scale(${s * .8})`, opacity: 0 }
-      ], { duration: 900 + Math.random() * 300, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = () => bit.remove();
-    }
-  };
-  btn.addEventListener('click', burst);
-  btn.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { btn.classList.remove('jump'); void btn.offsetWidth; btn.classList.add('jump'); } });
+  const head = document.querySelector('#board-title');
+  if (!head || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const twirl = () => head.querySelectorAll('.spin-star').forEach((s) => s.animate(
+    [{ scale: 1 }, { scale: 1.5, rotate: '180deg' }, { scale: 1 }], { duration: 700, easing: 'cubic-bezier(.3,1.4,.5,1)', composite: 'add' }));
+  head.addEventListener('pointerenter', twirl);
+  head.addEventListener('click', twirl);
 })();

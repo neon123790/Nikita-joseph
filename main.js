@@ -698,3 +698,51 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     row.addEventListener('scroll', sync, { passive: true }); addEventListener('resize', sync); sync();
   });
 })();
+
+// home thumbnails: pencil sketches that draw themselves, hold, then fade and redraw (one smooth timeline)
+(() => {
+  const sketches = document.querySelectorAll('.thumb.sk');
+  if (!sketches.length) return;
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DRAW = 4200, HOLD = 2600, FADE = 700, REST = 500, CYCLE = DRAW + HOLD + FADE + REST;
+  const ease = (x) => 0.5 - Math.cos(Math.PI * x) / 2;
+  const clamp = (x) => Math.max(0, Math.min(1, x));
+  sketches.forEach((el) => {
+    const layer = el.querySelector('.sk-layer'), svg = el.querySelector('svg'), vb = svg.viewBox.baseVal;
+    // a second, fainter pass of every stroke makes it read as pencil
+    el.querySelectorAll('.sk-d').forEach((p) => { const g = p.cloneNode(); g.removeAttribute('id'); g.classList.add('ghost'); p.after(g); });
+    const strokes = [...el.querySelectorAll('.sk-d')].map((p) => {
+      const L = p.getTotalLength(); p.style.strokeDasharray = `${L} ${L}`;
+      return { p, L, s: +(p.dataset.s || 0), e: +(p.dataset.e || 1) };
+    });
+    const marks = [...el.querySelectorAll('[data-at]')].map((t) => {
+      const on = t.dataset.on && el.querySelector(t.dataset.on);
+      if (on) { const pt = on.getPointAtLength(on.getTotalLength() * +t.dataset.at); t.style.left = (pt.x / vb.width * 100) + '%'; t.style.top = (pt.y / vb.height * 100) + '%'; }
+      return { t, at: +t.dataset.at };
+    });
+    const typer = el.querySelector('[data-type]');
+    const render = (p, o) => {
+      strokes.forEach((k) => { k.p.style.strokeDashoffset = k.L * (1 - clamp((p - k.s) / (k.e - k.s))); });
+      marks.forEach((m) => m.t.classList.toggle('show', p >= m.at));
+      if (typer) { const s = +typer.dataset.s, e = +typer.dataset.e, txt = typer.dataset.type;
+        typer.textContent = txt.slice(0, Math.round(txt.length * clamp((p - s) / (e - s))));
+        typer.style.setProperty('--caret', p >= s && p < 1 ? 1 : 0); }
+      layer.style.opacity = o;
+    };
+    if (still) { render(1, 1); return; }
+    render(0, 1);
+    let raf = 0, t0 = 0;
+    const frame = (now) => {
+      const t = (now - t0) % CYCLE;
+      if (t < DRAW) render(ease(t / DRAW), 1);
+      else if (t < DRAW + HOLD) render(1, 1);
+      else if (t < DRAW + HOLD + FADE) render(1, 1 - (t - DRAW - HOLD) / FADE);
+      else render(0, 0);
+      raf = requestAnimationFrame(frame);
+    };
+    new IntersectionObserver(([e]) => {
+      cancelAnimationFrame(raf);
+      if (e.isIntersecting) { t0 = performance.now(); render(0, 1); raf = requestAnimationFrame(frame); }
+    }).observe(el);
+  });
+})();

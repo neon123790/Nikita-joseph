@@ -4129,3 +4129,15 @@ mark.hl { background-image: linear-gradient(100deg, transparent 0, var(--hl) .12
 .fl-ring-key { display: flex; gap: 12px; justify-content: center; margin: 8px 0 0; font: 600 .78rem/1 var(--sans); color: #4a4558; }
 .fl-ring-key span::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; background: var(--c); }
 @media (max-width: 760px) { .fl-merge .fl-arrow { flex-basis: 100%; } }
+
+/* Awards: the photo leads, no badge sticker, no white frame */
+.aw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: clamp(16px, 2.4vw, 28px); }
+.aw-card { display: flex !important; flex-direction: column; gap: 0; padding: 0 !important; overflow: hidden; border-radius: 18px !important; rotate: 0deg !important; transform: none !important; }
+.aw-card > div { padding: 18px 20px 22px; }
+.aw-photo { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; overflow: hidden; }
+.aw-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 30%; transition: scale .5s cubic-bezier(.2, .8, .2, 1); }
+.aw-photo:hover img, .aw-photo:focus-visible img { scale: 1.04; }
+.aw-photo:focus-visible { outline: 3px solid #c2410c; outline-offset: -3px; }
+.aw-zoom { position: absolute; right: 12px; bottom: 12px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .92); color: #14111c; font: 700 1rem/1 var(--sans); box-shadow: 0 4px 10px rgba(20, 17, 28, .25); }
+.aw-card h3 { margin-top: 2px !important; }
+@media (max-width: 860px) { .aw-grid { grid-template-columns: 1fr !important; } }

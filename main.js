@@ -125,14 +125,35 @@
     const pts = [[60, 500], [105, 440], [160, 405], [220, 435], [280, 420], [325, 370], [340, 300], [310, 250], [262, 262], [258, 312], [300, 332],
       [370, 300], [440, 330], [490, 295], [480, 250], [445, 205], [450, 170], [490, 120], [530, 90]].map(([x, y]) => [x, Y(y)]);
     const stopAt = [0, 2, 4, 7, 11, 14, 16, 18];
-    let d = `M ${pts[0][0]} ${pts[0][1]}`;
-    for (let i = 0; i < pts.length - 1; i++) {
-      const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
-      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
-      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
-      d += ` C ${c1[0].toFixed(1)} ${c1[1].toFixed(1)}, ${c2[0].toFixed(1)} ${c2[1].toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
-    }
+    // the curve between two waypoints (smooth Catmull-Rom); sub-paths reuse it so the colours line up exactly
+    const piece = (from, to) => {
+      let s = `M ${pts[from][0]} ${pts[from][1]}`;
+      for (let i = from; i < to; i++) {
+        const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+        const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+        const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+        s += ` C ${c1[0].toFixed(1)} ${c1[1].toFixed(1)}, ${c2[0].toFixed(1)} ${c2[1].toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+      }
+      return s;
+    };
+    const d = piece(0, pts.length - 1);
     [ahead, trail, reveal, glow].forEach((p) => p && p.setAttribute('d', d));
+    // each stretch of the flight is drawn in the colour of the company it belongs to
+    const legs = [
+      { from: 0, to: 2, c: '#d98e2b' },   // Dubai Design Week
+      { from: 2, to: 4, c: '#1d3b5a' },   // DeFiner
+      { from: 4, to: 16, c: '#2b45e8' },  // FYERS
+      { from: 16, to: 18, c: '#e64980' }  // on to your team
+    ];
+    trail.style.stroke = 'none';
+    legs.forEach((leg) => {
+      const p = document.createElementNS(SVGNS, 'path');
+      p.setAttribute('d', piece(leg.from, leg.to));
+      p.setAttribute('class', 'pl-trail pl-leg');
+      p.setAttribute('mask', 'url(#pl-mask)');
+      p.style.stroke = leg.c;
+      trail.after(p);
+    });
     const total = trail.getTotalLength();
     const firstNear = (x, y, from) => {
       for (let L = from; L <= total; L += 0.5) {

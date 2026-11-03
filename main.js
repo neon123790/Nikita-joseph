@@ -646,3 +646,34 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
   d.addEventListener('close', () => from && from.focus());
 })();
+
+/* Art strip: arrows scroll the row of artworks */
+(() => {
+  document.querySelectorAll('.art-strip').forEach((strip) => {
+    const row = strip.querySelector('.art-pieces');
+    const step = () => (row.querySelector('li')?.getBoundingClientRect().width || 200) * 2 + 32;
+    strip.querySelector('.art-btn.prev').addEventListener('click', () => row.scrollBy({ left: -step(), behavior: 'smooth' }));
+    strip.querySelector('.art-btn.next').addEventListener('click', () => row.scrollBy({ left: step(), behavior: 'smooth' }));
+    const sync = () => {
+      strip.querySelector('.art-btn.prev').disabled = row.scrollLeft < 4;
+      strip.querySelector('.art-btn.next').disabled = row.scrollLeft + row.clientWidth > row.scrollWidth - 4;
+    };
+    row.addEventListener('scroll', sync, { passive: true }); addEventListener('resize', sync); sync();
+  });
+})();
+
+/* Art strip: arrows scroll the row of artworks */
+(() => {
+  document.querySelectorAll('.art-strip').forEach((strip) => {
+    const row = strip.querySelector('.art-pieces');
+    const prev = strip.querySelector('.art-btn.prev'), next = strip.querySelector('.art-btn.next');
+    const step = () => (row.querySelector('li')?.getBoundingClientRect().width || 200) * 2 + 32;
+    prev.addEventListener('click', () => row.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => row.scrollBy({ left: step(), behavior: 'smooth' }));
+    const sync = () => {
+      prev.disabled = row.scrollLeft < 4;
+      next.disabled = row.scrollLeft + row.clientWidth > row.scrollWidth - 4;
+    };
+    row.addEventListener('scroll', sync, { passive: true }); addEventListener('resize', sync); sync();
+  });
+})();

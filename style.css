@@ -3863,3 +3863,61 @@ main h2.h-split b, main h2.h-split b em { color: #c2410c !important; }
 /* contact doodles: every outline the same thickness on screen, whatever each icon's own scale */
 .cs * { vector-effect: non-scaling-stroke; stroke-width: 2.5px !important; }
 .cs text { stroke: none; }
+
+/* Made by hand: one swipeable row coming out of the album (no long scroll) */
+.art-spread { grid-template-columns: 200px minmax(0, 1fr); align-items: center; }
+.art-album { position: relative; top: 0; }
+.art-strip { min-width: 0; }
+.art-pieces { display: flex !important; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 18px 6px 22px; margin: 0 -6px; overscroll-behavior-x: contain; }
+.art-pieces::-webkit-scrollbar { display: none; }
+.art-pieces li { flex: 0 0 clamp(150px, 19vw, 220px); scroll-snap-align: start; --dy: 0px !important; }
+.art-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; }
+.art-hint { font: 400 1.05rem/1 var(--hand); color: #6b6676; }
+.art-btn { width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 2px solid var(--stk-ink); border-radius: 50%; background: #fffdf7; color: var(--stk-ink); font: 700 1.1rem/1 var(--sans); cursor: pointer; }
+.art-btn:hover:not(:disabled) { background: #ffd65a; }
+.art-btn:disabled { opacity: .35; cursor: default; }
+@media (max-width: 760px) {
+  .art-spread { grid-template-columns: 1fr; gap: 6px; }
+  .art-album { width: 130px; justify-self: start; margin-left: 4px; }
+  .art-album-label { padding: 8px 6px; }
+  .art-album-label b { font-size: 1.1rem; }
+  .art-album-label small { font-size: .62rem; }
+  .art-pieces li { flex-basis: 62%; }
+  @keyframes art-out { from { opacity: 0; translate: -120px 0; scale: .5; } to { opacity: 1; translate: 0 0; scale: 1; } }
+}
+
+/* award cards show the photo too */
+.aw-thumb { display: inline-grid !important; justify-items: start; gap: 6px; margin-top: 14px; padding: 6px !important; background: #fff !important; border-radius: 4px; transform: rotate(-2deg);
+  box-shadow: 0 10px 18px -10px rgba(20, 17, 28, .5); cursor: zoom-in; }
+.aw-thumb img { display: block; width: 150px; height: 100px; object-fit: cover; border-radius: 2px; }
+.aw-thumb span { font: 400 .95rem/1 var(--hand); color: #c2410c; padding: 0 2px 2px; }
+.aw-thumb:hover { transform: rotate(0) scale(1.03); }
+
+/* Made by hand: one swipeable row coming out of the album (no long scroll) */
+.art-spread { grid-template-columns: 200px minmax(0, 1fr); align-items: center; }
+.art-album { position: relative; top: 0; }
+.art-strip { min-width: 0; }
+.art-pieces { display: flex !important; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 18px 6px 22px; margin: 0 -6px; overscroll-behavior-x: contain; }
+.art-pieces::-webkit-scrollbar { display: none; }
+.art-pieces li { flex: 0 0 clamp(150px, 19vw, 220px); scroll-snap-align: start; --dy: 0px !important; }
+.art-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; }
+.art-hint { font: 400 1.05rem/1 var(--hand); color: #6b6676; }
+.art-btn { width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 2px solid var(--stk-ink); border-radius: 50%; background: #fffdf7; color: var(--stk-ink); font: 700 1.1rem/1 var(--sans); cursor: pointer; }
+.art-btn:hover:not(:disabled) { background: #ffd65a; }
+.art-btn:disabled { opacity: .35; cursor: default; }
+@media (max-width: 760px) {
+  .art-spread { grid-template-columns: 1fr; gap: 6px; }
+  .art-album { width: 130px; justify-self: start; margin-left: 4px; }
+  .art-album-label { padding: 8px 6px; }
+  .art-album-label b { font-size: 1.1rem; }
+  .art-album-label small { font-size: .62rem; }
+  .art-pieces li { flex-basis: 62%; }
+  @keyframes art-out { from { opacity: 0; translate: -120px 0; scale: .5; } to { opacity: 1; translate: 0 0; scale: 1; } }
+}
+
+/* award cards show the photo too */
+.aw-thumb { display: inline-grid !important; justify-items: start; gap: 6px; margin-top: 14px; padding: 6px !important; background: #fff !important; border-radius: 4px; transform: rotate(-2deg);
+  box-shadow: 0 10px 18px -10px rgba(20, 17, 28, .5); cursor: zoom-in; }
+.aw-thumb img { display: block; width: 150px; height: 100px; object-fit: cover; border-radius: 2px; }
+.aw-thumb span { font: 400 .95rem/1 var(--hand); color: #c2410c; padding: 0 2px 2px; }
+.aw-thumb:hover { transform: rotate(0) scale(1.03); }

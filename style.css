@@ -4141,3 +4141,17 @@ mark.hl { background-image: linear-gradient(100deg, transparent 0, var(--hl) .12
 .aw-zoom { position: absolute; right: 12px; bottom: 12px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .92); color: #14111c; font: 700 1rem/1 var(--sans); box-shadow: 0 4px 10px rgba(20, 17, 28, .25); }
 .aw-card h3 { margin-top: 2px !important; }
 @media (max-width: 860px) { .aw-grid { grid-template-columns: 1fr !important; } }
+
+/* Awards v3: tall photo that shows the whole moment, the badge stuck on its corner like a sticker */
+.aw-photo { position: relative; margin: 0; cursor: default; overflow: visible; }
+.aw-photo img { aspect-ratio: 4 / 5; object-fit: cover; object-position: center 40%; scale: 1 !important; border-radius: 0; }
+.aw-card:nth-child(2) .aw-photo img { object-position: center 100%; }
+.aw-photo .aw-badge { position: absolute; left: 14px; bottom: -34px; z-index: 2; width: clamp(78px, 8vw, 96px) !important; rotate: var(--r); }
+.aw-card { overflow: visible !important; }
+.aw-card .aw-photo img { border-radius: 16px 16px 0 0; }
+.aw-card > div { padding-top: 44px !important; }
+.aw-card:hover .aw-photo .aw-badge { rotate: calc(var(--r) * -6); }
+/* both award photos square; the group photo centred on the people and certificates */
+.aw-photo img { aspect-ratio: 1 / 1 !important; }
+.aw-card:nth-child(1) .aw-photo img { object-position: center 62% !important; }
+.aw-card:nth-child(2) .aw-photo img { object-position: center 50% !important; }

@@ -17,11 +17,11 @@
   <meta property="og:image:alt" content="Nikita’s sticker portrait beside a handwritten note: Hi, I’m Nikita! Senior UX Designer.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://nikitaejoseph.com/images/og-card.jpg?v=2">
-  <meta name="description" content="Portfolio: Making holdings, performance, and investment details easier to read and act on. A case study by Nikita Joseph, Senior UX Designer.">
+  <meta name="description" content="FYERS 2.0 Portfolio: how a two-panel layout, smart grouping and one reusable side panel answered every trader’s two questions, on web, tablet and mobile. A case study by Nikita Joseph.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=187">
+    <link rel="stylesheet" href="../style.css?v=189">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -79,37 +79,301 @@
     </nav>
   </header>
 
+  <div class="read-progress" aria-hidden="true"><i></i></div>
   <main id="main">
-    <section class="cs-hero proj-hero" style="--proj:#ffcfaa">
+    <section class="genie-hero2 proj-hero gn-hero pf-hero" style="--proj:#ffb27a">
       <div class="wrap">
-        <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
-            <div class="cs-titlerow"><h1>Portfolio</h1></div>
-        <p class="label proj-kicker">Case study · Project 02</p>
-        <p class="lede">Making holdings, performance, and investment details easier to read and act on.</p>
-        <div class="tags"><span class="chip" style="--c:var(--p-lime)">Investing UX</span><span class="chip" style="--c:var(--p-lime)">Mobile + Web</span><span class="chip" style="--c:var(--p-lime)">Shipped</span></div>
-
-        <dl class="cs-facts">
-          <div><dt>Role</dt><dd>Lead designer · UX Designer II</dd></div>
-          <div><dt>Company</dt><dd>FYERS</dd></div>
-          <div><dt>Timeline</dt><dd>2024 – 2025</dd></div>
-                  </dl>
-      </div>
-    </section>
-
-    <section class="wip" aria-labelledby="wip-title">
-      <div class="wip-tape" aria-hidden="true"><span>Case study in progress · Case study in progress · Case study in progress · Case study in progress · Case study in progress · Case study in progress</span></div>
-      <div class="wrap">
-        <div class="wip-card">
-          <p class="label">Work in progress</p>
-          <h2 class="h-split" id="wip-title">This story is <b>still being written.</b></h2>
-          <p>I’m putting together the full case study for Portfolio: the problem, the research, the decisions that shaped it and what shipped. Check back soon, or ask me about it.</p>
-          <div class="wip-actions">
-            <a class="btn btn-primary" href="genie.html">Read the Genie case study <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="#contact">Ask me about it</a>
+        <div class="gh-panel">
+          <div class="gh-text">
+            <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
+            <p class="label proj-kicker">Case study · Fintech · 2024</p>
+            <div class="cs-titlerow"><h1>Every trader asks <span class="pf-q">two questions</span>. Our screen had to answer both.</h1></div>
+            <p class="pf-lede"><span class="pf-ask">What do I own?</span> <span class="pf-ask alt">What’s still open?</span> The old FYERS portfolio answered neither. The new one had to answer both, without making anyone scroll, click or wait.</p>
           </div>
+          <!--SHOT:hero-->
+          <dl class="gh-facts gn-facts">
+            <div><dt>My role</dt><dd>UX Designer, with a UI Designer partner on final visuals</dd></div>
+            <div><dt>Product</dt><dd>FYERS 2.0 Portfolio: Positions and Holdings</dd></div>
+            <div><dt>Platforms</dt><dd>Web, tablet and mobile</dd></div>
+            <div><dt>Team</dt><dd>Product Owners, UI Designer, Engineering, Stakeholders</dd></div>
+          </dl>
         </div>
       </div>
     </section>
+
+    <div class="wrap cs-layout">
+      <nav class="cs-toc" aria-label="On this page">
+        <details class="cs-toc-box" open><summary class="cs-toc-title">On this page</summary>
+        <ol><li><a href="#start">The starting point</a></li><li><a href="#market">Learning from the market</a></li><li><a href="#turn">The turning point</a></li><li><a href="#evolve">How it evolved</a></li><li><a href="#system">A system of decisions</a></li><li><a href="#positions">Positions</a></li><li><a href="#holdings">Holdings</a></li><li><a href="#mobile">Bringing it to mobile</a></li><li><a href="#fdsg">Building FDSG</a></li><li><a href="#handoff">Collaboration</a></li><li><a href="#outcome">Outcome</a></li><li><a href="#learned">What I learned</a></li></ol></details>
+      </nav>
+
+      <article class="cs-body cs3 pf">
+        <section class="cs-section" id="start" aria-labelledby="h-start">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">01</span>The starting point</p>
+          <div class="content">
+            <h2 id="h-start" class="cs-title">Too simple <mark>and</mark> too complex.</h2>
+            <p>FYERS was building its 2.0 release with one goal: an app that works as well on a tablet and a browser as it does on a phone. At the centre of it sits the Portfolio, where traders check what they hold, what’s still open, and how much they’ve made or lost.</p>
+            <div class="pf-vs">
+              <div class="pf-vs-card"><p class="pf-vs-label">Too simple</p><ul><li>No filtering</li><li>No customisation</li><li>No extra features</li></ul></div>
+              <span class="pf-vs-and" aria-hidden="true">+</span>
+              <div class="pf-vs-card warm"><p class="pf-vs-label">Too complex</p><ul><li>Nothing grouped</li><li>Nothing prioritised</li><li>Some users still struggled</li></ul></div>
+            </div>
+            <p class="cs-callout torn">The issue wasn’t a lack of data. <b>It was a lack of structure.</b></p>
+            <p>And the new version had to carry far more:</p>
+            <ul class="pf-chips" aria-label="What the new portfolio had to carry">
+              <li style="--c:#ffe3cc">Multiple asset types</li><li style="--c:#e3efff">Many actions per item</li><li style="--c:#f1e9ff">Smart orders</li><li style="--c:#dff5e8">Three devices</li>
+            </ul>
+            <p>My role was to form the foundation: how the screens were organised, how they behaved, and how they felt. Requirements from Product Owners kept growing as we learned more about traders.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="market" aria-labelledby="h-market">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">02</span>Learning from the market</p>
+          <div class="content">
+            <h2 id="h-market" class="cs-title">Six apps, six trade-offs, <mark>no complete answer</mark>.</h2>
+            <p>I studied how six Indian trading apps present their dashboards: Zerodha, Upstox, Dhan, Groww, Angel One and 5paisa. Each made a different trade-off:</p>
+            <div class="pf-trade">
+              <div class="pf-trade-row"><span class="pf-trade-end">Minimal</span><span class="pf-trade-line" aria-hidden="true"><i></i></span><span class="pf-trade-end">Dense</span></div>
+              <p class="pf-trade-note">Some stayed minimal and hid detail until it was needed. Others went dense, with advanced filters and expandable rows.</p>
+              <div class="pf-trade-row"><span class="pf-trade-end">Kept apart</span><span class="pf-trade-line" aria-hidden="true"><i></i></span><span class="pf-trade-end">Merged</span></div>
+              <p class="pf-trade-note">Some kept Positions and Holdings apart. Others merged them.</p>
+            </div>
+            <p>None of them solved the whole problem for FYERS. So I stopped asking “what should we copy?” and started asking:</p>
+            <blockquote class="pf-quote">How do we show a lot without making the user work to find <mark>what matters to them</mark>?</blockquote>
+            <h3 class="cs-sub">Three behaviours shaped the answer</h3>
+            <ul class="pf-behave">
+              <li style="--c:#e3efff"><span class="pf-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></span><b>They switch constantly</b><span>between Holdings (“what do I own?”) and Positions (“what’s open?”).</span></li>
+              <li style="--c:#dff5e8"><span class="pf-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18l5-6 4 3 7-9"/><path d="M15 6h5v5"/></svg></span><b>P&amp;L comes first</b><span>but the next move depends on context: the underlying, the product or the status.</span></li>
+              <li style="--c:#ffe3ec"><span class="pf-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg></span><b>Privacy is real</b><span>Many check their portfolio in shared or public spaces. It’s a need, not an edge case.</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="turn" aria-labelledby="h-turn">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">03</span>The turning point</p>
+          <div class="content">
+            <h2 id="h-turn" class="cs-title">Would one screen be <mark>too crowded</mark>?</h2>
+            <p>With a long list of options to offer, my first instinct was to put everything in one place. Then I asked: would it be too crowded? It would. Every detail, action and category on one screen would make the list harder to scan, and punish anyone who only wanted to check a single position.</p>
+            <p>We talked it through as a team and landed on a two-section layout: <b>the full list on the left, kept intact, and the details for whatever you select on the right.</b></p>
+            <figure class="pf-demo" aria-label="Interactive demo: select a row and the details panel slides in from the right while the list stays visible">
+              <div class="pf-demo-screen" data-open="false">
+                <div class="pf-demo-list">
+                  <div class="pf-demo-head"><span>Symbol</span><span>Qty</span><span>P&amp;L</span></div>
+                  <button type="button" class="pf-row" data-sym="NIFTY FUT" data-pl="+₹2,000.50" data-side="Buy · MTF"><span>NIFTY FUT</span><span>50</span><span class="up">+₹2,000.50</span></button>
+                  <button type="button" class="pf-row" data-sym="NIFTYBEES" data-pl="−₹956.90" data-side="Buy · Overnight"><span>NIFTYBEES</span><span>12</span><span class="down">−₹956.90</span></button>
+                  <button type="button" class="pf-row" data-sym="PAYTM" data-pl="+₹2,000.50" data-side="Sell · Overnight"><span>PAYTM</span><span>4</span><span class="up">+₹2,000.50</span></button>
+                  <button type="button" class="pf-row" data-sym="NIFTY 24000 CE" data-pl="−₹300.56" data-side="Buy · Intraday"><span>NIFTY 24000 CE</span><span>75</span><span class="down">−₹300.56</span></button>
+                </div>
+                <aside class="pf-demo-panel" aria-live="polite">
+                  <button type="button" class="pf-demo-close" aria-label="Close details">✕</button>
+                  <p class="pf-demo-sym"></p><p class="pf-demo-side"></p>
+                  <p class="pf-demo-pl"></p>
+                  <div class="pf-demo-actions"><span>Exit</span><span>Add</span><span>Convert</span></div>
+                </aside>
+              </div>
+              <figcaption><span class="pf-demo-hint">Select a row.</span> The list shifts left and the details slide in from the right. No pop-up, and you never lose your place.</figcaption>
+            </figure>
+            <p class="cs-callout torn"><b>Why not a pop-up?</b> Pop-ups cover the list and break the user’s place. The side panel trades some width for continuity, which is why the list itself had to be so carefully organised.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="evolve" aria-labelledby="h-evolve">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">04</span>How it evolved</p>
+          <div class="content">
+            <h2 id="h-evolve" class="cs-title">Where do the actions live? <mark>Four versions to find out.</mark></h2>
+            <p>Every version started from feedback. Stakeholders pushed on how the list was organised, and the biggest open question was the actions: a trader needs to buy, sell, see details, convert or exit, without the controls getting in the way of the numbers.</p>
+            <ol class="pf-versions">
+              <li><span class="pf-v">V1</span><b>An options menu on hover</b><span>It opened over the list and <em>blocked the rows</em> underneath. Stakeholder feedback pushed us to rethink how it was organised.</span></li>
+              <li><span class="pf-v">V2</span><b>Actions to the side, on hover</b><span>Hover a row and Buy, Sell, Details, Convert and Exit appear at its edge. <em>Everything in one go</em>, and no row gets covered.</span></li>
+              <li><span class="pf-v">V3</span><b>Actions on the row itself</b><span>Engineers flagged that some of the hover behaviour might not work on their side, so the actions moved onto the row.</span></li>
+              <li class="kept"><span class="pf-v">V4</span><b>Back to hover</b><span>Once that was worked through together, hover came back: the cleanest list, with every action one move away.</span></li>
+            </ol>
+            <figure class="pf-hover" aria-label="Try it: hover or focus a row to see its actions at the side">
+              <div class="pf-hover-list">
+                <div class="pf-hover-row" tabindex="0"><span class="sym">NIFTY FUT<small>Buy · MTF</small></span><span class="pl up">+₹2,000.50</span><span class="pf-acts" aria-label="Actions"><button type="button" class="b">B</button><button type="button" class="s">S</button><button type="button">Details</button><button type="button">Convert</button><button type="button" class="x">Exit</button></span></div>
+                <div class="pf-hover-row" tabindex="0"><span class="sym">NIFTYBEES<small>Buy · Overnight</small></span><span class="pl down">−₹956.90</span><span class="pf-acts" aria-label="Actions"><button type="button" class="b">B</button><button type="button" class="s">S</button><button type="button">Details</button><button type="button">Convert</button><button type="button" class="x">Exit</button></span></div>
+                <div class="pf-hover-row" tabindex="0"><span class="sym">PAYTM<small>Sell · Overnight</small></span><span class="pl up">+₹2,000.50</span><span class="pf-acts" aria-label="Actions"><button type="button" class="b">B</button><button type="button" class="s">S</button><button type="button">Details</button><button type="button">Convert</button><button type="button" class="x">Exit</button></span></div>
+              </div>
+              <figcaption><b>Try it:</b> hover a row (or tap it on a phone). The actions sit at the side, so the numbers stay readable.</figcaption>
+            </figure>
+            <h3 class="cs-sub">The layout we tried and dropped</h3>
+            <div class="pf-tried">
+              <div class="pf-tried-card dropped"><span class="pf-tag">Tried</span><div class="pf-mini cards" aria-hidden="true"><i></i><i></i><i></i><i></i></div><b>Cards for positions</b><span>Pretty, but slower to scan and compare. We dropped it.</span></div>
+              <div class="pf-tried-card"><span class="pf-tag ok">Kept</span><div class="pf-mini rows" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><b>The list view</b><span>Every number lines up, so traders can compare at a glance.</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="system" aria-labelledby="h-system">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">05</span>A system of decisions</p>
+          <div class="content">
+            <h2 id="h-system" class="cs-title">Four decisions that <mark>organise everything</mark>.</h2>
+
+            <h3 class="cs-sub">1. Grouping that matches how traders think</h3>
+            <p>Instead of one flat list, positions can be grouped by Status, Underlying, P&amp;L, Product and Symbol type, with sort, filters and manageable columns on top. This was the answer to “no filtering, no customisation”.</p>
+            <div class="pf-group" aria-label="Try grouping a sample list">
+              <div class="pf-group-tabs" role="group" aria-label="Group by">
+                <span class="pf-group-label">Group by</span>
+                <button type="button" aria-pressed="true" data-g="status">Status</button><button type="button" aria-pressed="false" data-g="und">Underlying</button><button type="button" aria-pressed="false" data-g="pl">P&amp;L</button><button type="button" aria-pressed="false" data-g="prod">Product</button>
+              </div>
+              <div class="pf-group-list" aria-live="polite"></div>
+            </div>
+            <!--SHOT:group-->
+
+            <h3 class="cs-sub">2. One pattern, reused everywhere</h3>
+            <p>The same right-hand panel carries filters, column management, position details, holding details and mutual fund details. <mark class="hl">Learn it once, and you know it everywhere.</mark></p>
+            <ul class="pf-panels" aria-label="Everything that lives in the side panel">
+              <li><b>Filters</b></li><li><b>Manage columns</b></li><li><b>Position details</b></li><li><b>Holding details</b></li><li><b>MF details</b></li>
+            </ul>
+            <!--SHOT:panels-->
+
+            <h3 class="cs-sub">3. Colour that signals risk before you read</h3>
+            <p>Warnings and confirmations follow one colour logic across every flow.</p>
+            <ul class="pf-colours">
+              <li class="c-warn"><span class="pf-sw" aria-hidden="true"></span><b>Caution</b><span>Reverse, cancel square-off, conversion notes</span></li>
+              <li class="c-stop"><span class="pf-sw" aria-hidden="true"></span><b>Irreversible</b><span>Exit confirmations and high-stakes actions</span></li>
+              <li class="c-ok"><span class="pf-sw" aria-hidden="true"></span><b>Success</b><span>Done, confirmed, all clear</span></li>
+            </ul>
+
+            <h3 class="cs-sub">4. A privacy lock</h3>
+            <p>Because people check their portfolio around others, a lock hides the important numbers on screen.</p>
+            <div class="pf-lock">
+              <div class="pf-lock-card" data-locked="false">
+                <p class="pf-lock-k">Total P&amp;L</p><p class="pf-lock-v"><span class="num">+₹5,567.74</span><span class="mask" aria-hidden="true">••••••</span></p>
+                <p class="pf-lock-k">Current value</p><p class="pf-lock-v"><span class="num">₹4,82,310</span><span class="mask" aria-hidden="true">••••••</span></p>
+              </div>
+              <button type="button" class="pf-lock-btn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path class="shackle" d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg><span>Hide numbers</span></button>
+            </div>
+            <!--SHOT:privacy-->
+          </div>
+        </section>
+
+        <section class="cs-section" id="positions" aria-labelledby="h-positions">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">06</span>Positions</p>
+          <div class="content">
+            <h2 id="h-positions" class="cs-title">Many workflows, <mark>one structure</mark>.</h2>
+            <p>Positions isn’t one screen. It’s a family of workflows, and each one had to fit the two-panel pattern.</p>
+            <ol class="pf-map">
+              <li><b>Core view</b><span>Sort and filter, manage columns</span></li>
+              <li><b>Actions</b><span>Exit one position, reverse, convert (including MTF to overnight), cancel square-off</span></li>
+              <li><b>Closed positions</b><span>What’s already done</span></li>
+              <li class="hot"><b>Exit all</b><span>A bulk action with a confirmation step, since it affects everything at once</span></li>
+              <li class="hot"><b>Smart Exit</b><span>The automated exit flows</span></li>
+              <li><b>Supporting states</b><span>Labels, empty state, reminders</span></li>
+            </ol>
+            <p>The Convert flow went through the most frames on the board: explaining a conversion clearly was harder than laying it out. <b>Exit all and Smart Exit carried the highest stakes.</b> These are the moments where clarity matters more than speed, so their confirmation steps and warning states got the most care.</p>
+            <!--SHOT:exits-->
+          </div>
+        </section>
+
+        <section class="cs-section" id="holdings" aria-labelledby="h-holdings">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">07</span>Holdings</p>
+          <div class="content">
+            <h2 id="h-holdings" class="cs-title">Designing for <mark>trust</mark>.</h2>
+            <p>Holdings does a different job. It’s about ownership, so the design is about clarity and confidence rather than speed.</p>
+            <ul class="pf-hold">
+              <li style="--c:#e3efff"><b>Listed shares</b><span>Filters, Gainers &amp; Losers, holding details, e-DIS authorisation</span></li>
+              <li style="--c:#dff5e8"><b>Mutual funds</b><span>Filters, manage columns, MF details</span></li>
+              <li style="--c:#fff1a8"><b>Pledge</b><span>The pledge flow, available to pledge, pledge history, empty states</span></li>
+            </ul>
+            <p>The e-DIS and pledge flows were the most sensitive. They send the user to an external depository step (CDSL) and back. In that moment the user has left the app they trust, so every step has to say three things:</p>
+            <div class="pf-handoff" aria-label="The handoff: FYERS, then CDSL, then back to FYERS">
+              <span class="pf-hop">FYERS</span><span class="pf-hop-line" aria-hidden="true"></span><span class="pf-hop ext">CDSL</span><span class="pf-hop-line back" aria-hidden="true"></span><span class="pf-hop">Back in FYERS</span>
+            </div>
+            <ul class="pf-three"><li><b>Where you are</b></li><li><b>What’s happening</b></li><li><b>What comes next</b></li></ul>
+            <!--SHOT:holdings-->
+          </div>
+        </section>
+
+        <section class="cs-section" id="mobile" aria-labelledby="h-mobile">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">08</span>Bringing it to mobile</p>
+          <div class="content">
+            <h2 id="h-mobile" class="cs-title">On web, the layout carried the structure. <mark>On mobile, the order of steps did.</mark></h2>
+            <p>By the time I reached mobile, the hard questions were answered: what was necessary, how traders group their assets, and which actions are time-sensitive. The challenge wasn’t what to show, but how to move through it on a small screen. The side panel couldn’t simply shrink, so mobile took a different path through the same structure.</p>
+            <table class="pf-port">
+              <caption class="sr-only">How the web pattern became mobile</caption>
+              <thead><tr><th scope="col">On web</th><th scope="col">On mobile</th></tr></thead>
+              <tbody>
+                <tr><td>Filters in the side panel</td><td>Their own screen, with selectable chips</td></tr>
+                <tr><td>Group by in a menu</td><td>Selectable states on the list</td></tr>
+                <tr><td>Details and actions in the panel</td><td>Each gets its own screen</td></tr>
+                <tr><td>Exit all</td><td>A short, focused sequence ending in a clear confirmation</td></tr>
+              </tbody>
+            </table>
+            <div class="pf-steps" aria-label="Smart Exit on mobile takes about 11 screens">
+              <p class="pf-steps-label"><b>Smart Exit</b> became the longest mobile flow</p>
+              <ol aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+              <p class="pf-steps-count">about 11 screens</p>
+            </div>
+            <p>Mobile also has its own look: a soft gradient header that sets it apart from the white web layout.</p>
+            <!--SHOT:mobile-->
+          </div>
+        </section>
+
+        <section class="cs-section" id="fdsg" aria-labelledby="h-fdsg">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">09</span>Building FDSG</p>
+          <div class="content">
+            <h2 id="h-fdsg" class="cs-title">A design system, <mark>built while designing</mark>.</h2>
+            <p>FYERS didn’t have an official style guide for this product, so building one became part of the work. I helped the team create FDSG, the FYERS Design Style Guide, alongside the Positions and Holdings screens.</p>
+            <ul class="cs-points">
+              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div>Every screen was tested against <b>shared components</b>, not designed in isolation.</div></li>
+              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div>We sat with stakeholders to check <b>each screen against the system</b>.</div></li>
+              <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div>Decisions about components, structure and variables were made <b>while real screens depended on them</b>. Shared pieces, like the empty-state illustration, kept web and mobile consistent.</div></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="handoff" aria-labelledby="h-handoff">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">10</span>Collaboration and handoff</p>
+          <div class="content">
+            <h2 id="h-handoff" class="cs-title">From wireframes to <mark>engineering</mark>.</h2>
+            <ol class="pf-path">
+              <li><b>Wireframes</b><span>I defined the structure and the two-panel flows.</span></li>
+              <li><b>UI partnership</b><span>With a UI designer, Positions and Holdings came into FDSG.</span></li>
+              <li><b>Team review</b><span>Teammates helped refine the edge cases.</span></li>
+              <li><b>Stakeholders and engineering</b><span>A few rounds of feedback, then accepted for engineering to build.</span></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="cs-section" id="outcome" aria-labelledby="h-outcome">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">11</span>Outcome</p>
+          <div class="content">
+            <h2 id="h-outcome" class="cs-title">What the work <mark>made possible</mark>.</h2>
+            <ul class="proof">
+              <li style="--c:#dff5e8"><b>Accepted</b><span>and taken up by engineering</span></li>
+              <li style="--c:#e3efff"><b>Filter, group, customise</b><span>everything the legacy screen lacked</span></li>
+              <li style="--c:#f1e9ff"><b>A base for what came next</b><span>the side panel and FDSG components carried into later screens</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="learned" aria-labelledby="h-learned">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">12</span>What I learned</p>
+          <div class="content">
+            <h2 id="h-learned" class="cs-title">Two things I <mark>carry forward</mark>.</h2>
+            <ol class="ul-plain">
+              <li><b>Restraint is a feature.</b> My first instinct was to put everything in one place. The better answer was to give experts depth without taking away clarity.</li>
+              <li><b>Design the system, not just the screen.</b> I started this project designing screens and ended it designing components, patterns and variables that three devices could share. That foundation is what made my next project, light and dark themes, possible.</li>
+            </ol>
+            <blockquote class="ul-close">Two questions, one screen: <mark>what do I own, and what’s still open?</mark> Answered without a scroll, a click or a wait.</blockquote>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <dialog class="viewer" aria-label="Image viewer">
+      <figure><div class="v-pan"><img alt=""></div><figcaption></figcaption><span class="v-tip">Drag the image to look around.</span></figure>
+      <div class="viewer-bar">
+        <button type="button" class="v-prev" aria-label="Previous image">←</button>
+        <span class="v-count" aria-live="polite"></span>
+        <button type="button" class="v-next" aria-label="Next image">→</button>
+        <button type="button" class="v-close" aria-label="Close image viewer">Close ✕</button>
+      </div>
+    </dialog>
+
+    <button class="sec-fab" type="button" aria-haspopup="dialog" aria-controls="sec-sheet"><span aria-hidden="true">☰</span> Sections</button>
+    <dialog class="sec-sheet" id="sec-sheet" aria-label="Jump to a section"><p class="sec-sheet-title">On this page</p><ol></ol></dialog>
 
     <nav class="cs-next" aria-label="Next project">
       <div class="wrap">
@@ -159,6 +423,156 @@
     const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+  <script>
+    // highlight the section you're reading in "On this page"
+    const links = [...document.querySelectorAll('.cs-toc a')];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        // the deepest matching link is the current one; its group heading lights up too
+        const match = links.filter((a) => a.getAttribute('href') === '#' + e.target.id);
+        const cur = match[match.length - 1];
+        if (cur) { cur.setAttribute('aria-current', 'true'); cur.closest('.has-sub')?.classList.add('in'); }
+        document.querySelectorAll('.cs-toc .has-sub').forEach((li) => li.classList.toggle('in', !!cur && li.contains(cur)));
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.cs3 .cs-section').forEach((s) => io.observe(s));
+  </script>
+  <script>
+    // tap to enlarge: an accessible viewer for screens and wireframes
+    (() => {
+      const dlg = document.querySelector('.viewer');
+      const items = [...document.querySelectorAll('.zoom')];
+      if (!dlg || !items.length) return;
+      const img = dlg.querySelector('img'), cap = dlg.querySelector('figcaption'), count = dlg.querySelector('.v-count');
+      let i = 0, opener = null;
+      let group = items; // the images of one section: wireframes or final screens
+      const show = (n) => {
+        i = (n + group.length) % group.length;
+        const src = group[i].querySelector('img');
+        img.src = src.currentSrc || src.src; img.alt = src.alt;
+        cap.textContent = group[i].closest('figure').querySelector('figcaption')?.textContent || '';
+        count.textContent = `${i + 1} of ${group.length}`;
+        // on phones the image is larger than the screen: start on the Genie panel (right side)
+        const pan = dlg.querySelector('.v-pan');
+        const toPanel = () => { pan.scrollLeft = pan.scrollWidth; };
+        img.complete ? requestAnimationFrame(toPanel) : img.addEventListener('load', toPanel, { once: true });
+      };
+      items.forEach((b) => b.addEventListener('click', () => {
+        opener = b; group = [...b.closest('section').querySelectorAll('.zoom')];
+        show(group.indexOf(b)); dlg.showModal(); dlg.querySelector('.v-close').focus();
+      }));
+      dlg.querySelector('.v-prev').addEventListener('click', () => show(i - 1));
+      dlg.querySelector('.v-next').addEventListener('click', () => show(i + 1));
+      dlg.querySelector('.v-close').addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+      dlg.addEventListener('close', () => opener && opener.focus());
+    })();
+    // reading progress, and the contents list collapses on small screens
+    (() => {
+      const bar = document.querySelector('.read-progress i');
+      const onScroll = () => { const h = document.documentElement; bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'; };
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const box = document.querySelector('.cs-toc-box');
+      if (box && matchMedia('(max-width: 900px)').matches) box.open = false;
+      else if (box) box.querySelector('summary').addEventListener('click', (e) => e.preventDefault()); // always open on desktop
+    })();
+  </script>
+  <script>
+    // phones: a floating "Sections" button opens a quick-jump list (like a food-app menu)
+    (() => {
+      const fab = document.querySelector('.sec-fab'), sheet = document.querySelector('.sec-sheet');
+      if (!fab || !sheet) return;
+      const list = sheet.querySelector('ol');
+      list.innerHTML = [...document.querySelectorAll('.cs3 .cs-section')].map((s) => {
+        const name = (s.querySelector('.cs-kicker')?.textContent || '').replace(/^\d+/, '').trim();
+        return `<li><a href="#${s.id}">${name}</a></li>`;
+      }).join('');
+      fab.addEventListener('click', () => {
+        const cur = document.querySelector('.cs-toc a[aria-current="true"]')?.getAttribute('href');
+        list.querySelectorAll('a').forEach((a) => a.toggleAttribute('aria-current', a.getAttribute('href') === cur));
+        sheet.showModal();
+        (list.querySelector('[aria-current]') || list.querySelector('a')).focus();
+      });
+      list.addEventListener('click', (e) => { if (e.target.closest('a')) sheet.close(); });
+      sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
+      sheet.addEventListener('close', () => fab.focus({ preventScroll: true }));
+      const onScroll = () => {
+        const end = document.querySelector('.cs-next')?.getBoundingClientRect().top ?? 1e9;
+        fab.classList.toggle('on', window.scrollY > 500 && end > window.innerHeight);
+      };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
+  </script>
+  <script>
+    (() => {
+      const f = document.querySelector('.gn-facts'); if (!f) return;
+      if (!('IntersectionObserver' in window)) { f.classList.add('in'); return; }
+      const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { f.classList.add('in'); io.disconnect(); } }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+      io.observe(f);
+    })();
+  </script>
+  <script>
+    // two-panel demo: pick a row, the list shifts and the details slide in
+    (() => {
+      const scr = document.querySelector('.pf-demo-screen'); if (!scr) return;
+      const rows = [...scr.querySelectorAll('.pf-row')], panel = scr.querySelector('.pf-demo-panel'), hint = document.querySelector('.pf-demo-hint');
+      const close = () => { scr.dataset.open = 'false'; rows.forEach((r) => r.setAttribute('aria-pressed', 'false')); panel.setAttribute('aria-hidden', 'true'); };
+      rows.forEach((r) => { r.setAttribute('aria-pressed', 'false'); r.addEventListener('click', () => {
+        rows.forEach((x) => x.setAttribute('aria-pressed', String(x === r)));
+        panel.querySelector('.pf-demo-sym').textContent = r.dataset.sym;
+        panel.querySelector('.pf-demo-side').textContent = r.dataset.side;
+        const pl = panel.querySelector('.pf-demo-pl'); pl.textContent = r.dataset.pl; pl.className = 'pf-demo-pl ' + (r.dataset.pl.startsWith('+') ? 'up' : 'down');
+        scr.dataset.open = 'true'; panel.removeAttribute('aria-hidden'); if (hint) hint.textContent = 'Nice.';
+      }); });
+      scr.querySelector('.pf-demo-close').addEventListener('click', () => { const sel = rows.find((r) => r.getAttribute('aria-pressed') === 'true'); close(); sel?.focus(); });
+      close();
+      // a gentle nudge: open the first row once when the demo first comes into view
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        new IntersectionObserver(([e], io) => { if (e.isIntersecting) { io.disconnect(); setTimeout(() => { if (scr.dataset.open === 'false') rows[0].click(); if (hint) hint.textContent = 'Select a row.'; }, 900); } }, { threshold: .6 }).observe(scr);
+      }
+    })();
+    // group by: the same positions, regrouped the way traders think
+    (() => {
+      const box = document.querySelector('.pf-group'); if (!box) return;
+      const data = [
+        { s: 'NIFTY FUT', st: 'Open', u: 'NIFTY', pl: 2000.5, p: 'MTF' },
+        { s: 'NIFTY 24000 CE', st: 'Open', u: 'NIFTY', pl: -300.56, p: 'Intraday' },
+        { s: 'NIFTYBEES', st: 'Open', u: 'NIFTY', pl: -956.9, p: 'Overnight' },
+        { s: 'PAYTM', st: 'Closed', u: 'PAYTM', pl: 2000.5, p: 'Overnight' },
+        { s: 'GOLDBEES', st: 'Closed', u: 'GOLD', pl: 412.2, p: 'Overnight' }
+      ];
+      const keys = { status: (d) => d.st, und: (d) => d.u, pl: (d) => (d.pl >= 0 ? 'In profit' : 'In loss'), prod: (d) => d.p };
+      const fmt = (n) => (n >= 0 ? '+' : '−') + '₹' + Math.abs(n).toLocaleString('en-IN', { minimumFractionDigits: 2 });
+      const list = box.querySelector('.pf-group-list'), btns = [...box.querySelectorAll('[data-g]')];
+      const draw = (g) => {
+        const groups = {}; data.forEach((d) => (groups[keys[g](d)] ||= []).push(d));
+        list.innerHTML = Object.entries(groups).map(([name, items]) => {
+          const sum = items.reduce((a, d) => a + d.pl, 0);
+          return `<div><p class="pf-gh"><span>${name} · ${items.length}</span><span class="${sum >= 0 ? 'up' : 'down'}">${fmt(sum)}</span></p>` +
+            items.map((d, k) => `<div class="pf-gi" style="animation-delay:${k * 50}ms"><span>${d.s}</span><span class="${d.pl >= 0 ? 'up' : 'down'}">${fmt(d.pl)}</span></div>`).join('') + '</div>';
+        }).join('');
+      };
+      btns.forEach((b) => b.addEventListener('click', () => { btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b))); draw(b.dataset.g); }));
+      draw('status');
+    })();
+    // hover actions: on touch screens a tap shows the row's actions
+    document.querySelectorAll('.pf-hover-row').forEach((r) => r.addEventListener('click', (e) => { if (e.target.closest('button')) return; document.querySelectorAll('.pf-hover-row').forEach((x) => x.classList.toggle('show', x === r && !x.classList.contains('show'))); }));
+    // privacy lock
+    (() => {
+      const btn = document.querySelector('.pf-lock-btn'), card = document.querySelector('.pf-lock-card'); if (!btn || !card) return;
+      btn.addEventListener('click', () => { const on = btn.getAttribute('aria-pressed') !== 'true'; btn.setAttribute('aria-pressed', String(on)); card.dataset.locked = String(on); btn.querySelector('span').textContent = on ? 'Show numbers' : 'Hide numbers'; });
+    })();
+    // Smart Exit steps pop in
+    (() => {
+      const st = document.querySelector('.pf-steps'); if (!st) return;
+      st.querySelectorAll('li').forEach((li, i) => li.style.setProperty('--i', i));
+      if (!('IntersectionObserver' in window)) { st.classList.add('in'); return; }
+      new IntersectionObserver(([e], io) => { if (e.isIntersecting) { st.classList.add('in'); io.disconnect(); } }, { threshold: .5 }).observe(st);
+    })();
   </script>
   <script src="../header.js?v=4"></script>
 </body>

@@ -4631,3 +4631,6 @@ body:has(.proj-hero[style*="#ddd0ff"]) { --hl: #e2d6ff; }
 @media (max-width: 600px) { .nda-bar { flex-wrap: wrap; } }
 .hk .feed-list p { font-size: .92rem !important; line-height: 1.5 !important; }
 .hk .feed-list h3 { font-size: 1.05rem !important; }
+/* Ten Tabs: no navigation, locked or unlocked; the story takes the full column */
+.hk-layout { grid-template-columns: minmax(0, 1fr) !important; }
+.hk-layout .cs-toc, body:has(.hk-layout) .sec-fab, body:has(.hk-layout) .sec-sheet { display: none !important; }

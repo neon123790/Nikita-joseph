@@ -718,12 +718,12 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     const marks = [...el.querySelectorAll('[data-at]')].map((t) => {
       const on = t.dataset.on && el.querySelector(t.dataset.on);
       if (on) { const pt = on.getPointAtLength(on.getTotalLength() * +t.dataset.at); t.style.left = (pt.x / vb.width * 100) + '%'; t.style.top = (pt.y / vb.height * 100) + '%'; }
-      return { t, at: +t.dataset.at };
+      return { t, at: +t.dataset.at, until: t.dataset.until ? +t.dataset.until : 9 };
     });
     const typer = el.querySelector('[data-type]');
     const render = (p, o) => {
       strokes.forEach((k) => { k.p.style.strokeDashoffset = k.L * (1 - clamp((p - k.s) / (k.e - k.s))); });
-      marks.forEach((m) => m.t.classList.toggle('show', p >= m.at));
+      marks.forEach((m) => m.t.classList.toggle('show', p >= m.at && p < m.until));
       if (typer) { const s = +typer.dataset.s, e = +typer.dataset.e, txt = typer.dataset.type;
         typer.textContent = txt.slice(0, Math.round(txt.length * clamp((p - s) / (e - s))));
         typer.style.setProperty('--caret', p >= s && p < 1 ? 1 : 0); }

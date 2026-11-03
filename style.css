@@ -5186,3 +5186,41 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .sk-port .sk-layer { position: absolute; inset: 0; }
 .sk-port .pf-sk-title { left: 21%; top: 12%; }
 .sk-port .sk-d.hi { stroke: #ff8a3d; }
+/* One Portfolio, two answers */
+.pf-merge2 { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; margin: 18px 0; }
+.pf-m2 { padding: 16px 18px; border-radius: 14px; background: #fff; border: 1px solid #e3e0d7; }
+.pf-m2.after { border-color: #ffb27a; background: #fff8f1; box-shadow: 0 12px 26px -20px rgba(194, 65, 12, .6); }
+.pf-m2-label { margin: 0 0 10px !important; font: 700 .7rem/1 var(--sans) !important; letter-spacing: .14em; text-transform: uppercase; color: #8b8496 !important; }
+.pf-m2-nav, .pf-m2-port { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pf-m2-nav span:not(.gap) { padding: 8px 14px; border-radius: 10px; background: #f3f0ea; border: 1px dashed #c9c3d3; font: 600 .9rem/1 var(--sans); color: #3b3744; }
+.pf-m2-nav .gap { color: #8b8496; letter-spacing: .2em; }
+.pf-m2-port b { margin-right: 4px; font: 800 1.2rem/1 var(--bold); color: #1f1b29; }
+.pf-m2-port .pill { padding: 6px 12px; border-radius: 999px; border: 1px solid #e3e0d7; font: 600 .82rem/1 var(--sans); color: #3b3744; background: #fff; }
+.pf-m2-port .pill.on { border-color: #6b7cff; color: #3446d8; background: #eef0ff; }
+.pf-m2-note { margin: 10px 0 0 !important; font-size: .86rem !important; color: #4a4652 !important; }
+.pf-m2-arrow { font: 600 1.4rem/1 var(--sans); color: #c2410c; }
+.proof.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 640px) { .pf-merge2 { grid-template-columns: 1fr; } .pf-m2-arrow { justify-self: center; transform: rotate(90deg); } }
+/* hero screen sits straight */
+.pf-hero-shot { transform: none !important; }
+/* sketch extras: tabs, values, buy/sell chips that switch with the drawing */
+.sk-port .pf-sk-title { left: 8%; top: 21%; }
+.sk-tab, .sk-kv, .sk-bs { position: absolute; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.sk-tab.show, .sk-kv.show, .sk-bs.show { opacity: 1; }
+.sk-tab { top: 21%; transform: translateY(-50%); padding: 2px 8px; border-radius: 999px; border: 1.2px solid transparent; font: 600 clamp(.5rem, 1.5cqw, .62rem)/1.2 var(--sans); color: #6b6676; }
+.sk-tab.on { border-color: #3446d8; color: #3446d8; background: #eef0ff; }
+.sk-kv { top: 32.5%; transform: translateY(-50%); display: grid; gap: 1px; font: 500 clamp(.45rem, 1.3cqw, .55rem)/1.1 var(--sans); color: #6b6676; }
+.sk-kv b { font: 700 clamp(.55rem, 1.6cqw, .68rem)/1.1 var(--sans); color: #1f7a45; }
+.sk-bs { display: flex; gap: 3px; transform: translate(-50%, -50%); }
+.sk-bs i { display: grid; place-items: center; width: 17px; height: 15px; border-radius: 4px; font: 700 .55rem/1 var(--sans); font-style: normal; color: #fff; }
+.sk-bs .b { background: #1f9d55; } .sk-bs .s { background: #e5603a; }
+.sk-genie .sk-name { left: 70%; top: 24.5%; }
+.sk-genie .sk-type { left: 15%; top: 26%; }
+.sk-genie .sk-pick { left: 82%; top: 96%; }
+.sk-tabs { position: absolute; left: 31%; top: 21%; transform: translateY(-50%); display: flex; gap: 3px; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.sk-tabs.show { opacity: 1; }
+.sk-tabs i { padding: 2px 7px; border-radius: 999px; border: 1.2px solid transparent; font: 600 clamp(.48rem, 1.45cqw, .6rem)/1.2 var(--sans); font-style: normal; color: #6b6676; }
+.sk-tabs i.on { border-color: #3446d8; color: #3446d8; background: #eef0ff; }
+.sk-genie .sk-pick { left: 40%; top: 86%; }
+/* the prototype's size comes from the list screen; the details screen lies exactly on top of it */
+.pf-proto .pf-stackimg img[data-v="detail"] { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }

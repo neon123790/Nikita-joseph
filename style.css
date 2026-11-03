@@ -4744,3 +4744,6 @@ body:has(.proj-hero[style*="#ddd0ff"]) { --hl: #e2d6ff; }
 .sk-pick { left: 82%; top: 50%; }
 .sk-pick.show { transform: translate(-50%, -50%) rotate(var(--r, 0deg)); }
 .sk-genie .sk-pick { left: 88%; top: 97%; }
+/* drawings: no notebook cover, the row of pieces takes the full width */
+.art-spread { grid-template-columns: minmax(0, 1fr) !important; }
+.art-album { display: none !important; }

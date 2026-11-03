@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FYERS Academy — Nikita Joseph</title>
+  <title>FYERS Learn — Nikita Joseph</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta property="og:title" content="FYERS Academy — Nikita Joseph">
+  <meta property="og:title" content="FYERS Learn — a case study by Nikita Joseph">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nikita Joseph">
   <meta property="og:url" content="https://nikitaejoseph.com/work/fyers-academy.html">
@@ -17,11 +17,11 @@
   <meta property="og:image:alt" content="Nikita’s sticker portrait beside a handwritten note: Hi, I’m Nikita! Senior UX Designer.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://nikitaejoseph.com/images/og-card.jpg?v=2">
-  <meta name="description" content="FYERS Academy: Turning market learning into a hands-on practice experience. A case study by Nikita Joseph, Senior UX Designer.">
+  <meta name="description" content="FYERS Learn case study by Nikita Joseph: research, a practice simulator that measures trading discipline, an AI video workflow, and a working Android app designed and built by designers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=145">
+    <link rel="stylesheet" href="../style.css?v=149">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -79,43 +79,345 @@
     </nav>
   </header>
 
+  <div class="read-progress" aria-hidden="true"><i></i></div>
   <main id="main">
-    <section class="cs-hero proj-hero" style="--proj:#ffe08a">
+    <section class="genie-hero2 proj-hero fl-hero" style="--proj:#ffe08a">
       <div class="wrap">
-        <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
-            <div class="cs-titlerow"><h1>FYERS Academy</h1></div>
-        <p class="label proj-kicker">Case study · Project 01</p>
-        <p class="lede">Turning market learning into a hands-on practice experience.</p>
-        <div class="tags"><span class="chip" style="--c:var(--p-mustard)">Learning UX</span><span class="chip" style="--c:var(--p-mustard)">Simulator</span><span class="chip" style="--c:var(--p-mustard)">AI-assisted workflows</span></div>
-
-        <dl class="cs-facts">
-          <div><dt>Role</dt><dd>Senior UX Designer · designed and built</dd></div>
-          <div><dt>Company</dt><dd>FYERS</dd></div>
-          <div><dt>Timeline</dt><dd>2025 · 3 months</dd></div>
-          <div><dt>Team</dt><dd>Solo: designed and built it</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="wip" aria-labelledby="wip-title">
-      <div class="wip-tape" aria-hidden="true"><span>Case study in progress · Case study in progress · Case study in progress · Case study in progress · Case study in progress · Case study in progress</span></div>
-      <div class="wrap">
-        <div class="wip-card">
-          <p class="label">Work in progress</p>
-          <h2 class="h-split" id="wip-title">This story is <b>still being written.</b></h2>
-          <p>I’m putting together the full case study for FYERS Academy: the problem, the research, the decisions that shaped it and what shipped. Check back soon, or ask me about it.</p>
-          <div class="wip-actions">
-            <a class="btn btn-primary" href="genie.html">Read the Genie case study <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="#contact">Ask me about it</a>
+        <div class="gh-panel">
+          <div class="gh-text">
+            <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
+            <div class="cs-titlerow"><h1>FYERS Learn</h1></div>
+            <p class="label proj-kicker">Case study · Project 01 · Academy + Learn by Doing</p>
+            <p class="fl-lede">Turning beginner traders from scared to confident: one app to learn trading, then practise it in replays of real markets.</p>
+            <dl class="gh-facts">
+              <div><dt>My role</dt><dd>Senior UX Designer, co-designed with Jerry</dd></div>
+              <div><dt>Timeline</dt><dd>About 4–5 months, research to a live Android build</dd></div>
+              <div><dt>Team</dt><dd>FYERS Innovation Lab, four people picked by our CXO</dd></div>
+              <div><dt>Tools</dt><dd>Figma, Claude Code, Claude Design, GitHub, VS Code, HeyGen, ElevenLabs, After Effects</dd></div>
+            </dl>
           </div>
+          <figure class="fl-hero-art" aria-label="Illustration: the two tabs of FYERS Learn. Learn shows learning paths for Trading, Investing and Derivatives. Practice shows a market replay at bar 23 of 60 with a Tilt Meter.">
+            <span class="fl-tag" aria-hidden="true">Illustration</span>
+            <div class="fl-phone" aria-hidden="true">
+              <div class="fl-tabs"><b class="on">Learn</b><b>Practice</b></div>
+              <p class="fl-ph-h">Pick your path</p>
+              <div class="fl-path" style="--c:#ffd65a"><span>Trading</span><i style="--p:62%"></i><small>Module 3 of 6</small></div>
+              <div class="fl-path" style="--c:#9ccfff"><span>Investing</span><i style="--p:24%"></i><small>Module 1 of 5</small></div>
+              <div class="fl-path" style="--c:#ff9fb5"><span>Derivatives</span><i style="--p:0%"></i><small>Start here</small></div>
+            </div>
+            <div class="fl-phone fl-phone-b" aria-hidden="true">
+              <div class="fl-tabs"><b>Learn</b><b class="on">Practice</b></div>
+              <p class="fl-ph-h">Breakout Under Test</p>
+              <svg class="fl-chart" viewBox="0 0 160 70" preserveAspectRatio="none"><path d="M0 52 L12 48 L22 54 L34 40 L44 44 L56 30 L66 36 L78 26 L88 32 L100 20 L110 28 L122 18" fill="none" stroke="#13786c" stroke-width="2.4" stroke-linejoin="round"/><path d="M122 18 V70" stroke="#2c2836" stroke-width="1" stroke-dasharray="3 3"/></svg>
+              <p class="fl-bar">Bar 23 / 60</p>
+              <div class="fl-tilt"><span>Calm</span><i><b style="--t:28%"></b></i><span>Tilted</span></div>
+              <div class="fl-btns"><span class="buy">Buy</span><span class="sell">Sell</span></div>
+            </div>
+          </figure>
         </div>
       </div>
     </section>
 
-    <nav class="cs-next" aria-label="Next case study">
+    <div class="wrap cs-layout">
+      <nav class="cs-toc" aria-label="On this page">
+        <details class="cs-toc-box" open><summary class="cs-toc-title">On this page</summary>
+        <ol><li><a href="#overview">Overview</a></li><li><a href="#brief">The brief</a></li><li class="has-sub"><a href="#data" data-group="Research">Research</a><ol><li><a href="#data">The data</a></li><li><a href="#market">The market</a></li><li><a href="#interviews">Interviews</a></li><li><a href="#problem">Problem &amp; goal</a></li></ol></li><li><a href="#direction">Design direction</a></li><li class="has-sub"><a href="#practice" data-group="Practice">Practice</a><ol><li><a href="#practice">Learn by Doing</a></li><li><a href="#missions">Missions</a></li><li><a href="#emotion">Measuring emotion</a></li></ol></li><li><a href="#learning">Learning &amp; AI videos</a></li><li><a href="#pivot">The pivot</a></li><li><a href="#solution">The solution</a></li><li><a href="#build">Figma to live</a></li><li><a href="#outcome">Outcome</a></li><li><a href="#learnings">Learnings</a></li></ol></details>
+      </nav>
+
+      <article class="cs-body cs3 fl">
+        <section class="cs-section" id="overview" aria-labelledby="h-overview">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">01</span>Overview</p>
+          <div class="content">
+            <h2 id="h-overview" class="cs-title">Beginners don’t lack information. <mark>Fear takes over.</mark></h2>
+            <p>Most beginner traders don’t fail because they lack information. They fail because <mark class="hl">fear and emotion take over once real money is involved</mark>. We designed FYERS Learn, a single app where people learn a concept through guided learning paths, then practise it in short replays of real past markets. Afterwards, a score shows whether they stuck to their plan or let emotion decide.</p>
+            <p>Jerry and I took it from research and Figma prototypes to <mark class="hl">a working Android app we built ourselves with Claude Code</mark>, shipping a new build every week. Along the way we created an AI video workflow that turned one recording of our CEO into about ten lessons a week.</p>
+            <ul class="fl-stats" aria-label="At a glance">
+              <li style="--c:#ffd65a"><b>4–5</b><span>months, research to a live Android build</span></li>
+              <li style="--c:#9ccfff"><b>1</b><span>app for learning and practice, merged from two</span></li>
+              <li style="--c:#9be3bf"><b>~10</b><span>lessons a week from one CEO recording</span></li>
+              <li style="--c:#ff9fb5"><b>Weekly</b><span>builds, designed and coded by designers</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="brief" aria-labelledby="h-brief">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">02</span>The brief</p>
+          <div class="content">
+            <h2 id="h-brief" class="cs-title">A <mark>₹100 crore</mark> question, and no spec.</h2>
+            <p>FYERS set up an Innovation Lab with one goal: find new ideas that could bring the company ₹100 crore in revenue. Our Chief Experience Officer picked four people from the design team, including himself. Jerry and I were two of them. There was no product spec and no roadmap, just an open question and the freedom to answer it.</p>
+            <p>We explored several ideas, researched each one, estimated what it could earn and pitched them to our CEO. He backed two:</p>
+            <div class="fl-pair">
+              <div class="fl-card" style="--c:#9be3bf"><span class="fl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l5-6 4 3 6-8"/><path d="M15 6h3v3"/></svg></span><h3>Learn by Doing</h3><p>A simulator where you practise trading in real past market scenarios.</p></div>
+              <div class="fl-card" style="--c:#ffd65a"><span class="fl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M7 9.5V15c0 1.7 2.2 3 5 3s5-1.3 5-3V9.5"/></svg></span><h3>FYERS Academy</h3><p>A learning platform for trading and investing, with lessons, puzzles and exams.</p></div>
+            </div>
+            <p class="fl-note">They began as separate products. By the end, they had become one.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="data" aria-labelledby="h-data">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">03</span>The data</p>
+          <div class="content">
+            <h2 id="h-data" class="cs-title">Knowing isn’t doing: <mark>most traders lose</mark>.</h2>
+            <p>Before designing anything, we wanted to understand why new traders struggle. We used three methods: secondary research, competitive analysis and user interviews. The numbers were stark.</p>
+            <div class="fl-bigstats">
+              <figure class="fl-big"><div class="fl-donut" style="--v:93" aria-hidden="true"><b>93%</b></div><figcaption>of over <b>1 crore</b> individual F&amp;O traders <b>lost money</b> between FY22 and FY24, about <b>₹2 lakh</b> each on average.<small>SEBI study of individual F&amp;O traders</small></figcaption></figure>
+              <figure class="fl-big"><div class="fl-donut" style="--v:87.7" aria-hidden="true"><b>87.7%</b></div><figcaption>of individual traders were <b>still making net losses</b> in SEBI’s later update.<small>SEBI update</small></figcaption></figure>
+            </div>
+            <p class="cs-callout torn">Trading education has never been easier to find, yet results haven’t improved. <b>Something between learning and doing wasn’t working.</b></p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="market" aria-labelledby="h-market">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">04</span>The market</p>
+          <div class="content">
+            <h2 id="h-market" class="cs-title">Teaching without practice, or <mark>practice without teaching</mark>.</h2>
+            <div class="fl-compare" role="table" aria-label="What existing products do well and what is missing">
+              <div class="fl-row fl-head" role="row"><span role="columnheader">Product</span><span role="columnheader">Does well</span><span role="columnheader">Missing</span></div>
+              <div class="fl-row" role="row"><b role="cell">Coursera / Udemy</b><span role="cell" class="ok">Structured courses and certificates</span><span role="cell" class="no">Generic and theory-heavy, no link to real markets</span></div>
+              <div class="fl-row" role="row"><b role="cell">Zerodha Varsity</b><span role="cell" class="ok">Clear, trusted, free</span><span role="cell" class="no">Easy to learn from, nowhere to practise</span></div>
+              <div class="fl-row" role="row"><b role="cell">Elearnmarkets</b><span role="cell" class="ok">In-depth expert content</span><span role="cell" class="no">Long, passive and without feedback</span></div>
+              <div class="fl-row" role="row"><b role="cell">Simulators / paper trading</b><span role="cell" class="ok">Risk-free practice</span><span role="cell" class="no">No guidance, no structure, no feedback on behaviour</span></div>
+              <div class="fl-row fl-ref" role="row"><b role="cell">Duolingo <small>(non-finance reference)</small></b><span role="cell" class="ok">Paths, bite-sized lessons, playfulness</span><span role="cell" class="idea">Showed us how learning paths could feel</span></div>
+            </div>
+            <p class="cs-callout torn"><b>The gap:</b> learning platforms teach without practice, and simulators offer practice without teaching. <mark class="hl">None of them showed people how they actually behave while trading.</mark></p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="interviews" aria-labelledby="h-interviews">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">05</span>Interviews</p>
+          <div class="content">
+            <h2 id="h-interviews" class="cs-title">10–15 traders, <mark>remarkably consistent</mark> answers.</h2>
+            <p>We interviewed early, intermediate and advanced traders about how they started, where they learned, how they plan their day and what goes wrong.</p>
+            <ul class="fl-quotes">
+              <li style="--c:#fff1a8; --r:-2deg">“My friend or relative trades, so I started.”</li>
+              <li style="--c:#dff5e8; --r:1.5deg">“I don’t know where to start.”</li>
+              <li style="--c:#ffe3ec; --r:-1deg">“I’m afraid to act on my plan.”</li>
+              <li style="--c:#e3efff; --r:2deg">“I panicked and exited.”</li>
+              <li style="--c:#fff1a8; --r:1deg">“I just watch the market and decide.”</li>
+              <li style="--c:#ffe3ec; --r:-1.5deg">“More capital means more profit.”</li>
+              <li style="--c:#e3efff; --r:-2deg">“There’s no one to guide me.”</li>
+              <li style="--c:#dff5e8; --r:1.5deg">“Varsity was easy to learn, but not to practise.”</li>
+              <li style="--c:#fff1a8; --r:-1deg">“I couldn’t balance it with work.”</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="problem" aria-labelledby="h-problem">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">06</span>Problem &amp; goal</p>
+          <div class="content">
+            <h2 id="h-problem" class="cs-title">Designing for the <mark>scared beginner</mark>.</h2>
+            <p>Advanced traders already had their own systems. The clearest need was with beginners and early-intermediate traders: they juggle several disconnected products, are unsure where to begin, and lose money to emotion and poor planning, not to a lack of information.</p>
+            <div class="fl-pair">
+              <div class="fl-card fl-statement" style="--c:#ffe3ec"><p class="label">Problem statement</p><p>Beginner and early-intermediate traders understand concepts in theory but <b>can’t apply them under market pressure</b>. They have no safe, familiar place to practise and no feedback on how they behave while trading.</p></div>
+              <div class="fl-card fl-statement" style="--c:#dff5e8"><p class="label">Our goal</p><p>Help beginners enter the market <b>with confidence</b>: learn a concept, practise it safely in a real-market replay, and see clearly how they behave under pressure.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="direction" aria-labelledby="h-direction">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">07</span>Design direction</p>
+          <div class="content">
+            <h2 id="h-direction" class="cs-title">Every insight became <mark>a design decision</mark>.</h2>
+            <ul class="fl-map">
+              <li><q>I don’t know where to start</q><span class="arr" aria-hidden="true">→</span><b>Learning paths instead of a course catalogue</b></li>
+              <li><q>Easy to learn, not to practise</q><span class="arr" aria-hidden="true">→</span><b>Learn and Practice in one app</b></li>
+              <li><q>Panic exits and rash entries</q><span class="arr" aria-hidden="true">→</span><b>Tilt Meter</b></li>
+              <li><q>No plan for the day</q><span class="arr" aria-hidden="true">→</span><b>A practice plan before every session</b></li>
+              <li><q>More capital, more profit</q><span class="arr" aria-hidden="true">→</span><b>Risk limit with a calculated daily risk %</b></li>
+              <li><q>No one to guide me</q><span class="arr" aria-hidden="true">→</span><b>ECS report with insights</b></li>
+              <li><q>Couldn’t balance it with work</q><span class="arr" aria-hidden="true">→</span><b>5–8 minute missions</b></li>
+              <li><q>Afraid to act</q><span class="arr" aria-hidden="true">→</span><b>Replays of real past markets on the familiar FYERS interface</b></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="practice" aria-labelledby="h-practice">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">08</span>Learn by Doing</p>
+          <div class="content">
+            <h2 id="h-practice" class="cs-title">How do we know what someone <mark>meant to do</mark>?</h2>
+            <p>Bipin, our CXO, and I set the early look and feel of the simulator. One question shaped most of the work: how do we understand what a user intends, so we can show them whether they actually did it? It took a few attempts.</p>
+            <ol class="fl-attempts">
+              <li class="dropped"><span class="fl-step">Attempt 1</span><h3>Psychometric questions</h3><p>Profile people with a quiz, then suggest scenarios. Clever on paper, but prescriptive: it told users what kind of trader they were instead of letting them find out, and added friction before the chart.</p><span class="fl-stamp">Dropped</span></li>
+              <li class="kept"><span class="fl-step">Attempt 2</span><h3>Let users make the plan</h3><p>Instead of guessing intent, we asked. Before each session the user builds a practice plan, and <b>that plan becomes the benchmark</b> we measure them against.</p><span class="fl-stamp">Kept</span></li>
+            </ol>
+            <h3 class="cs-sub">Then two things broke</h3>
+            <div class="fl-pair">
+              <div class="fl-card" style="--c:#ffe3ec"><h3>The trading window confused people</h3><p>Users didn’t understand window sessions, so we removed that rule.</p></div>
+              <div class="fl-card" style="--c:#e3efff"><h3>60 minutes didn’t fit a phone</h3><p>We kept the 60 bars but squeezed the session into <b>5–8 minutes</b>, and swapped the clock for bar progress: urgency without a ticking timer.</p>
+                <div class="fl-progress" aria-hidden="true"><span>Bar 0 / 60</span><i><b></b></i><span>Bar 60 / 60</span></div></div>
+            </div>
+            <h3 class="cs-sub">The practice plan: pick at least one rule</h3>
+            <div class="fl-rules">
+              <div class="fl-rule" style="--c:#ffd65a"><h4>Risk limit</h4><p>Enter your capital and how much you’ll risk. We calculate your daily risk % and label it, tackling “more capital, more profit”.</p>
+                <div class="fl-mini" aria-hidden="true"><span>₹50,000 · 2%</span><em class="mod">Moderate</em></div></div>
+              <div class="fl-rule" style="--c:#9ccfff"><h4>Trade limit</h4><p>Pick how many trades to take this session, or type your own number.</p>
+                <div class="fl-mini" aria-hidden="true"><span class="chip">3</span><span class="chip on">5</span><span class="chip">10</span></div></div>
+              <div class="fl-rule" style="--c:#ff9fb5"><h4>Stop loss</h4><p>Set just before entering a trade, right on the chart.</p>
+                <div class="fl-mini" aria-hidden="true"><span>SL</span><i class="sl"></i></div></div>
+            </div>
+            <div class="fl-decisions" role="table" aria-label="How the practice design changed">
+              <div class="fl-row fl-head" role="row"><span role="columnheader">Decision</span><span role="columnheader">First approach</span><span role="columnheader">Final approach</span><span role="columnheader">Why</span></div>
+              <div class="fl-row" role="row"><b role="cell">Onboarding</b><s role="cell">Psychometric quiz</s><span role="cell">Self-made practice plan</span><span role="cell">Control, and a clear benchmark</span></div>
+              <div class="fl-row" role="row"><b role="cell">Rules</b><s role="cell">4, with a trading window</s><span role="cell">3 rules</span><span role="cell">The window confused people</span></div>
+              <div class="fl-row" role="row"><b role="cell">Session</b><s role="cell">60 minutes</s><span role="cell">5–8 minutes</span><span role="cell">Fits mobile attention</span></div>
+              <div class="fl-row" role="row"><b role="cell">Time</b><s role="cell">A clock</s><span role="cell">Bar progress only</span><span role="cell">Urgency without a timer</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="missions" aria-labelledby="h-missions">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">09</span>Missions</p>
+          <div class="content">
+            <h2 id="h-missions" class="cs-title">Practice <mark>with a story</mark>, not a random chart.</h2>
+            <p>Each session is a market mission taken from a real past scenario. The chart, order window and key controls mirror the real FYERS app, so people also get comfortable with the interface they’ll use for real trades.</p>
+            <ol class="fl-flow">
+              <li><span class="n">1</span><h3>Choose a mission</h3><p><span class="chip">Open Volatility</span> <span class="chip">Breakout Under Test</span> <span class="chip">Choppy Session</span></p></li>
+              <li><span class="n">2</span><h3>Read the brief</h3><p>What kind of market to expect, a 5–8 minute heads-up, and related stock news to set the scene.</p></li>
+              <li><span class="n">3</span><h3>Say what you expect</h3><p>Study yesterday’s chart and answer two questions: what will the market do, and where would you enter? This records your thinking before the pressure starts.</p></li>
+              <li><span class="n">4</span><h3>Enter the replay</h3><p>No pop-ups, hints or interruptions. Just you, the chart and your plan.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="cs-section" id="emotion" aria-labelledby="h-emotion">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">10</span>Measuring emotion</p>
+          <div class="content">
+            <h2 id="h-emotion" class="cs-title">The hardest problem: <mark>you can’t ask “are you panicking?”</mark></h2>
+            <p>You can’t stop someone mid-trade to ask how they feel. But every emotion shows up as an action, so we designed around what people do: did they set the stop loss they planned? Widen it out of hope, or tighten it out of fear? Stay within their trade limit?</p>
+            <div class="fl-pair fl-emo">
+              <figure class="fl-card" style="--c:#fffdf7"><span class="fl-tag">Illustration</span>
+                <svg class="fl-gauge" viewBox="0 0 200 120" aria-hidden="true"><path d="M20 105 A80 80 0 0 1 180 105" fill="none" stroke="#e7e3da" stroke-width="16" stroke-linecap="round"/><path d="M20 105 A80 80 0 0 1 180 105" fill="none" stroke="url(#tilt-g)" stroke-width="16" stroke-linecap="round"/><defs><linearGradient id="tilt-g"><stop offset="0" stop-color="#9be3bf"/><stop offset=".55" stop-color="#ffd65a"/><stop offset="1" stop-color="#ff7a7a"/></linearGradient></defs><g class="fl-needle"><path d="M100 105 L100 40" stroke="#2c2836" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="105" r="8" fill="#2c2836"/></g><text x="22" y="118">Calm</text><text x="178" y="118" text-anchor="end">Tilted</text></svg>
+                <figcaption><h3>The Tilt Meter</h3><p>Tracks emotional range during a session: panic exits when the chart flips, or adding quantity because you’re “sure”.</p></figcaption></figure>
+              <figure class="fl-card" style="--c:#fffdf7"><span class="fl-tag">Illustration</span>
+                <svg class="fl-rings" viewBox="0 0 160 160" aria-hidden="true"><g fill="none" stroke-width="13" stroke-linecap="round" transform="rotate(-90 80 80)"><circle cx="80" cy="80" r="66" stroke="#ffe0ea"/><circle class="r1" cx="80" cy="80" r="66" stroke="#e64980" pathLength="100" stroke-dasharray="82 100"/><circle cx="80" cy="80" r="49" stroke="#dff5e8"/><circle class="r2" cx="80" cy="80" r="49" stroke="#13a46c" pathLength="100" stroke-dasharray="68 100"/><circle cx="80" cy="80" r="32" stroke="#e3efff"/><circle class="r3" cx="80" cy="80" r="32" stroke="#2f5fd0" pathLength="100" stroke-dasharray="90 100"/></g><text x="80" y="86" text-anchor="middle" class="big">ECS</text></svg>
+                <p class="fl-ring-key" aria-hidden="true"><span style="--c:#e64980">Plan</span><span style="--c:#13a46c">Rules</span><span style="--c:#2f5fd0">Thinking</span></p>
+                <figcaption><h3>Execution Consistency Score</h3><p>One score at the end: did your plan, rules and thinking stay consistent from entry to exit? Shown as activity rings so it motivates instead of scolding.</p></figcaption></figure>
+            </div>
+            <p class="cs-callout torn"><b>ECS doesn’t measure profit. It measures discipline.</b> We wanted beginners to see that rash decisions and emotional swings affect their results as much as the market does.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="learning" aria-labelledby="h-learning">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">11</span>Learning &amp; AI videos</p>
+          <div class="content">
+            <h2 id="h-learning" class="cs-title"><mark>250 videos</mark> and one CEO.</h2>
+            <p>While the simulator took shape, we built FYERS Academy: lessons, puzzles and FYERS-certified exams. The lessons were to be presented by our CEO, Tejas Khoday, which meant 200–250 videos. Asking a CEO to spend months in front of a camera wasn’t realistic. So we changed the question:</p>
+            <p class="fl-reframe"><s>How do we record 250 videos?</s><span>How do we create 250 videos <mark>from one recording</mark>?</span></p>
+            <div class="fl-pipe" aria-label="Human plus AI video workflow">
+              <div class="fl-node src"><b>One recording</b><small>of our CEO</small></div>
+              <span class="fl-arrow" aria-hidden="true">→</span>
+              <div class="fl-stack">
+                <div class="fl-node" style="--c:#9ccfff"><b>HeyGen</b><small>digital presenter</small></div>
+                <div class="fl-node" style="--c:#ff9fb5"><b>ElevenLabs</b><small>voice, verified by the CEO</small></div>
+                <div class="fl-node" style="--c:#ffd65a"><b>Claude Design</b><small>illustrations and motion, from a design system</small></div>
+              </div>
+              <span class="fl-arrow" aria-hidden="true">→</span>
+              <div class="fl-node out"><b>~10 lessons</b><small>a week, 2 a day</small></div>
+            </div>
+            <p>Version 1 was mostly manual: stitched in After Effects, every illustration drawn by hand. Good quality, but slow. Version 2 turned it into a system, and the design system meant <mark class="hl">lesson 1 and lesson 200 shared the same fonts, illustration style and motion</mark>. Work that would have taken months took weeks.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="pivot" aria-labelledby="h-pivot">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">12</span>The pivot</p>
+          <div class="content">
+            <h2 id="h-pivot" class="cs-title">Why learn in one app and <mark>practise in another</mark>?</h2>
+            <p>Learning has two modes: passive (watching, reading, understanding) and active (trying, failing, adjusting). Our users had said it plainly: easy to learn, not to practise. We had built both modes, in two separate products. So we merged them.</p>
+            <div class="fl-merge" aria-label="FYERS Academy and Learn by Doing merge into FYERS Learn">
+              <div class="fl-circle" style="--c:#ffd65a"><b>FYERS Academy</b><small>passive learning</small></div>
+              <span class="fl-plus" aria-hidden="true">+</span>
+              <div class="fl-circle" style="--c:#9be3bf"><b>Learn by Doing</b><small>active practice</small></div>
+              <span class="fl-arrow" aria-hidden="true">→</span>
+              <div class="fl-one"><b>FYERS Learn</b><span class="fl-tabs"><b class="on">Learn</b><b class="on2">Practice</b></span></div>
+            </div>
+            <p>A user could watch a lesson on stop losses and <mark class="hl">test that idea in a real-market replay a few minutes later</mark>, without leaving the app.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="solution" aria-labelledby="h-solution">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">13</span>The solution</p>
+          <div class="content">
+            <h2 id="h-solution" class="cs-title">Pick a path, <mark>like choosing a branch</mark> of engineering.</h2>
+            <p>Most learning platforms open with a long catalogue. For someone who just told you “I don’t know where to start”, that’s overwhelming. So, like choosing a branch of engineering, you pick a field and go deep.</p>
+            <div class="fl-paths"><span class="chip" style="--c:#ffd65a">Trading</span><span class="chip" style="--c:#9ccfff">Investing</span><span class="chip" style="--c:#ff9fb5">Derivatives</span></div>
+            <ol class="fl-ia" aria-label="Structure: path, course, module, lesson"><li>Path</li><li>Course</li><li>Module</li><li>Lesson</li></ol>
+            <h3 class="cs-sub">Keeping learning active</h3>
+            <ul class="fl-features">
+              <li><b>Puzzles</b> between modules make recall fun.</li>
+              <li><b>Mini Learn-by-Doing</b> scenarios inside lessons, to try a concept straight away.</li>
+              <li><b>Assessments</b> anytime, from simple MCQs to scenario questions that test judgment, not memory.</li>
+              <li><b>FYERS certifications</b>, with planned tie-ups with well-known institutions.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cs-section" id="build" aria-labelledby="h-build">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">14</span>Figma to live</p>
+          <div class="content">
+            <h2 id="h-build" class="cs-title">It looked real in Figma. <mark>So we made it real.</mark></h2>
+            <p>Jerry and I aren’t engineers, but we had Claude Code. We connected it to GitHub, opened VS Code and built the app by prompting, one screen and one interaction at a time. With an Android test phone from the company, we settled into a weekly loop:</p>
+            <ol class="fl-loop">
+              <li style="--c:#ffd65a">Build features with Claude Code</li>
+              <li style="--c:#9ccfff">Install and test it ourselves</li>
+              <li style="--c:#ff9fb5">Review what felt wrong</li>
+              <li style="--c:#9be3bf">Refine: ideas, animations, micro-interactions</li>
+              <li style="--c:#c9b6ff">Ship a new build, every week</li>
+            </ol>
+            <p class="cs-callout torn">Because the designers were also the builders, almost nothing was lost between design intent and the product. When we presented to the CEO, <b>we didn’t show a deck or a Figma link. We handed him a working app on a phone.</b></p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="outcome" aria-labelledby="h-outcome">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">15</span>Outcome</p>
+          <div class="content">
+            <h2 id="h-outcome" class="cs-title">What we <mark>shipped and proved</mark>.</h2>
+            <ul class="fl-results">
+              <li style="--c:#ffd65a"><b>A live Android product</b> in about 4–5 months, built by a team of four with designers doing the building</li>
+              <li style="--c:#9be3bf"><b>One unified app</b> combining passive and active learning</li>
+              <li style="--c:#9ccfff"><b>A new learning model:</b> paths instead of course catalogues</li>
+              <li style="--c:#ff9fb5"><b>A behaviour-based score</b> (ECS and the Tilt Meter) that measures discipline, not just profit</li>
+              <li style="--c:#c9b6ff"><b>An AI content workflow</b> making about 10 lessons a week, later adopted by the Product team for FYERS explainer videos</li>
+              <li style="--c:#ffb27a"><b>A new way of working:</b> proof that designers can take an idea from research to a working product</li>
+            </ul>
+            <p>Leadership ultimately chose not to take the product to full launch; finishing it needed deeper commitment from Product and Technology. But the work carried on: the content workflow and our way of designing by building are still in use.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="learnings" aria-labelledby="h-learnings">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">16</span>Learnings</p>
+          <div class="content">
+            <h2 id="h-learnings" class="cs-title">What I’ll <mark>carry forward</mark>.</h2>
+            <ol class="fl-lessons">
+              <li><b>Merging the products was the most important decision.</b> Neither was as strong alone. Learning and practice belong in one loop.</li>
+              <li><b>Dropping ideas was part of the design work.</b> The quiz, the trading window and the 60-minute session were all reasonable, and real behaviour proved them wrong.</li>
+              <li><b>You can design for emotion if you measure behaviour.</b> A moved stop loss, a panic exit, a sudden jump in quantity: patterns you can show people.</li>
+              <li><b>Designers who build iterate faster.</b> Weekly builds replaced long handoffs, and the gap between design and product almost disappeared.</li>
+              <li><b>Innovation needs an owner.</b> A strong prototype still needs Product and Engineering commitment to grow into a full product.</li>
+            </ol>
+            <p class="fl-closing">We set out to build a product that could earn ₹100 crore. What we ended up with was a way to help <mark>a scared beginner place their first trade with a plan</mark>, and keep to it.</p>
+          </div>
+        </section>
+        <p class="cs-top"><a href="#main">Back to top <span aria-hidden="true">↑</span></a></p>
+      </article>
+    </div>
+
+    <dialog class="viewer" aria-label="Image viewer">
+      <figure><div class="v-pan"><img alt=""></div><figcaption></figcaption><span class="v-tip">Drag the image to look around.</span></figure>
+      <div class="viewer-bar">
+        <button type="button" class="v-prev" aria-label="Previous image">←</button>
+        <span class="v-count" aria-live="polite"></span>
+        <button type="button" class="v-next" aria-label="Next image">→</button>
+        <button type="button" class="v-close" aria-label="Close image viewer">Close ✕</button>
+      </div>
+    </dialog>
+
+    <button class="sec-fab" type="button" aria-haspopup="dialog" aria-controls="sec-sheet"><span aria-hidden="true">☰</span> Sections</button>
+    <dialog class="sec-sheet" id="sec-sheet" aria-label="Jump to a section"><p class="sec-sheet-title">On this page</p><ol></ol></dialog>
+
+    <nav class="cs-next" aria-label="Next project">
       <div class="wrap">
         <a href="fyers-portfolio.html">
-          <span><small>Next project</small><strong>Portfolio</strong></span>
+          <span><small>Next project · 02</small><strong>Portfolio</strong></span>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -160,6 +462,138 @@
     const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+  <script>
+    // highlight the section you're reading in "On this page"
+    const links = [...document.querySelectorAll('.cs-toc a')];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        // the deepest matching link is the current one; its group heading lights up too
+        const match = links.filter((a) => a.getAttribute('href') === '#' + e.target.id);
+        const cur = match[match.length - 1];
+        if (cur) { cur.setAttribute('aria-current', 'true'); cur.closest('.has-sub')?.classList.add('in'); }
+        document.querySelectorAll('.cs-toc .has-sub').forEach((li) => li.classList.toggle('in', !!cur && li.contains(cur)));
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.cs3 .cs-section').forEach((s) => io.observe(s));
+  </script>
+  <script>
+    // tap to enlarge: an accessible viewer for screens and wireframes
+    (() => {
+      const dlg = document.querySelector('.viewer');
+      const items = [...document.querySelectorAll('.zoom')];
+      if (!dlg || !items.length) return;
+      const img = dlg.querySelector('img'), cap = dlg.querySelector('figcaption'), count = dlg.querySelector('.v-count');
+      let i = 0, opener = null;
+      let group = items; // the images of one section: wireframes or final screens
+      const show = (n) => {
+        i = (n + group.length) % group.length;
+        const src = group[i].querySelector('img');
+        img.src = src.currentSrc || src.src; img.alt = src.alt;
+        cap.textContent = group[i].closest('figure').querySelector('figcaption')?.textContent || '';
+        count.textContent = `${i + 1} of ${group.length}`;
+        // on phones the image is larger than the screen: start on the Genie panel (right side)
+        const pan = dlg.querySelector('.v-pan');
+        const toPanel = () => { pan.scrollLeft = pan.scrollWidth; };
+        img.complete ? requestAnimationFrame(toPanel) : img.addEventListener('load', toPanel, { once: true });
+      };
+      items.forEach((b) => b.addEventListener('click', () => {
+        opener = b; group = [...b.closest('section').querySelectorAll('.zoom')];
+        show(group.indexOf(b)); dlg.showModal(); dlg.querySelector('.v-close').focus();
+      }));
+      dlg.querySelector('.v-prev').addEventListener('click', () => show(i - 1));
+      dlg.querySelector('.v-next').addEventListener('click', () => show(i + 1));
+      dlg.querySelector('.v-close').addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+      dlg.addEventListener('close', () => opener && opener.focus());
+    })();
+    // reading progress, and the contents list collapses on small screens
+    (() => {
+      const bar = document.querySelector('.read-progress i');
+      const onScroll = () => { const h = document.documentElement; bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'; };
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const box = document.querySelector('.cs-toc-box');
+      if (box && matchMedia('(max-width: 900px)').matches) box.open = false;
+      else if (box) box.querySelector('summary').addEventListener('click', (e) => e.preventDefault()); // always open on desktop
+    })();
+  </script>
+  <script>
+    // phones: a floating "Sections" button opens a quick-jump list (like a food-app menu)
+    (() => {
+      const fab = document.querySelector('.sec-fab'), sheet = document.querySelector('.sec-sheet');
+      if (!fab || !sheet) return;
+      const list = sheet.querySelector('ol');
+      list.innerHTML = [...document.querySelectorAll('.cs3 .cs-section')].map((s) => {
+        const name = (s.querySelector('.cs-kicker')?.textContent || '').replace(/^\d+/, '').trim();
+        return `<li><a href="#${s.id}">${name}</a></li>`;
+      }).join('');
+      fab.addEventListener('click', () => {
+        const cur = document.querySelector('.cs-toc a[aria-current="true"]')?.getAttribute('href');
+        list.querySelectorAll('a').forEach((a) => a.toggleAttribute('aria-current', a.getAttribute('href') === cur));
+        sheet.showModal();
+        (list.querySelector('[aria-current]') || list.querySelector('a')).focus();
+      });
+      list.addEventListener('click', (e) => { if (e.target.closest('a')) sheet.close(); });
+      sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
+      sheet.addEventListener('close', () => fab.focus({ preventScroll: true }));
+      const onScroll = () => {
+        const end = document.querySelector('.cs-next')?.getBoundingClientRect().top ?? 1e9;
+        fab.classList.toggle('on', window.scrollY > 500 && end > window.innerHeight);
+      };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
+  </script>
+  <script>
+    // hero "video": the real screens play like a short screen recording
+    (() => {
+      const v = document.querySelector('.genie-video'); if (!v) return;
+      const frames = [...v.querySelectorAll('.gv-frame')], bars = [...v.querySelectorAll('.gv-steps i')];
+      const label = v.querySelector('.gv-label'), cur = v.querySelector('.gv-cursor'), click = v.querySelector('.gv-click'), btn = v.querySelector('.gv-toggle');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let i = 0, timer = null, paused = reduce;
+      const D = 2800;
+      const go = (n) => {
+        i = (n + frames.length) % frames.length;
+        frames.forEach((f, k) => f.classList.toggle('on', k === i));
+        bars.forEach((b, k) => { b.classList.toggle('done', k < i); b.classList.toggle('now', k === i); });
+        label.textContent = `Step ${i + 1} of ${frames.length} · ${frames[i].dataset.step}`;
+        cur.style.left = frames[i].dataset.cx + '%'; cur.style.top = frames[i].dataset.cy + '%';
+        click.style.left = frames[i].dataset.cx + '%'; click.style.top = frames[i].dataset.cy + '%';
+        click.classList.remove('pop'); cur.classList.remove('press'); setTimeout(() => { click.classList.add('pop'); cur.classList.add('press'); }, 1100);
+      };
+      const play = () => { clearInterval(timer); timer = setInterval(() => go(i + 1), D); v.classList.remove('paused'); };
+      const stop = () => { clearInterval(timer); v.classList.add('paused'); };
+      btn.addEventListener('click', () => { paused = !paused; btn.setAttribute('aria-pressed', String(paused)); btn.textContent = paused ? 'Play' : 'Pause'; paused ? stop() : play(); });
+      // step through by hand: the arrows and the progress bars pause the video on the chosen step
+      const hold = (n) => { paused = true; btn.setAttribute('aria-pressed', 'true'); btn.textContent = 'Play'; stop(); go(n); };
+      v.querySelector('.gv-nav.prev').addEventListener('click', () => hold(i - 1));
+      v.querySelector('.gv-nav.next').addEventListener('click', () => hold(i + 1));
+      bars.forEach((b, k) => b.addEventListener('click', () => hold(k)));
+      new IntersectionObserver((es) => { if (paused) return; es[0].isIntersecting ? play() : stop(); }).observe(v);
+      go(0); if (reduce) { btn.textContent = 'Play'; btn.setAttribute('aria-pressed', 'true'); stop(); }
+    })();
+    // final screens: a stack you flip through
+    (() => {
+      const st = document.querySelector('.screen-stack'); if (!st) return;
+      const cards = [...st.querySelectorAll('.stack-card')], caps = [...st.querySelectorAll('.stack-cap span')], count = st.querySelector('.stack-count');
+      let top = 0;
+      const lay = () => {
+        cards.forEach((c, k) => { const d = (k - top + cards.length) % cards.length; c.style.setProperty('--d', d); c.classList.toggle('front', d === 0); c.setAttribute('aria-hidden', String(d !== 0)); });
+        caps.forEach((c, k) => c.hidden = k !== top);
+        count.textContent = `${top + 1} / ${cards.length}`;
+      };
+      const go = (n) => { top = (n + cards.length) % cards.length; lay(); };
+      st.querySelector('.next').addEventListener('click', () => go(top + 1));
+      st.querySelector('.prev').addEventListener('click', () => go(top - 1));
+      st.querySelector('.stack').addEventListener('click', () => go(top + 1));
+      let x0 = null; const s = st.querySelector('.stack');
+      s.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+      s.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) { e.preventDefault(); go(top + (dx < 0 ? 1 : -1)); } x0 = null; });
+      lay();
+    })();
   </script>
   <script src="../header.js?v=4"></script>
 </body>

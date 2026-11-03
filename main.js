@@ -602,20 +602,26 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     const p = photos[i];
     img.classList.remove('in'); void img.offsetWidth;
     img.src = p.src; img.alt = p.cap; img.classList.add('in');
-    cap.textContent = p.cap; note.textContent = p.note || '';
+    cap.textContent = p.note ? p.cap : ''; note.textContent = p.note || '';
     count.textContent = `${i + 1} / ${photos.length}`;
     thumbs.querySelectorAll('button').forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
     thumbs.children[i]?.scrollIntoView({ block: 'nearest', inline: 'center' });
   };
-  document.querySelectorAll('.pocket').forEach((p) => p.addEventListener('click', () => {
-    opener = p;
-    photos = JSON.parse(p.dataset.photos);
-    title.textContent = p.dataset.title.replace('&amp;', '&');
-    thumbs.innerHTML = photos.map((ph, k) => `<li><button type="button" aria-label="Photo ${k + 1}: ${ph.cap}"><img src="${ph.src}" alt=""></button></li>`).join('');
+  const open = (list, name, start, from) => {
+    opener = from;
+    photos = list;
+    title.textContent = name.replace('&amp;', '&');
+    thumbs.innerHTML = photos.map((ph, k) => `<li><button type="button" aria-label="Piece ${k + 1}: ${ph.cap}"><img src="${ph.src}" alt=""></button></li>`).join('');
     thumbs.querySelectorAll('button').forEach((b, k) => b.addEventListener('click', () => show(k)));
-    dlg.showModal(); show(0);
+    dlg.showModal(); show(start);
     dlg.querySelector('.pv-nav.next').focus();
-  }));
+  };
+  document.querySelectorAll('.pocket').forEach((p) => p.addEventListener('click', () => open(JSON.parse(p.dataset.photos), p.dataset.title, 0, p)));
+  // the art album: each piece opens the viewer at that piece
+  document.querySelectorAll('.art-spread').forEach((sp) => {
+    const list = JSON.parse(sp.dataset.photos);
+    sp.querySelectorAll('.art-card').forEach((c) => c.addEventListener('click', () => open(list, sp.dataset.title, +c.dataset.index, c)));
+  });
   dlg.querySelector('.prev').addEventListener('click', () => show(i - 1));
   dlg.querySelector('.next').addEventListener('click', () => show(i + 1));
   dlg.querySelector('.pv-close').addEventListener('click', () => dlg.close());
@@ -625,4 +631,18 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   dlg.querySelector('.pv-photo').addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
   dlg.querySelector('.pv-photo').addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
   dlg.addEventListener('close', () => opener && opener.focus());
+})();
+
+/* Career awards: tap a badge to see the photo from the day */
+(() => {
+  const d = document.querySelector('.aw-view');
+  if (!d) return;
+  const img = d.querySelector('img');
+  let from = null;
+  document.querySelectorAll('.aw-open').forEach((b) => b.addEventListener('click', () => {
+    from = b; img.src = b.dataset.photo; img.alt = b.dataset.alt; d.showModal();
+  }));
+  d.querySelector('.aw-close').addEventListener('click', () => d.close());
+  d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
+  d.addEventListener('close', () => from && from.focus());
 })();

@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=140">
+    <link rel="stylesheet" href="../style.css?v=144">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -107,7 +107,7 @@
               <span class="gv-cursor"><svg viewBox="0 0 24 24"><path d="M4 3l7 17 2.5-7 7-2.5z"/></svg></span>
               <span class="gv-click"></span>
             </div>
-            <div class="gv-bar"><span class="gv-steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></span><span class="gv-label" aria-live="off"></span><button class="gv-toggle" type="button" aria-pressed="false">Pause</button></div>
+            <div class="gv-bar"><span class="gv-steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></span><span class="gv-label" aria-live="off"></span><span class="gv-ctrl"><button class="gv-nav prev" type="button" aria-label="Previous step">←</button><button class="gv-toggle" type="button" aria-pressed="false">Pause</button><button class="gv-nav next" type="button" aria-label="Next step">→</button></span></div>
           </figure>
         </div>
       </div>
@@ -512,6 +512,11 @@
       const play = () => { clearInterval(timer); timer = setInterval(() => go(i + 1), D); v.classList.remove('paused'); };
       const stop = () => { clearInterval(timer); v.classList.add('paused'); };
       btn.addEventListener('click', () => { paused = !paused; btn.setAttribute('aria-pressed', String(paused)); btn.textContent = paused ? 'Play' : 'Pause'; paused ? stop() : play(); });
+      // step through by hand: the arrows and the progress bars pause the video on the chosen step
+      const hold = (n) => { paused = true; btn.setAttribute('aria-pressed', 'true'); btn.textContent = 'Play'; stop(); go(n); };
+      v.querySelector('.gv-nav.prev').addEventListener('click', () => hold(i - 1));
+      v.querySelector('.gv-nav.next').addEventListener('click', () => hold(i + 1));
+      bars.forEach((b, k) => b.addEventListener('click', () => hold(k)));
       new IntersectionObserver((es) => { if (paused) return; es[0].isIntersecting ? play() : stop(); }).observe(v);
       go(0); if (reduce) { btn.textContent = 'Play'; btn.setAttribute('aria-pressed', 'true'); stop(); }
     })();

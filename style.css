@@ -4727,3 +4727,20 @@ body:has(.proj-hero[style*="#ddd0ff"]) { --hl: #e2d6ff; }
 .xp-more-btn:hover, .xp-more-btn:focus-visible { border-color: #2c2836; background: #fffdf7; }
 .wire-gal .cs-wire { flex-basis: calc((100% - 32px) / 2.25); }
 @media (max-width: 640px) { .wire-gal .cs-wire { flex-basis: 84%; } }
+/* sketches drawn straight on the notebook page: no print, tape or card */
+.print:has(.thumb.sk), .print:has(.thumb.sk):hover { border: 0 !important; box-shadow: none !important; background: none !important; transform: none !important; }
+.print:has(.thumb.sk) .tape { display: none !important; }
+.thumb.sk { background: none !important; background-image: none !important; box-shadow: none !important; border: 0 !important; overflow: visible; }
+.thumb.sk::before { display: none !important; }
+.sk-h { color: #2f2c35; }
+.sk-d { stroke: #34303c; opacity: .9; }
+/* tags: pencil-outlined pills, coloured in */
+.sk-tag { display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px 4px 7px !important; background: var(--c, #fffdf7) !important; border: 1.4px solid #34303c !important; color: #24202b !important; box-shadow: 1.5px 1.5px 0 rgba(52, 48, 60, .55); }
+.sk-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #34303c; opacity: .75; }
+.sk-name { left: 7.8%; top: 26.5%; opacity: 0; transition: opacity .35s ease; }
+.sk-name.show { opacity: 1; }
+.sk-genie .sk-name { left: 70.5%; top: 26.5%; }
+.sk-type { left: 15.5%; top: 30%; font-size: clamp(.55rem, 1.8cqw, .72rem); }
+.sk-pick { left: 82%; top: 50%; }
+.sk-pick.show { transform: translate(-50%, -50%) rotate(var(--r, 0deg)); }
+.sk-genie .sk-pick { left: 88%; top: 97%; }

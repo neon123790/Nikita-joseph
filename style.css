@@ -4438,3 +4438,40 @@ main section.safe h2.safe-title { margin: 0 0 16px !important; color: #fff !impo
   .safe-handle { right: -30px; }
 }
 @media (prefers-reduced-motion: reduce) { .safe-dial, .safe-led { animation: none; } }
+
+/* ---------- Ten Tabs: "What you're missing" as a live news feed ---------- */
+.feed { border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid #e3e0d7; box-shadow: 0 22px 44px -32px rgba(20, 17, 28, .45); }
+.feed-bar { display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: #1f1b29; color: #fff; }
+.feed-bar h2 { margin: 0 !important; font: 600 clamp(1.05rem, 1.8vw, 1.3rem)/1.2 var(--bold) !important; color: #fff !important; }
+.feed-live { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 6px; background: #e5484d; font: 700 .66rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.feed-live i { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: safe-blink 1.6s ease-in-out infinite; }
+.feed-lock { margin-left: auto; display: grid; place-items: center; }
+.feed-lock svg { width: 20px; height: 20px; fill: none; stroke: #ffd65a; stroke-width: 2; stroke-linecap: round; }
+.feed-list { list-style: none; margin: 0; padding: 6px 0; }
+.feed-list li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 16px 20px; border-top: 1px solid #efece5; }
+.feed-list li:first-child { border-top: 0; }
+.feed-list time { padding-top: 3px; font: 600 .74rem/1.3 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: #8a8594; }
+.feed-list h3 { margin: 0 0 4px; font: 600 1.08rem/1.35 var(--bold) !important; color: #1f1b29; }
+.feed-list p { margin: 0; font: 400 .95rem/1.55 var(--sans); color: #6b6676; }
+.feed-now { background: #fffaf0; }
+.feed-now time { color: #e5484d; }
+.feed-end { margin: 0; padding: 16px 20px; border-top: 1px dashed #e3e0d7; font: 600 1rem/1.4 var(--bold); color: #c2410c; }
+.feed-end em { font-style: italic; }
+@media (max-width: 600px) { .feed-list li { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; } .feed-bar { padding: 12px 16px; } }
+
+/* ---------- More about me: slow spinning asterisks + "not the work version" card ---------- */
+#board-title { position: relative; display: inline-block; }
+.spin-star { position: absolute; width: 26px; height: 26px; animation: spin-slow 12s linear infinite; }
+.spin-star svg { width: 100%; height: 100%; fill: none; stroke-width: 5; stroke-linecap: round; }
+.spin-star.s1 { right: -34px; top: -10px; } .spin-star.s1 svg { stroke: #ffd65a; }
+.spin-star.s2 { left: -30px; bottom: -4px; width: 18px; height: 18px; animation-duration: 16s; animation-direction: reverse; } .spin-star.s2 svg { stroke: #ff9fb5; }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin-star { animation: none; } }
+.board3 .me-card { text-align: left !important; max-width: 460px; padding: 22px 24px 20px 46px !important; }
+.me-kicker { margin: 0 0 4px; font: 700 .72rem/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: #e5603a; }
+.me-hi { margin: 0 0 10px; font: 700 clamp(1.3rem, 2.4vw, 1.6rem)/1.15 var(--bold); color: #1f2340; }
+.me-sub { margin: 10px 0 4px; font: 500 1.05rem/1.3 var(--sans); color: #2c2836; }
+.me-card ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.me-card li { font: 400 1.05rem/1.4 var(--hand); color: #2c2836; }
+main .feed .feed-bar h2#h-missing { margin: 0 !important; font: 600 clamp(1.05rem, 1.8vw, 1.3rem)/1.2 var(--bold) !important; color: #fff !important; text-transform: none !important; letter-spacing: 0 !important; }
+main .mat-head h2#board-title { display: table !important; margin: 10px auto 12px !important; }

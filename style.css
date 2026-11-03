@@ -5181,3 +5181,8 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .me-doodle.d2 { left: 12px; bottom: 26px; width: 16px; height: 16px; }
 .me-doodle.d1 { top: 8px; right: 10px; width: 18px; height: 18px; }
 .me-written .me-hi { margin-right: 22px !important; }
+/* Portfolio home card: a pencil sketch of the two-panel screen */
+.thumb.sk-port { aspect-ratio: 16 / 10; }
+.sk-port .sk-layer { position: absolute; inset: 0; }
+.sk-port .pf-sk-title { left: 21%; top: 12%; }
+.sk-port .sk-d.hi { stroke: #ff8a3d; }

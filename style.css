@@ -5157,3 +5157,4 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
   .journal .bookmark:not([aria-selected="true"]) { filter: saturate(.85); }
 }
 @media (max-width: 360px) { .journal .bookmark, .journal .bookmark[aria-selected="true"] { font-size: .7rem !important; } }
+@media (max-width: 860px) { .journal .bookmarks { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

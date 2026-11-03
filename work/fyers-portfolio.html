@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=190">
+    <link rel="stylesheet" href="../style.css?v=191">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -90,7 +90,7 @@
             <div class="cs-titlerow"><h1>Every trader asks <span class="pf-q">two questions</span>. Our screen had to answer both.</h1></div>
             <p class="pf-lede"><span class="pf-ask">What do I own?</span> <span class="pf-ask alt">What’s still open?</span> The old FYERS portfolio answered neither. The new one had to answer both, without making anyone scroll, click or wait.</p>
           </div>
-          <figure class="gh-shot pf-hero-shot"><img src="../images/portfolio/details.jpg" width="1600" height="977" alt="The FYERS Portfolio on web: the positions list on the left with NIFTYBEES selected, and its details on the right, with an actions menu open: symbol details, reverse position, orderbook, convert to overnight, create alert and add to basket."></figure>
+          <figure class="gh-shot pf-hero-shot"><div class="pf-browser "><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><img src="../images/portfolio/details.jpg" width="1600" height="977" alt="The FYERS Portfolio on web: the positions list on the left with NIFTYBEES selected, and its details on the right, with the actions menu open." loading="lazy" loading="eager" fetchpriority="high"></div></div></figure>
           <dl class="gh-facts gn-facts">
             <div><dt>My role</dt><dd>UX Designer, with a UI Designer partner on final visuals</dd></div>
             <div><dt>Product</dt><dd>FYERS 2.0 Portfolio: Positions and Holdings</dd></div>
@@ -155,23 +155,9 @@
             <h2 id="h-turn" class="cs-title">Would one screen be <mark>too crowded</mark>?</h2>
             <p>With a long list of options to offer, my first instinct was to put everything in one place. Then I asked: would it be too crowded? It would. Every detail, action and category on one screen would make the list harder to scan, and punish anyone who only wanted to check a single position.</p>
             <p>We talked it through as a team and landed on a two-section layout: <b>the full list on the left, kept intact, and the details for whatever you select on the right.</b></p>
-            <figure class="pf-demo" aria-label="Interactive demo: select a row and the details panel slides in from the right while the list stays visible">
-              <div class="pf-demo-screen" data-open="false">
-                <div class="pf-demo-list">
-                  <div class="pf-demo-head"><span>Symbol</span><span>Qty</span><span>P&amp;L</span></div>
-                  <button type="button" class="pf-row" data-sym="NIFTY FUT" data-pl="+₹2,000.50" data-side="Buy · MTF"><span>NIFTY FUT</span><span>50</span><span class="up">+₹2,000.50</span></button>
-                  <button type="button" class="pf-row" data-sym="NIFTYBEES" data-pl="−₹956.90" data-side="Buy · Overnight"><span>NIFTYBEES</span><span>12</span><span class="down">−₹956.90</span></button>
-                  <button type="button" class="pf-row" data-sym="PAYTM" data-pl="+₹2,000.50" data-side="Sell · Overnight"><span>PAYTM</span><span>4</span><span class="up">+₹2,000.50</span></button>
-                  <button type="button" class="pf-row" data-sym="NIFTY 24000 CE" data-pl="−₹300.56" data-side="Buy · Intraday"><span>NIFTY 24000 CE</span><span>75</span><span class="down">−₹300.56</span></button>
-                </div>
-                <aside class="pf-demo-panel" aria-live="polite">
-                  <button type="button" class="pf-demo-close" aria-label="Close details">✕</button>
-                  <p class="pf-demo-sym"></p><p class="pf-demo-side"></p>
-                  <p class="pf-demo-pl"></p>
-                  <div class="pf-demo-actions"><span>Exit</span><span>Add</span><span>Convert</span></div>
-                </aside>
-              </div>
-              <figcaption><span class="pf-demo-hint">Select a row.</span> The list shifts left and the details slide in from the right. No pop-up, and you never lose your place.</figcaption>
+            <figure class="pf-proto" data-state="list">
+              <div class="pf-browser "><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><div class="pf-stackimg"><img src="../images/portfolio/home.jpg" width="1600" height="899" alt="Positions list, nothing selected." loading="lazy" class="on" data-v="list"><img src="../images/portfolio/details.jpg" width="1600" height="977" alt="NIFTYBEES selected: the list shifts left and its details slide in on the right." loading="lazy" data-v="detail"></div><button type="button" class="pf-hot" style="left:9.5%;top:27.5%;width:81%;height:6%" aria-label="Select NIFTYBEES to open its details"><span class="pf-pulse" aria-hidden="true"></span></button><button type="button" class="pf-back" aria-label="Back to the full list">← Back to the list</button></div></div>
+              <figcaption><b class="pf-proto-hint">Tap the highlighted row.</b> This is the real design: the list shifts left and the details slide in from the right. No pop-up, and the list never leaves the screen.</figcaption>
             </figure>
             <p class="cs-callout torn"><b>Why not a pop-up?</b> Pop-ups cover the list and break the user’s place. The side panel trades some width for continuity, which is why the list itself had to be so carefully organised.</p>
           </div>
@@ -188,13 +174,9 @@
               <li><span class="pf-v">V3</span><b>Actions on the row itself</b><span>Engineers flagged that some of the hover behaviour might not work on their side, so the actions moved onto the row.</span></li>
               <li class="kept"><span class="pf-v">V4</span><b>Back to hover</b><span>Once that was worked through together, hover came back: the cleanest list, with every action one move away.</span></li>
             </ol>
-            <figure class="pf-hover" aria-label="Try it: hover or focus a row to see its actions at the side">
-              <div class="pf-hover-list">
-                <div class="pf-hover-row" tabindex="0"><span class="sym">NIFTY FUT<small>Buy · MTF</small></span><span class="pl up">+₹2,000.50</span><span class="pf-acts" aria-label="Actions"><button type="button" class="b">B</button><button type="button" class="s">S</button><button type="button">Details</button><button type="button">Convert</button><button type="button" class="x">Exit</button></span></div>
-                <div class="pf-hover-row" tabindex="0"><span class="sym">NIFTYBEES<small>Buy · Overnight</small></span><span class="pl down">−₹956.90</span><span class="pf-acts" aria-label="Actions"><button type="button" class="b">B</button><button type="button" class="s">S</button><button type="button">Details</button><button type="button">Convert</button><button type="button" class="x">Exit</button></span></div>
-                <div class="pf-hover-row" tabindex="0"><span class="sym">PAYTM<small>Sell · Overnight</small></span><span class="pl up">+₹2,000.50</span><span class="pf-acts" aria-label="Actions"><button type="button" class="b">B</button><button type="button" class="s">S</button><button type="button">Details</button><button type="button">Convert</button><button type="button" class="x">Exit</button></span></div>
-              </div>
-              <figcaption><b>Try it:</b> hover a row (or tap it on a phone). The actions sit at the side, so the numbers stay readable.</figcaption>
+            <figure class="pf-annot">
+              <div class="pf-browser "><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><img src="../images/portfolio/hover.jpg" width="1536" height="864" alt="Holdings list with the PAYTM row hovered: B and S buttons appear at the row’s edge, with a menu for symbol details, create GTT, unpledge, authorise, create alert and add to basket." loading="lazy" ><span class="pf-ring" style="left:81.5%;top:53.5%;width:7.5%;height:6.5%" aria-hidden="true"></span><span class="pf-pin" style="left:80%;top:47%" aria-hidden="true">V4</span></div></div>
+              <figcaption><b>The final version, on Holdings:</b> hover a row and B and S appear at its edge, with ⋮ for everything else. Nothing covers the numbers.</figcaption>
             </figure>
             <h3 class="cs-sub">The layout we tried and dropped</h3>
             <div class="pf-tried">
@@ -208,43 +190,30 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">05</span>A system of decisions</p>
           <div class="content">
             <h2 id="h-system" class="cs-title">Four decisions that <mark>organise everything</mark>.</h2>
-
             <h3 class="cs-sub">1. Grouping that matches how traders think</h3>
-            <p>Instead of one flat list, positions can be grouped by Status, Underlying, P&amp;L, Product and Symbol type, with sort, filters and manageable columns on top. This was the answer to “no filtering, no customisation”.</p>
-            <div class="pf-group" aria-label="Try grouping a sample list">
-              <div class="pf-group-tabs" role="group" aria-label="Group by">
-                <span class="pf-group-label">Group by</span>
-                <button type="button" aria-pressed="true" data-g="status">Status</button><button type="button" aria-pressed="false" data-g="und">Underlying</button><button type="button" aria-pressed="false" data-g="pl">P&amp;L</button><button type="button" aria-pressed="false" data-g="prod">Product</button>
-              </div>
-              <div class="pf-group-list" aria-live="polite"></div>
-            </div>
-            <figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Positions with the Group by menu open: Status, P&amp;L, Underlying, Products and Symbol type."><img src="../images/portfolio/groupby.jpg" width="1600" height="899" loading="lazy" alt="Positions with the Group by menu open: Status, P&amp;L, Underlying, Products and Symbol type."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Group by</b> sits right where the list starts.</figcaption></figure>
-
+            <p>Instead of one flat list, positions can be grouped by Status, Underlying, P&amp;L, Product and Symbol type, with sort, filters and manageable columns on top. This was the answer to “no filtering, no customisation”. Try the tabs: these are the real screens.</p>
+            <div class="pf-tabs" data-name="group"><div class="pf-tabbar" role="tablist" aria-label="Group by"><button type="button" role="tab" aria-selected="true" data-k="0">Status</button><button type="button" role="tab" aria-selected="false" data-k="1">P&amp;L</button><button type="button" role="tab" aria-selected="false" data-k="2">Underlying</button><button type="button" role="tab" aria-selected="false" data-k="3">Product</button><button type="button" role="tab" aria-selected="false" data-k="4">Symbol type</button></div><div class="pf-browser "><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><div class=pf-stackimg><img src="../images/portfolio/groupby.jpg" width="1600" height="899" alt="Positions with the Group by menu open: Status, P&amp;L, Underlying, Products and Symbol type." loading="lazy" class="on" data-k="0"><img src="../images/portfolio/gpl.jpg" width="1600" height="899" alt="Positions grouped by P&amp;L: in profit and in loss." loading="lazy" class="" data-k="1"><img src="../images/portfolio/gund.jpg" width="1600" height="899" alt="Positions grouped by underlying, each group with its own subtotal." loading="lazy" class="" data-k="2"><img src="../images/portfolio/gprod.jpg" width="1600" height="899" alt="Positions grouped by product: intraday, overnight and MTF." loading="lazy" class="" data-k="3"><img src="../images/portfolio/gsym.jpg" width="1600" height="899" alt="Positions grouped by symbol type: equity, futures and options." loading="lazy" class="" data-k="4"></div></div></div><p class="pf-tabcap" aria-live="polite"><span data-k="0" ><b>Status:</b> the Group by menu sits right where the list starts.</span><span data-k="1" hidden><b>P&amp;L:</b> what’s working, and what isn’t.</span><span data-k="2" hidden><b>Underlying:</b> every contract on NIFTY, together, with a subtotal.</span><span data-k="3" hidden><b>Product:</b> intraday apart from overnight and MTF.</span><span data-k="4" hidden><b>Symbol type:</b> equity, futures and options.</span></p></div>
             <h3 class="cs-sub">2. One pattern, reused everywhere</h3>
             <p>The same right-hand panel carries filters, column management, position details, holding details and mutual fund details. <mark class="hl">Learn it once, and you know it everywhere.</mark></p>
-            <ul class="pf-panels" aria-label="Everything that lives in the side panel">
-              <li><b>Filters</b></li><li><b>Manage columns</b></li><li><b>Position details</b></li><li><b>Holding details</b></li><li><b>MF details</b></li>
-            </ul>
-            <div class="pf-shots"><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Filters in the side panel: exchange and side, with Apply and Reset."><img src="../images/portfolio/filters.jpg" width="1600" height="899" loading="lazy" alt="Filters in the side panel: exchange and side, with Apply and Reset."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Filters</b> in the side panel</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Manage columns in the same side panel: basic, price, P&amp;L and transaction details."><img src="../images/portfolio/columns.jpg" width="1600" height="899" loading="lazy" alt="Manage columns in the same side panel: basic, price, P&amp;L and transaction details."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Manage columns</b>, same panel</figcaption></figure></div>
-
+            <div class="pf-tabs" data-name="panel"><div class="pf-tabbar" role="tablist" aria-label="What lives in the side panel"><button type="button" role="tab" aria-selected="true" data-k="0">Filters</button><button type="button" role="tab" aria-selected="false" data-k="1">Manage columns</button><button type="button" role="tab" aria-selected="false" data-k="2">Position details</button><button type="button" role="tab" aria-selected="false" data-k="3">Holding details</button><button type="button" role="tab" aria-selected="false" data-k="4">MF details</button></div><div class="pf-browser "><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><div class=pf-stackimg><img src="../images/portfolio/filters.jpg" width="1600" height="899" alt="Filters in the side panel: exchange and side, with Apply and Reset." loading="lazy" class="on" data-k="0"><img src="../images/portfolio/columns.jpg" width="1600" height="899" alt="Manage columns in the same side panel." loading="lazy" class="" data-k="1"><img src="../images/portfolio/details.jpg" width="1600" height="977" alt="Position details in the side panel." loading="lazy" class="" data-k="2"><img src="../images/portfolio/hdetails.jpg" width="1536" height="864" alt="Holding details in the side panel." loading="lazy" class="" data-k="3"><img src="../images/portfolio/mfdet.jpg" width="1536" height="864" alt="Mutual fund details in the side panel." loading="lazy" class="" data-k="4"></div></div></div><p class="pf-tabcap" aria-live="polite"><span data-k="0" ><b>Filters</b> in the side panel.</span><span data-k="1" hidden><b>Manage columns</b>, same panel.</span><span data-k="2" hidden><b>Position details</b>, same panel.</span><span data-k="3" hidden><b>Holding details</b>, same panel.</span><span data-k="4" hidden><b>MF details</b>, same panel. Learn it once, use it everywhere.</span></p></div>
             <h3 class="cs-sub">3. Colour that signals risk before you read</h3>
-            <p>Warnings and confirmations follow one colour logic across every flow.</p>
-            <ul class="pf-colours">
-              <li class="c-warn"><span class="pf-sw" aria-hidden="true"></span><b>Caution</b><span>Reverse, cancel square-off, conversion notes</span></li>
-              <li class="c-stop"><span class="pf-sw" aria-hidden="true"></span><b>Irreversible</b><span>Exit confirmations and high-stakes actions</span></li>
-              <li class="c-ok"><span class="pf-sw" aria-hidden="true"></span><b>Success</b><span>Done, confirmed, all clear</span></li>
+            <p>Warnings and confirmations follow one colour logic across every flow. Straight from the screens:</p>
+            <ul class="pf-colours2">
+              <li><img src="../images/portfolio/c-warn.jpg" width="400" height="190" alt="A yellow dialog: Cancel square-off order, with Confirm and Dismiss." loading="lazy"><b>Yellow · caution</b><span>Reverse, cancel square-off, conversion notes</span></li>
+              <li><img src="../images/portfolio/c-stop.jpg" width="360" height="180" alt="A red dialog: Exit 4 positions. This action cannot be undone." loading="lazy"><b>Red · can’t be undone</b><span>Exit confirmations and high-stakes actions</span></li>
+              <li><img src="../images/portfolio/c-ok.jpg" width="470" height="62" alt="A green note: You have successfully exited the position NIFTYBEES." loading="lazy"><b>Green · done</b><span>Success, confirmed, all clear</span></li>
             </ul>
-
             <h3 class="cs-sub">4. A privacy lock</h3>
             <p>Because people check their portfolio around others, a lock hides the important numbers on screen. Try it:</p>
             <div class="pf-lock">
               <div class="pf-lock-card" data-locked="false">
-                <p class="pf-lock-k">Total P&amp;L</p><p class="pf-lock-v"><span class="num">+₹5,567.74</span><span class="mask" aria-hidden="true">••••••</span></p>
-                <p class="pf-lock-k">Current value</p><p class="pf-lock-v"><span class="num">₹4,82,310</span><span class="mask" aria-hidden="true">••••••</span></p>
+                <span class="pf-lock-ico" aria-hidden="true">₹</span>
+                <div><p class="pf-lock-k">Total P&amp;L</p><p class="pf-lock-v"><span class="num">₹5,567.74</span><span class="mask" aria-hidden="true">₹ ••••</span></p></div>
+                <div><p class="pf-lock-k">Realised P&amp;L</p><p class="pf-lock-v sm"><span class="num">₹5,567.74</span><span class="mask" aria-hidden="true">₹ ••••</span></p></div>
+                <div><p class="pf-lock-k">Unrealised P&amp;L</p><p class="pf-lock-v sm"><span class="num">₹5,567.74</span><span class="mask" aria-hidden="true">₹ ••••</span></p></div>
               </div>
               <button type="button" class="pf-lock-btn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path class="shackle" d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg><span>Hide numbers</span></button>
             </div>
-
           </div>
         </section>
 
@@ -252,18 +221,9 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">06</span>Positions</p>
           <div class="content">
             <h2 id="h-positions" class="cs-title">Many workflows, <mark>one structure</mark>.</h2>
-            <p>Positions isn’t one screen. It’s a family of workflows, and each one had to fit the two-panel pattern.</p>
-            <ol class="pf-map">
-              <li><b>Core view</b><span>Sort and filter, manage columns</span></li>
-              <li><b>Actions</b><span>Exit one position, reverse, convert (including MTF to overnight), cancel square-off</span></li>
-              <li><b>Closed positions</b><span>What’s already done</span></li>
-              <li class="hot"><b>Exit all</b><span>A bulk action with a confirmation step, since it affects everything at once</span></li>
-              <li class="hot"><b>Smart Exit</b><span>The automated exit flows</span></li>
-              <li><b>Supporting states</b><span>Labels, empty state, reminders</span></li>
-            </ol>
+            <p>Positions isn’t one screen. It’s a family of workflows, and each one had to fit the two-panel pattern. Tap any screen to see it larger.</p>
+            <ul class="pf-board"><li class=""><button class="zoom" type="button" aria-label="Enlarge: Core view. Sort, filter, manage columns"><img src="../images/portfolio/home.jpg" width="1600" height="899" alt="Core view: Sort, filter, manage columns" loading="lazy" ><span class="zoom-hint" aria-hidden="true">⤢</span></button><b>Core view</b><span>Sort, filter, manage columns</span></li><li class=""><button class="zoom" type="button" aria-label="Enlarge: Actions. Exit one, reverse, convert, cancel square-off"><img src="../images/portfolio/convert.jpg" width="1600" height="899" alt="Actions: Exit one, reverse, convert, cancel square-off" loading="lazy" ><span class="zoom-hint" aria-hidden="true">⤢</span></button><b>Actions</b><span>Exit one, reverse, convert, cancel square-off</span></li><li class=""><button class="zoom" type="button" aria-label="Enlarge: Closed positions. What’s already done"><img src="../images/portfolio/closed.jpg" width="1600" height="899" alt="Closed positions: What’s already done" loading="lazy" ><span class="zoom-hint" aria-hidden="true">⤢</span></button><b>Closed positions</b><span>What’s already done</span></li><li class="hot"><button class="zoom" type="button" aria-label="Enlarge: Exit all. Bulk action, confirmed first"><img src="../images/portfolio/exitall.jpg" width="1600" height="899" alt="Exit all: Bulk action, confirmed first" loading="lazy" ><span class="zoom-hint" aria-hidden="true">⤢</span></button><b>Exit all</b><span>Bulk action, confirmed first</span></li><li class="hot"><button class="zoom" type="button" aria-label="Enlarge: Smart Exit. The automated exit flows"><img src="../images/portfolio/smartexit.jpg" width="1600" height="900" alt="Smart Exit: The automated exit flows" loading="lazy" ><span class="zoom-hint" aria-hidden="true">⤢</span></button><b>Smart Exit</b><span>The automated exit flows</span></li><li class=""><button class="zoom" type="button" aria-label="Enlarge: Supporting states. Labels, empty state, reminders"><img src="../images/portfolio/empty.jpg" width="1600" height="900" alt="Supporting states: Labels, empty state, reminders" loading="lazy" ><span class="zoom-hint" aria-hidden="true">⤢</span></button><b>Supporting states</b><span>Labels, empty state, reminders</span></li></ul>
             <p>The Convert flow went through the most frames on the board: explaining a conversion clearly was harder than laying it out. <b>Exit all and Smart Exit carried the highest stakes.</b> These are the moments where clarity matters more than speed, so their confirmation steps and warning states got the most care.</p>
-<figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Convert position: converting NIFTYBEES from MTF to overnight, with notes on timing and RMS validation."><img src="../images/portfolio/convert.jpg" width="1600" height="899" loading="lazy" alt="Convert position: converting NIFTYBEES from MTF to overnight, with notes on timing and RMS validation."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Convert</b>: the flow with the most versions. The yellow notes explain what happens and when.</figcaption></figure>
-            <div class="pf-shots"><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Exit all positions: a red confirmation asking to exit 4 positions, warning that pending orders will be cancelled and the action cannot be undone."><img src="../images/portfolio/exitall.jpg" width="1600" height="899" loading="lazy" alt="Exit all positions: a red confirmation asking to exit 4 positions, warning that pending orders will be cancelled and the action cannot be undone."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Exit all</b>: red, because it can’t be undone</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Smart Exit: setting a profit target and maximum loss, with the active Smart Exit shown in the side panel."><img src="../images/portfolio/smartexit.jpg" width="1600" height="900" loading="lazy" alt="Smart Exit: setting a profit target and maximum loss, with the active Smart Exit shown in the side panel."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Smart Exit</b>: set a target and a limit, and it exits for you</figcaption></figure></div>
           </div>
         </section>
 
@@ -271,18 +231,16 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">07</span>Holdings</p>
           <div class="content">
             <h2 id="h-holdings" class="cs-title">Designing for <mark>trust</mark>.</h2>
-            <p>Holdings does a different job. It’s about ownership, so the design is about clarity and confidence rather than speed.</p>
-            <ul class="pf-hold">
-              <li style="--c:#e3efff"><b>Listed shares</b><span>Filters, Gainers &amp; Losers, holding details, e-DIS authorisation</span></li>
-              <li style="--c:#dff5e8"><b>Mutual funds</b><span>Filters, manage columns, MF details</span></li>
-              <li style="--c:#fff1a8"><b>Pledge</b><span>The pledge flow, available to pledge, pledge history, empty states</span></li>
-            </ul>
-            <p>The e-DIS and pledge flows were the most sensitive. They send the user to an external depository step (CDSL) and back. In that moment the user has left the app they trust, so every step has to say three things:</p>
-            <div class="pf-handoff" aria-label="The handoff: FYERS, then CDSL, then back to FYERS">
-              <span class="pf-hop">FYERS</span><span class="pf-hop-line" aria-hidden="true"></span><span class="pf-hop ext">CDSL</span><span class="pf-hop-line back" aria-hidden="true"></span><span class="pf-hop">Back in FYERS</span>
-            </div>
-            <ul class="pf-three"><li><b>Where you are</b></li><li><b>What’s happening</b></li><li><b>What comes next</b></li></ul>
-            <figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Holdings: authorising shares for sale, with a prompt explaining DDPI as a way to sell without entering a TPIN each time."><img src="../images/portfolio/edis.jpg" width="1536" height="864" loading="lazy" alt="Holdings: authorising shares for sale, with a prompt explaining DDPI as a way to sell without entering a TPIN each time."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Authorising holdings</b> before they can be sold: every step says what’s happening and what comes next.</figcaption></figure>
+            <p>Holdings does a different job. It’s about ownership, so the design is about clarity and confidence rather than speed. Same structure, three kinds of holdings:</p>
+            <div class="pf-tabs" data-name="hold"><div class="pf-tabbar" role="tablist" aria-label="Holdings"><button type="button" role="tab" aria-selected="true" data-k="0">Listed shares</button><button type="button" role="tab" aria-selected="false" data-k="1">Mutual funds</button><button type="button" role="tab" aria-selected="false" data-k="2">Pledges</button></div><div class="pf-browser "><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><div class=pf-stackimg><img src="../images/portfolio/gainers.jpg" width="1536" height="864" alt="Holdings: listed shares with Gainers and Losers." loading="lazy" class="on" data-k="0"><img src="../images/portfolio/mf.jpg" width="1536" height="864" alt="Holdings: mutual funds." loading="lazy" class="" data-k="1"><img src="../images/portfolio/pledge.jpg" width="1536" height="864" alt="Holdings: pledges, with a CDSL authorisation prompt." loading="lazy" class="" data-k="2"></div></div></div><p class="pf-tabcap" aria-live="polite"><span data-k="0" ><b>Listed shares:</b> filters, Gainers &amp; Losers, holding details, e-DIS.</span><span data-k="1" hidden><b>Mutual funds:</b> filters, manage columns, MF details.</span><span data-k="2" hidden><b>Pledges:</b> the pledge flow, what’s available to pledge, and history.</span></p></div>
+            <h3 class="cs-sub">The most sensitive moment: leaving the app</h3>
+            <p>e-DIS and pledging send the user to an external depository step (CDSL) and back. In that moment they’ve left the app they trust, so every step says <b>where you are, what’s happening, and what comes next</b>.</p>
+            <ol class="pf-film" aria-label="The e-DIS handoff, step by step">
+              <li><button class="zoom" type="button" aria-label="Enlarge: Step 1, choose the holdings to authorise and the quantity."><img src="../images/portfolio/edis1.jpg" width="1536" height="864" alt="Step 1: choose the holdings to authorise and the quantity." loading="lazy" ></button><b>1. Choose</b><span>Pick the holdings and how many to authorise.</span></li>
+              <li><button class="zoom" type="button" aria-label="Enlarge: Step 2, a prompt explains a faster option before you leave."><img src="../images/portfolio/edis4.jpg" width="1536" height="864" alt="Step 2: a prompt explains DDPI, a way to skip the TPIN next time." loading="lazy" ></button><b>2. Explain</b><span>Before you leave, say what happens next.</span></li>
+              <li class="ext"><button class="zoom" type="button" aria-label="Enlarge: Step 3, the CDSL page outside the app."><img src="../images/portfolio/cdsl.jpg" width="1536" height="864" alt="Step 3: the CDSL authorisation page, outside the app." loading="lazy" ></button><b>3. CDSL</b><span>The external step, outside FYERS.</span></li>
+              <li><button class="zoom" type="button" aria-label="Enlarge: Step 4, back in FYERS with a green confirmation."><img src="../images/portfolio/edisok.jpg" width="1536" height="864" alt="Step 4: back in FYERS, with a green confirmation." loading="lazy" ></button><b>4. Back, confirmed</b><span>A clear green note that it worked.</span></li>
+            </ol>
           </div>
         </section>
 
@@ -307,7 +265,7 @@
               <p class="pf-steps-count">about 11 screens</p>
             </div>
             <p>Mobile also has its own look: a soft gradient header that sets it apart from the white web layout.</p>
-            <div class="pf-phones"><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Mobile positions list under a soft gradient header, with Status, Open and Closed filters."><img src="../images/portfolio/m-list.jpg" width="360" height="780" loading="lazy" alt="Mobile positions list under a soft gradient header, with Status, Open and Closed filters."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>The list, with the gradient header</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Mobile position details on its own screen, with the actions menu open and Buy, Sell and Exit at the bottom."><img src="../images/portfolio/m-details.jpg" width="360" height="786" loading="lazy" alt="Mobile position details on its own screen, with the actions menu open and Buy, Sell and Exit at the bottom."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>Details get their own screen</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Mobile exit all: a red bottom sheet confirming the exit of 6 positions."><img src="../images/portfolio/m-exit.jpg" width="360" height="780" loading="lazy" alt="Mobile exit all: a red bottom sheet confirming the exit of 6 positions."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>Exit all ends in a clear confirmation</figcaption></figure></div>
+            <div class="pf-phones"><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Mobile positions list under a soft gradient header, with Status, All, Open and Closed."><span class="pf-phone-body"><img src="../images/portfolio/m-pos.jpg" width="720" height="1684" alt="Mobile positions list under a soft gradient header, with Status, All, Open and Closed." loading="lazy" ></span></button><figcaption>Positions, with the gradient header</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Mobile holdings: shares, mutual funds and pledges, with gainers and losers."><span class="pf-phone-body"><img src="../images/portfolio/m-hold.jpg" width="720" height="1560" alt="Mobile holdings: shares, mutual funds and pledges, with gainers and losers." loading="lazy" ></span></button><figcaption>Holdings, same structure</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Mobile e-DIS: authorise holdings with a quantity stepper and one clear button."><span class="pf-phone-body"><img src="../images/portfolio/m-edis.jpg" width="720" height="1560" alt="Mobile e-DIS: authorise holdings with a quantity stepper and one clear button." loading="lazy" ></span></button><figcaption>e-DIS, one step per screen</figcaption></figure></div>
           </div>
         </section>
 
@@ -321,6 +279,11 @@
               <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div>We sat with stakeholders to check <b>each screen against the system</b>.</div></li>
               <li><span class="ico go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div>Decisions about components, structure and variables were made <b>while real screens depended on them</b>. Shared pieces, like the empty-state illustration, kept web and mobile consistent.</div></li>
             </ul>
+            <figure class="pf-compare" style="--pos:50%">
+              <div class="pf-browser "><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><div class="pf-cmp"><img src="../images/portfolio/hover.jpg" width="1536" height="864" alt="Holdings in the light theme." loading="lazy" class="cmp-a"><div class="cmp-b"><img src="../images/portfolio/dark.jpg" width="1536" height="864" alt="The same Holdings screen in the dark theme." loading="lazy" ></div><span class="cmp-line" aria-hidden="true"></span></div></div></div>
+              <label class="pf-cmp-range"><span class="sr-only">Compare light and dark themes</span><input type="range" min="0" max="100" value="50"></label>
+              <figcaption><b>Drag to compare.</b> The same FDSG components in light and dark: the foundation my next project, theming, was built on.</figcaption>
+            </figure>
           </div>
         </section>
 
@@ -562,6 +525,32 @@
     })();
     // hover actions: on touch screens a tap shows the row's actions
     document.querySelectorAll('.pf-hover-row').forEach((r) => r.addEventListener('click', (e) => { if (e.target.closest('button')) return; document.querySelectorAll('.pf-hover-row').forEach((x) => x.classList.toggle('show', x === r && !x.classList.contains('show'))); }));
+    // real-screen tabs: Group by, the side panel, Holdings
+    document.querySelectorAll('.pf-tabs').forEach((box) => {
+      const btns = [...box.querySelectorAll('[role="tab"]')], imgs = [...box.querySelectorAll('.pf-stackimg img')], caps = [...box.querySelectorAll('.pf-tabcap span')];
+      const show = (k) => { btns.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === k))); imgs.forEach((i) => i.classList.toggle('on', i.dataset.k === k)); caps.forEach((c) => (c.hidden = c.dataset.k !== k)); };
+      btns.forEach((b, n) => {
+        b.addEventListener('click', () => show(b.dataset.k));
+        b.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const t = btns[(n + d + btns.length) % btns.length]; t.focus(); show(t.dataset.k); });
+      });
+      // load the hidden screens once the box is near, so switching is instant
+      new IntersectionObserver(([e], io) => { if (e.isIntersecting) { imgs.forEach((i) => (i.loading = 'eager')); io.disconnect(); } }, { rootMargin: '400px' }).observe(box);
+    });
+    // the turning point: tap the row in the real screen, the details slide in
+    (() => {
+      const p = document.querySelector('.pf-proto'); if (!p) return;
+      const hint = p.querySelector('.pf-proto-hint');
+      const set = (v) => { p.dataset.state = v; p.querySelectorAll('.pf-stackimg img').forEach((i) => i.classList.toggle('on', i.dataset.v === v)); if (hint) hint.textContent = v === 'detail' ? 'Details open, list still in view.' : 'Tap the highlighted row.'; };
+      p.querySelector('.pf-hot').addEventListener('click', () => { set('detail'); p.querySelector('.pf-back').focus({ preventScroll: true }); });
+      p.querySelector('.pf-back').addEventListener('click', () => { set('list'); p.querySelector('.pf-hot').focus({ preventScroll: true }); });
+      p.querySelector('[data-v="detail"]').loading = 'eager';
+    })();
+    // light and dark: drag to compare
+    (() => {
+      const c = document.querySelector('.pf-compare'); if (!c) return;
+      const r = c.querySelector('input'); const upd = () => c.style.setProperty('--pos', r.value + '%');
+      r.addEventListener('input', upd); upd();
+    })();
     // privacy lock
     (() => {
       const btn = document.querySelector('.pf-lock-btn'), card = document.querySelector('.pf-lock-card'); if (!btn || !card) return;

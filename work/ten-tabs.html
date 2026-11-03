@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Gochi+Hand&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=167">
+    <link rel="stylesheet" href="../style.css?v=168">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -81,15 +81,14 @@
 
   <div class="read-progress" aria-hidden="true"><i></i></div>
   <main id="main">
-    <section class="genie-hero2 proj-hero hk-hero" style="--proj:#ffe08a">
+    <section class="genie-hero2 proj-hero hk-hero" style="--proj:#ddd0ff">
       <div class="wrap">
         <div class="gh-panel">
           <div class="gh-text">
             <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
             <p class="label proj-kicker">Case study · Fintech</p>
-            <div class="cs-titlerow"><h1 class="hk-title">Ten Tabs, Three Apps, One WhatsApp Group, and <span>Still No Idea Where to Start</span></h1></div>
+            <div class="cs-titlerow"><h1 class="hk-title">Ten tabs, three apps, one WhatsApp group</h1></div>
             <p class="fl-lede">How we built one place for beginner traders to learn, practise, and finally trust their own plan.</p>
-            <p class="hk-by">Nikita Joseph &amp; Jerry · Product designers</p>
           </div>
           <figure class="hk-chaos" aria-label="Illustration: a beginner trader's day, with ten browser tabs, three apps and a busy WhatsApp group, all pulling in different directions.">
             <div class="hk-browser" aria-hidden="true">
@@ -115,7 +114,7 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">01</span>The overview</p>
           <div class="content">
             <h2 id="h-overview" class="cs-title">Beginner traders learn from everywhere and <mark>practise nowhere</mark>.</h2>
-            <p>Videos, tips, blogs and unfinished courses leave them with plenty of knowledge but nothing that connects it.</p>
+            <p>They watch videos, read blogs, follow tips and start courses they never finish. They end up with plenty of knowledge, but nothing that connects it.</p>
             <p>So when real money is on the line, <mark class="hl">the plan disappears and emotion makes the trade</mark>.</p>
             <p class="hk-mission">We set out to build the one place where learning and practice finally meet.</p>
           </div>
@@ -175,9 +174,6 @@
         <button type="button" class="v-close" aria-label="Close image viewer">Close ✕</button>
       </div>
     </dialog>
-
-    <button class="sec-fab" type="button" aria-haspopup="dialog" aria-controls="sec-sheet"><span aria-hidden="true">☰</span> Sections</button>
-    <dialog class="sec-sheet" id="sec-sheet" aria-label="Jump to a section"><p class="sec-sheet-title">On this page</p><ol></ol></dialog>
 
     <nav class="cs-next" aria-label="Next project">
       <div class="wrap">
@@ -367,8 +363,7 @@
       const form = document.querySelector('.hk-form'); if (!form) return;
       const out = document.querySelector('.hk-msg-out'), gate = document.querySelector('.safe');
       const b64 = (t) => Uint8Array.from(atob(t), (c) => c.charCodeAt(0));
-      if (sessionStorage.getItem('fl-nda-jump')) { sessionStorage.removeItem('fl-nda-jump'); document.getElementById('nda-content')?.scrollIntoView(); }
-      form.addEventListener('submit', async (e) => {
+            form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const pass = form.querySelector('input').value;
         out.textContent = 'Opening…';
@@ -379,9 +374,16 @@
           const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveKey']);
           const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(box.salt), iterations: box.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
           const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(box.iv) }, key, b64(box.data));
-          sessionStorage.setItem('fl-nda', new TextDecoder().decode(plain));
-          sessionStorage.setItem('fl-nda-jump', '1');
-          location.reload();
+          const html = new TextDecoder().decode(plain);
+          try { sessionStorage.setItem('fl-nda', html); } catch (e2) {}
+          out.textContent = '';
+          gate.classList.add('opening');
+          setTimeout(() => {
+            document.getElementById('nda-slot').outerHTML = html;
+            document.documentElement.classList.add('nda-open', 'nda-just-opened');
+            const story = document.getElementById('nda-content');
+            story.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+          }, 900);
         } catch (err) {
           out.textContent = 'That’s not the right password. Try again, or request access.';
           gate.classList.remove('shake'); void gate.offsetWidth; gate.classList.add('shake');

@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=185">
+    <link rel="stylesheet" href="../style.css?v=187">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -87,7 +87,7 @@
           <div class="gh-text">
             <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
             <p class="label proj-kicker">Case study · Fintech</p>
-            <div class="cs-titlerow"><h1 class="hk-title">Ten Tabs, Three Apps, One WhatsApp Group, and Still No Idea Where to Start</h1></div>
+            <div class="cs-titlerow"><h1 class="hk-title" tabindex="-1">Ten Tabs, Three Apps, One WhatsApp Group, and Still No Idea Where to Start</h1></div>
             <p class="fl-lede">How we built one place for beginner traders to learn, practise, and finally trust their own plan.</p>
           </div>
           <figure class="hk-screens" aria-label="Two app screens from the project, locked until you enter the password.">
@@ -171,6 +171,10 @@
           document.querySelectorAll('.hk-shot').forEach((im) => { const src = shots.content.querySelector('img[data-k="' + im.dataset.k + '"]'); if (src) { im.src = src.src; im.alt = src.alt; } });
           document.querySelector('.hk-screens')?.classList.add('open');
         }
+        // small visuals in the story play once they scroll into view
+        const anims = document.querySelectorAll('.nda-content [data-anim]:not(.in)');
+        if ('IntersectionObserver' in window) { const ao = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); ao.unobserve(e.target); } }), { threshold: .4 }); anims.forEach((n) => ao.observe(n)); }
+        else anims.forEach((n) => n.classList.add('in'));
         // "On this page" (and the phone sheet) list only what's actually on the page right now
         const secs = [...document.querySelectorAll('.hk .cs-section, .hk .safe')].filter((sec) => getComputedStyle(sec).display !== 'none');
         const items = secs.map((sec) => { const k = sec.querySelector('.cs-kicker'); const label = k ? k.textContent.replace(/^\s*\d+\s*/, '').trim() : 'Unlock the rest'; return '<li><a href="#' + sec.id + '">' + label + '</a></li>'; }).join('');
@@ -401,14 +405,47 @@
           const html = new TextDecoder().decode(plain);
           try { sessionStorage.setItem('fl-nda', html); } catch (e2) {}
           out.textContent = '';
-          gate.classList.add('opening');
-          setTimeout(() => {
+          const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const reveal = () => {
             document.getElementById('nda-slot').outerHTML = html;
             document.documentElement.classList.add('nda-open', 'nda-just-opened');
             window.ttReady();
-            const story = document.getElementById('nda-content');
-            story.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-          }, 900);
+            // glide back to the top, where the screens are now in focus
+            if (still) window.scrollTo(0, 0);
+            else { const y0 = window.scrollY, t0 = performance.now(), dur = Math.min(1400, 500 + y0 / 4), html = document.documentElement, sb = html.style.scrollBehavior;
+              html.style.scrollBehavior = 'auto';
+              const step = (t) => { const p = Math.min(1, (t - t0) / dur), e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; window.scrollTo(0, y0 * (1 - e)); if (p < 1) requestAnimationFrame(step); else html.style.scrollBehavior = sb; };
+              requestAnimationFrame(step); }
+            document.querySelector('.hk-title')?.focus({ preventScroll: true });
+          };
+          if (still) { reveal(); return; }
+          // 1. the dial spins home, the light goes green, the handle turns
+          gate.classList.add('unlocking');
+          setTimeout(() => {
+            // 2. the door breaks into pieces that fly out and fall away
+            const door = gate.querySelector('.safe-door'), g = gate.getBoundingClientRect(), d = door.getBoundingClientRect();
+            const cuts = [[[0,0],[38,0],[45,50],[0,30]], [[38,0],[72,0],[45,50]], [[72,0],[100,0],[100,35],[45,50]], [[100,35],[100,75],[45,50]],
+              [[100,75],[100,100],[62,100],[45,50]], [[62,100],[25,100],[45,50]], [[25,100],[0,100],[0,65],[45,50]], [[0,65],[0,30],[45,50]]];
+            gate.classList.add('breaking');
+            cuts.forEach((pts, i) => {
+              const shard = door.cloneNode(true);
+              shard.querySelectorAll('[id]').forEach((n) => n.removeAttribute('id'));
+              shard.setAttribute('aria-hidden', 'true'); shard.inert = true; shard.classList.add('safe-shard');
+              Object.assign(shard.style, { left: (d.left - g.left) + 'px', top: (d.top - g.top) + 'px', width: d.width + 'px', height: d.height + 'px',
+                clipPath: 'polygon(' + pts.map((p) => p[0] + '% ' + p[1] + '%').join(',') + ')' });
+              gate.appendChild(shard);
+              const cx = pts.reduce((a, p) => a + p[0], 0) / pts.length - 45, cy = pts.reduce((a, p) => a + p[1], 0) / pts.length - 50;
+              const len = Math.hypot(cx, cy) || 1, push = 140 + Math.random() * 120;
+              const dx = cx / len * push, dy = cy / len * push * .6, rot = (Math.random() - .5) * 70;
+              shard.animate([
+                { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+                { transform: `translate(${dx * .55}px, ${dy * .55 - 30}px) rotate(${rot * .5}deg)`, opacity: 1, offset: .35 },
+                { transform: `translate(${dx}px, ${dy + 260}px) rotate(${rot}deg)`, opacity: 0 }
+              ], { duration: 1100, delay: i * 18, easing: 'cubic-bezier(.2,.6,.4,1)', fill: 'forwards' });
+            });
+            // 3. once the pieces have fallen, the story appears and the page goes back to the top
+            setTimeout(reveal, 1050);
+          }, 750);
         } catch (err) {
           out.textContent = 'That’s not the right password. Try again, or request access.';
           gate.classList.remove('shake'); void gate.offsetWidth; gate.classList.add('shake');

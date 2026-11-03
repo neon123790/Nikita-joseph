@@ -5140,3 +5140,20 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 @media (max-width: 900px) { .pf-board { grid-template-columns: 1fr 1fr; } .pf-film { grid-template-columns: 1fr 1fr; } .pf-film li:nth-child(2)::after { display: none; } .pf-colours2 { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .pf-board, .pf-film { grid-template-columns: 1fr; } .pf-film li::after { display: none; } .pf-phones { grid-template-columns: repeat(3, 72%); overflow-x: auto !important; scroll-snap-type: x mandatory; padding-bottom: 8px; } .pf-phone { scroll-snap-align: start; } .pf-url { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pf-hot, .pf-pulse, .pf-ring { animation: none; } .pf-stackimg img { transition: none; } }
+/* phones: clean, equal folder tabs above the notebook (no notches or stitches cutting into the labels) */
+@media (max-width: 860px) {
+  .journal .bookmarks { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px !important; padding: 0 14px !important; margin-bottom: -3px !important; overflow: visible !important; }
+  .journal .bookmark, .journal .bookmark[aria-selected="true"] {
+    clip-path: none !important; isolation: auto; position: relative;
+    width: auto !important; min-width: 0; height: 46px !important; padding: 0 4px !important;
+    display: grid !important; place-items: center; text-align: center;
+    border: 2.5px solid var(--stk-ink) !important; border-bottom: 0 !important; border-radius: 12px 12px 0 0 !important;
+    background: var(--bm) !important; box-shadow: none !important;
+    font: 700 .78rem/1 var(--bold) !important; color: var(--stk-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    transform: translateY(8px); transition: transform .2s ease;
+  }
+  .journal .bookmark::before, .journal .bookmark::after { display: none !important; }
+  .journal .bookmark[aria-selected="true"] { transform: translateY(0); height: 50px !important; font-size: .82rem !important; }
+  .journal .bookmark:not([aria-selected="true"]) { filter: saturate(.85); }
+}
+@media (max-width: 360px) { .journal .bookmark, .journal .bookmark[aria-selected="true"] { font-size: .7rem !important; } }

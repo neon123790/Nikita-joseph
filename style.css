@@ -4568,3 +4568,25 @@ body:has(.proj-hero[style*="#ddd0ff"]) { --hl: #e2d6ff; }
 /* Ten Tabs hero laid out like Genie: title, then the screens, then the details row */
 .hk-hero.gn-hero .hk-screens { width: 100%; max-width: 640px; justify-self: center; }
 .hk-hero.gn-hero .hk-phone + .hk-phone { margin-top: 0; }
+
+/* journal card 01: a chart that draws itself, with emotions tagged along the way */
+.mc-thumb { display: flex; flex-direction: column; gap: 6px; padding: 12px 0 0 !important; background: #121212 !important; overflow: hidden; }
+.mc-h { margin: 0; padding: 0 14px; font: 300 clamp(.95rem, 2.2cqw, 1.3rem)/1.1 var(--sans); color: #fff; letter-spacing: -.01em; }
+.mc-h span { display: block; color: #9a8cff; }
+.mc-chart { position: relative; flex: 1; min-height: 90px; }
+.mc-chart svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.mc-grid { stroke: rgba(255, 255, 255, .06); stroke-width: 1; stroke-dasharray: 2 4; fill: none; }
+.mc-green, .mc-purple { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 1; stroke-dashoffset: 1; vector-effect: non-scaling-stroke; animation: mc-draw 7s cubic-bezier(.4, 0, .6, 1) infinite; }
+.mc-green { stroke: #1f9d55; }
+.mc-purple { stroke: #8b5cf6; }
+@keyframes mc-draw { 0% { stroke-dashoffset: 1; } 60%, 92% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.mc-tag { position: absolute; transform: translate(-10%, -50%); display: inline-flex; align-items: center; gap: 4px; padding: 3px 7px; border-radius: 999px; background: rgba(40, 36, 52, .92);
+  font: 500 .6rem/1 var(--sans); color: #b9b3c6; white-space: nowrap; opacity: 0; animation: mc-tag 7s ease infinite; animation-delay: calc(var(--t) * 4.2s); }
+.mc-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #7d7690; }
+.mc-tag.t { color: #9fe0b8; } .mc-tag.t::before { background: #34c27a; }
+.mc-tag.f { color: #e8b4a8; } .mc-tag.f::before { background: #c98a7c; }
+.mc-tag.t { transform: translate(-100%, -50%); }
+@keyframes mc-tag { 0% { opacity: 0; transform: translate(-10%, -30%); } 6%, 46% { opacity: 1; transform: translate(-10%, -50%); } 56%, 100% { opacity: 0; } }
+.mc-tag.t { animation-name: mc-tag-r; }
+@keyframes mc-tag-r { 0% { opacity: 0; transform: translate(-100%, -30%); } 6%, 30% { opacity: 1; transform: translate(-100%, -50%); } 40%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mc-green, .mc-purple { animation: none; stroke-dashoffset: 0; } .mc-tag { animation: none; opacity: 1; } }

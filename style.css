@@ -5037,3 +5037,11 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .pf-mini.rows i:nth-child(even) { background: linear-gradient(90deg, #f1eee6 0 48%, transparent 48% 75%, #ffd9d9 75%); }
 @media (max-width: 900px) { .pf-versions { grid-template-columns: 1fr 1fr; } .pf-versions li:nth-child(2)::after { display: none; } }
 @media (max-width: 560px) { .pf-versions, .pf-tried { grid-template-columns: 1fr; } .pf-versions li::after { display: none; } .pf-acts button:not(.b):not(.s):not(.x) { padding: 0 7px; } }
+/* Portfolio: real screens */
+.pf-hero .gh-panel { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(20px, 3vw, 40px); align-items: center; }
+.pf-hero .gn-facts { grid-column: 1 / -1; }
+.pf-hero-shot { margin: 0; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -30px rgba(120, 50, 10, .45), 0 0 0 1px rgba(20, 17, 28, .06); transform: rotate(.6deg); }
+.pf-hero-shot img { display: block; width: 100%; height: auto; }
+.pf-shot .zoom { display: block; position: relative; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.pf-phones .pf-shot img { border-radius: 22px; border: 6px solid #1f1b29; }
+@media (max-width: 900px) { .pf-hero .gh-panel { grid-template-columns: 1fr; } .pf-hero-shot { transform: none; } }

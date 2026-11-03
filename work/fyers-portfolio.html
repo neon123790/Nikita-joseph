@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=189">
+    <link rel="stylesheet" href="../style.css?v=190">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -90,7 +90,7 @@
             <div class="cs-titlerow"><h1>Every trader asks <span class="pf-q">two questions</span>. Our screen had to answer both.</h1></div>
             <p class="pf-lede"><span class="pf-ask">What do I own?</span> <span class="pf-ask alt">What’s still open?</span> The old FYERS portfolio answered neither. The new one had to answer both, without making anyone scroll, click or wait.</p>
           </div>
-          <!--SHOT:hero-->
+          <figure class="gh-shot pf-hero-shot"><img src="../images/portfolio/details.jpg" width="1600" height="977" alt="The FYERS Portfolio on web: the positions list on the left with NIFTYBEES selected, and its details on the right, with an actions menu open: symbol details, reverse position, orderbook, convert to overnight, create alert and add to basket."></figure>
           <dl class="gh-facts gn-facts">
             <div><dt>My role</dt><dd>UX Designer, with a UI Designer partner on final visuals</dd></div>
             <div><dt>Product</dt><dd>FYERS 2.0 Portfolio: Positions and Holdings</dd></div>
@@ -218,14 +218,14 @@
               </div>
               <div class="pf-group-list" aria-live="polite"></div>
             </div>
-            <!--SHOT:group-->
+            <figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Positions with the Group by menu open: Status, P&amp;L, Underlying, Products and Symbol type."><img src="../images/portfolio/groupby.jpg" width="1600" height="899" loading="lazy" alt="Positions with the Group by menu open: Status, P&amp;L, Underlying, Products and Symbol type."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Group by</b> sits right where the list starts.</figcaption></figure>
 
             <h3 class="cs-sub">2. One pattern, reused everywhere</h3>
             <p>The same right-hand panel carries filters, column management, position details, holding details and mutual fund details. <mark class="hl">Learn it once, and you know it everywhere.</mark></p>
             <ul class="pf-panels" aria-label="Everything that lives in the side panel">
               <li><b>Filters</b></li><li><b>Manage columns</b></li><li><b>Position details</b></li><li><b>Holding details</b></li><li><b>MF details</b></li>
             </ul>
-            <!--SHOT:panels-->
+            <div class="pf-shots"><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Filters in the side panel: exchange and side, with Apply and Reset."><img src="../images/portfolio/filters.jpg" width="1600" height="899" loading="lazy" alt="Filters in the side panel: exchange and side, with Apply and Reset."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Filters</b> in the side panel</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Manage columns in the same side panel: basic, price, P&amp;L and transaction details."><img src="../images/portfolio/columns.jpg" width="1600" height="899" loading="lazy" alt="Manage columns in the same side panel: basic, price, P&amp;L and transaction details."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Manage columns</b>, same panel</figcaption></figure></div>
 
             <h3 class="cs-sub">3. Colour that signals risk before you read</h3>
             <p>Warnings and confirmations follow one colour logic across every flow.</p>
@@ -236,7 +236,7 @@
             </ul>
 
             <h3 class="cs-sub">4. A privacy lock</h3>
-            <p>Because people check their portfolio around others, a lock hides the important numbers on screen.</p>
+            <p>Because people check their portfolio around others, a lock hides the important numbers on screen. Try it:</p>
             <div class="pf-lock">
               <div class="pf-lock-card" data-locked="false">
                 <p class="pf-lock-k">Total P&amp;L</p><p class="pf-lock-v"><span class="num">+₹5,567.74</span><span class="mask" aria-hidden="true">••••••</span></p>
@@ -244,7 +244,7 @@
               </div>
               <button type="button" class="pf-lock-btn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path class="shackle" d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg><span>Hide numbers</span></button>
             </div>
-            <!--SHOT:privacy-->
+
           </div>
         </section>
 
@@ -262,7 +262,8 @@
               <li><b>Supporting states</b><span>Labels, empty state, reminders</span></li>
             </ol>
             <p>The Convert flow went through the most frames on the board: explaining a conversion clearly was harder than laying it out. <b>Exit all and Smart Exit carried the highest stakes.</b> These are the moments where clarity matters more than speed, so their confirmation steps and warning states got the most care.</p>
-            <!--SHOT:exits-->
+<figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Convert position: converting NIFTYBEES from MTF to overnight, with notes on timing and RMS validation."><img src="../images/portfolio/convert.jpg" width="1600" height="899" loading="lazy" alt="Convert position: converting NIFTYBEES from MTF to overnight, with notes on timing and RMS validation."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Convert</b>: the flow with the most versions. The yellow notes explain what happens and when.</figcaption></figure>
+            <div class="pf-shots"><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Exit all positions: a red confirmation asking to exit 4 positions, warning that pending orders will be cancelled and the action cannot be undone."><img src="../images/portfolio/exitall.jpg" width="1600" height="899" loading="lazy" alt="Exit all positions: a red confirmation asking to exit 4 positions, warning that pending orders will be cancelled and the action cannot be undone."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Exit all</b>: red, because it can’t be undone</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Smart Exit: setting a profit target and maximum loss, with the active Smart Exit shown in the side panel."><img src="../images/portfolio/smartexit.jpg" width="1600" height="900" loading="lazy" alt="Smart Exit: setting a profit target and maximum loss, with the active Smart Exit shown in the side panel."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Smart Exit</b>: set a target and a limit, and it exits for you</figcaption></figure></div>
           </div>
         </section>
 
@@ -281,7 +282,7 @@
               <span class="pf-hop">FYERS</span><span class="pf-hop-line" aria-hidden="true"></span><span class="pf-hop ext">CDSL</span><span class="pf-hop-line back" aria-hidden="true"></span><span class="pf-hop">Back in FYERS</span>
             </div>
             <ul class="pf-three"><li><b>Where you are</b></li><li><b>What’s happening</b></li><li><b>What comes next</b></li></ul>
-            <!--SHOT:holdings-->
+            <figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Holdings: authorising shares for sale, with a prompt explaining DDPI as a way to sell without entering a TPIN each time."><img src="../images/portfolio/edis.jpg" width="1536" height="864" loading="lazy" alt="Holdings: authorising shares for sale, with a prompt explaining DDPI as a way to sell without entering a TPIN each time."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption><b>Authorising holdings</b> before they can be sold: every step says what’s happening and what comes next.</figcaption></figure>
           </div>
         </section>
 
@@ -306,7 +307,7 @@
               <p class="pf-steps-count">about 11 screens</p>
             </div>
             <p>Mobile also has its own look: a soft gradient header that sets it apart from the white web layout.</p>
-            <!--SHOT:mobile-->
+            <div class="pf-phones"><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Mobile positions list under a soft gradient header, with Status, Open and Closed filters."><img src="../images/portfolio/m-list.jpg" width="360" height="780" loading="lazy" alt="Mobile positions list under a soft gradient header, with Status, Open and Closed filters."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>The list, with the gradient header</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Mobile position details on its own screen, with the actions menu open and Buy, Sell and Exit at the bottom."><img src="../images/portfolio/m-details.jpg" width="360" height="786" loading="lazy" alt="Mobile position details on its own screen, with the actions menu open and Buy, Sell and Exit at the bottom."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>Details get their own screen</figcaption></figure><figure class="pf-shot"><button class="zoom" type="button" aria-label="Enlarge: Mobile exit all: a red bottom sheet confirming the exit of 6 positions."><img src="../images/portfolio/m-exit.jpg" width="360" height="780" loading="lazy" alt="Mobile exit all: a red bottom sheet confirming the exit of 6 positions."><span class="zoom-hint" aria-hidden="true">⤢</span></button><figcaption>Exit all ends in a clear confirmation</figcaption></figure></div>
           </div>
         </section>
 

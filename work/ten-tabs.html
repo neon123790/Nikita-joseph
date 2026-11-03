@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=173">
+    <link rel="stylesheet" href="../style.css?v=175">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -105,7 +105,10 @@
       </div>
     </section>
 
-    <div class="wrap hk-public">
+    <div class="wrap cs-layout hk-layout">
+      <nav class="cs-toc" aria-label="On this page">
+        <details class="cs-toc-box" open><summary class="cs-toc-title">On this page</summary><ol id="tt-toc"></ol></details>
+      </nav>
       <article class="cs-body cs3 hk">
         <section class="cs-section" id="overview" aria-labelledby="h-overview">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">01</span>The overview</p>
@@ -118,6 +121,8 @@
         </section>
 
         <section class="cs-section hk-teaser" id="missing" aria-labelledby="h-missing">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">02</span>What you’re missing</p>
+          <div class="content">
           <div class="feed">
             <header class="feed-bar"><span class="feed-live"><i aria-hidden="true"></i>Live</span><h2 id="h-missing">What you’re missing</h2><span class="feed-lock" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg></span></header>
             <ol class="feed-list">
@@ -130,6 +135,7 @@
               <li class="feed-now"><time>A moment ago</time><div><h3>Leadership picked it up.</h3><p>One morning, we slid a phone across the boardroom table.</p></div></li>
             </ol>
             <p class="feed-end"><em>What happened next isn’t on this page.</em></p>
+          </div>
           </div>
         </section>
 
@@ -154,13 +160,38 @@
             </div>
           </div>
         </section>
+        <div id="nda-slot"></div>
       </article>
     </div>
-    <div id="nda-slot"></div>
     <script>
-      // after a successful unlock the case study is kept for this browser tab only, and placed here before the page's other scripts run
-      try { const h = sessionStorage.getItem('fl-nda'); if (h) { document.getElementById('nda-slot').outerHTML = h; document.documentElement.classList.add('nda-open'); const shots = document.getElementById('nda-shots'); if (shots) { document.querySelectorAll('.hk-shot').forEach((im) => { const src = shots.content.querySelector('img[data-k="' + im.dataset.k + '"]'); if (src) { im.src = src.src; im.alt = src.alt; } }); document.querySelector('.hk-screens')?.classList.add('open'); } } } catch (e) {}
+      window.ttReady = () => {
+        // sharp screens replace the blurred ones
+        const shots = document.getElementById('nda-shots');
+        if (shots) {
+          document.querySelectorAll('.hk-shot').forEach((im) => { const src = shots.content.querySelector('img[data-k="' + im.dataset.k + '"]'); if (src) { im.src = src.src; im.alt = src.alt; } });
+          document.querySelector('.hk-screens')?.classList.add('open');
+        }
+        // "On this page" (and the phone sheet) list only what's actually on the page right now
+        const secs = [...document.querySelectorAll('.hk .cs-section, .hk .safe')].filter((sec) => getComputedStyle(sec).display !== 'none');
+        const items = secs.map((sec) => { const k = sec.querySelector('.cs-kicker'); const label = k ? k.textContent.replace(/^\s*\d+\s*/, '').trim() : 'Unlock the rest'; return '<li><a href="#' + sec.id + '">' + label + '</a></li>'; }).join('');
+        document.getElementById('tt-toc').innerHTML = items;
+        const sheet = document.querySelector('.sec-sheet ol'); if (sheet) sheet.innerHTML = items;
+        const links = [...document.querySelectorAll('#tt-toc a')];
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { links.forEach((l) => l.toggleAttribute('aria-current', l.getAttribute('href') === '#' + e.target.id)); } }), { rootMargin: '-35% 0px -60% 0px' });
+          secs.forEach((sec) => io.observe(sec));
+        }
+        document.querySelector('.nda-relock')?.addEventListener('click', () => { try { sessionStorage.removeItem('fl-nda'); } catch (e) {} scrollTo(0, 0); location.reload(); });
+      };
+      // after a successful unlock the story is kept for this browser tab only
+      try { const h = sessionStorage.getItem('fl-nda'); if (h) { document.getElementById('nda-slot').outerHTML = h; document.documentElement.classList.add('nda-open'); } } catch (e) {}
+      window.ttReady();
+      // the phone sheet sits further down the page, so fill it once everything has loaded
+      document.addEventListener('DOMContentLoaded', () => { const sh = document.querySelector('.sec-sheet ol'); if (sh) sh.innerHTML = document.getElementById('tt-toc').innerHTML; });
     </script>
+
+    <button class="sec-fab" type="button" aria-haspopup="dialog" aria-controls="sec-sheet"><span aria-hidden="true">☰</span> Sections</button>
+    <dialog class="sec-sheet" id="sec-sheet" aria-label="Jump to a section"><p class="sec-sheet-title">On this page</p><ol></ol></dialog>
 
     <dialog class="viewer" aria-label="Image viewer">
       <figure><div class="v-pan"><img alt=""></div><figcaption></figcaption><span class="v-tip">Drag the image to look around.</span></figure>
@@ -284,10 +315,7 @@
       const fab = document.querySelector('.sec-fab'), sheet = document.querySelector('.sec-sheet');
       if (!fab || !sheet) return;
       const list = sheet.querySelector('ol');
-      list.innerHTML = [...document.querySelectorAll('.cs3 .cs-section')].map((s) => {
-        const name = (s.querySelector('.cs-kicker')?.textContent || '').replace(/^\d+/, '').trim();
-        return `<li><a href="#${s.id}">${name}</a></li>`;
-      }).join('');
+      // the list itself is kept up to date by ttReady()
       fab.addEventListener('click', () => {
         const cur = document.querySelector('.cs-toc a[aria-current="true"]')?.getAttribute('href');
         list.querySelectorAll('a').forEach((a) => a.toggleAttribute('aria-current', a.getAttribute('href') === cur));
@@ -378,7 +406,7 @@
           setTimeout(() => {
             document.getElementById('nda-slot').outerHTML = html;
             document.documentElement.classList.add('nda-open', 'nda-just-opened');
-            const shots = document.getElementById('nda-shots'); if (shots) { document.querySelectorAll('.hk-shot').forEach((im) => { const src = shots.content.querySelector('img[data-k="' + im.dataset.k + '"]'); if (src) { im.src = src.src; im.alt = src.alt; } }); document.querySelector('.hk-screens')?.classList.add('open'); }
+            window.ttReady();
             const story = document.getElementById('nda-content');
             story.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
           }, 900);

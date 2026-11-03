@@ -4616,3 +4616,18 @@ body:has(.proj-hero[style*="#ddd0ff"]) { --hl: #e2d6ff; }
 /* "classified" stamp sits in the box's bottom corner, clear of the heading */
 .nb-list .classified { padding-bottom: 40px; }
 .stamp-cls { top: auto !important; bottom: 10px; right: 12px; }
+
+/* Ten Tabs: the unlocked story sits in the same grid and rhythm as every case study */
+.hk-layout .hk { min-width: 0; }
+.nda-content { padding-bottom: 0; }
+.nda-bar { display: flex; align-items: center; gap: 12px; margin: clamp(8px, 2vw, 16px) 0 clamp(8px, 2vw, 16px); padding: 12px 16px; border-radius: 12px; background: #f4efff; border: 1px solid #e2d6ff; }
+.nda-bar p { margin: 0; flex: 1; font-size: .92rem; line-height: 1.45; color: #4a4558; }
+.nda-bar b { color: #2c2836; }
+.nda-bar-ico svg { width: 20px; height: 20px; display: block; fill: none; stroke: #6b4fd8; stroke-width: 2; stroke-linecap: round; }
+.nda-relock { flex: none; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #c9b6ff; background: #fff; color: #4a3aa8; font: 600 .82rem/1 var(--sans); cursor: pointer; }
+.nda-relock:hover { background: #ede6ff; }
+.nda-sec .content > p { font-size: var(--t-body); line-height: 1.65; color: #4a4558; }
+.hk .safe { scroll-margin-top: 90px; }
+@media (max-width: 600px) { .nda-bar { flex-wrap: wrap; } }
+.hk .feed-list p { font-size: .92rem !important; line-height: 1.5 !important; }
+.hk .feed-list h3 { font-size: 1.05rem !important; }

@@ -175,6 +175,19 @@
     if (audio && audio.paused && useTrack) audio.play().catch(() => {});
   });
 
+  const bind = () => {
+    document.querySelectorAll('.music-toggle:not([data-bound])').forEach((btn) => {
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', () => {
+        const on = !playing;
+        if (on) play(); else pause();
+        show(on); save();
+      });
+    });
+    show(playing);
+  };
+  window.njMusic = { playing: () => playing };
+
   document.addEventListener('DOMContentLoaded', () => {
     // it was playing on the last page: carry on from the same spot. If the browser wants a tap first,
     // the record keeps spinning and the music picks up on the very first click or key press.
@@ -186,12 +199,8 @@
         addEventListener('pointerdown', go, true); addEventListener('keydown', go, true);
       });
     }
-    document.querySelectorAll('.music-toggle').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const on = !playing;
-        if (on) play(); else pause();
-        show(on); save();
-      });
-    });
+    bind();
   });
+  // pages swapped in place by nav.js bring a fresh record player: wire it up and show the state
+  document.addEventListener('nj:page', bind);
 })();

@@ -5506,3 +5506,10 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .nda-content #solution > .content { position: relative; }
 .nda-content #solution > .content::before { content: ""; position: absolute; z-index: -1; left: calc(-1 * clamp(0px, 2.4vw, 28px) - 200px); right: -200px; top: -40px; height: 26px; pointer-events: none;
   background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, .38) 0 13px, transparent 14px) 0 0 / 34px 22px repeat-x, linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .15)) 0 0 / 100% 10px no-repeat; }
+/* One Take: the lesson clip in a slim screen frame */
+.rh-video .rh-screen { margin: 0 auto; max-width: 640px; padding: 8px; border-radius: 18px; background: #1f1b29; box-shadow: 0 24px 40px -24px rgba(20, 17, 28, .6); }
+.rh-video video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; background: #111; }
+.rh-video > figcaption { max-width: 560px; margin: 16px auto 0 !important; font: 400 .95rem/1.55 var(--sans) !important; color: #4a4652 !important; }
+.rh-video > figcaption b { color: #1f1b29; }
+.rh-motion .rh-video .rh-screen { transform: translateY(20px) scale(.98); opacity: 0; transition: transform .8s cubic-bezier(.2, .8, .2, 1) .1s, opacity .6s ease .1s; }
+.rh-motion .rh-video.rv-in .rh-screen { transform: none; opacity: 1; }

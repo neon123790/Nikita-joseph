@@ -5523,3 +5523,60 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 /* the home card title looks drawn in coloured pencil: grainy, waxy strokes with soft edges */
 .sk-h.sk-h-split { font-weight: 400; color: #4a4552; filter: url(#pencil-text); text-shadow: .4px .3px 0 rgba(74, 69, 82, .35); }
 .sk-h.sk-h-split span { font-weight: 400; color: #7e5ad6; text-shadow: .4px .3px 0 rgba(126, 90, 214, .35); }
+
+/* ===== the journal, as a real hardcover notebook ===== */
+.journal { --cover: #3f5fd8; --page: #fffcf3; --page-edge: #e9dfcb; --page-ink: #26221f; }
+/* hardcover: cloth texture, soft depth, a lighter board edge */
+.journal .book-cover { padding: 16px 18px; border: 2px solid #1d2a66; border-radius: 12px 18px 18px 12px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 4%, rgba(255, 255, 255, .06) 6%, rgba(0, 0, 0, 0) 9%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, .05) 0 1px, transparent 1px 3px),
+    var(--cover);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .12), inset 0 -10px 18px -12px rgba(0, 0, 0, .45), 0 34px 50px -30px rgba(20, 24, 60, .75), 0 10px 18px -12px rgba(20, 24, 60, .45); }
+/* the elastic strap, with a little sheen */
+.journal .book-cover::after { right: 54px; width: 15px; top: -4px; bottom: -4px; border: 0; border-radius: 3px;
+  background: linear-gradient(90deg, #c94a12, #ff7a35 35%, #ff9a5e 50%, #e2601f 70%, #b4410f); box-shadow: 0 0 0 1.5px rgba(29, 42, 102, .5), 2px 3px 6px rgba(0, 0, 0, .3); }
+/* a satin ribbon hanging out of the bottom */
+.journal .book-cover::before { content: ""; position: absolute; z-index: 0; left: calc(50% + 34px); bottom: -46px; width: 16px; height: 70px; pointer-events: none;
+  background: linear-gradient(90deg, #a82a3b, #d9485c 45%, #a82a3b); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%); filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, .25)); }
+/* paper: warm cream, faint dot grid, fibres */
+.journal .page { border: 0; background-color: var(--page);
+  background-image:
+    radial-gradient(circle, rgba(70, 58, 44, .16) .9px, transparent 1.2px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .34 0 0 0 0 .26 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  background-size: 22px 22px, 160px 160px; }
+/* the fold: pages curve into the gutter, and the sheets stack at the outer edges */
+.journal .page.left { border-radius: 6px 2px 2px 6px;
+  box-shadow: inset -34px 0 32px -26px rgba(70, 50, 25, .38), inset -2px 0 0 rgba(70, 50, 25, .12),
+    -2px 1px 0 var(--page-edge), -4px 2px 0 var(--page), -5px 3px 0 var(--page-edge), -7px 4px 0 var(--page), -8px 5px 0 var(--page-edge) !important; }
+.journal .page.right { border-radius: 2px 6px 6px 2px;
+  box-shadow: inset 34px 0 32px -26px rgba(70, 50, 25, .38), inset 2px 0 0 rgba(70, 50, 25, .12),
+    2px 1px 0 var(--page-edge), 4px 2px 0 var(--page), 5px 3px 0 var(--page-edge), 7px 4px 0 var(--page), 8px 5px 0 var(--page-edge) !important; }
+/* metal rings through punched holes down the gutter */
+.journal .spiral { display: block; top: 22px; bottom: 22px; width: 44px; margin-left: -22px; z-index: 4;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='28'%3E%3Cdefs%3E%3ClinearGradient id='m' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f4f5f8'/%3E%3Cstop offset='.45' stop-color='%23a9afbb'/%3E%3Cstop offset='1' stop-color='%23626875'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='9' cy='17' rx='3.2' ry='3' fill='%23352c24' opacity='.7'/%3E%3Cellipse cx='35' cy='17' rx='3.2' ry='3' fill='%23352c24' opacity='.7'/%3E%3Cpath d='M9 17 C9 6 35 6 35 17' fill='none' stroke='%23000' stroke-opacity='.18' stroke-width='5' transform='translate(1 2)'/%3E%3Cpath d='M9 17 C9 6 35 6 35 17' fill='none' stroke='url(%23m)' stroke-width='3.6' stroke-linecap='round'/%3E%3C/svg%3E") center top / 44px 28px repeat-y; }
+/* tab dividers: card stock poking out between the pages */
+.journal .bookmark { border: 2px solid #1d2a66; border-left: 0; border-radius: 0 10px 10px 0; box-shadow: 2px 3px 6px -2px rgba(20, 24, 60, .35);
+  background: linear-gradient(90deg, rgba(0, 0, 0, .12), transparent 40%), linear-gradient(180deg, rgba(255, 255, 255, .35), transparent 50%), var(--bm); color: #1f1b29; }
+.journal .bookmark[aria-selected="true"] { box-shadow: 3px 4px 8px -2px rgba(20, 24, 60, .45); }
+/* the taped print: lighter outline so it reads as a photo on paper */
+.journal .print { border: 2px solid #26221f; box-shadow: 0 14px 22px -14px rgba(40, 30, 20, .55), 0 2px 4px rgba(40, 30, 20, .12); }
+@media (max-width: 860px) {
+  .journal .book-cover { padding: 10px; border-radius: 14px; }
+  .journal .book-cover::before { display: none; }
+  .journal .spiral { display: none; }
+  .journal .page.left, .journal .page.right { border-radius: 6px; box-shadow: none !important; }
+  .journal .entry:not([hidden]) .page.right { border-radius: 6px 6px 0 0; border-bottom: 1px dashed rgba(70, 58, 44, .25); }
+  .journal .page.left { border-radius: 0 0 6px 6px; }
+  .journal .bookmark { border: 2px solid #1d2a66; border-bottom: 0; border-radius: 10px 10px 0 0; box-shadow: none; }
+}
+/* phones: a spiral notebook bound down the left edge, with the ribbon and strap */
+@media (max-width: 860px) {
+  .journal .spiral { display: block; left: 0; margin-left: -6px; top: 18px; bottom: 18px; transform: rotate(180deg); }
+  .journal .book { padding-left: 16px; }
+  .journal .page { padding-left: clamp(28px, 7vw, 40px) !important; }
+  .journal .book-cover::before { display: block; left: auto; right: 22%; bottom: -38px; height: 58px; }
+  .journal .book-cover::after { right: 26px; }
+}
+.stage.pass { overflow-x: clip; } .pass-card { overflow: hidden; }

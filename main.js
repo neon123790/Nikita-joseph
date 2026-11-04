@@ -708,7 +708,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
   const ease = (x) => 0.5 - Math.cos(Math.PI * x) / 2;
   const clamp = (x) => Math.max(0, Math.min(1, x));
   sketches.forEach((el) => {
-    const layer = el.querySelector('.sk-layer'), svg = el.querySelector('svg'), vb = svg.viewBox.baseVal;
+    const layer = el.querySelector('.sk-layer'), svg = layer.querySelector('svg'), vb = svg.viewBox.baseVal;
     // a second, fainter pass of every stroke makes it read as pencil
     el.querySelectorAll('.sk-d').forEach((p) => { const g = p.cloneNode(); g.removeAttribute('id'); g.classList.add('ghost'); p.after(g); });
     const strokes = [...el.querySelectorAll('.sk-d')].map((p) => {

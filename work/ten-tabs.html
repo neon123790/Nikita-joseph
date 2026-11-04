@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=231">
+    <link rel="stylesheet" href="../style.css?v=234">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -124,82 +124,47 @@
           <li style="--c:#ffe3ec"><b>1</b><span>CEO recording behind the whole library</span></li>
         </ul>
 
-        <section class="stage door" id="nda" aria-labelledby="h-inside">
-          <div class="bd-scene">
-            <div class="bd-wall">
-              <div class="bd-paint">
-                <h2 id="h-inside" class="bd-title">What’s inside</h2>
-                <p class="bd-sub">The scripts we rewrote, the stage we built, and opening night in 45 days.</p>
-              </div>
-              <div class="bd-lamp" aria-hidden="true"><span class="bd-arm"></span><span class="bd-cage"></span><span class="bd-cone"></span></div>
-              <div class="bd-doorway" aria-hidden="true">
-                <div class="bd-glow"></div>
-                <div class="bd-door">
-                  <span class="bd-plate"><b>★</b>Backstage</span>
-                  <span class="bd-peep"></span>
-                  <span class="bd-bar"></span>
-                  <i class="bd-rv r1"></i><i class="bd-rv r2"></i><i class="bd-rv r3"></i><i class="bd-rv r4"></i><i class="bd-rv r5"></i><i class="bd-rv r6"></i>
+        <div class="rh-inside">
+          <h2>What’s inside</h2>
+          <p>The scripts we rewrote, the stage we built, and opening night in 45 days.</p>
+        </div>
+
+        <section class="stage safe vault" id="nda" aria-labelledby="h-nda">
+          <div class="vault-box">
+            <div class="vault-inside" aria-hidden="true">
+              <div class="vt-ticket">
+                <div class="vt-main">
+                  <p class="vt-band"><span>Backstage pass</span><b>All access</b></p>
+                  <p class="vt-show">The Rehearsal</p>
+                  <p class="vt-meta">Opening night · 45 days in the making</p>
+                  <div class="vt-bar"><span class="vt-fill"></span></div>
+                  <p class="vt-count">Bar <b class="vt-n">0</b>/60</p>
                 </div>
-                <span class="bd-sill"></span>
+                <div class="vt-stub"><span class="vt-admit">Admit one</span><span class="vt-code"></span></div>
               </div>
-              <div class="bd-man" aria-hidden="true">
-                <p class="bs-say"><span class="say-ask">Code, please.</span><span class="say-no">Hmm, that’s not it.</span><span class="say-yes">Come on in!</span></p>
-                <svg class="bd-figure" viewBox="0 0 160 250">
-                  <defs>
-                    <linearGradient id="bdSuit" x1="0" x2="1"><stop offset="0" stop-color="#2a2540"/><stop offset=".55" stop-color="#3a3458"/><stop offset="1" stop-color="#1c1830"/></linearGradient>
-                    <linearGradient id="bdSkin" x1="0" x2="1"><stop offset="0" stop-color="#c98a55"/><stop offset=".6" stop-color="#e0a46c"/><stop offset="1" stop-color="#b97a48"/></linearGradient>
-                    <linearGradient id="bdShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b3a55"/><stop offset="1" stop-color="#0d0b16"/></linearGradient>
-                    <linearGradient id="bdBoard" x1="0" x2="1"><stop offset="0" stop-color="#b98f5e"/><stop offset="1" stop-color="#9a7246"/></linearGradient>
-                  </defs>
-                  <ellipse cx="80" cy="243" rx="52" ry="6" fill="rgba(0,0,0,.35)"/>
-                  <path d="M34 244 V150 C34 118 54 104 80 104 C106 104 126 118 126 150 V244 Z" fill="url(#bdSuit)"/>
-                  <path d="M66 106 L80 150 L94 106 Z" fill="#f3efe6"/>
-                  <path d="M76 116 L80 124 L84 116 L80 111 Z M77 124 L80 160 L83 124 Z" fill="#1a1626"/>
-                  <path d="M66 106 L58 128 L72 136 L80 150 Z M94 106 L102 128 L88 136 L80 150 Z" fill="#26213b"/>
-                  <path d="M80 150 V244" stroke="#15121f" stroke-width="1.5"/>
-                  <circle cx="80" cy="176" r="2.2" fill="#15121f"/><circle cx="80" cy="196" r="2.2" fill="#15121f"/>
-                  <rect x="68" y="88" width="24" height="22" rx="8" fill="url(#bdSkin)"/>
-                  <ellipse cx="80" cy="66" rx="27" ry="29" fill="url(#bdSkin)"/>
-                  <path d="M53 60 C53 36 107 36 107 60 C100 50 60 50 53 60 Z" fill="#1a1626"/>
-                  <ellipse cx="53" cy="70" rx="4" ry="7" fill="#b97a48"/>
-                  <path d="M51 74 C46 84 48 96 56 104" stroke="#9aa3b5" stroke-width="1.6" fill="none"/>
-                  <rect x="58" y="62" width="19" height="11" rx="4" fill="url(#bdShade)"/><rect x="83" y="62" width="19" height="11" rx="4" fill="url(#bdShade)"/>
-                  <path d="M77 66 H83" stroke="#0d0b16" stroke-width="2.4"/>
-                  <path d="M61 64 l6 0" stroke="#fff" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/><path d="M86 64 l6 0" stroke="#fff" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M70 84 C76 87 84 87 90 84" stroke="#7a4a2a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-                  <g class="bd-arm-r"><path d="M120 150 C134 166 130 186 112 194" stroke="url(#bdSuit)" stroke-width="16" fill="none" stroke-linecap="round"/>
-                    <rect x="84" y="166" width="38" height="48" rx="4" fill="url(#bdBoard)"/><rect x="94" y="160" width="18" height="8" rx="2.5" fill="#c9ced8"/>
-                    <rect x="89" y="174" width="28" height="36" rx="2" fill="#fffdf7"/><path d="M93 182 H113 M93 190 H109 M93 198 H112" stroke="#9a92a6" stroke-width="1.6"/>
-                    <circle cx="110" cy="194" r="7" fill="url(#bdSkin)"/></g>
-                  <path d="M40 150 C28 168 32 188 46 196" stroke="url(#bdSuit)" stroke-width="16" fill="none" stroke-linecap="round"/>
-                  <circle cx="47" cy="196" r="7" fill="url(#bdSkin)"/>
-                </svg>
-              </div>
-              <div class="bd-panel">
-                <p class="bd-panel-k">Stage door · intercom</p>
-                <span class="bd-grille" aria-hidden="true"></span>
-                <h3 id="h-nda" class="stage-title">Backstage access</h3>
-                <form class="hk-form stage-form" autocomplete="off">
-                  <label class="sr-only" for="nda-pass">Code</label>
-                  <input id="nda-pass" type="password" placeholder="Enter the code" required>
-                  <button class="stage-btn" type="submit">Enter</button>
+            </div>
+            <div class="safe-door">
+              <span class="safe-hinge h1" aria-hidden="true"></span><span class="safe-hinge h2" aria-hidden="true"></span>
+              <span class="safe-rivet r1" aria-hidden="true"></span><span class="safe-rivet r2" aria-hidden="true"></span><span class="safe-rivet r3" aria-hidden="true"></span><span class="safe-rivet r4" aria-hidden="true"></span>
+              <div class="safe-hardware" aria-hidden="true">
+              <svg class="safe-dial" viewBox="0 0 120 120"><circle cx="60" cy="60" r="57" class="d-ring"/><g class="d-ticks"><path d="M60.0 8.0 L60.0 14.0"/><path d="M65.4 8.3 L65.1 11.3"/><path d="M70.8 9.1 L70.2 12.1"/><path d="M76.1 10.5 L75.1 13.4"/><path d="M81.2 12.5 L79.9 15.2"/><path d="M86.0 15.0 L84.5 17.6"/><path d="M90.6 17.9 L87.0 22.8"/><path d="M94.8 21.4 L92.8 23.6"/><path d="M98.6 25.2 L96.4 27.2"/><path d="M102.1 29.4 L99.6 31.2"/><path d="M105.0 34.0 L102.4 35.5"/><path d="M107.5 38.8 L104.8 40.1"/><path d="M109.5 43.9 L103.7 45.8"/><path d="M110.9 49.2 L107.9 49.8"/><path d="M111.7 54.6 L108.7 54.9"/><path d="M112.0 60.0 L109.0 60.0"/><path d="M111.7 65.4 L108.7 65.1"/><path d="M110.9 70.8 L107.9 70.2"/><path d="M109.5 76.1 L103.7 74.2"/><path d="M107.5 81.2 L104.8 79.9"/><path d="M105.0 86.0 L102.4 84.5"/><path d="M102.1 90.6 L99.6 88.8"/><path d="M98.6 94.8 L96.4 92.8"/><path d="M94.8 98.6 L92.8 96.4"/><path d="M90.6 102.1 L87.0 97.2"/><path d="M86.0 105.0 L84.5 102.4"/><path d="M81.2 107.5 L79.9 104.8"/><path d="M76.1 109.5 L75.1 106.6"/><path d="M70.8 110.9 L70.2 107.9"/><path d="M65.4 111.7 L65.1 108.7"/><path d="M60.0 112.0 L60.0 106.0"/><path d="M54.6 111.7 L54.9 108.7"/><path d="M49.2 110.9 L49.8 107.9"/><path d="M43.9 109.5 L44.9 106.6"/><path d="M38.8 107.5 L40.1 104.8"/><path d="M34.0 105.0 L35.5 102.4"/><path d="M29.4 102.1 L33.0 97.2"/><path d="M25.2 98.6 L27.2 96.4"/><path d="M21.4 94.8 L23.6 92.8"/><path d="M17.9 90.6 L20.4 88.8"/><path d="M15.0 86.0 L17.6 84.5"/><path d="M12.5 81.2 L15.2 79.9"/><path d="M10.5 76.1 L16.3 74.2"/><path d="M9.1 70.8 L12.1 70.2"/><path d="M8.3 65.4 L11.3 65.1"/><path d="M8.0 60.0 L11.0 60.0"/><path d="M8.3 54.6 L11.3 54.9"/><path d="M9.1 49.2 L12.1 49.8"/><path d="M10.5 43.9 L16.3 45.8"/><path d="M12.5 38.8 L15.2 40.1"/><path d="M15.0 34.0 L17.6 35.5"/><path d="M17.9 29.4 L20.4 31.2"/><path d="M21.4 25.2 L23.6 27.2"/><path d="M25.2 21.4 L27.2 23.6"/><path d="M29.4 17.9 L33.0 22.8"/><path d="M34.0 15.0 L35.5 17.6"/><path d="M38.8 12.5 L40.1 15.2"/><path d="M43.9 10.5 L44.9 13.4"/><path d="M49.2 9.1 L49.8 12.1"/><path d="M54.6 8.3 L54.9 11.3"/></g><g class="d-nums"><text x="60.0" y="22.0">0</text><text x="84.1" y="29.8">10</text><text x="99.0" y="50.3">20</text><text x="99.0" y="75.7">30</text><text x="84.1" y="96.2">40</text><text x="60.0" y="104.0">50</text><text x="35.9" y="96.2">60</text><text x="21.0" y="75.7">70</text><text x="21.0" y="50.3">80</text><text x="35.9" y="29.8">90</text></g><circle cx="60" cy="60" r="30" class="d-knob"/><circle cx="60" cy="60" r="22" class="d-cap"/><path d="M60 8 L56 1 H64 Z" class="d-mark"/></svg>
+              <svg class="safe-handle" viewBox="0 0 80 80"><g class="h-spokes"><path d="M40 40 L40 6"/><path d="M40 40 L69.4 57"/><path d="M40 40 L10.6 57"/></g><circle cx="40" cy="6" r="5"/><circle cx="69.4" cy="57" r="5"/><circle cx="10.6" cy="57" r="5"/><circle cx="40" cy="40" r="10" class="h-hub"/></svg>
+            </div>
+              <div class="safe-panel">
+                <p class="safe-label"><span class="safe-led" aria-hidden="true"></span>Under NDA</p>
+                <h2 id="h-nda" class="safe-title">Backstage access</h2>
+                <form class="hk-form safe-form" autocomplete="off">
+                  <label class="vault-label" for="nda-pass">Access password</label>
+                  <div class="vault-row">
+                    <input id="nda-pass" type="password" placeholder="ENTER CODE" required>
+                    <button class="safe-btn" type="submit">Enter</button>
+                  </div>
                 </form>
                 <p class="hk-msg-out" role="status" aria-live="polite"></p>
-                <p class="stage-ask">No code? <a href="mailto:nikkijoseph1998@gmail.com?subject=Access%20request%3A%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study&amp;body=Hi%20Nikita%2C%20I%E2%80%99d%20love%20to%20read%20the%20rest%20of%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study.">Ask for one →</a></p>
               </div>
             </div>
-            <div class="bd-ground" aria-hidden="true">
-              <svg class="bd-rope" viewBox="0 0 300 90" preserveAspectRatio="xMidYMax meet">
-                <defs>
-                  <linearGradient id="bdBrass" x1="0" x2="1"><stop offset="0" stop-color="#8a5f1d"/><stop offset=".45" stop-color="#f4cf6b"/><stop offset="1" stop-color="#9b6c22"/></linearGradient>
-                  <linearGradient id="bdVelvet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2475c"/><stop offset="1" stop-color="#8e1730"/></linearGradient>
-                </defs>
-                <g class="bd-post l"><rect x="22" y="22" width="8" height="58" rx="3" fill="url(#bdBrass)"/><circle cx="26" cy="18" r="8" fill="url(#bdBrass)"/><ellipse cx="26" cy="82" rx="18" ry="5" fill="url(#bdBrass)"/></g>
-                <g class="bd-post r"><rect x="270" y="22" width="8" height="58" rx="3" fill="url(#bdBrass)"/><circle cx="274" cy="18" r="8" fill="url(#bdBrass)"/><ellipse cx="274" cy="82" rx="18" ry="5" fill="url(#bdBrass)"/></g>
-                <path class="bd-velvet" d="M30 30 C100 74 200 74 270 30" fill="none" stroke="url(#bdVelvet)" stroke-width="9" stroke-linecap="round"/>
-              </svg>
-            </div>
           </div>
+          <p class="safe-ask vault-ask">Not on the list yet? <a href="mailto:nikkijoseph1998@gmail.com?subject=Access%20request%3A%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study&amp;body=Hi%20Nikita%2C%20I%E2%80%99d%20love%20to%20read%20the%20rest%20of%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study.">Request access →</a></p>
         </section>
         <div id="nda-slot"></div>
       </article>
@@ -447,6 +412,7 @@
       const form = document.querySelector('.hk-form'); if (!form) return;
       const out = document.querySelector('.hk-msg-out'), gate = document.querySelector('.stage');
       const b64 = (t) => Uint8Array.from(atob(t), (c) => c.charCodeAt(0));
+      form.querySelector('input').addEventListener('focus', (e) => { if (matchMedia('(max-width: 760px)').matches) setTimeout(() => e.target.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300); });
             form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const pass = form.querySelector('input').value;
@@ -477,11 +443,17 @@
             document.querySelector('.hk-title')?.focus({ preventScroll: true });
           };
           if (still) { reveal(); return; }
-          // the doorman waves you in, the door swings open and light spills out, then the story takes its place
-          gate.classList.remove('wrong'); gate.classList.add('opening');
-          setTimeout(reveal, 1900);
+          // the dial spins home and the light turns green, the door swings open, the pass slides out and its bar fills to 60/60
+          gate.classList.remove('wrong'); gate.classList.add('unlocking');
+          setTimeout(() => {
+            gate.classList.add('opening');
+            const n = gate.querySelector('.vt-n'), t0 = performance.now(), dur = 1300;
+            const count = (t) => { const p = Math.min(1, (t - t0) / dur); n.textContent = Math.round(60 * p); if (p < 1) requestAnimationFrame(count); };
+            setTimeout(() => requestAnimationFrame(count), 450);
+          }, 750);
+          setTimeout(reveal, 3000);
         } catch (err) {
-          out.textContent = 'That’s not the code. Try again, or ask for one.';
+          out.textContent = 'Not on the list yet. Request access?';
           gate.classList.remove('shake', 'wrong'); void gate.offsetWidth; gate.classList.add('shake', 'wrong');
         }
       });

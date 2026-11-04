@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=234">
+    <link rel="stylesheet" href="../style.css?v=235">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -445,13 +445,18 @@
           if (still) { reveal(); return; }
           // the dial spins home and the light turns green, the door swings open, the pass slides out and its bar fills to 60/60
           gate.classList.remove('wrong'); gate.classList.add('unlocking');
+          // a calm sequence: unlock (0.8s), the door swings (1.4s), the pass rises, its bar fills, it holds, then the story fades in
           setTimeout(() => {
             gate.classList.add('opening');
-            const n = gate.querySelector('.vt-n'), t0 = performance.now(), dur = 1300;
-            const count = (t) => { const p = Math.min(1, (t - t0) / dur); n.textContent = Math.round(60 * p); if (p < 1) requestAnimationFrame(count); };
-            setTimeout(() => requestAnimationFrame(count), 450);
-          }, 750);
-          setTimeout(reveal, 3000);
+            const n = gate.querySelector('.vt-n');
+            setTimeout(() => {
+              const t0 = performance.now(), dur = 1800, ease = (x) => 1 - Math.pow(1 - x, 3);
+              const count = (t) => { const p = Math.min(1, (t - t0) / dur); n.textContent = Math.round(60 * ease(p)); if (p < 1) requestAnimationFrame(count); };
+              requestAnimationFrame(count);
+            }, 1300);
+          }, 800);
+          setTimeout(() => gate.classList.add('leaving'), 5000);
+          setTimeout(reveal, 5600);
         } catch (err) {
           out.textContent = 'Not on the list yet. Request access?';
           gate.classList.remove('shake', 'wrong'); void gate.offsetWidth; gate.classList.add('shake', 'wrong');

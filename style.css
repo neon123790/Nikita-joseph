@@ -5520,3 +5520,6 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 /* The Rehearsal home card: a light two-line title, like the app's splash */
 .sk-h.sk-h-split { padding-top: 6px; font: 300 clamp(1.35rem, 2.3vw, 2.1rem)/1.08 var(--sans); letter-spacing: -.02em; color: #2f2c35; }
 .sk-h.sk-h-split span { font-weight: 300; color: #8b7fe8; }
+/* the home card title looks drawn in coloured pencil: grainy, waxy strokes with soft edges */
+.sk-h.sk-h-split { font-weight: 400; color: #4a4552; filter: url(#pencil-text); text-shadow: .4px .3px 0 rgba(74, 69, 82, .35); }
+.sk-h.sk-h-split span { font-weight: 400; color: #7e5ad6; text-shadow: .4px .3px 0 rgba(126, 90, 214, .35); }

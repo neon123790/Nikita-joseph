@@ -190,7 +190,8 @@
         }
       };
       // after a successful unlock the story is kept for this browser tab only
-      try { const h = sessionStorage.getItem('fl-nda'); if (h) { document.getElementById('nda-slot').outerHTML = h; document.documentElement.classList.add('nda-open'); } } catch (e) {}
+      // the story is never remembered: every visit starts locked (and any copy kept by an older version is cleared)
+      try { sessionStorage.removeItem('fl-nda'); } catch (e) {}
       window.ttReady();
       // the phone sheet sits further down the page, so fill it once everything has loaded
       document.addEventListener('DOMContentLoaded', () => { const sh = document.querySelector('.sec-sheet ol'); if (sh) sh.innerHTML = document.getElementById('tt-toc').innerHTML; });
@@ -407,7 +408,6 @@
           const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(box.salt), iterations: box.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
           const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(box.iv) }, key, b64(box.data));
           const html = new TextDecoder().decode(plain);
-          try { sessionStorage.setItem('fl-nda', html); } catch (e2) {}
           out.textContent = '';
           const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
           const reveal = () => {

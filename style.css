@@ -5256,3 +5256,11 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .pf-m2-arrow .v { display: none; }
 @media (max-width: 640px) { .pf-m2-arrow .h { display: none; } .pf-m2-arrow .v { display: inline; } }
 @media (max-width: 900px) { .pf-film { gap: 36px !important; } .pf-film li:not(:last-child)::after { bottom: -29px; } }
+/* "In short": a three-line summary at the top of each case study */
+.tldr { margin: 0 0 clamp(28px, 4vw, 44px); padding: 18px 22px; border-radius: 16px; background: #fffdf7; border: 1.5px solid #1f1b29; box-shadow: 4px 4px 0 #1f1b29; }
+.tldr-title { margin: 0 0 10px; font: 700 .72rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: #c2410c; }
+.tldr dl { margin: 0; display: grid; gap: 10px; }
+.tldr dl > div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: baseline; }
+.tldr dt { font: 700 .82rem/1.3 var(--sans); color: #6b6676; }
+.tldr dd { margin: 0; font: 500 1rem/1.5 var(--sans); color: #1f1b29; }
+@media (max-width: 560px) { .tldr { padding: 16px; } .tldr dl > div { grid-template-columns: 1fr; gap: 2px; } }

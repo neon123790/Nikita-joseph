@@ -5748,3 +5748,9 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
   .pf .pf-phones.pf-phones5 { display: flex !important; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 10px; }
   .pf .pf-phones.pf-phones5 .pf-phone { flex: 0 0 min(46%, 200px) !important; width: auto !important; max-width: none !important; }
 }
+/* phones: title, then the image or video, then the facts (like The Rehearsal) */
+@media (max-width: 900px) {
+  .gh-panel > .gh-text { order: 1; }
+  .gh-panel > .gh-shot, .gh-panel > .hk-screens { order: 2; }
+  .gh-panel > .gh-facts { order: 3; }
+}

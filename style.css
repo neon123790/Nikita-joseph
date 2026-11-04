@@ -5496,3 +5496,13 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .stage.shake .pass-card { animation: stage-shake .4s ease; }
 @keyframes stage-shake { 20%, 60% { transform: translateX(-7px); } 40%, 80% { transform: translateX(7px); } }
 @media (prefers-reduced-motion: reduce) { .pass-card { animation: none; } }
+/* Opening Night: a faint, colourless stage curtain framing the section */
+.nda-content #solution { position: relative; overflow: hidden; isolation: isolate; }
+.nda-content #solution::before, .nda-content #solution::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; width: clamp(40px, 9%, 96px); pointer-events: none;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .55) 0 7px, rgba(40, 30, 50, .045) 11px, rgba(255, 255, 255, .5) 16px 20px);
+  -webkit-mask: linear-gradient(90deg, #000, rgba(0, 0, 0, .25)); mask: linear-gradient(90deg, #000, rgba(0, 0, 0, .25)); }
+.nda-content #solution::before { left: 0; border-radius: 16px 0 0 16px; }
+.nda-content #solution::after { right: 0; transform: scaleX(-1); border-radius: 16px 0 0 16px; }
+.nda-content #solution > .content { position: relative; }
+.nda-content #solution > .content::before { content: ""; position: absolute; z-index: -1; left: calc(-1 * clamp(0px, 2.4vw, 28px) - 200px); right: -200px; top: -40px; height: 26px; pointer-events: none;
+  background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, .38) 0 13px, transparent 14px) 0 0 / 34px 22px repeat-x, linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .15)) 0 0 / 100% 10px no-repeat; }

@@ -125,9 +125,9 @@
 
   // ---- the lo-fi track: routed through a gain node, because phones ignore <audio>.volume ----
   const TRACK = new URL('audio/lofi.m4a', document.currentScript ? document.currentScript.src : location.href).href;
-  const LOW = 0.06;            // very low: background, never in the way
+  const LOW = 0.1;             // low: background, never in the way
   let audio = null, trackGain = null, useTrack = true;
-  const startTrack = async () => {
+  const startTrack = async (at = 0) => {
     if (!ctx) setup();
     if (!audio) {
       audio = new Audio(TRACK);
@@ -137,6 +137,7 @@
       const src = ctx.createMediaElementSource(audio);
       trackGain = ctx.createGain(); trackGain.gain.value = 0;
       src.connect(trackGain).connect(ctx.destination);
+      if (at) audio.currentTime = at;
     }
     await ctx.resume();
     await audio.play();
@@ -155,17 +156,41 @@
   const play = () => (useTrack ? startTrack().catch(() => { useTrack = false; return start(); }) : start());
   const pause = () => (useTrack && audio ? stopTrack() : stop());
 
+  // ---- keep playing across pages and tabs: remember that it's on and where the track was ----
+  const KEY = 'nj-lofi';
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ on: playing, t: audio ? audio.currentTime : 0 })); } catch (e) {} };
+  const saved = (() => { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } })();
+  const show = (on) => document.querySelectorAll('.music-toggle').forEach((b) => {
+    b.classList.toggle('is-playing', on);
+    b.setAttribute('aria-pressed', String(on));
+    b.setAttribute('aria-label', on ? 'Pause the music' : 'Play some soft lo-fi music');
+    b.title = on ? 'Pause the music' : 'Play some soft lo-fi music';
+  });
+  addEventListener('pagehide', save);
+  setInterval(() => { if (playing) save(); }, 2000);
+  // coming back to the tab: wake the audio up if the browser put it to sleep
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible' || !playing || !ctx) return;
+    ctx.resume();
+    if (audio && audio.paused && useTrack) audio.play().catch(() => {});
+  });
+
   document.addEventListener('DOMContentLoaded', () => {
+    // it was playing on the last page: carry on from the same spot. If the browser wants a tap first,
+    // the record keeps spinning and the music picks up on the very first click or key press.
+    if (saved && saved.on) {
+      show(true); playing = true;
+      const resume = () => (useTrack ? startTrack(saved.t || 0).catch((err) => { if (err && err.name === 'NotAllowedError') throw err; useTrack = false; return start(); }) : start());
+      resume().catch(() => {
+        const go = (e) => { if (e.target.closest && e.target.closest('.music-toggle')) return; removeEventListener('pointerdown', go, true); removeEventListener('keydown', go, true); resume().catch(() => {}); };
+        addEventListener('pointerdown', go, true); addEventListener('keydown', go, true);
+      });
+    }
     document.querySelectorAll('.music-toggle').forEach((btn) => {
       btn.addEventListener('click', () => {
         const on = !playing;
         if (on) play(); else pause();
-        document.querySelectorAll('.music-toggle').forEach((b) => {
-          b.classList.toggle('is-playing', on);
-          b.setAttribute('aria-pressed', String(on));
-          b.setAttribute('aria-label', on ? 'Pause the music' : 'Play some soft lo-fi music');
-          b.title = on ? 'Pause the music' : 'Play some soft lo-fi music';
-        });
+        show(on); save();
       });
     });
   });

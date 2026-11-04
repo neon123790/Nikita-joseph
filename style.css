@@ -6017,3 +6017,6 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 @media (max-width: 640px) { .pf-old-shot { width: min(260px, 80%); margin: 0 auto; } }
 .safe .hk-msg-out a { color: #ffd65a; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 700px) { .pf-old { grid-template-columns: 1fr; } .pf-old-shot { width: min(260px, 80%); margin: 0 auto; } }
+/* project pages: the hero runs up under the header, so the header shows the page's own colour and glow */
+body:has(.proj-hero) .site-header:not(.scrolled) { background: transparent !important; box-shadow: none !important; border-bottom-color: transparent !important; }
+body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-top: calc(clamp(28px, 4vw, 56px) + 65px) !important; }

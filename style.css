@@ -5781,3 +5781,61 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 /* The Rehearsal thumbnail: a pencil lock, since the story is under NDA */
 .sk-lock { position: absolute; z-index: 2; top: 10px; right: 12px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #fffdf7; box-shadow: 0 0 0 1.4px #8c6ae0; }
 .sk-lock svg { width: 17px; height: 17px; fill: none; stroke: #6b4fd8; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; filter: url(#pencil-text); }
+
+/* lock beside The Rehearsal's title (home card and case study) */
+.title-lock { display: inline-grid; place-items: center; width: .9em; height: .9em; margin-left: .3em; vertical-align: -.08em; border-radius: 50%; background: #f4efff; box-shadow: inset 0 0 0 1.5px #b9a4f2; }
+.title-lock svg { width: 58%; height: 58%; fill: none; stroke: #6b4fd8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.entry h3 .title-lock { font-size: .8em; }
+.cs-titlerow .title-lock { font-size: .75em; }
+
+/* ===== the backstage door: a doorman asks for the code ===== */
+.stage.door { padding-top: 0; }
+.bs-scene { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: clamp(8px, 3vw, 26px); width: min(560px, 100%); margin: 0 auto; }
+.bs-wall { position: relative; padding: 18px 26px 0; border-radius: 16px 16px 0 0; background: #efe3d3;
+  background-image: linear-gradient(rgba(150, 110, 80, .18) 1px, transparent 1px), linear-gradient(90deg, rgba(150, 110, 80, .18) 1px, transparent 1px);
+  background-size: 40px 20px, 40px 40px; border: 2.5px solid #14111c; border-bottom: 0; }
+.bs-sign { margin: 0 auto 12px; width: fit-content; padding: 6px 14px; border: 2.5px solid #14111c; border-radius: 8px; background: #ffd65a; font: 800 .85rem/1 var(--bold); letter-spacing: .08em; text-transform: uppercase; color: #14111c; text-align: center; box-shadow: 3px 3px 0 #14111c; transform: rotate(-2deg); }
+.bs-sign small { display: block; margin-top: 3px; font: 600 .58rem/1 var(--sans); letter-spacing: .12em; }
+.bs-frame { position: relative; width: clamp(130px, 30vw, 170px); aspect-ratio: 9 / 17; border: 3px solid #14111c; border-bottom: 0; border-radius: 10px 10px 0 0; background: #2c2836; perspective: 700px; overflow: hidden; }
+.bs-light { position: absolute; inset: 0; background: radial-gradient(80% 60% at 50% 70%, #fff3c4, #ffd65a 45%, #f2a23c 100%); opacity: 0; transition: opacity .9s ease .35s; }
+.bs-leaf { position: absolute; inset: 0; display: grid; grid-template-rows: 1fr 1fr; gap: 10px; padding: 14px 12px 22px; background: #6b4fd8; border-right: 3px solid #14111c;
+  transform-origin: left center; transition: transform 1.1s cubic-bezier(.6, 0, .25, 1) .3s; }
+.bs-panel { border: 2.5px solid #14111c; border-radius: 6px; background: #8064e6; }
+.bs-plate { position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%); padding: 3px 8px; border: 2px solid #14111c; border-radius: 4px; background: #fffdf7; font: 800 .6rem/1 var(--bold); letter-spacing: .1em; text-transform: uppercase; color: #14111c; white-space: nowrap; }
+.bs-knob { position: absolute; right: 12px; top: 56%; width: 12px; height: 12px; border-radius: 50%; background: #ffd65a; border: 2.5px solid #14111c; }
+.bs-step { display: block; height: 12px; margin: 0 -26px; background: #c9b38f; border-top: 2.5px solid #14111c; }
+.bs-man { position: relative; width: clamp(96px, 22vw, 128px); }
+.bs-figure { display: block; width: 100%; height: auto; overflow: visible; }
+.bs-figure * { stroke: #14111c; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.f-shadow { fill: rgba(20, 17, 28, .12); stroke: none !important; }
+.f-suit { fill: #2c2836; } .f-shirt { fill: #fffdf7; } .f-tie { fill: #e5484d; } .f-seam { fill: none; stroke-width: 1.5 !important; stroke: #4a4652 !important; }
+.f-skin { fill: #e3a66f; } .f-cap { fill: #1f1b29; } .f-shades { fill: #14111c; } .f-line { fill: none; } .f-line.thin { stroke-width: 1.6 !important; }
+.f-sleeve { fill: none; stroke-width: 9 !important; stroke: #2c2836 !important; }
+.f-board { fill: #c9b38f; } .f-clip { fill: #a9afbb; }
+.bs-say { position: absolute; bottom: calc(100% - 18px); right: 30%; margin: 0; padding: 8px 12px; border: 2.5px solid #14111c; border-radius: 14px; background: #fff; font: 700 .85rem/1.2 var(--bold); color: #14111c; white-space: nowrap; box-shadow: 3px 3px 0 #14111c; }
+.bs-say::after { content: ""; position: absolute; right: 18px; bottom: -11px; width: 14px; height: 14px; background: #fff; border-right: 2.5px solid #14111c; border-bottom: 2.5px solid #14111c; transform: rotate(45deg); }
+.bs-say span { display: none; } .bs-say .say-ask { display: inline; }
+.stage.wrong .bs-say .say-ask { display: none; } .stage.wrong .bs-say .say-no { display: inline; }
+.stage.opening .bs-say span { display: none !important; } .stage.opening .bs-say .say-yes { display: inline !important; }
+.bs-plaque { position: relative; z-index: 2; width: min(440px, calc(100% - 32px)); margin: -2px auto 0; padding: 18px 20px 14px; text-align: center; border-radius: 0 0 16px 16px; background: #fffdf7; border: 2.5px solid #14111c; box-shadow: 4px 4px 0 #14111c; }
+.stage.door .stage-title { margin: 0 0 10px; font: 700 1.05rem/1.2 var(--bold); color: #1f1b29; }
+/* idle: the doorman taps his clipboard, the light under the door flickers */
+.f-arm { transform-origin: 90px 118px; animation: bs-tap 3.2s ease-in-out infinite; }
+@keyframes bs-tap { 0%, 70%, 100% { transform: rotate(0); } 78% { transform: rotate(-4deg); } 86% { transform: rotate(0); } }
+.bs-frame::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: #ffd65a; box-shadow: 0 0 10px 3px rgba(255, 214, 90, .7); animation: stage-flicker 3s ease-in-out infinite; z-index: 3; }
+/* wrong code: he shakes his head */
+.stage.shake .bs-figure { animation: bs-no .5s ease; transform-origin: 60px 180px; }
+@keyframes bs-no { 25% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } 75% { transform: rotate(-2deg); } }
+/* right code: the door swings open, light pours out */
+.stage.opening .bs-leaf { transform: rotateY(-82deg); }
+.stage.opening .bs-light { opacity: 1; }
+.stage.opening .bs-frame::after { opacity: 0; }
+.stage.opening .bs-plaque .stage-form, .stage.opening .bs-plaque .stage-ask { opacity: .4; transition: opacity .3s; }
+.stage.opening .f-arm { animation: none; transform: rotate(-14deg); transition: transform .4s ease; }
+@media (max-width: 480px) { .bs-say { font-size: .75rem; padding: 6px 9px; right: 18%; } .bs-wall { padding: 14px 16px 0; } .bs-step { margin: 0 -16px; } }
+@media (prefers-reduced-motion: reduce) { .f-arm, .bs-frame::after { animation: none; } .bs-leaf, .bs-light { transition: none; } }
+.cs-titlerow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.cs-titlerow .title-lock { font-size: 1rem; width: 34px; height: 34px; margin-left: 0; }
+.stage.door h2.stage-title { font-size: 1.05rem !important; letter-spacing: 0 !important; margin: 0 0 10px !important; }
+.bs-man { width: clamp(110px, 26vw, 150px); }
+.entry h3 .title-lock { font-size: 1rem; width: 28px; height: 28px; margin-left: 10px; vertical-align: 2px; }

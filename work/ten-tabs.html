@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=224">
+    <link rel="stylesheet" href="../style.css?v=227">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -87,7 +87,7 @@
           <div class="gh-text">
             <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
             <p class="label proj-kicker">Fintech · Edtech · Case study · 2026</p>
-            <div class="cs-titlerow"><h1 class="hk-title" tabindex="-1">The Rehearsal</h1></div>
+            <div class="cs-titlerow"><h1 class="hk-title" tabindex="-1">The Rehearsal</h1><span class="title-lock" title="The full story is under NDA"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.5" r="1.2"/></svg><span class="sr-only">Locked: the full story is under NDA</span></span></div>
             <p class="fl-lede">Where first-time traders learn, practise and face the market before real money does.</p>
           </div>
           <figure class="hk-screens rh-hero-two" aria-label="Two app screens: the Learn home with learning paths, and the Practice tab with the execution score.">
@@ -129,25 +129,44 @@
           <p>The scripts we rewrote, the stage we built, and opening night in 45 days.</p>
         </div>
 
-        <section class="stage pass" id="nda" aria-labelledby="h-nda">
-          <div class="pass-lanyard" aria-hidden="true"><span>THE REHEARSAL · BACKSTAGE · THE REHEARSAL · BACKSTAGE ·</span></div>
-          <div class="pass-card">
-            <span class="pass-hole" aria-hidden="true"></span>
-            <div class="pass-band"><span>Backstage pass</span><span class="pass-tier">All access</span></div>
-            <div class="pass-body">
-              <p class="pass-show" aria-hidden="true">The Rehearsal</p>
-              <p class="pass-meta" aria-hidden="true">Case study · Opening night · 2026</p>
-              <h2 id="h-nda" class="stage-title">Backstage access</h2>
-              <form class="hk-form stage-form" autocomplete="off">
-                <label class="sr-only" for="nda-pass">Password</label>
-                <input id="nda-pass" type="password" placeholder="Password" required>
-                <button class="stage-btn" type="submit">Enter</button>
-              </form>
-              <p class="hk-msg-out" role="status" aria-live="polite"></p>
-              <p class="stage-ask">Need access? <a href="mailto:nikkijoseph1998@gmail.com?subject=Access%20request%3A%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study&amp;body=Hi%20Nikita%2C%20I%E2%80%99d%20love%20to%20read%20the%20rest%20of%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study.">Request it here →</a></p>
-              <div class="pass-foot" aria-hidden="true"><span class="pass-code"></span><span>No. 0045</span></div>
+        <section class="stage door" id="nda" aria-labelledby="h-nda">
+          <div class="bs-scene" aria-hidden="true">
+            <div class="bs-wall">
+              <p class="bs-sign">Stage door<small>Cast &amp; crew only</small></p>
+              <div class="bs-frame">
+                <div class="bs-light"></div>
+                <div class="bs-leaf"><span class="bs-panel"></span><span class="bs-panel"></span><span class="bs-plate">Backstage</span><span class="bs-knob"></span></div>
+              </div>
+              <span class="bs-step"></span>
             </div>
-            <span class="pass-stamp" aria-hidden="true">Admitted</span>
+            <div class="bs-man">
+              <p class="bs-say"><span class="say-ask">Code, please.</span><span class="say-no">Hmm, that’s not it.</span><span class="say-yes">Come on in!</span></p>
+              <svg class="bs-figure" viewBox="0 0 120 190">
+                <ellipse cx="60" cy="184" rx="40" ry="5" class="f-shadow"/>
+                <path d="M26 182 V120 C26 98 40 88 60 88 C80 88 94 98 94 120 V182 Z" class="f-suit"/>
+                <path d="M52 90 L60 116 L68 90 Z" class="f-shirt"/>
+                <path d="M57 98 L60 104 L63 98 L60 95 Z" class="f-tie"/>
+                <path d="M60 104 V182" class="f-seam"/>
+                <rect x="50" y="72" width="20" height="18" rx="6" class="f-skin"/>
+                <circle cx="60" cy="56" r="22" class="f-skin"/>
+                <path d="M36 50 C36 34 84 34 84 50 L86 52 H34 Z" class="f-cap"/>
+                <path d="M84 50 C92 50 96 53 96 55 H82" class="f-cap"/>
+                <rect x="43" y="56" width="14" height="8" rx="3" class="f-shades"/><rect x="63" y="56" width="14" height="8" rx="3" class="f-shades"/><path d="M57 60 H63" class="f-line"/>
+                <path d="M53 70 C57 73 63 73 67 70" class="f-line"/>
+                <g class="f-arm"><path d="M90 118 C100 130 98 142 86 146" class="f-sleeve"/><rect x="66" y="128" width="26" height="34" rx="3" class="f-board"/><rect x="72" y="124" width="14" height="6" rx="2" class="f-clip"/><path d="M71 140 H87 M71 147 H84 M71 154 H86" class="f-line thin"/></g>
+                <path d="M30 118 C22 132 26 146 36 150" class="f-sleeve"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bs-plaque">
+            <h2 id="h-nda" class="stage-title">Backstage access</h2>
+            <form class="hk-form stage-form" autocomplete="off">
+              <label class="sr-only" for="nda-pass">Code</label>
+              <input id="nda-pass" type="password" placeholder="Enter the code" required>
+              <button class="stage-btn" type="submit">Enter</button>
+            </form>
+            <p class="hk-msg-out" role="status" aria-live="polite"></p>
+            <p class="stage-ask">No code? <a href="mailto:nikkijoseph1998@gmail.com?subject=Access%20request%3A%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study&amp;body=Hi%20Nikita%2C%20I%E2%80%99d%20love%20to%20read%20the%20rest%20of%20%E2%80%9CThe%20Rehearsal%E2%80%9D%20case%20study.">Ask for one here →</a></p>
           </div>
         </section>
         <div id="nda-slot"></div>
@@ -426,12 +445,12 @@
             document.querySelector('.hk-title')?.focus({ preventScroll: true });
           };
           if (still) { reveal(); return; }
-          // the pass gets stamped, swings away on its lanyard, then the story takes its place
-          gate.classList.add('opening');
-          setTimeout(reveal, 1700);
+          // the doorman waves you in, the door swings open and light spills out, then the story takes its place
+          gate.classList.remove('wrong'); gate.classList.add('opening');
+          setTimeout(reveal, 1900);
         } catch (err) {
-          out.textContent = 'That’s not the right password. Try again, or request access.';
-          gate.classList.remove('shake'); void gate.offsetWidth; gate.classList.add('shake');
+          out.textContent = 'That’s not the code. Try again, or ask for one.';
+          gate.classList.remove('shake', 'wrong'); void gate.offsetWidth; gate.classList.add('shake', 'wrong');
         }
       });
     })();

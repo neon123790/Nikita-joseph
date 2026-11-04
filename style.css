@@ -5839,3 +5839,117 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .stage.door h2.stage-title { font-size: 1.05rem !important; letter-spacing: 0 !important; margin: 0 0 10px !important; }
 .bs-man { width: clamp(110px, 26vw, 150px); }
 .entry h3 .title-lock { font-size: 1rem; width: 28px; height: 28px; margin-left: 10px; vertical-align: 2px; }
+
+/* ===== backstage alley: brick wall, painted sign, lamp, steel stage door, doorman, velvet rope, intercom ===== */
+.stage.door { width: 100vw; margin: 0 0 clamp(48px, 7vw, 80px) calc(50% - 50vw); padding: 0; display: block; }
+.bd-scene { position: relative; max-width: 1100px; margin: 0 auto; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 60px -40px rgba(20, 12, 30, .7); }
+.bd-wall { position: relative; height: 470px; background-color: #4c2f39;
+  background-image:
+    radial-gradient(70% 90% at 50% 0%, rgba(0, 0, 0, 0) 40%, rgba(10, 4, 14, .55) 100%),
+    linear-gradient(rgba(25, 12, 20, .55) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(25, 12, 20, .5) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(25, 12, 20, .5) 2px, transparent 2px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .025) 0 23px, rgba(0, 0, 0, .04) 23px 46px);
+  background-size: 100% 100%, 100% 24px, 48px 48px, 48px 48px, 100% 100%;
+  background-position: 0 0, 0 0, 0 0, 24px 24px, 0 0; }
+/* the lamp's light washing the wall */
+.bd-wall::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(40% 55% at 30% 34%, rgba(255, 214, 140, .28), transparent 70%); transition: background .8s ease; }
+/* painted words on the brick */
+.bd-paint { position: absolute; z-index: 2; left: 0; right: 0; top: 26px; text-align: center; padding: 0 20px; pointer-events: none; }
+.bd-title { margin: 0 !important; font: 900 clamp(2.1rem, 5.6vw, 3.8rem)/1 var(--bold) !important; letter-spacing: .04em; text-transform: uppercase; color: #f2e8d8 !important;
+  transform: rotate(-1.5deg); text-shadow: 0 2px 0 rgba(0, 0, 0, .25), 0 0 1px rgba(255, 255, 255, .4); opacity: .93; }
+.bd-sub { margin: 10px auto 0 !important; max-width: 520px; font: 600 clamp(.9rem, 1.6vw, 1.05rem)/1.45 var(--sans) !important; color: #e6d6c2 !important; letter-spacing: .01em; opacity: .9; transform: rotate(-.8deg); }
+/* caged lamp above the door */
+.bd-lamp { position: absolute; z-index: 3; left: calc(24% + 64px); top: 140px; width: 40px; height: 40px; }
+.bd-arm { position: absolute; left: 50%; top: -16px; width: 4px; height: 18px; background: #1b1420; transform: translateX(-50%); }
+.bd-cage { position: absolute; inset: 0; border-radius: 50% 50% 40% 40%; background: radial-gradient(circle at 50% 60%, #fff6d8, #ffd27a 45%, #c8862e 80%); box-shadow: 0 0 22px 8px rgba(255, 205, 120, .55), inset 0 0 0 3px rgba(27, 20, 32, .9);
+  background-image: radial-gradient(circle at 50% 60%, #fff6d8, #ffd27a 45%, #c8862e 80%), repeating-linear-gradient(90deg, transparent 0 7px, rgba(27, 20, 32, .85) 7px 9px); background-blend-mode: multiply; animation: bd-flick 5s ease-in-out infinite; }
+.bd-cone { position: absolute; left: 50%; top: 32px; width: 260px; height: 290px; transform: translateX(-50%); background: conic-gradient(from 160deg at 50% 0, transparent 0deg, rgba(255, 214, 140, .22) 14deg, rgba(255, 214, 140, .22) 26deg, transparent 40deg); filter: blur(4px); pointer-events: none; }
+@keyframes bd-flick { 0%, 100% { opacity: 1; } 47% { opacity: 1; } 48% { opacity: .75; } 49% { opacity: 1; } 72% { opacity: .9; } }
+/* the stage door */
+.bd-doorway { position: absolute; z-index: 2; left: 24%; bottom: 0; width: 168px; height: 268px; padding: 8px 8px 0; background: #1b1420; border-radius: 8px 8px 0 0; box-shadow: inset 0 0 0 3px #120c16, 0 0 0 6px #3a2530; perspective: 900px; }
+.bd-glow { position: absolute; inset: 8px 8px 0; background: radial-gradient(90% 70% at 50% 80%, #fff4cf, #ffd27a 45%, #e48c2c 100%); opacity: .0; transition: opacity .8s ease .3s; }
+.bd-door { position: absolute; inset: 8px 8px 0; transform-origin: left center; border-radius: 4px 4px 0 0;
+  background: linear-gradient(90deg, #3a2f66 0%, #5a4c96 38%, #4a3e80 62%, #332a5c 100%); box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .45), inset 6px 0 10px -6px rgba(255, 255, 255, .25);
+  transition: transform 1.2s cubic-bezier(.6, 0, .25, 1) .35s; }
+.bd-door::before, .bd-door::after { content: ""; position: absolute; left: 14px; right: 14px; border-radius: 3px; box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .35), inset 0 2px 0 rgba(255, 255, 255, .08); }
+.bd-door::before { top: 18px; height: 70px; } .bd-door::after { bottom: 22px; height: 78px; }
+.bd-plate { position: absolute; left: 50%; top: 104px; transform: translateX(-50%); display: flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 4px;
+  background: linear-gradient(180deg, #f6d77e, #c8962f); color: #2a1a08; font: 900 .62rem/1 var(--bold); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; box-shadow: 0 2px 0 rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .6); }
+.bd-plate b { font-size: .8rem; }
+.bd-peep { position: absolute; left: 50%; top: 40px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #9aa3b5, #2a2638 70%); box-shadow: 0 0 0 3px #c8962f; }
+.bd-bar { position: absolute; left: 16px; right: 16px; top: 142px; height: 9px; border-radius: 5px; background: linear-gradient(180deg, #f6d77e, #a9781f); box-shadow: 0 3px 4px rgba(0, 0, 0, .4); }
+.bd-rv { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #c4bce6, #2b2450 75%); }
+.bd-rv.r1 { left: 6px; top: 8px; } .bd-rv.r2 { right: 6px; top: 8px; } .bd-rv.r3 { left: 6px; top: 50%; } .bd-rv.r4 { right: 6px; top: 50%; } .bd-rv.r5 { left: 6px; bottom: 8px; } .bd-rv.r6 { right: 6px; bottom: 8px; }
+.bd-sill { position: absolute; left: -10px; right: -10px; bottom: -6px; height: 8px; background: #2a1d24; border-radius: 2px; }
+.bd-doorway::after { content: ""; position: absolute; left: 8px; right: 8px; bottom: 0; height: 3px; background: #ffd27a; box-shadow: 0 0 12px 4px rgba(255, 210, 122, .75); animation: stage-flicker 3s ease-in-out infinite; }
+/* the doorman */
+.bd-man { position: absolute; z-index: 3; left: calc(24% + 186px); bottom: 2px; width: 150px; transition: transform .8s cubic-bezier(.3, .8, .3, 1) .2s; }
+.bd-figure { display: block; width: 100%; height: auto; overflow: visible; }
+.bd-man .bs-say { bottom: calc(100% - 22px); right: 12%; }
+.bd-arm-r { transform-origin: 120px 150px; animation: bs-tap 3.2s ease-in-out infinite; }
+/* the intercom */
+.bd-panel { position: absolute; z-index: 3; right: 5%; bottom: 74px; width: 250px; padding: 14px 16px 12px; border-radius: 12px; text-align: left;
+  background: linear-gradient(160deg, #f1d17c 0%, #c99a3b 55%, #a87a26 100%); box-shadow: 0 18px 30px -14px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .6), inset 0 0 0 2px rgba(80, 50, 10, .35); }
+.bd-panel::before, .bd-panel::after { content: ""; position: absolute; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff2c2, #7a5418); }
+.bd-panel::before { left: 8px; } .bd-panel::after { right: 8px; }
+.bd-panel-k { margin: 0 0 8px !important; text-align: center; font: 800 .62rem/1 var(--bold) !important; letter-spacing: .16em; text-transform: uppercase; color: #4a3008 !important; }
+.bd-grille { display: block; height: 22px; margin: 0 22px 10px; border-radius: 11px; background: radial-gradient(circle, rgba(60, 38, 8, .75) 1.4px, transparent 1.8px) 0 0 / 7px 7px, rgba(90, 60, 15, .25); }
+.bd-panel h3.stage-title { margin: 0 0 8px !important; text-align: center; font: 800 .95rem/1.2 var(--bold) !important; color: #2a1a08 !important; }
+.bd-panel .stage-form { display: flex; gap: 6px; }
+.bd-panel .stage-form input { flex: 1; min-width: 0; min-height: 42px; padding: 0 10px; border-radius: 6px; border: 2px solid #4a3008; background: #1d2a1f; color: #9cf2a8; font: 600 .95rem/1 ui-monospace, Menlo, monospace; letter-spacing: .2em; box-shadow: inset 0 2px 6px rgba(0, 0, 0, .6); }
+.bd-panel .stage-form input::placeholder { color: rgba(156, 242, 168, .5); letter-spacing: .04em; font-family: var(--sans); font-size: .82rem; }
+.bd-panel .stage-form input:focus-visible { outline: 2px solid #fff6d8; outline-offset: 2px; }
+.bd-panel .stage-btn { min-height: 42px; padding: 0 14px; border-radius: 6px; border: 2px solid #4a3008; background: linear-gradient(180deg, #3a2a10, #1f1606); color: #f6d77e; font: 800 .85rem/1 var(--bold); letter-spacing: .06em; box-shadow: 0 3px 0 #120c04; cursor: pointer; }
+.bd-panel .stage-btn:hover { background: linear-gradient(180deg, #4a3614, #2a1e08); }
+.bd-panel .stage-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #120c04; }
+.bd-panel .hk-msg-out { margin: 6px 0 0; min-height: 1.1em; font-size: .78rem; color: #7a1a10; text-align: center; }
+.bd-panel .stage-ask { margin: 2px 0 0; text-align: center; font-size: .8rem; color: #4a3008; }
+.bd-panel .stage-ask a { color: #2a1a08; font-weight: 700; }
+/* pavement and the velvet rope */
+.bd-ground { position: relative; height: 70px; background: linear-gradient(180deg, #2b1d25, #1a1117); }
+.bd-ground::before { content: ""; position: absolute; left: 18%; width: 320px; top: 0; height: 60px; background: radial-gradient(50% 60% at 50% 0, rgba(255, 210, 122, .25), transparent 70%); }
+.bd-rope { position: absolute; left: calc(24% - 64px); bottom: 8px; width: 300px; height: auto; overflow: visible; }
+.bd-velvet { transform-origin: 30px 30px; transition: transform .7s cubic-bezier(.5, 0, .5, 1.3), opacity .5s ease .3s; }
+/* wrong code: the doorman shakes his head */
+.stage.shake .bd-figure { animation: bs-no .5s ease; transform-origin: 80px 240px; }
+/* right code: rope drops, door swings open, light floods out, the doorman steps aside */
+.stage.opening .bd-velvet { transform: rotate(62deg); opacity: 0; }
+.stage.opening .bd-door { transform: rotateY(-80deg); }
+.stage.opening .bd-glow { opacity: 1; }
+.stage.opening .bd-wall::before { background: radial-gradient(45% 70% at 32% 80%, rgba(255, 210, 122, .55), transparent 70%); }
+.stage.opening .bd-man { transform: translateX(46px); }
+.stage.opening .bd-arm-r { animation: none; transform: rotate(-18deg); transition: transform .4s ease; }
+.stage.opening .bd-panel .stage-form, .stage.opening .bd-panel .stage-ask { opacity: .45; transition: opacity .3s; }
+/* phones and tablets: the scene stacks, the intercom sits below the wall */
+@media (max-width: 760px) {
+  .bd-scene { border-radius: 0; }
+  .bd-wall { height: 440px; }
+  .bd-paint { top: 22px; }
+  .bd-doorway { left: 10%; width: 140px; height: 228px; }
+  .bd-lamp { left: calc(10% + 50px); top: 150px; transform: scale(.85); }
+  .bd-plate { top: 84px; } .bd-bar { top: 118px; } .bd-door::before { height: 56px; } .bd-door::after { height: 62px; }
+  .bd-man { left: auto; right: 6%; width: 124px; }
+  .bd-man .bs-say { right: 4%; }
+  .bd-panel { position: relative; right: auto; bottom: auto; width: min(380px, calc(100% - 32px)); margin: 18px auto 0; }
+  .bd-ground { height: auto; padding: 56px 0 22px; }
+  .bd-ground::before { left: 0; }
+  .bd-rope { left: calc(10% - 50px); top: 0; bottom: auto; width: 240px; }
+  .bd-scene .bd-panel { order: 3; }
+}
+@media (prefers-reduced-motion: reduce) { .bd-cage, .bd-arm-r, .bd-doorway::after { animation: none; } .bd-door, .bd-glow, .bd-velvet, .bd-man { transition: none; } }
+@media (max-width: 760px) {
+  .bd-wall { height: auto; padding: 452px 0 22px; }
+  .bd-doorway { top: 200px; bottom: auto; }
+  .bd-lamp { top: 150px; }
+  .bd-man { top: 236px; bottom: auto; }
+  .bd-panel { margin: 0 auto; }
+  .bd-ground { position: absolute; left: 0; right: 0; top: 428px; height: 24px; padding: 0; background: linear-gradient(180deg, #2b1d25, rgba(43, 29, 37, 0)); }
+  .bd-rope { top: -44px; left: calc(10% - 46px); width: 230px; }
+  .bd-wall::before { background: radial-gradient(60% 40% at 30% 40%, rgba(255, 214, 140, .25), transparent 70%); }
+}
+.stage.door .bd-scene { width: 100%; }
+.stage.door h2.bd-title { color: #f4ead9 !important; -webkit-text-fill-color: #f4ead9; opacity: .95; text-shadow: 0 2px 0 rgba(0, 0, 0, .35), 0 0 18px rgba(255, 214, 140, .15); }
+.stage.door .bd-sub { color: #eadccb !important; }
+@media (max-width: 760px) { .bd-ground { z-index: 4; } .bd-rope { top: -62px; } }
+@media (max-width: 760px) { .stage.opening .bd-man { transform: translateX(10px); } }

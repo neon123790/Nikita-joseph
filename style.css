@@ -5649,3 +5649,102 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .pl-note { margin: 8px 0 0 !important; font-size: .85rem !important; color: #6b6676 !important; }
 @media (max-width: 560px) { .pf-live { grid-template-columns: 1fr; } }
 .pf .rh-stats { margin-bottom: clamp(28px, 4vw, 40px); }
+/* The Cockpit home sketch: hit-rate bar, Live dot, status chips */
+.sk-d.red { stroke: #e5603a; stroke-width: 2.2; }
+.sk-port .sk-d.g { stroke-width: 2.2; }
+.sk-live, .sk-chips { position: absolute; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.sk-live.show, .sk-chips.show { opacity: 1; }
+.sk-live { right: 7%; top: 10.5%; transform: translateY(-50%); display: flex; align-items: center; gap: 3px; font: 600 clamp(.42rem, 1.2cqw, .52rem)/1 var(--sans); color: #1f7a45; }
+.sk-live i { width: 5px; height: 5px; border-radius: 50%; background: #1f9d55; animation: sk-live 1.6s ease-in-out infinite; }
+@keyframes sk-live { 50% { opacity: .3; } }
+.sk-chips { left: 8.2%; top: 45.2%; transform: translateY(-50%); display: flex; gap: 4px; }
+.sk-chips i { padding: 1px 4px; font: 600 clamp(.38rem, 1.05cqw, .46rem)/1.2 var(--sans); font-style: normal; color: #6b6676; }
+.sk-chips i.on { color: #2f2c35; }
+.sk-kv b.n { color: #2f2c35; }
+@media (prefers-reduced-motion: reduce) { .sk-live i { animation: none; } }
+/* Cockpit: soft icon badges on the legacy sketch, matched in the list */
+.pf-old-phone .pin { right: -11px; width: 22px; height: 22px; background: #fff; color: #c0612a; box-shadow: 0 0 0 1.5px #f3c9a8, 0 3px 6px -2px rgba(192, 97, 42, .3); }
+.pf-old-phone .pin::before { content: none; }
+.pin svg, .pol-ico svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.po-title { position: relative; display: flex; align-items: center; }
+.po-title .pin { position: static; transform: none; margin-left: 8px; }
+.pf-old-list li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; padding-left: 0; align-items: start; }
+.pf-old-list li::before { content: none; }
+.pol-ico { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #fff; color: #c0612a; box-shadow: inset 0 0 0 1.5px #f3c9a8; }
+/* the P&L strips, labelled */
+.pf-strips { display: grid; gap: 10px; }
+.ps-row { display: grid; grid-template-columns: 80px 1fr; gap: 12px; align-items: center; }
+.ps-row img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #ece4da; }
+.ps-tag { font: 700 .7rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: #8b8496; }
+.ps-tag.up { color: #1f7a45; }
+@media (max-width: 560px) { .ps-row { grid-template-columns: 1fr; gap: 4px; } }
+/* mobile screen counts */
+.pf-count { margin: 18px 0 22px; padding: 16px 18px; border-radius: 14px; background: #fffdf8; border: 1px solid #ece4da; display: grid; gap: 10px; }
+.pc-label { margin: 0 !important; font: 600 .82rem/1.3 var(--sans) !important; color: #6b6676 !important; }
+.pc-row { display: grid; grid-template-columns: 96px 1fr auto; gap: 12px; align-items: center; }
+.pc-row b { font: 700 .92rem/1.2 var(--sans); color: #1f1b29; }
+.pc-row em { font: 600 .82rem/1 var(--sans); font-style: normal; color: #c0612a; }
+.pc-dots { display: flex; gap: 4px; flex-wrap: wrap; }
+.pc-dots i { width: 14px; height: 22px; border-radius: 4px; border: 1.3px solid #e9b892; background: #fff3ea; }
+@media (max-width: 480px) { .pc-row { grid-template-columns: 1fr auto; } .pc-row .pc-dots { grid-column: 1 / -1; order: 3; } }
+/* five mobile Positions screens: a row on desktop, a swipeable strip on phones */
+.pf-phones5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.pf-phones5 .pf-phone { width: auto; margin: 0; }
+@media (max-width: 760px) {
+  .pf-phones5 { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+  .pf-phones5::-webkit-scrollbar { display: none; }
+  .pf-phones5 .pf-phone { flex: 0 0 46%; scroll-snap-align: start; }
+}
+
+/* Cockpit: reveals and micro-animations, like the other case studies */
+.rh-motion .pf :is(.rh-panel, .rh-rows > div, .rh-map li, .rh-quotecard, .clips, .rh-tablewrap, .rh-stats li, .pf-tabs, .pf-board li, .pf-count, .pf-lock) { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+.rh-motion .pf :is(.rh-panel, .rh-rows > div, .rh-map li, .rh-quotecard, .clips, .rh-tablewrap, .rh-stats li, .pf-tabs, .pf-board li, .pf-count, .pf-lock).rv-in { opacity: 1; transform: none; }
+.rh-motion .pf .rh-stats li:nth-child(2), .rh-motion .pf .pf-board li:nth-child(2) { transition-delay: .08s; }
+.rh-motion .pf .rh-stats li:nth-child(3), .rh-motion .pf .pf-board li:nth-child(3) { transition-delay: .16s; }
+.rh-motion .pf .rh-stats li:nth-child(4), .rh-motion .pf .pf-board li:nth-child(4) { transition-delay: .24s; }
+.rh-motion .pf .pf-board li:nth-child(5) { transition-delay: .32s; } .rh-motion .pf .pf-board li:nth-child(6) { transition-delay: .4s; }
+.rh-motion .pf .clips.rv-in .clip { animation: rh-settle .8s cubic-bezier(.3, 1.4, .5, 1) both; }
+.rh-motion .pf .clips.rv-in .clip:nth-child(2) { animation-delay: .1s; } .rh-motion .pf .clips.rv-in .clip:nth-child(3) { animation-delay: .2s; } .rh-motion .pf .clips.rv-in .clip:nth-child(4) { animation-delay: .3s; }
+/* the old sketch: badges pop in one by one */
+.rh-motion .pf-legacy .pin { transform: translateY(-50%) scale(0); transition: transform .45s cubic-bezier(.3, 1.8, .5, 1); }
+.rh-motion .pf-legacy .po-title .pin { transform: scale(0); }
+.rh-motion .pf-legacy.rv-in .pin { transform: translateY(-50%) scale(1); }
+.rh-motion .pf-legacy.rv-in .po-title .pin { transform: scale(1); }
+.rh-motion .pf-legacy.rv-in .po-chips .pin { transition-delay: .5s; } .rh-motion .pf-legacy.rv-in .po-fab .pin { transition-delay: .2s; }
+.rh-motion .pf-legacy.rv-in .po-row .pin { transition-delay: .35s; } .rh-motion .pf-legacy.rv-in .po-icons .pin { transition-delay: .65s; } .rh-motion .pf-legacy.rv-in .po-title .pin { transition-delay: .8s; }
+/* explorations: the crosses draw, the kept layout's panel slides in */
+.pf-explore .rh-cross path { stroke-dasharray: 100; }
+.rh-motion .pf-explore .rh-cross path { stroke-dashoffset: 100; transition: stroke-dashoffset .6s ease .5s; }
+.rh-motion .pf-explore li:nth-child(2) .rh-cross path { transition-delay: .9s; }
+.rh-motion .pf-explore.rv-in .rh-cross path { stroke-dashoffset: 0; }
+.rh-motion .pf-explore .pe-panel { transform: translateX(40%); opacity: 0; transition: transform .7s cubic-bezier(.2, .8, .2, 1) 1.3s, opacity .5s ease 1.3s; }
+.rh-motion .pf-explore.rv-in .pe-panel { transform: none; opacity: 1; }
+.rh-motion .pf-explore .pe-list i.sel { transition: background .3s ease 1.1s; background: #fff; }
+.rh-motion .pf-explore.rv-in .pe-list i.sel { background: #ffe1cc; }
+/* screen counts fill in step by step */
+.rh-motion .pf-count .pc-dots i { opacity: 0; transform: scale(.6); transition: opacity .25s ease, transform .3s ease; }
+.rh-motion .pf-count.rv-in .pc-dots i { opacity: 1; transform: none; }
+.rh-motion .pf-count.rv-in .pc-dots i:nth-child(n) { transition-delay: calc(var(--i, 0) * 1ms); }
+/* the flow: a soft light travels step to step */
+.rh-motion .pf .rh-panel.rv-in .pf-flow span { animation: rh-step 6s ease-in-out infinite; }
+.rh-motion .pf .rh-panel.rv-in .pf-flow span:nth-of-type(2) { animation-delay: 1s; } .rh-motion .pf .rh-panel.rv-in .pf-flow span:nth-of-type(3) { animation-delay: 2s; }
+.rh-motion .pf .rh-panel.rv-in .pf-flow span:nth-of-type(4) { animation-delay: 3s; } .rh-motion .pf .rh-panel.rv-in .pf-flow span:nth-of-type(5) { animation-delay: 4s; } .rh-motion .pf .rh-panel.rv-in .pf-flow span:nth-of-type(6) { animation-delay: 5s; }
+/* ownership dots and impact ticks */
+.rh-motion .pf-owned .dot { transform: scale(0); transition: transform .45s cubic-bezier(.3, 1.8, .5, 1); }
+.rh-motion .pf-owned.rv-in .dot { transform: scale(1); }
+.rh-motion .pf-owned.rv-in tr:nth-child(2) .dot { transition-delay: .08s; } .rh-motion .pf-owned.rv-in tr:nth-child(3) .dot { transition-delay: .16s; } .rh-motion .pf-owned.rv-in tr:nth-child(4) .dot { transition-delay: .24s; } .rh-motion .pf-owned.rv-in tr:nth-child(5) .dot { transition-delay: .32s; } .rh-motion .pf-owned.rv-in tr:nth-child(6) .dot { transition-delay: .4s; }
+.rh-motion .pf .rh-checks li::before { transform: scale(0); transition: transform .4s cubic-bezier(.3, 1.8, .5, 1); }
+.rh-motion .pf .rh-checks.rv-in li::before { transform: scale(1); }
+.rh-motion .pf .rh-checks.rv-in li:nth-child(2)::before { transition-delay: .12s; } .rh-motion .pf .rh-checks.rv-in li:nth-child(3)::before { transition-delay: .24s; } .rh-motion .pf .rh-checks.rv-in li:nth-child(4)::before { transition-delay: .36s; }
+/* customer voices pop onto the board */
+.rh-motion .pf .pf-voices li { opacity: 0; transform: scale(.85); transition: opacity .35s ease, transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.rh-motion .pf .pf-voices.rv-in li { opacity: 1; transform: rotate(var(--r)) scale(1); }
+.rh-motion .pf .pf-voices.rv-in li:nth-child(2) { transition-delay: .12s; } .rh-motion .pf .pf-voices.rv-in li:nth-child(3) { transition-delay: .24s; } .rh-motion .pf .pf-voices.rv-in li:nth-child(4) { transition-delay: .36s; }
+.rh-motion .pf .rh-map li.rv-in > i { animation: rh-nudge .6s ease .3s both; }
+/* screens are clickable: a gentle lift on hover */
+.pf .pf-board .zoom, .pf .pf-phone .zoom, .pf .pf-film .zoom { transition: transform .25s ease, box-shadow .25s ease; }
+.pf .pf-board .zoom:hover, .pf .pf-phone .zoom:hover, .pf .pf-film .zoom:hover { transform: translateY(-3px); }
+@media (max-width: 760px) {
+  .pf .pf-phones.pf-phones5 { display: flex !important; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 10px; }
+  .pf .pf-phones.pf-phones5 .pf-phone { flex: 0 0 min(46%, 200px) !important; width: auto !important; max-width: none !important; }
+}

@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=220">
+    <link rel="stylesheet" href="../style.css?v=221">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -132,22 +132,18 @@
             <figure class="rh-panel pf-legacy" aria-label="Sketch of the old mobile Portfolio, with its problems numbered">
               <div class="pf-old">
                 <div class="pf-old-phone" aria-hidden="true">
-                  <p class="po-title">Portfolio</p>
-                  <p class="po-chips"><span class="on">All</span><span>MTF</span><i class="pin" style="--n:'3'"></i></p>
+                  <p class="po-title">Portfolio<i class="pin" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg></i></p>
+                  <p class="po-chips"><span class="on">All</span><span>MTF</span><i class="pin" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5Z"/></svg></i></p>
                   <span class="po-row"></span><span class="po-row"></span>
-                  <span class="po-fab">Search | Filter<i class="pin" style="--n:'1'"></i></span>
-                  <span class="po-row"></span><span class="po-row dim"><i class="pin" style="--n:'2'"></i></span><span class="po-row dim"></span>
-                  <p class="po-icons"><b>Exit all</b><span></span><span></span><span></span><i class="pin" style="--n:'4'"></i></p>
+                  <span class="po-fab">Search | Filter<i class="pin" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4"/><path d="M10 10l3 3"/></svg></i></span>
+                  <span class="po-row"></span><span class="po-row dim"><i class="pin" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 5h10M3 9h10" /><path d="M3 13h6" opacity=".4"/></svg></i></span><span class="po-row dim"></span>
+                  <p class="po-icons"><b>Exit all</b><span></span><span></span><span></span><i class="pin" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 6a2 2 0 1 1 2.6 1.9c-.5.2-.6.6-.6 1.1M8 12h.01"/></svg></i></p>
                 </div>
                 <ol class="pf-old-list">
-                  <li><b>A floating “Search | Filter” button</b> sat in the middle of the list and covered rows, prices and P&amp;L.</li>
-                  <li><b>Open and closed positions were mixed together.</b> Closed rows were just greyed out in the same list.</li>
-                  <li><b>Very few options.</b> The only filters were All and MTF: no grouping, no column control, no sorting by field.</li>
-                  <li><b>Unlabelled icons</b> next to Exit all, so users had to guess what they did.</li>
-                  <li><b>No pledge,</b> so users couldn’t manage collateral from the Portfolio. And the screen had responsiveness and accessibility gaps that made it hard to read and use.</li>
+                  <li><span class="pol-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4"/><path d="M10 10l3 3"/></svg></span><span><b>A floating “Search | Filter” button</b> sat in the middle of the list and covered rows, prices and P&amp;L.</span></li><li><span class="pol-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 5h10M3 9h10" /><path d="M3 13h6" opacity=".4"/></svg></span><span><b>Open and closed positions were mixed together.</b> Closed rows were just greyed out in the same list.</span></li><li><span class="pol-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5Z"/></svg></span><span><b>Very few options.</b> The only filters were All and MTF: no grouping, no column control, no sorting by field.</span></li><li><span class="pol-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 6a2 2 0 1 1 2.6 1.9c-.5.2-.6.6-.6 1.1M8 12h.01"/></svg></span><span><b>Unlabelled icons</b> next to Exit all, so users had to guess what they did.</span></li><li><span class="pol-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg></span><span><b>No pledge,</b> so users couldn’t manage collateral from the Portfolio. And the screen had responsiveness and accessibility gaps that made it hard to read and use.</span></li>
                 </ol>
               </div>
-              <figcaption>Before: the legacy mobile Portfolio, redrawn from memory</figcaption>
+              <figcaption>Before: the legacy mobile Portfolio, sketched. Each icon on the screen matches a problem in the list.</figcaption>
             </figure>
             <dl class="rh-rows"><div><dt>The brief</dt><dd>As part of FYERS 2.0, bring the Portfolio to web and tablet, remove the floating centre button, and rearrange everything into a structure that works on every screen. Holdings, Positions and Pledge would come together in one Portfolio.</dd></div></dl>
           </div>
@@ -274,10 +270,10 @@
               <figcaption>Calm signals, side by side with the usual flashing</figcaption>
             </figure>
             <div class="rh-tablewrap"><table class="cs-table rh-table "><thead><tr><th scope="col">Element</th><th scope="col">Behaviour</th><th scope="col">Why</th></tr></thead><tbody><tr><th scope="row">Changing values</th><td>Shown in black</td><td>Constant updates don’t strain the eyes</td></tr><tr><th scope="row">Total P&amp;L header</th><td>The background slowly shifts to green on a profit and red on a loss, and the icon changes with it</td><td>Shows the overall direction at a glance, without flicker</td></tr><tr><th scope="row">Recently changed values</th><td>A small dot appears beside the value and fades after 5 seconds</td><td>Shows what moved without repainting the row</td></tr></tbody></table></div>
-            <figure class="pf-compare" style="--pos:50%">
-              <div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><div class="pf-cmp"><img src="../images/portfolio/hdr-neutral.jpg?v=2" width="1400" height="788" alt="Holdings with a neutral P&amp;L strip." loading="lazy" class="cmp-a"><div class="cmp-b"><img src="../images/portfolio/hdr-profit.jpg?v=2" width="1400" height="788" alt="The same Holdings screen with the P&amp;L strip shifted to green for a profit." loading="lazy"></div><span class="cmp-line" aria-hidden="true"></span></div></div></div>
-              <label class="pf-cmp-range"><span class="sr-only">Compare the neutral and profit header</span><input type="range" min="0" max="100" value="50"></label>
-              <figcaption><b>Drag to compare.</b> The P&amp;L strip slowly shifts to green on a profit, while the numbers in the list stay black.</figcaption>
+            <figure class="rh-panel pf-strips">
+              <div class="ps-row"><span class="ps-tag">Neutral</span><img src="../images/portfolio/strip-neutral.jpg?v=2" width="1150" height="64" alt="The P&amp;L strip on a neutral background." loading="lazy"></div>
+              <div class="ps-row"><span class="ps-tag up">In profit</span><img src="../images/portfolio/strip-profit.jpg?v=2" width="1150" height="64" alt="The same P&amp;L strip, slowly shifted to a soft green on a profit." loading="lazy"></div>
+              <figcaption>The P&amp;L strip slowly shifts to green on a profit (and red on a loss), while every number in the list stays black</figcaption>
             </figure>
             <p>Because the icon changes along with the colour, P&amp;L never relies on colour alone. That helps colour-blind users and anyone reading in bright light.</p>
             <blockquote class="rh-quotecard"><p>Traders told us the new Portfolio didn’t hurt their eyes.</p><footer>On a screen that changes every second, that comfort is a feature</footer></blockquote>
@@ -330,12 +326,12 @@
               <li><b>Mobile</b> turns the panel into a sequence of screens. Filters get their own screen with selectable chips, and each detail and action gets its own screen.</li>
               <li><b>The floating centre button is gone.</b> Search and filter now sit inside the structure, so nothing covers the data.</li>
             </ul>
-            <div class="pf-steps" aria-label="Smart Exit on mobile takes about 11 screens, Exit all about 5">
-              <p class="pf-steps-label"><b>Smart Exit</b> runs across about 11 screens on mobile, and Exit all across about 5, ending in a clear confirmation</p>
-              <ol aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
-              <p class="pf-steps-count">about 11 screens</p>
+            <div class="pf-count" role="img" aria-label="On mobile, Smart Exit runs across about 11 screens and Exit all across about 5">
+              <p class="pc-label">On mobile, each step became its own screen</p>
+              <div class="pc-row"><b>Smart Exit</b><span class="pc-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><em>≈ 11 screens</em></div>
+              <div class="pc-row"><b>Exit all</b><span class="pc-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><em>≈ 5 screens</em></div>
             </div>
-            <div class="pf-phones"><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Mobile positions list"><span class="pf-phone-body"><img src="../images/portfolio/m-pos.jpg?v=2" width="720" height="1684" alt="Mobile positions list under a soft gradient header, with Status, All, Open and Closed." loading="lazy"></span></button><figcaption>Positions</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Mobile holdings"><span class="pf-phone-body"><img src="../images/portfolio/m-hold.jpg?v=2" width="720" height="1560" alt="Mobile holdings: shares, mutual funds and pledges, with gainers and losers." loading="lazy"></span></button><figcaption>Holdings</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Mobile e-DIS"><span class="pf-phone-body"><img src="../images/portfolio/m-edis.jpg?v=2" width="720" height="1560" alt="Mobile e-DIS: authorise holdings with a quantity stepper and one clear button." loading="lazy"></span></button><figcaption>e-DIS, one step per screen</figcaption></figure></div>
+            <div class="pf-phones pf-phones5"><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Positions list: Total P&amp;L, hit rate, and All, Open and Closed"><span class="pf-phone-body"><img src="../images/portfolio/mp-list.jpg?v=3" width="540" height="1263" alt="Positions list: Total P&amp;L, hit rate, and All, Open and Closed" loading="lazy"></span></button><figcaption>Positions</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Filters on their own sheet, with selectable chips for exchange and side"><span class="pf-phone-body"><img src="../images/portfolio/mp-filters.jpg?v=3" width="540" height="1263" alt="Filters on their own sheet, with selectable chips for exchange and side" loading="lazy"></span></button><figcaption>Filters</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Position details, with the actions menu open"><span class="pf-phone-body"><img src="../images/portfolio/mp-details.jpg?v=3" width="540" height="1263" alt="Position details, with the actions menu open" loading="lazy"></span></button><figcaption>Position details</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Create Smart Exit: profit target, max loss and a name"><span class="pf-phone-body"><img src="../images/portfolio/mp-smartexit.jpg?v=3" width="540" height="1263" alt="Create Smart Exit: profit target, max loss and a name" loading="lazy"></span></button><figcaption>Smart Exit</figcaption></figure><figure class="pf-phone"><button class="zoom" type="button" aria-label="Enlarge: Exit positions: choose positions, then one red Exit button"><span class="pf-phone-body"><img src="../images/portfolio/mp-exitall.jpg?v=3" width="540" height="1263" alt="Exit positions: choose positions, then one red Exit button" loading="lazy"></span></button><figcaption>Exit all</figcaption></figure></div>
             <blockquote class="rh-quotecard"><p>On web, the layout carried the structure. On mobile, the order of steps did.</p></blockquote>
           </div>
         </section>
@@ -345,11 +341,6 @@
             <h2 id="h-review" class="cs-title">Cleared for <mark>Takeoff</mark></h2>
             <p class="rh-lead">Built on a new system, <b>tested in front of leadership.</b></p>
             <p>FYERS had no official style guide for this product, so we built FDSG alongside the Portfolio. I designed the screens first. Then the UI Designer and I turned them into shared FDSG components, so every screen was checked against the system instead of standing on its own.</p>
-            <figure class="pf-compare" style="--pos:50%">
-              <div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · Portfolio</span></div><div class="pf-view"><div class="pf-cmp"><img src="../images/portfolio/hover.jpg?v=2" width="1536" height="864" alt="Holdings in the light theme." loading="lazy" class="cmp-a"><div class="cmp-b"><img src="../images/portfolio/dark.jpg?v=2" width="1536" height="864" alt="The same Holdings screen in the dark theme." loading="lazy"></div><span class="cmp-line" aria-hidden="true"></span></div></div></div>
-              <label class="pf-cmp-range"><span class="sr-only">Compare light and dark themes</span><input type="range" min="0" max="100" value="50"></label>
-              <figcaption><b>Drag to compare.</b> The same FDSG components in light and dark.</figcaption>
-            </figure>
             <p>One Saturday morning, we walked the CEO and CPO through the Portfolio screen by screen. Their verdict: <mark class="hl">the layout worked, but the details needed refinement.</mark></p>
             <div class="rh-tablewrap"><table class="cs-table rh-table "><thead><tr><th scope="col">Feedback</th><th scope="col">What changed</th></tr></thead><tbody><tr><th scope="row">Improve the overall layout</th><td>Refined spacing and hierarchy across the screen</td></tr><tr><th scope="row">Make it clearer where columns can be changed</th><td>Column controls are available from both the Filter and the Manage columns panels</td></tr><tr><th scope="row">Make filters easier to rearrange</th><td>Reworked the filter panel so options are easier to reorder</td></tr><tr><th scope="row">Adjust the sizing of numbers</th><td>Rebalanced number sizes so key values stand out</td></tr><tr><th scope="row">Add alphabetical reordering</th><td>Name columns now sort A–Z and Z–A</td></tr><tr><th scope="row">Keep the wording simple</th><td>Simplified labels and button text</td></tr><tr><th scope="row">Product Owner: make categories easier to read</th><td>Reworked how categories are grouped and laid out</td></tr></tbody></table></div>
             <p>The revised screens went to stakeholders and engineering, were accepted, and were handed off at the end of December.</p>
@@ -427,7 +418,7 @@
     <nav class="cs-next" aria-label="Next project">
       <div class="wrap">
         <a class="cs-next-card" href="genie.html" style="--nc:#bfe9d3">
-          <span class="cs-next-txt"><small>Next project</small><strong>Genie</strong><em>Search that knows what you meant.</em></span>
+          <span class="cs-next-txt"><small>Next project</small><strong>Genie</strong><em>One wish away from every work link your team needs.</em></span>
           <span class="cs-next-go" aria-hidden="true">→</span>
         </a>
       </div>
@@ -652,6 +643,14 @@
   </script>
   <script src="../header.js?v=4"></script>
   <script>
+    // the story animates in as you read, like the other case studies
+    (() => {
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.documentElement.classList.add('rh-motion');
+      const els = document.querySelectorAll('.pf :is(.rh-panel, .rh-rows > div, .rh-map li, .rh-quotecard, .clips, .rh-tablewrap, .rh-stats li, .pf-tabs, .pf-board li, .pf-count, .pf-lock, .rh-checks, .pf-voices), .pf-owned');
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('rv-in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+      els.forEach((n) => io.observe(n));
+    })();
     // live data demo: the calm value stays black and gets a dot that fades over 5s; the usual one flashes
     (() => {
       const box = document.querySelector('.pf-live'); if (!box) return;

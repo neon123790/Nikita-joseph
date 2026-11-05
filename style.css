@@ -6532,3 +6532,10 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
   .journal .bookmark .bm-ic .bm-ink { fill: none; stroke: #1d2a66; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
   .journal .bookmark .bm-ic .bm-ghost { fill: none; stroke: #1d2a66; stroke-width: 1; opacity: .3; transform: translate(.7px, .6px); stroke-linecap: round; stroke-linejoin: round; }
 }
+/* phone tab icons: smaller again, still hand-drawn */
+@media (max-width: 860px) {
+  .journal .bookmarks .bookmark, .journal .bookmarks .bookmark[aria-selected="true"] { height: 40px !important; }
+  .journal .bookmarks .bookmark[aria-selected="true"] { height: 48px !important; }
+  .journal .bookmark .bm-ic { width: 24px; height: 24px; }
+  .journal .bookmark[aria-selected="true"] .bm-ic { width: 26px; height: 26px; }
+}

@@ -6073,3 +6073,9 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
   @keyframes turn-mob { 0% { opacity: 1; transform: rotateY(0); box-shadow: 0 0 0 rgba(0, 0, 0, 0); } 50% { box-shadow: -30px 0 40px -20px rgba(0, 0, 0, .3); } 99% { opacity: 1; transform: rotateY(-170deg); } 100% { opacity: 0; transform: rotateY(-180deg); } }
 }
 @media (prefers-reduced-motion: reduce) { .journal .turner, .journal .book::after { display: none !important; } }
+/* phones: keep the ribbon fabric visible (navy is only the outline) */
+@media (max-width: 860px) {
+  .journal .bookmarks .bookmark, .journal .bookmarks .bookmark[aria-selected="true"] { background: #1d2a66 !important; }
+  .journal .bookmarks .bookmark::before { display: block !important; content: "" !important; position: absolute; z-index: -1; inset: 2.5px 2.5px 0 2.5px !important; top: 2.5px !important;
+    clip-path: polygon(0 0, 50% 11px, 100% 0, 100% 100%, 0 100%) !important; }
+}

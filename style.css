@@ -6079,3 +6079,6 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
   .journal .bookmarks .bookmark::before { display: block !important; content: "" !important; position: absolute; z-index: -1; inset: 2.5px 2.5px 0 2.5px !important; top: 2.5px !important;
     clip-path: polygon(0 0, 50% 11px, 100% 0, 100% 100%, 0 100%) !important; }
 }
+/* only the current role gets the green dot */
+.xp-roles > li:first-child::before { background: #fffdf7; }
+.xp:has(.now-badge) .xp-roles > li:first-child::before { background: #1fb36b; }

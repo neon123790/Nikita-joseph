@@ -6141,3 +6141,16 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
   .edu-card .edu-top { position: static !important; display: flex !important; align-items: center; justify-content: space-between; gap: 12px; min-height: 72px !important; margin: -4px 0 12px !important; }
   .edu-card .edu-seal { position: static !important; width: 72px !important; flex: 0 0 72px; }
 }
+/* numbers: one shape for every note — value, label, one line; equal heights; second row centred */
+@media (min-width: 861px) {
+  .det-grid { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; align-items: stretch; }
+  .det-grid > .det-card { grid-column: span 2 !important; }
+  .det-grid > .det-card:nth-child(4) { grid-column: 2 / span 2 !important; }
+  .det-grid > .det-card:nth-child(5) { grid-column: 4 / span 2 !important; }
+}
+.det-grid > .det-card { display: flex !important; flex-direction: column; aspect-ratio: auto !important; min-height: 210px; }
+.det-card strong, .det-card.det-note strong { font-size: clamp(1.6rem, 2.4vw, 2rem) !important; line-height: 1.05; padding-right: 40px; }
+.det-card h3 { margin: 6px 0 10px !important; min-height: 0; }
+.det-card p { margin: 0 !important; }
+.det-card.det-note strong { font-size: clamp(1.25rem, 1.8vw, 1.5rem) !important; white-space: nowrap; }
+@media (max-width: 860px) { .det-grid > .det-card { min-height: 0; } }

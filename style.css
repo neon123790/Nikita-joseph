@@ -6553,3 +6553,5 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 @media (max-width: 560px) { .cp-aff3::after { background-size: 94% auto, 100% 18px !important; background-position: center 18px, left bottom !important; } }
 .cp-aff3::after { background-position: center 17px, left bottom !important; }
 @media (max-width: 560px) { .cp-aff3::after { background-position: center 25px, left bottom !important; } }
+/* "Get in touch": on hover the button fills dark and the text turns light, so it never disappears */
+.hero3-actions .btn-ghost:hover, .hero3-actions .btn-ghost:focus-visible { background: var(--stk-ink) !important; color: #fffdf7 !important; }

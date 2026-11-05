@@ -21,7 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=265">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=278">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -92,11 +93,11 @@
           </div>
           <figure class="cp-hero-art" aria-hidden="true">
             <svg viewBox="0 0 240 240">
-              <circle class="ca-ring" cx="120" cy="120" r="104"/>
-              <circle class="ca-ring2" cx="120" cy="120" r="88"/>
-              <g class="ca-ticks"><path d="M120 16v14M224 120h-14M120 224v-14M16 120h14"/><path d="M193.5 46.5l-7 7M193.5 193.5l-7-7M46.5 193.5l7-7M46.5 46.5l7 7" class="m"/></g>
-              <g class="ca-letters"><text x="120" y="52">N</text><text x="188" y="126">E</text><text x="120" y="198">S</text><text x="52" y="126">W</text></g>
-              <g class="ca-needle"><path class="nn" d="M120 64 L133 120 H107 Z"/><path class="ns" d="M107 120 H133 L120 176 Z"/><circle cx="120" cy="120" r="7"/></g>
+              <circle class="ca-ring" cx="120" cy="120" r="104" fill="#fffdf7" stroke="#2c2836" stroke-width="3"/>
+              <circle class="ca-ring2" cx="120" cy="120" r="88" fill="none" stroke="#2c2836" stroke-width="1.2" stroke-dasharray="2 5" opacity=".5"/>
+              <g class="ca-ticks" stroke="#2c2836" stroke-linecap="round"><path d="M120 16v14M224 120h-14M120 224v-14M16 120h14" stroke-width="3"/><path d="M193.5 46.5l-7 7M193.5 193.5l-7-7M46.5 193.5l7-7M46.5 46.5l7 7" stroke-width="1.6" opacity=".55"/></g>
+              <g class="ca-letters" fill="#2c2836" font-size="15" font-weight="800" text-anchor="middle"><text x="120" y="52">N</text><text x="188" y="126">E</text><text x="120" y="198">S</text><text x="52" y="126">W</text></g>
+              <g class="ca-needle" stroke="#2c2836" stroke-width="2" stroke-linejoin="round"><path d="M120 64 L133 120 H107 Z" fill="#4b7bff"/><path d="M107 120 H133 L120 176 Z" fill="#fffdf7"/><circle cx="120" cy="120" r="7" fill="#ffd65a"/></g>
             </svg>
             <span class="ca-tag t1" style="--c:#fff1a8; --r:-4deg">Explains itself</span>
             <span class="ca-tag t2" style="--c:#dff5e8; --r:3deg">Stays optional</span>
@@ -139,18 +140,6 @@
 
         <section class="stage safe vault" id="nda" aria-labelledby="h-nda">
           <div class="vault-box">
-            <div class="vault-inside" aria-hidden="true">
-              <div class="vt-ticket">
-                <div class="vt-main">
-                  <p class="vt-band"><span>Boarding pass</span><b>Cleared</b></p>
-                  <p class="vt-show">The Compass</p>
-                  <p class="vt-meta">Research flight · 16 June – 14 July 2025</p>
-                  <div class="vt-bar"><span class="vt-fill"></span></div>
-                  <p class="vt-count">Interview <b class="vt-n" data-to="34">0</b>/34</p>
-                </div>
-                <div class="vt-stub"><span class="vt-admit">Admit one</span><span class="vt-code"></span></div>
-              </div>
-            </div>
             <div class="safe-door">
               <span class="safe-hinge h1" aria-hidden="true"></span><span class="safe-hinge h2" aria-hidden="true"></span>
               <span class="safe-rivet r1" aria-hidden="true"></span><span class="safe-rivet r2" aria-hidden="true"></span><span class="safe-rivet r3" aria-hidden="true"></span><span class="safe-rivet r4" aria-hidden="true"></span>
@@ -192,7 +181,7 @@
           document.querySelector('.rh-brief')?.after(box);
         }
         // the story animates in as you read: highlighter marks draw, blocks rise, notes pop
-        const rv = document.querySelectorAll('.nda-content mark.hl:not(.on), .nda-content .rh-panel, .nda-content .rh-grid > div, .nda-content .rh-rows > div, .nda-content .rh-map li, .nda-content .rh-quotecard, .nda-content .clips, .nda-content .rh-tablewrap, .nda-content .rh-checks, .rh-owned .rh-own');
+        const rv = document.querySelectorAll('.nda-content mark.hl:not(.on), .nda-content .rh-panel, .nda-content .rh-grid > div, .nda-content .rh-rows > div, .nda-content .rh-map li, .nda-content .rh-quotecard, .nda-content .clips, .nda-content .rh-tablewrap, .nda-content .rh-checks, .rh-owned .rh-own, .nda-content .cp-personas > article, .nda-content .cp-steps li, .nda-content .cp-themes li, .nda-content .cp-rules li');
         if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
           document.documentElement.classList.add('rh-motion');
           const ro = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add(e.target.matches('mark') ? 'on' : 'rv-in'); ro.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
@@ -457,14 +446,14 @@
           setTimeout(() => {
             gate.classList.add('opening');
             const n = gate.querySelector('.vt-n');
-            setTimeout(() => {
+            if (n) setTimeout(() => {
               const t0 = performance.now(), dur = 1800, ease = (x) => 1 - Math.pow(1 - x, 3);
               const count = (t) => { const p = Math.min(1, (t - t0) / dur); n.textContent = Math.round((+n.dataset.to || 60) * ease(p)); if (p < 1) requestAnimationFrame(count); };
               requestAnimationFrame(count);
             }, 1300);
           }, 800);
-          setTimeout(() => gate.classList.add('leaving'), 5000);
-          setTimeout(reveal, 5600);
+          setTimeout(() => gate.classList.add('leaving'), 2600);
+          setTimeout(reveal, 3200);
         } catch (err) {
           out.innerHTML = 'Not on the list yet. <a href="' + (document.querySelector('.vault-ask a')?.getAttribute('href') || 'mailto:nikkijoseph1998@gmail.com') + '">Request access?</a>';
           gate.classList.remove('shake', 'wrong'); void gate.offsetWidth; gate.classList.add('shake', 'wrong');

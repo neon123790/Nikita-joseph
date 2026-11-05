@@ -6042,3 +6042,34 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 .awards3 .aw-card h3 { margin: 0 0 6px !important; font: 700 clamp(1.25rem, 2.2vw, 1.5rem)/1.2 var(--bold) !important; letter-spacing: -.015em; color: #1f1b29 !important; }
 .awards3 .aw-card p { margin: 0; font-size: 1rem; line-height: 1.55; color: #4a4652 !important; max-width: 36ch; }
 @media (prefers-reduced-motion: reduce) { .awards3 .aw-card, .awards3 .aw-photo .aw-badge { transition: none; } }
+
+/* ===== journal bookmarks: ribbons again, outline in the cover's navy, tail notch fully outlined ===== */
+.journal .bookmark { border: 0 !important; border-radius: 0 !important; box-shadow: none !important; background: #1d2a66 !important;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 50%, 100% 100%, 0 100%); filter: drop-shadow(2px 3px 3px rgba(20, 24, 60, .3)); color: #1f1b29; }
+.journal .bookmark::before { background: linear-gradient(180deg, rgba(255, 255, 255, .32), transparent 40%, rgba(0, 0, 0, .06)), var(--bm) !important; }
+.journal .bookmark:not([aria-selected="true"])::before { background: linear-gradient(180deg, rgba(255, 255, 255, .5), transparent 45%), color-mix(in srgb, var(--bm) 38%, #fffdf7) !important; }
+.journal .bookmark:not([aria-selected="true"]):hover::before { background: color-mix(in srgb, var(--bm) 70%, #fffdf7) !important; }
+@media (max-width: 860px) {
+  .journal .bookmark, .journal .bookmark[aria-selected="true"] { clip-path: polygon(0 0, 50% 12px, 100% 0, 100% 100%, 0 100%) !important; border: 0 !important; border-radius: 0 !important; }
+}
+
+/* ===== page turns ===== */
+.journal .turner { z-index: 6; background: var(--page); }
+.journal .turner > .page { box-shadow: none !important; }
+.journal .book.turn-next .turner, .journal .book.turn-prev .turner { animation-duration: .85s; animation-timing-function: cubic-bezier(.45, .05, .25, 1); }
+/* a soft shadow sweeps across the page underneath as it turns */
+.journal .book::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: 0; background: linear-gradient(90deg, transparent 50%, rgba(40, 30, 20, .18) 50%, transparent 85%); }
+.journal .book.turn-next::after { animation: turn-shade .85s ease forwards; }
+.journal .book.turn-prev::after { background: linear-gradient(270deg, transparent 50%, rgba(40, 30, 20, .18) 50%, transparent 85%); animation: turn-shade .85s ease forwards; }
+@keyframes turn-shade { 0% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 0; } }
+/* phones: the whole page flips over on the left spiral */
+@media (max-width: 860px) {
+  .journal .book { perspective: 1400px; }
+  .journal .turner { display: block !important; }
+  .journal .book.turn-mob .turner { left: 16px; right: 0; width: auto; top: 0; bottom: 0; transform-origin: left center; border-radius: 6px; animation: turn-mob .9s cubic-bezier(.45, .05, .25, 1) forwards; }
+  .turn-stack { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; background: var(--page); border-radius: 6px; }
+  .turn-stack .page { position: static !important; flex: none; }
+  .turn-stack .page.right { order: 1; } .turn-stack .page.left { order: 2; }
+  @keyframes turn-mob { 0% { opacity: 1; transform: rotateY(0); box-shadow: 0 0 0 rgba(0, 0, 0, 0); } 50% { box-shadow: -30px 0 40px -20px rgba(0, 0, 0, .3); } 99% { opacity: 1; transform: rotateY(-170deg); } 100% { opacity: 0; transform: rotateY(-180deg); } }
+}
+@media (prefers-reduced-motion: reduce) { .journal .turner, .journal .book::after { display: none !important; } }

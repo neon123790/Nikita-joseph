@@ -77,18 +77,28 @@
   const narrow = () => window.matchMedia('(max-width: 860px)').matches;
   makeTabs([...document.querySelectorAll('.bookmark')], {
     transition: (from, to, swap) => {
-      swap(); return; // v2: no page turn, keep it simple
+      const turner = book && book.querySelector('.turner');
+      if (!turner || matchMedia('(prefers-reduced-motion: reduce)').matches) { swap(); return; }
       const forward = to > from;
-      const turner = book.querySelector('.turner');
-      const oldPage = book.querySelector(`.entry:not([hidden]) .page.${forward ? 'right' : 'left'}`);
       turner.innerHTML = '';
-      if (oldPage) turner.appendChild(oldPage.cloneNode(true));
-      book.classList.remove('turn-next', 'turn-prev');
-      void book.offsetWidth; // restart the animation
-      swap(); // the new pages sit underneath while the old one turns over
-      book.classList.add(forward ? 'turn-next' : 'turn-prev');
+      book.classList.remove('turn-next', 'turn-prev', 'turn-mob');
+      if (narrow()) {
+        // phones: the whole page flips over on the spiral binding
+        const stack = document.createElement('div'); stack.className = 'turn-stack';
+        book.querySelectorAll('.entry:not([hidden]) .page').forEach((pg) => stack.appendChild(pg.cloneNode(true)));
+        turner.appendChild(stack);
+        void book.offsetWidth;
+        swap();
+        book.classList.add('turn-mob');
+      } else {
+        const oldPage = book.querySelector(`.entry:not([hidden]) .page.${forward ? 'right' : 'left'}`);
+        if (oldPage) turner.appendChild(oldPage.cloneNode(true));
+        void book.offsetWidth; // restart the animation
+        swap(); // the new pages sit underneath while the old one turns over
+        book.classList.add(forward ? 'turn-next' : 'turn-prev');
+      }
       clearTimeout(book._turnDone);
-      book._turnDone = setTimeout(() => { book.classList.remove('turn-next', 'turn-prev'); turner.innerHTML = ''; }, 720);
+      book._turnDone = setTimeout(() => { book.classList.remove('turn-next', 'turn-prev', 'turn-mob'); turner.innerHTML = ''; }, 900);
     },
   });
   makeTabs([...document.querySelectorAll('.process-tab')]);

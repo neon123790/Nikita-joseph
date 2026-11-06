@@ -79,21 +79,25 @@
     transition: (from, to, swap) => {
       const turner = book && book.querySelector('.turner');
       if (!turner || matchMedia('(prefers-reduced-motion: reduce)').matches) { swap(); return; }
+      // a tap during a flip waits for the page to land, so a turn is never cut off halfway
+      if (book._turning) { book._queued = { to, swap }; return; }
+      turnPage(turner, from, to, swap);
+    },
+  });
+  function turnPage(turner, from, to, swap) {
       const forward = to > from;
-      clearTimeout(book._turnDone);
-      turner.innerHTML = '';
-      book.querySelector('.turn-under')?.remove();
-      book.classList.remove('turn-next', 'turn-prev', 'turn-mob', 'turn-mob-back');
+      book._turning = true; book._shown = to;
       const under = document.createElement('div');
       // copies keep the entry wrapper so they lay out exactly like the real pages (same centring, same colours)
       const shell = (el) => { const w = el.cloneNode(false); ['id', 'role', 'aria-labelledby', 'hidden'].forEach((k) => w.removeAttribute(k)); w.classList.remove('is-active'); w.classList.add('turn-clone'); return w; };
+      const blank = (el) => el.querySelectorAll('.sk-layer').forEach((l) => { l.style.opacity = 0; });
       const copy = (pg) => { const w = shell(pg.closest('.entry')); w.appendChild(pg.cloneNode(true)); return w; };
       if (narrow()) {
         // phones: the whole page turns on the spiral binding; going back, the earlier page swings in over the current one
         const stackOf = () => { const st = document.createElement('div'); st.className = 'turn-stack'; const live = book.querySelector('.entry:not([hidden])'); const w = shell(live); const b = book.getBoundingClientRect(); live.querySelectorAll('.page').forEach((pg) => { const r = pg.getBoundingClientRect(), c = pg.cloneNode(true); c.style.setProperty('position', 'absolute', 'important'); c.style.left = `${r.left - b.left - 16}px`; c.style.top = `${r.top - b.top}px`; c.style.width = `${r.width}px`; c.style.height = `${r.height}px`; c.style.margin = '0'; w.appendChild(c); }); st.appendChild(w); return st; };
         const old = stackOf();
         swap();
-        const fresh = stackOf();
+        const fresh = stackOf(); blank(fresh);
         if (forward) turner.appendChild(old);
         else { under.className = 'turn-under mob'; under.appendChild(old); book.appendChild(under); turner.appendChild(fresh); }
         void book.offsetWidth;
@@ -111,15 +115,21 @@
         swap(); // the new pages sit underneath while the sheet turns over
         const newLand = book.querySelector(`.entry:not([hidden]) .page.${land}`);
         const back = document.createElement('div'); back.className = 'tleaf back';
-        if (newLand) back.appendChild(copy(newLand));
+        if (newLand) back.appendChild(copy(newLand)); blank(back);
         turner.append(front, back);
         book.appendChild(under);
         void book.offsetWidth; // restart the animation
         book.classList.add(forward ? 'turn-next' : 'turn-prev');
       }
-      book._turnDone = setTimeout(() => { book.classList.remove('turn-next', 'turn-prev', 'turn-mob', 'turn-mob-back'); turner.innerHTML = ''; book.querySelector('.turn-under')?.remove(); }, 1020);
-    },
-  });
+      setTimeout(() => {
+        book.classList.remove('turn-next', 'turn-prev', 'turn-mob', 'turn-mob-back');
+        turner.innerHTML = ''; book.querySelector('.turn-under')?.remove();
+        book._turning = false;
+        book.dispatchEvent(new Event('turned'));
+        const q = book._queued; book._queued = null;
+        if (q && q.to !== book._shown) turnPage(turner, book._shown, q.to, q.swap);
+      }, 1020);
+  }
   makeTabs([...document.querySelectorAll('.process-tab')]);
 
   /* ==========================================================
@@ -771,7 +781,10 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     };
     new IntersectionObserver(([e]) => {
       cancelAnimationFrame(raf);
-      if (e.isIntersecting) { measure(); t0 = performance.now(); render(0, 1); raf = requestAnimationFrame(frame); }
+      if (!e.isIntersecting) return;
+      const start = () => { if (!el.getClientRects().length) return; cancelAnimationFrame(raf); measure(); t0 = performance.now(); render(0, 1); raf = requestAnimationFrame(frame); };
+      const book = el.closest('.book');
+      if (book && book._turning) { measure(); render(0, 1); book.addEventListener('turned', start, { once: true }); } else start();
     }).observe(el);
     if ('ResizeObserver' in window) new ResizeObserver(measure).observe(svg); else addEventListener('resize', measure, { passive: true });
   });

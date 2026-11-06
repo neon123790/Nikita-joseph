@@ -80,25 +80,44 @@
       const turner = book && book.querySelector('.turner');
       if (!turner || matchMedia('(prefers-reduced-motion: reduce)').matches) { swap(); return; }
       const forward = to > from;
+      clearTimeout(book._turnDone);
       turner.innerHTML = '';
-      book.classList.remove('turn-next', 'turn-prev', 'turn-mob');
+      book.querySelector('.turn-under')?.remove();
+      book.classList.remove('turn-next', 'turn-prev', 'turn-mob', 'turn-mob-back');
+      const under = document.createElement('div');
+      // copies keep the entry wrapper so they lay out exactly like the real pages (same centring, same colours)
+      const shell = (el) => { const w = el.cloneNode(false); ['id', 'role', 'aria-labelledby', 'hidden'].forEach((k) => w.removeAttribute(k)); w.classList.remove('is-active'); w.classList.add('turn-clone'); return w; };
+      const copy = (pg) => { const w = shell(pg.closest('.entry')); w.appendChild(pg.cloneNode(true)); return w; };
       if (narrow()) {
-        // phones: the whole page flips over on the spiral binding
-        const stack = document.createElement('div'); stack.className = 'turn-stack';
-        book.querySelectorAll('.entry:not([hidden]) .page').forEach((pg) => stack.appendChild(pg.cloneNode(true)));
-        turner.appendChild(stack);
-        void book.offsetWidth;
+        // phones: the whole page turns on the spiral binding; going back, the earlier page swings in over the current one
+        const stackOf = () => { const st = document.createElement('div'); st.className = 'turn-stack'; const live = book.querySelector('.entry:not([hidden])'); const w = shell(live); const b = book.getBoundingClientRect(); live.querySelectorAll('.page').forEach((pg) => { const r = pg.getBoundingClientRect(), c = pg.cloneNode(true); c.style.setProperty('position', 'absolute', 'important'); c.style.left = `${r.left - b.left - 16}px`; c.style.top = `${r.top - b.top}px`; c.style.width = `${r.width}px`; c.style.height = `${r.height}px`; c.style.margin = '0'; w.appendChild(c); }); st.appendChild(w); return st; };
+        const old = stackOf();
         swap();
-        book.classList.add('turn-mob');
+        const fresh = stackOf();
+        if (forward) turner.appendChild(old);
+        else { under.className = 'turn-under mob'; under.appendChild(old); book.appendChild(under); turner.appendChild(fresh); }
+        void book.offsetWidth;
+        book.classList.add(forward ? 'turn-mob' : 'turn-mob-back');
       } else {
-        const oldPage = book.querySelector(`.entry:not([hidden]) .page.${forward ? 'right' : 'left'}`);
-        if (oldPage) turner.appendChild(oldPage.cloneNode(true));
+        // desktop: a two-sided sheet. Forward it carries the old right page and the new left page;
+        // backward it carries the old left page and the new right page. The page it lands on stays underneath until then.
+        const lift = forward ? 'right' : 'left', land = forward ? 'left' : 'right';
+        const oldLift = book.querySelector(`.entry:not([hidden]) .page.${lift}`);
+        const oldLand = book.querySelector(`.entry:not([hidden]) .page.${land}`);
+        const front = document.createElement('div'); front.className = 'tleaf front';
+        if (oldLift) front.appendChild(copy(oldLift));
+        under.className = `turn-under ${land}`;
+        if (oldLand) under.appendChild(copy(oldLand));
+        swap(); // the new pages sit underneath while the sheet turns over
+        const newLand = book.querySelector(`.entry:not([hidden]) .page.${land}`);
+        const back = document.createElement('div'); back.className = 'tleaf back';
+        if (newLand) back.appendChild(copy(newLand));
+        turner.append(front, back);
+        book.appendChild(under);
         void book.offsetWidth; // restart the animation
-        swap(); // the new pages sit underneath while the old one turns over
         book.classList.add(forward ? 'turn-next' : 'turn-prev');
       }
-      clearTimeout(book._turnDone);
-      book._turnDone = setTimeout(() => { book.classList.remove('turn-next', 'turn-prev', 'turn-mob'); turner.innerHTML = ''; }, 900);
+      book._turnDone = setTimeout(() => { book.classList.remove('turn-next', 'turn-prev', 'turn-mob', 'turn-mob-back'); turner.innerHTML = ''; book.querySelector('.turn-under')?.remove(); }, 1020);
     },
   });
   makeTabs([...document.querySelectorAll('.process-tab')]);
@@ -722,9 +741,16 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     // a second, fainter pass of every stroke makes it read as pencil
     el.querySelectorAll('.sk-d').forEach((p) => { const g = p.cloneNode(); g.removeAttribute('id'); g.classList.add('ghost'); p.after(g); });
     const strokes = [...el.querySelectorAll('.sk-d')].map((p) => {
-      const L = p.getTotalLength(); p.style.strokeDasharray = `${L} ${L}`;
-      return { p, L, s: +(p.dataset.s || 0), e: +(p.dataset.e || 1) };
+      const L = p.getTotalLength();
+      return { p, L, D: L, s: +(p.dataset.s || 0), e: +(p.dataset.e || 1) };
     });
+    // strokes don't scale with the drawing, so dash lengths are in screen pixels: size them to the thumbnail as shown
+    const measure = () => {
+      const r = svg.getBoundingClientRect();
+      const sc = Math.max(r.width / vb.width, r.height / vb.height, 1) * 1.03;
+      strokes.forEach((k) => { k.D = k.L * sc; k.p.style.strokeDasharray = `${k.D} ${k.D}`; });
+    };
+    measure();
     const marks = [...el.querySelectorAll('[data-at]')].map((t) => {
       const on = t.dataset.on && el.querySelector(t.dataset.on);
       if (on) { const pt = on.getPointAtLength(on.getTotalLength() * +t.dataset.at); t.style.left = (pt.x / vb.width * 100) + '%'; t.style.top = (pt.y / vb.height * 100) + '%'; }
@@ -732,14 +758,14 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     });
     const typer = el.querySelector('[data-type]');
     const render = (p, o) => {
-      strokes.forEach((k) => { k.p.style.strokeDashoffset = k.L * (1 - clamp((p - k.s) / (k.e - k.s))); });
+      strokes.forEach((k) => { k.p.style.strokeDashoffset = k.D * (1 - clamp((p - k.s) / (k.e - k.s))); });
       marks.forEach((m) => m.t.classList.toggle('show', p >= m.at && p < m.until));
       if (typer) { const s = +typer.dataset.s, e = +typer.dataset.e, txt = typer.dataset.type;
         typer.textContent = txt.slice(0, Math.round(txt.length * clamp((p - s) / (e - s))));
         typer.style.setProperty('--caret', p >= s && p < 1 ? 1 : 0); }
       layer.style.opacity = o;
     };
-    if (still) { render(1, 1); return; }
+    if (still) { strokes.forEach((k) => { k.p.style.strokeDasharray = 'none'; }); render(1, 1); return; }
     render(0, 1);
     let raf = 0, t0 = 0;
     const frame = (now) => {
@@ -752,8 +778,9 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     };
     new IntersectionObserver(([e]) => {
       cancelAnimationFrame(raf);
-      if (e.isIntersecting) { t0 = performance.now(); render(0, 1); raf = requestAnimationFrame(frame); }
+      if (e.isIntersecting) { measure(); t0 = performance.now(); render(0, 1); raf = requestAnimationFrame(frame); }
     }).observe(el);
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(svg); else addEventListener('resize', measure, { passive: true });
   });
 })();
 

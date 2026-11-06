@@ -6583,3 +6583,82 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 .pf-late li:nth-child(1) img { object-position: 50% 78% !important; }
 .pf-late li:nth-child(2) img { object-position: 50% 40% !important; }
 .pf-late li:nth-child(3) img { object-position: 50% 35% !important; }
+/* privacy mask button: a clean padlock, open while numbers show, closed while hidden */
+.pf-lock { justify-content: flex-start !important; }
+.pf-lock-btn svg { width: 20px; height: 20px; stroke-linejoin: round; }
+.pf-lock-btn .sh-closed { display: none; }
+.pf-lock-btn[aria-pressed="true"] .sh-closed { display: inline; }
+.pf-lock-btn[aria-pressed="true"] .sh-open { display: none; }
+/* page turn v2 (forward only): a real two-sided sheet */
+.journal .book.turn-next .turner { left: 50%; width: 50%; opacity: 1; overflow: visible; background: none; backface-visibility: visible; transform-style: preserve-3d; transform-origin: left center; z-index: 7; animation: leaf-turn 1s cubic-bezier(.42, .05, .22, 1) forwards !important; will-change: transform; }
+@keyframes leaf-turn { 0% { transform: perspective(2400px) rotateY(0deg); } 100% { transform: perspective(2400px) rotateY(-180deg); } }
+.tleaf { position: absolute; inset: 0; overflow: hidden; background: var(--page); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.tleaf.front { border-radius: 0 8px 8px 0; }
+.tleaf.back { transform: rotateY(180deg); border-radius: 8px 0 0 8px; }
+.tleaf > .page { position: absolute !important; inset: 0; width: 100% !important; box-shadow: none !important; }
+/* the paper darkens a little as it lifts, like real light on a turning page */
+.tleaf::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; animation: leaf-light 1s ease forwards; }
+.tleaf.front::after { background: linear-gradient(90deg, rgba(40, 30, 20, .32), transparent 70%); }
+.tleaf.back::after { background: linear-gradient(270deg, rgba(40, 30, 20, .32), transparent 70%); }
+@keyframes leaf-light { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+.turn-under { position: absolute; top: 0; bottom: 0; left: 0; width: 50%; z-index: 5; overflow: hidden; background: var(--page); border-radius: 8px 0 0 8px; pointer-events: none; }
+.turn-under > .page { position: absolute !important; inset: 0; width: 100% !important; box-shadow: none !important; }
+.journal .book.turn-next::after { animation-duration: 1s !important; }
+/* going back: the pages just change, with a soft fade */
+.journal .book.turn-fade .page { animation: page-fade .28s ease both; }
+@keyframes page-fade { from { opacity: .35; } to { opacity: 1; } }
+@media (max-width: 860px) {
+  .journal .book.turn-mob .turner { animation-duration: 1s !important; }
+  @keyframes turn-mob { 0% { opacity: 1; transform: perspective(2600px) rotateY(0); box-shadow: 0 0 0 rgba(0, 0, 0, 0); } 50% { box-shadow: -30px 0 40px -20px rgba(0, 0, 0, .3); } 92% { opacity: 1; } 100% { opacity: 0; transform: perspective(2600px) rotateY(-120deg); } }
+}
+@media (prefers-reduced-motion: reduce) { .journal .book.turn-fade .page { animation: none; } }
+/* page turn backward: the mirror of the forward sheet */
+.journal .book.turn-prev .turner { left: 0; width: 50%; opacity: 1; overflow: visible; background: none; backface-visibility: visible; transform-style: preserve-3d; transform-origin: right center; z-index: 7; animation: leaf-turn-back 1s cubic-bezier(.42, .05, .22, 1) forwards !important; will-change: transform; }
+@keyframes leaf-turn-back { 0% { transform: perspective(2400px) rotateY(0deg); } 100% { transform: perspective(2400px) rotateY(180deg); } }
+.book.turn-prev .tleaf.front { border-radius: 8px 0 0 8px; }
+.book.turn-prev .tleaf.back { border-radius: 0 8px 8px 0; }
+.book.turn-prev .tleaf.front::after { background: linear-gradient(270deg, rgba(40, 30, 20, .32), transparent 70%); }
+.book.turn-prev .tleaf.back::after { background: linear-gradient(90deg, rgba(40, 30, 20, .32), transparent 70%); }
+.turn-under.right { left: 50%; border-radius: 0 8px 8px 0; }
+.journal .book.turn-prev::after { animation-duration: 1s !important; }
+@media (max-width: 860px) {
+  .journal .book.turn-mob-back .turner { left: 16px; right: 0; width: auto; top: 0; bottom: 0; transform-origin: left center; border-radius: 6px; animation: turn-mob-back 1s cubic-bezier(.45, .05, .25, 1) forwards; }
+  @keyframes turn-mob-back { 0% { opacity: 0; transform: perspective(2600px) rotateY(-120deg); } 8% { opacity: 1; } 100% { opacity: 1; transform: perspective(2600px) rotateY(0); } }
+  .turn-under.mob { left: 16px; right: 0; width: auto; border-radius: 6px; z-index: 5; }
+  .turn-under.mob .turn-stack { position: absolute; inset: 0; }
+}
+/* page turn: copies sit inside an entry wrapper, so position them through it */
+.tleaf .page, .turn-under:not(.mob) .page { position: absolute !important; inset: 0; width: 100% !important; box-shadow: none !important; }
+.turn-clone .hl { background-size: 100% 100% !important; }
+/* the page turn is the transition now: text and photos stay still instead of sliding up */
+.journal .entry.is-active .page.left > *, .journal .entry.is-active .print, .journal .entry.is-active .print .tape, .journal .entry.is-active .entry-stamp { animation: none !important; }
+.journal .entry .print { opacity: 1; transform: rotate(-1deg); }
+/* phone flip copies are pinned to the real page's exact spot, so nothing shifts */
+@media (max-width: 860px) { .turn-stack { display: block; overflow: visible; background: var(--page); } .journal .book.turn-mob .turner, .journal .book.turn-mob-back .turner { overflow: hidden; } }
+/* phones: every project uses the same page layout, so the notebook doesn't resize and headings stay level between flips */
+@media (max-width: 860px) {
+  .journal .book { min-height: 530px; }
+  .journal .entry .page.right { height: 236px !important; min-height: 236px !important; max-height: 236px; flex: none; overflow: hidden; box-sizing: border-box; }
+  .journal .entry .page.left { justify-content: flex-start !important; flex: 1 1 auto; }
+}
+@media (max-width: 860px) {
+  .journal .book { grid-template-rows: 236px minmax(0, 1fr); align-content: stretch; row-gap: 0; }
+  .journal .entry .page.left { height: 100%; }
+}
+@media (max-width: 860px) {
+  .journal .book { grid-template-columns: minmax(0, 1fr) !important; }
+  .journal .entry .page { min-width: 0; max-width: 100%; }
+  .journal .entry .page.left .num { max-width: 100%; white-space: nowrap; font-size: clamp(.66rem, 3vw, .78rem); letter-spacing: .02em; }
+}
+/* Cockpit sketch: every label has its own space, nothing sits on a drawn line */
+@media (min-width: 861px) { .sk-port .sk-layer { inset: 0 7% 0 0; } }
+.sk-port .pf-sk-title { left: 8%; top: 19.5%; }
+.sk-port .sk-tabs { left: 30%; top: 19.5%; }
+.sk-port .sk-live { top: 8%; }
+.sk-port .sk-kv { top: 34.5%; font-size: clamp(.5rem, 1.4cqw, .58rem); gap: 2px; }
+.sk-port .sk-kv b { font-size: clamp(.6rem, 1.7cqw, .7rem); }
+.sk-port .sk-chips { left: 8%; top: 49.5%; gap: 5px; }
+.sk-port .sk-chips i { padding: 1px 6px; border: 1.2px solid #8b8496; border-radius: 999px; font-size: clamp(.44rem, 1.2cqw, .5rem); line-height: 1.25; }
+.sk-port .sk-chips i.on { border-color: #34303c; background: #34303c; color: #fffdf7; }
+.sk-port .sk-bs { gap: 5px; }
+.sk-port .sk-bs i { width: 22px; height: 17px; font-size: .6rem; }

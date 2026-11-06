@@ -6815,3 +6815,21 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 .journal .bookmarks .bookmark:not([aria-selected="true"]) { opacity: .5; filter: saturate(.35); transition: opacity .2s ease, filter .2s ease; }
 .journal .bookmarks .bookmark[aria-selected="true"] { opacity: 1; filter: none; }
 .journal .bookmarks .bookmark:not([aria-selected="true"]):hover, .journal .bookmarks .bookmark:not([aria-selected="true"]):focus-visible { opacity: .85; filter: saturate(.8); }
+/* page turn: the sheet carries the same paper as the real page, so nothing changes at the start or end */
+.tleaf .page, .turn-under .page { box-shadow: none; }
+.tleaf .page.right { box-shadow: inset 34px 0 32px -26px rgba(70, 50, 25, .38), inset 2px 0 0 rgba(70, 50, 25, .12) !important; }
+.tleaf .page.left { box-shadow: inset -34px 0 32px -26px rgba(70, 50, 25, .38), inset -2px 0 0 rgba(70, 50, 25, .12) !important; }
+.turn-under { overflow: visible; background: none; }
+.turn-under:not(.mob) .page.left { box-shadow: inset -34px 0 32px -26px rgba(70, 50, 25, .38), inset -2px 0 0 rgba(70, 50, 25, .12), -2px 1px 0 var(--page-edge), -4px 2px 0 var(--page), -5px 3px 0 var(--page-edge), -7px 4px 0 var(--page), -8px 5px 0 var(--page-edge) !important; }
+.turn-under:not(.mob) .page.right { box-shadow: inset 34px 0 32px -26px rgba(70, 50, 25, .38), inset 2px 0 0 rgba(70, 50, 25, .12), 2px 1px 0 var(--page-edge), 4px 2px 0 var(--page), 5px 3px 0 var(--page-edge), 7px 4px 0 var(--page), 8px 5px 0 var(--page-edge) !important; }
+/* Rehearsal chart: the whole climb stays clear of the elastic band */
+@media (min-width: 861px) { .sk-chart .sk-layer { margin-right: 10%; } }
+/* phones: more height for the chart, the heading stays on two lines */
+@media (max-width: 860px) {
+  .journal .book { grid-template-rows: 262px minmax(0, 1fr); min-height: 556px; }
+  .journal .entry .page.right { height: 262px !important; min-height: 262px !important; max-height: 262px; }
+  .sk-h.sk-h-split { font-size: clamp(1.02rem, 5vw, 1.3rem); white-space: nowrap; }
+  .sk-chart .sk-layer { min-height: 150px; }
+}
+/* the elastic band stays on top of a turning page */
+.journal .book-cover::after { z-index: 10; }

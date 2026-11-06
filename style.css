@@ -6555,3 +6555,31 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 @media (max-width: 560px) { .cp-aff3::after { background-position: center 25px, left bottom !important; } }
 /* "Get in touch": on hover the button fills dark and the text turns light, so it never disappears */
 .hero3-actions .btn-ghost:hover, .hero3-actions .btn-ghost:focus-visible { background: var(--stk-ink) !important; color: #fffdf7 !important; }
+/* More about me: polaroids sit straight, side by side in one tidy group; captions handwritten (their request) */
+.board3 .pol, .board3 .pol:hover { transform: none !important; }
+.board3 .pol:hover { translate: 0 -3px; }
+.board3 .pol-cap { font: 400 1.02rem/1.2 "Kalam", cursive !important; color: #1f1b29; margin-top: 9px; }
+@media (min-width: 1000px) {
+  .board3 { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr) !important; gap: 36px !important; align-items: center; }
+  .board3 .me-card { grid-column: 1 !important; grid-row: 1 !important; }
+  .board3 .pinned { display: grid !important; grid-column: 2; grid-row: 1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 18px; }
+  .board3 .pol, .board3 .pol:nth-child(n) { grid-column: auto !important; grid-row: auto !important; justify-self: stretch !important; max-width: none !important; width: auto !important; }
+}
+@media (max-width: 999px) {
+  .board3 .pinned { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 14px !important; }
+  .board3 .pol { flex: none !important; width: auto !important; max-width: none !important; }
+}
+@media (max-width: 600px) { .board3 .pinned { grid-template-columns: repeat(2, minmax(0, 1fr)); } .board3 .pol-cap { font-size: .95rem !important; } }
+/* Cockpit: late-night photos, three polaroids */
+.pf-late { margin: 22px 0 26px; }
+.pf-late ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.pf-late li { padding: 9px 9px 12px; background: #fffdf7; border-radius: 3px; rotate: var(--r); box-shadow: 0 14px 22px -14px rgba(20, 17, 28, .55); transition: rotate .3s ease, translate .3s ease; }
+.pf-late li:hover { rotate: 0deg; translate: 0 -3px; }
+.pf-late img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 2px; }
+.pf-late span { display: block; margin-top: 8px; text-align: center; font: 600 .82rem/1.3 var(--sans); color: #2c2836; }
+@media (max-width: 560px) { .pf-late ul { grid-template-columns: 1fr 1fr; gap: 14px; } .pf-late li:last-child { grid-column: 1 / -1; width: 60%; justify-self: center; } }
+@media (prefers-reduced-motion: reduce) { .pf-late li { transition: none; } }
+.pf-late img { aspect-ratio: 3 / 4 !important; height: auto !important; width: 100% !important; object-fit: cover !important; max-height: none !important; }
+.pf-late li:nth-child(1) img { object-position: 50% 78% !important; }
+.pf-late li:nth-child(2) img { object-position: 50% 40% !important; }
+.pf-late li:nth-child(3) img { object-position: 50% 35% !important; }

@@ -91,12 +91,13 @@
       // copies keep the entry wrapper so they lay out exactly like the real pages (same centring, same colours)
       const shell = (el) => { const w = el.cloneNode(false); ['id', 'role', 'aria-labelledby', 'hidden'].forEach((k) => w.removeAttribute(k)); w.classList.remove('is-active'); w.classList.add('turn-clone'); return w; };
       const blank = (el) => el.querySelectorAll('.sk-layer').forEach((l) => { l.style.opacity = 0; });
-      // the pencil filters live inside the page being hidden, so each copy carries its own, under new ids
-      const ownIds = (w) => { w.querySelectorAll('[id]').forEach((n) => {
-        const old = n.id; n.id = `${old}-turn`;
-        w.querySelectorAll(`[filter="url(#${old})"]`).forEach((x) => x.setAttribute('filter', `url(#${n.id})`));
-        if (old === 'pencil-text') w.querySelectorAll('.sk-h').forEach((x) => { x.style.filter = `url(#${n.id})`; });
-      }); return w; };
+      // the pencil texture is redrawn on every frame of a turn, which makes the sheet flicker, so copies go without it
+      const ownIds = (w) => {
+        w.querySelectorAll('[filter]').forEach((x) => x.removeAttribute('filter'));
+        w.querySelectorAll('filter, [id]').forEach((n) => { if (n.matches('filter')) n.remove(); else n.removeAttribute('id'); });
+        w.querySelectorAll('.sk-h').forEach((x) => { x.style.filter = 'none'; });
+        return w;
+      };
       const copy = (pg) => { const w = shell(pg.closest('.entry')); w.appendChild(pg.cloneNode(true)); return ownIds(w); };
       if (narrow()) {
         // phones: the whole page turns on the spiral binding; going back, the earlier page swings in over the current one

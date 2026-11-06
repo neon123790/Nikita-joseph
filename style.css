@@ -6662,3 +6662,113 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 .sk-port .sk-chips i.on { border-color: #34303c; background: #34303c; color: #fffdf7; }
 .sk-port .sk-bs { gap: 5px; }
 .sk-port .sk-bs i { width: 22px; height: 17px; font-size: .6rem; }
+
+/* ===== Experience: clear levels. Company > current role > earlier roles > product > detail ===== */
+.xp-main { padding: clamp(20px, 2.6vw, 30px) !important; border-radius: 14px !important; }
+.xp-main .xp-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.xp-main h3 { font: 800 clamp(1.6rem, 2.8vw, 2rem)/1.1 var(--bold) !important; letter-spacing: -.02em; color: #1f1b29; }
+.xp-main .xp-place { font: 500 1rem/1 var(--sans); color: #6b6676; letter-spacing: 0; }
+.xp-main .xp-when { margin: 0; font-size: .9rem; color: #4a4652; }
+.xp-main .xp-roles { margin-top: 20px; padding: 0; border: 0; gap: 26px !important; }
+.xp-r { --rc: #8b8496; position: relative; padding-left: 22px; border-left: 3px solid var(--rc); }
+.xp-main .xp-roles > .xp-r::before { display: none; }
+.xp-r.r-now { --rc: #c2410c; margin: 0 -8px; padding: 16px 16px 18px 20px; border-left-width: 4px; border-radius: 4px 12px 12px 4px; background: #fff4ea; }
+.xp-r.r-mid { --rc: #3446d8; }
+.xp-rh { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 14px; margin-bottom: 12px; }
+.xp-main .xp-role { margin: 0 !important; font: 700 1.05rem/1.25 var(--bold) !important; color: var(--rc); }
+.xp-r.r-now .xp-role { font-size: 1.28rem !important; font-weight: 800 !important; letter-spacing: -.01em; }
+.xp-r.r-mid .xp-role { font-size: 1.14rem !important; }
+.xp-r.r-old .xp-role { color: #4a4652; }
+.xp-rw { margin: 0; font: 600 .82rem/1.3 var(--sans); color: #6b6676; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.xp-lead { margin: -4px 0 14px; font-size: 1rem; line-height: 1.5; color: #2c2836; max-width: 58ch; }
+.xp-items { list-style: none; margin: 0; padding: 0 !important; display: grid; gap: 14px !important; }
+.xp-items > li { display: grid; grid-template-columns: 158px minmax(0, 1fr); gap: 4px 16px; padding: 0 !important; max-width: none !important; }
+.xp-items > li::before { content: none !important; }
+.xp-k { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.xp-k b { font: 600 .96rem/1.3 var(--sans); color: #1f1b29; }
+.xp-chip { padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--cc) 12%, #fff); border: 1px solid color-mix(in srgb, var(--cc) 40%, #fff); font: 700 .72rem/1.3 var(--sans); color: var(--cc); white-space: nowrap; }
+.xp-items p { margin: 0; font-size: .93rem; line-height: 1.55; color: #4a4652; }
+.xp-r.r-old .xp-k b { font-weight: 500; color: #2c2836; }
+.xp-r.r-old .xp-items p { color: #5b5666; font-size: .9rem; }
+.xp-before { margin-top: 22px; padding: 0 4px; }
+.xp-before-h { margin: 0 0 10px; font: 700 .72rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #8b8496; }
+.xp-before ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.xp-before li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 14px; padding-top: 12px; border-top: 1px solid rgba(20, 17, 28, .1); }
+.xp-b1 b { display: block; font: 600 1rem/1.3 var(--bold); color: #2c2836; }
+.xp-b1 span { font-size: .86rem; color: #6b6676; }
+.xp-bd { grid-column: 1 / -1; margin: 2px 0 0; font-size: .9rem; line-height: 1.5; color: #5b5666; }
+@media (max-width: 640px) {
+  .xp-items > li { grid-template-columns: 1fr; }
+  .xp-k { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+  .xp-r.r-now { margin: 0 -6px; padding: 14px 12px 16px 14px; }
+  .xp-r { padding-left: 14px; }
+  .xp-rw { white-space: normal; }
+}
+/* flight: the whole route stays in view; stops take the colour of their chapter */
+.j-stop { --sc: #2b45e8; }
+.j-stop.is-current { border-color: color-mix(in srgb, var(--sc) 70%, #14111c) !important; }
+.j-stop.is-past { opacity: .62; }
+.j-stop .stamp { color: #4a4652; }
+.pl-label { font: 600 13px/1 var(--sans) !important; stroke-width: 5px !important; }
+.pl-label.current { font-weight: 700 !important; }
+@media (min-width: 861px) { .journey .journey-grid { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: clamp(24px, 3vw, 44px); } }
+.pl-key { flex-wrap: wrap; justify-content: center; }
+.xp-b1 span { display: block; line-height: 1.35; margin-top: 2px; }
+@media (max-width: 860px) { .journey .pl-key { display: none !important; } }
+@media (min-width: 861px) { .journey .pl-key { left: auto !important; right: 14px !important; transform: none !important; width: auto; max-width: 62%; } }
+/* Experience, one flow: no panels or side bars; colour only on the role headings */
+.xp-r, .xp-r.r-now, .xp-r.r-mid, .xp-r.r-old { --rc: #c2410c; margin: 0; padding: 0; border: 0; border-radius: 0; background: none; }
+.xp-main .xp-roles { gap: 24px !important; }
+.xp-r.r-now .xp-role, .xp-r.r-mid .xp-role, .xp-r.r-old .xp-role { color: #c2410c; font-size: 1.14rem !important; font-weight: 700 !important; letter-spacing: 0; }
+.xp-r.r-now .xp-role { font-size: 1.22rem !important; }
+.xp-r.r-old .xp-k b { font-weight: 600; color: #1f1b29; }
+.xp-r.r-old .xp-items p { color: #4a4652; font-size: .93rem; }
+.xp-chip { background: #f3f1ec; border-color: #e3e0d7; color: #4a4652 !important; }
+.xp-before { margin-top: 24px; padding: 0; }
+.xp-before-h { margin-bottom: 12px; }
+.xp-before li { padding-top: 0; border-top: 0; }
+.xp-b1 b { color: #c2410c; font-weight: 700; font-size: 1.05rem; }
+/* Experience, easy reading: soft body text, room to breathe, the eye goes heading > product > result */
+.xp-main .xp-roles { gap: 34px !important; margin-top: 24px; }
+.xp-main h3 { font-weight: 700 !important; }
+.xp-rh { margin-bottom: 14px; }
+.xp-lead { margin: -6px 0 16px; font-size: .98rem; color: #4a4652; }
+.xp-items { gap: 16px !important; }
+.xp-items > li { grid-template-columns: 170px minmax(0, 1fr); gap: 4px 20px; }
+.xp-k b { font-weight: 600; }
+.xp-items p, .xp-r.r-old .xp-items p { font-size: .94rem; line-height: 1.6; color: #6b6676; }
+.xp-chip { font-weight: 600; }
+.xp-before { margin-top: 34px; }
+.xp-before ul { gap: 16px; }
+.xp-bd { color: #6b6676; font-size: .94rem; }
+@media (max-width: 640px) { .xp-items { gap: 18px !important; } .xp-items p, .xp-r.r-old .xp-items p { font-size: .95rem; } }
+@media (max-width: 640px) { .xp-items > li { grid-template-columns: minmax(0, 1fr); gap: 3px; } .xp-k { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 8px; } }
+/* Experience: plain bullets that read as sentences; bold names the project */
+.xp-main .xp-roles > .xp-r ul { list-style: none; margin: 0; padding: 0 !important; display: grid; gap: 10px; }
+.xp-main .xp-r ul li, .xp-vol ul li { position: relative; padding-left: 16px; font-size: .96rem; line-height: 1.6; color: #5b5666; max-width: 62ch; }
+.xp-main .xp-r ul li::before, .xp-vol ul li::before { content: ""; position: absolute; left: 2px; top: .68em; width: 5px; height: 5px; border-radius: 50%; background: #c9c3d3; }
+.xp-main .xp-r ul li b { font-weight: 600; color: #1f1b29; }
+.xp-co2 { margin-top: 36px; }
+/* Volunteering */
+.xp-vol ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.xp-vol .xp-rh { margin-bottom: 2px; }
+.xp-vol .xp-role { color: #c2410c; font-size: 1.14rem !important; font-weight: 700 !important; }
+.xp-vrole { margin: 0; font-size: .95rem; color: #2c2836; font-weight: 500; }
+.xp-v2 { margin-top: 26px; }
+/* company header: name, then date and status on their own line, with room before the first role */
+.xp-main .xp-head { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 8px; }
+.xp-main .xp-head + .xp-roles { margin-top: 28px; }
+.xp-main .xp-rh { margin-bottom: 14px; }
+.xp-main .xp-r ul { gap: 12px; }
+/* company header: name with location under it on the left, dates always on the right */
+.xp-main .xp-head { flex-direction: row; flex-wrap: nowrap; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.xp-main .xp-place { display: block; margin-top: 4px; font: 500 .92rem/1.2 var(--sans); color: #6b6676; }
+.xp-main .xp-when { flex-direction: column; align-items: flex-end; gap: 6px; padding-top: 6px; font-size: .82rem; font-weight: 600; color: #6b6676; white-space: nowrap; text-align: right; }
+.xp-main .xp-rh { flex-wrap: nowrap; align-items: baseline; }
+.xp-main .xp-rh .xp-role { min-width: 0; }
+.xp-main .xp-rw { flex: none; text-align: right; white-space: nowrap; }
+.xp-co2 + .xp-roles .xp-role { font-size: 1.04rem !important; }
+/* the flight is optional, so it stays quiet next to the experience */
+.drive-cta { background: #fffdf7 !important; border: 1.5px solid rgba(20, 17, 28, .16) !important; box-shadow: none !important; }
+.drive-cta:hover, .drive-cta:focus-visible { border-color: #2c2836 !important; transform: none !important; box-shadow: none !important; }
+.drive-cta .drive-text b { font-weight: 600; }

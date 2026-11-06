@@ -151,9 +151,9 @@
     // a loopy flight path (with one loop-the-loop), drawn as a smooth curve through these points;
     // everything sits below the display at the top of the card
     const Y = (y) => 160 + (y - 90) * 0.88;
-    const pts = [[60, 500], [105, 440], [160, 405], [220, 435], [280, 420], [325, 370], [340, 300], [310, 250], [262, 262], [258, 312], [300, 332],
+    const pts = [[160, 405], [220, 435], [280, 420], [325, 370], [340, 300], [310, 250], [262, 262], [258, 312], [300, 332],
       [370, 300], [440, 330], [490, 295], [480, 250], [445, 205], [450, 170], [490, 120], [530, 90]].map(([x, y]) => [x, Y(y)]);
-    const stopAt = [0, 2, 4, 7, 11, 14, 16, 18];
+    const stopAt = [0, 2, 5, 9, 12, 14, 16];
     // the curve between two waypoints (smooth Catmull-Rom); sub-paths reuse it so the colours line up exactly
     const piece = (from, to) => {
       let s = `M ${pts[from][0]} ${pts[from][1]}`;
@@ -169,10 +169,9 @@
     [ahead, trail, reveal, glow].forEach((p) => p && p.setAttribute('d', d));
     // each stretch of the flight is drawn in the colour of the company it belongs to
     const legs = [
-      { from: 0, to: 2, c: '#d98e2b' },   // Dubai Design Week
-      { from: 2, to: 4, c: '#1d3b5a' },   // DeFiner
-      { from: 4, to: 16, c: '#2b45e8' },  // FYERS
-      { from: 16, to: 18, c: '#e64980' }  // on to your team
+      { from: 0, to: 2, c: '#1d3b5a' },   // DeFiner
+      { from: 2, to: 14, c: '#2b45e8' },  // FYERS
+      { from: 14, to: 16, c: '#e64980' }  // on to your team
     ];
     trail.style.stroke = 'none';
     legs.forEach((leg) => {
@@ -242,13 +241,6 @@
       // it touches down on the heart and fades away, so the heart is what you see at the end
       plane.style.opacity = (1 - Math.min(1, Math.max(0, (current - (N - 1.3)) / 0.3))).toFixed(2);
       reveal.setAttribute('stroke-dasharray', `${L.toFixed(1)} ${total * 2}`);
-      // a camera that follows the plane, zoomed in; on the last leg it pulls back to show the whole flight
-      const out = Math.min(1, Math.max(0, current - (N - 2)));
-      const z = 1.9 - 0.9 * out * out * (3 - 2 * out);
-      const w = 600 / z, h = 560 / z;
-      const vx = Math.min(600 - w, Math.max(0, a.x - w / 2));
-      const vy = Math.min(560 - h, Math.max(0, a.y - h * 0.6));
-      mapSvg.setAttribute('viewBox', `${vx.toFixed(1)} ${vy.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`);
       const active = Math.min(N - 1, Math.round(current));
       card.classList.toggle('complete', current > N - 1.05);
       if (active !== lastActive) {
@@ -256,6 +248,7 @@
         pins.forEach(({ g, t }, i) => { g.classList.toggle('past', i < active); g.classList.toggle('current', i === active); t.classList.toggle('current', i === active); });
         stops.forEach((s, i) => { s.classList.toggle('is-current', i === active); s.classList.toggle('is-past', i < active); });
         dirIcon.textContent = active + 1;
+        dirIcon.style.setProperty('background', stops[active].dataset.lc, 'important');
         dirStep.textContent = `${active + 1} / ${N}`;
         dirTitle.textContent = stops[active].querySelector('h3').textContent;
         dirMeta.textContent = stops[active].querySelector('.stamp').textContent;

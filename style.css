@@ -6772,3 +6772,39 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 .drive-cta { background: #fffdf7 !important; border: 1.5px solid rgba(20, 17, 28, .16) !important; box-shadow: none !important; }
 .drive-cta:hover, .drive-cta:focus-visible { border-color: #2c2836 !important; transform: none !important; box-shadow: none !important; }
 .drive-cta .drive-text b { font-weight: 600; }
+
+/* ===== One standard, everywhere ===== */
+/* buttons: same height, shape, type, border and shadow on every page */
+.btn, a.btn, .contact3 .contact-links a, .pf-lock-btn, .safe-btn, .resume-link {
+  min-height: 46px !important; padding: 0 22px !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 999px !important; border: 2px solid var(--stk-ink) !important; box-shadow: 3px 3px 0 var(--stk-ink) !important;
+  font: 600 .95rem/1.2 var(--sans) !important; letter-spacing: 0 !important; text-transform: none !important; text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+}
+.contact3 .contact-links span:not(.arrow) { font: inherit !important; }
+.btn-primary, a.btn-primary { background: #ffd65a !important; color: var(--stk-ink) !important; }
+.btn-ghost, a.btn-ghost, .resume-link { background: #fffdf7 !important; color: var(--stk-ink) !important; }
+.btn:hover, a.btn:hover, .contact3 .contact-links a:hover, .pf-lock-btn:hover, .safe-btn:hover, .resume-link:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--stk-ink) !important; }
+.btn-ghost:hover, a.btn-ghost:hover, .btn-ghost:focus-visible, .resume-link:hover { background: var(--stk-ink) !important; color: #fffdf7 !important; }
+.pf-lock-btn[aria-pressed="true"] { background: var(--stk-ink) !important; color: #fffdf7 !important; }
+.safe-btn { border-color: #0f0e13 !important; box-shadow: none !important; }
+@media (prefers-reduced-motion: reduce) { .btn:hover, a.btn:hover, .contact3 .contact-links a:hover, .pf-lock-btn:hover, .safe-btn:hover, .resume-link:hover { transform: none; } }
+/* text links and small controls use the same type */
+.entry .read-link { font: 600 .98rem/1.3 var(--sans) !important; }
+.back-btn { font-weight: 600 !important; }
+/* headings: Archivo; body: Inter. Case study titles share one weight */
+.hk-title, .hk-hero .gh-text h1.hk-title { font-weight: 700 !important; }
+.cs-body h3:not(.cs-sub):not(.clip h3), .cs-body .content h3:not(.clip h3) { font-family: var(--bold) !important; font-weight: 600 !important; }
+
+/* Numbers: lined up with every other section; straight notes, both rows reach the same edges */
+.detours .wrap { max-width: var(--max); }
+.part-body .det-paper .det-grid { gap: 18px !important; align-items: stretch; }
+.part-body .det-grid > .det-card { transform: none !important; rotate: 0deg !important; min-height: 190px; }
+.part-body .det-grid > .det-card:hover { transform: translateY(-3px) !important; }
+@media (min-width: 861px) {
+  .part-body .det-grid > .det-card:nth-child(4) { grid-column: 1 / span 3 !important; }
+  .part-body .det-grid > .det-card:nth-child(5) { grid-column: 4 / span 3 !important; }
+  .part-body .det-grid > .det-card:nth-child(n+4) { min-height: 150px; }
+}
+.btn, a.btn, .contact3 .contact-links a, .pf-lock-btn, .resume-link { white-space: nowrap; }
+@media (max-width: 560px) { .hero3-actions .btn { padding: 0 14px !important; flex: 1 1 0; min-width: 0; font-size: .92rem !important; gap: 6px; } }

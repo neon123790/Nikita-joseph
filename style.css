@@ -6860,3 +6860,16 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 .turn-clone *, .turn-clone *::before, .turn-clone *::after { animation: none !important; transition: none !important; }
 .tleaf, .turn-under { will-change: transform, opacity; contain: paint; }
 .turn-under { contain: none; will-change: auto; }
+
+/* What it's like to work with me: faint hand-drawn doodles behind the section */
+.kind3 { position: relative; isolation: isolate; }
+.kind3::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .38;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22560%22%20height%3D%22400%22%20viewBox%3D%220%200%20560%20400%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23a79fb6%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M40%2040h52a10%2010%200%200%201%2010%2010v22a10%2010%200%200%201-10%2010H62l-14%2013V82h-8a10%2010%200%200%201-10-10V50a10%2010%200%200%201%2010-10z%22/%3E%3Cpath%20d%3D%22M46%2056h40M46%2067h26%22/%3E%3Cpath%20d%3D%22M250%2062c-13-16-34-3-24%2015%206%2011%2024%2022%2024%2022s18-11%2024-22c10-18-11-31-24-15z%22/%3E%3Cpath%20d%3D%22M455%2038l7%2017%2018%202-14%2012%205%2018-16-10-16%2010%205-18-14-12%2018-2z%22/%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22205%22%20r%3D%2224%22/%3E%3Cpath%20d%3D%22M110%20198h.01M130%20198h.01M108%20213c6%208%2018%208%2024%200%22/%3E%3Cpath%20d%3D%22M352%20182l48-22-14%2050-11-17z%22/%3E%3Cpath%20d%3D%22M375%20193l25-33M375%20193l-2%2013%208-5%22/%3E%3Cpath%20d%3D%22M340%20214c-10%208-22%206-30%2014%22%20stroke-dasharray%3D%224%206%22/%3E%3Cpath%20d%3D%22M500%20180c0-9%208-15%2016-11%202-9%2016-9%2018%200%209-2%2015%208%209%2015H506c-4%200-6-2-6-4z%22%20/%3E%3Cpath%20d%3D%22M28%20318c14-14%2026%2012%2040%200s26%2012%2040%200%22/%3E%3Cpath%20d%3D%22M214%20296h44v20a18%2018%200%200%201-18%2018h-8a18%2018%200%200%201-18-18z%22/%3E%3Cpath%20d%3D%22M258%20302h6a8%208%200%200%201%200%2016h-7%22/%3E%3Cpath%20d%3D%22M226%20286c0-6%206-6%206-12M242%20286c0-6%206-6%206-12%22/%3E%3Cpath%20d%3D%22M420%20300l5%2013%2013%205-13%205-5%2013-5-13-13-5%2013-5z%22/%3E%3Cpath%20d%3D%22M462%20340l3%207%207%203-7%203-3%207-3-7-7-3%207-3z%22/%3E%3Cpath%20d%3D%22M330%20354l34-34%2010%2010-34%2034-13%203z%22/%3E%3C/g%3E%3C/svg%3E") center top / 560px 400px repeat; }
+@media (max-width: 640px) { .kind3::before { background-size: 400px 286px; opacity: .3; } }
+/* doodles stay around the words, never behind them */
+.kind3 .section-head { position: relative; background: var(--bg); box-shadow: 0 0 22px 18px var(--bg); border-radius: 12px; }
+/* doodles: smaller, a few more of them, a touch more visible */
+.kind3::before { background-size: 390px 279px; opacity: .46; }
+@media (max-width: 640px) { .kind3::before { background-size: 290px 207px; opacity: .38; } }
+.kind3::before { opacity: .34; }
+@media (max-width: 640px) { .kind3::before { opacity: .28; } }

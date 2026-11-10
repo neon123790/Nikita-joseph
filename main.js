@@ -75,8 +75,47 @@
   // the journal turns a page: forwards for a later bookmark, backwards for an earlier one
   const book = document.querySelector('.book');
   const narrow = () => window.matchMedia('(max-width: 860px)').matches;
-  makeTabs([...document.querySelectorAll('.bookmark')], {
+  // The journal starts shut. Opening it, or tapping a ribbon, swings the cover over; the sketches draw once it has landed.
+  const journal = document.querySelector('.journal');
+  const lid = journal && journal.querySelector('.j-lid');
+  let shut = !!lid, quiet = false;
+  const bookBusyOpening = () => journal && journal.classList.contains('is-opening');
+  // the inside of the cover is an exact copy of the left-hand side, so nothing changes when it lands
+  const dressBack = () => {
+    if (narrow()) return;
+    const back = lid.querySelector('.j-back'), copy = journal.querySelector('.book-cover').cloneNode(true);
+    copy.querySelectorAll('.page.right, .turner, .j-flip, .entry[hidden]').forEach((n) => n.remove());
+    copy.querySelectorAll('[id]').forEach((n) => n.removeAttribute('id'));
+    copy.inert = true;
+    back.replaceChildren(copy);
+  };
+  const openJournal = () => {
+    if (!shut) return;
+    shut = false;
+    dressBack();
+    const byKeyboard = lid.matches(':focus-visible');
+    const instant = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    journal.classList.remove('is-closed');
+    journal.classList.add('is-opening');
+    setTimeout(() => {
+      journal.classList.remove('is-opening');
+      journal.classList.add('is-open');
+      book.inert = false;
+      book._turning = false;
+      book.dispatchEvent(new Event('turned'));
+      if (byKeyboard) book.querySelector('.entry:not([hidden]) .read-link')?.focus({ preventScroll: true });
+    }, instant ? 0 : 1420);
+  };
+  if (lid) {
+    journal.classList.add('is-closed');
+    book.inert = true;
+    book._turning = true;
+    lid.addEventListener('click', openJournal);
+  }
+  const ribbons = [...document.querySelectorAll('.j-bm')];
+  makeTabs(ribbons, {
     transition: (from, to, swap) => {
+      if (quiet || shut || bookBusyOpening()) { swap(); if (!quiet) openJournal(); return; }
       const turner = book && book.querySelector('.turner');
       if (!turner || matchMedia('(prefers-reduced-motion: reduce)').matches) { swap(); return; }
       // a tap during a flip waits for the page to land, so a turn is never cut off halfway
@@ -136,6 +175,41 @@
         const q = book._queued; book._queued = null;
         if (q && q.to !== book._shown) turnPage(turner, book._shown, q.to, q.swap);
       }, 1020);
+  }
+  // Arrows and the folded corner turn the pages. After the last story comes the end page, and from there the book closes.
+  if (lid && ribbons.length) {
+    const flip = book.querySelector('.j-flip'), flipText = flip.querySelector('.j-flip-t');
+    const count = journal.querySelector('.j-count'), prev = journal.querySelector('.j-prev'), next = journal.querySelector('.j-next');
+    const last = ribbons.length - 1; // the final page is the end of the book, so it isn't counted as a story
+    const at = () => Math.max(0, ribbons.findIndex((r) => r.getAttribute('aria-selected') === 'true'));
+    const label = () => {
+      const i = at();
+      count.textContent = i === last ? 'The end' : `${i + 1} / ${last}`;
+      flipText.textContent = i === last ? 'Close the book' : 'Flip this page';
+      prev.disabled = i === 0;
+      next.disabled = i === last;
+    };
+    const go = (i) => { if (i >= 0 && i <= last) { ribbons[i].click(); label(); } };
+    const closeJournal = () => {
+      if (shut || book._turning) return;
+      const byKeyboard = flip.matches(':focus-visible');
+      const instant = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      shut = true;
+      book.inert = true;
+      book._turning = true;
+      dressBack();
+      journal.classList.remove('is-open');
+      journal.classList.add('is-closed', 'is-closing');
+      setTimeout(() => {
+        journal.classList.remove('is-closing');
+        quiet = true; ribbons[0].click(); quiet = false; label(); // next time it opens on the first story
+        if (byKeyboard) lid.focus({ preventScroll: true });
+      }, instant ? 0 : 1320);
+    };
+    prev.addEventListener('click', () => go(at() - 1));
+    next.addEventListener('click', () => go(at() + 1));
+    flip.addEventListener('click', () => { if (at() === last) closeJournal(); else go(at() + 1); });
+    label();
   }
   makeTabs([...document.querySelectorAll('.process-tab')]);
 

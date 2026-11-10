@@ -2208,6 +2208,23 @@ body:has(.proj-hero) .site-header:not(.scrolled) { background-image: none !impor
 }
 .contact3 .contact-copy > p.contact-email { color: var(--muted); }
 .contact-email a { color: var(--stk-ink); }
+.j-lid { background-image: none; background-color: transparent; }
+.j-front { border-color: #7f95da; color: #a3bbff; background-image: radial-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1.3px), linear-gradient(90deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 7%, rgba(255, 255, 255, 0.028) 8.5%, rgba(255, 255, 255, 0) 12%), none; background-color: var(--cover); box-shadow: 0 2px 0 rgba(0, 0, 0, .45), 5px 5px 0 rgba(0, 0, 0, .45), 5px 5px 0 2px rgba(0, 0, 0, .45), 0 30px 44px -22px rgba(20, 17, 28, .55); }
+.j-back .book-cover { box-shadow: none; }
+.j-band { background-image: none; background-color: #e5603a; box-shadow: inset 2px 0 0 rgba(0, 0, 0, .45), inset -2px 0 0 rgba(0, 0, 0, .45); }
+.j-plate { background-image: none; background-color: #1c1c1a; border-color: #7f95da; box-shadow: 0 6px 12px -6px rgba(20, 17, 28, .5); }
+.j-plate::before { background-image: none; background-color: rgba(36, 33, 23, 0.85); }
+.j-title { color: #a3bbff; }
+.j-open { background-image: none; background-color: #242117; border-color: rgba(240, 240, 240, .16); box-shadow: 3px 3px 0 rgba(0, 0, 0, .45); color: #f4f4f4; }
+.j-lid:focus-visible .j-open { outline-color: rgba(240, 240, 240, .16); }
+.j-count { color: #c8c8c8; }
+.j-endnote { color: #a3bbff; }
+.j-flip { background-image: none; background-color: transparent; color: #d8d8d8; }
+.j-flip i { background-image: none; background-color: var(--cover); }
+.j-flip::after { background-image: linear-gradient(135deg, #1c1c1c 40%, #24221e); background-color: transparent; box-shadow: -2px -2px 4px rgba(40, 30, 20, .2); }
+.j-flip:hover { color: #a3bbff; }
+.j-flip:focus-visible { outline-color: #e07655; }
+.j-spread::after { background-image: linear-gradient(90deg, rgba(20, 17, 28, 0.4), rgba(255, 255, 255, 0.064) 75%); background-color: transparent; }
 }
 
 /* objects keep light-mode colours */

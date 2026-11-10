@@ -6969,3 +6969,99 @@ html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: backg
 /* Contact: the address written out, for people who want to copy it or use another mail app */
 .contact3 .contact-copy > p.contact-email { margin: 16px 0 0; font-size: .95rem !important; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }
 .contact-email a { display: inline-block; word-break: normal; color: var(--stk-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- The journal: a closed hardcover you open ----------
+   Shut, only the cover shows, centred. Opening slips the elastic off, swings the cover over its spine and slides the
+   book across so the spread lands centred. The last page is the end of the book, and from there it closes again. */
+.journal { padding-right: 0 !important; }
+.j-stage { width: min(100%, 900px); margin-inline: auto; transition: transform 1.2s cubic-bezier(.45, .05, .25, 1) .12s; }
+.j-spread { position: relative; z-index: 1; }
+.journal .book-cover::before, .journal .book-cover::after { display: none !important; }
+
+.j-lid { display: none; position: absolute; top: 0; bottom: 0; left: 50%; width: 50%; z-index: 20; padding: 0; border: 0; background: none; cursor: pointer; transform-origin: 0 50%; transform-style: preserve-3d; transform: perspective(2000px) rotateY(0deg); }
+.j-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 4px 18px 18px 4px; }
+.j-front { display: grid; place-content: center; justify-items: center; gap: 22px; padding: 28px 44px; overflow: hidden; border: 2px solid #1d2a66; color: #1d2a66;
+  background: radial-gradient(rgba(255, 255, 255, .09) 1px, transparent 1.3px) 0 0 / 5px 5px, linear-gradient(90deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 7%, rgba(255, 255, 255, .08) 8.5%, rgba(255, 255, 255, 0) 12%), var(--cover);
+  box-shadow: 0 2px 0 #1d2a66, 5px 5px 0 #d9d2c2, 5px 5px 0 2px #1d2a66, 0 30px 44px -22px rgba(20, 17, 28, .55); }
+.j-back { transform: rotateY(180deg); overflow: hidden; border-radius: 12px 0 0 12px; }
+.j-back .book-cover { position: absolute; top: 0; left: 0; width: 200%; height: 100%; margin: 0; clip-path: none !important; box-shadow: none; }
+.j-band { position: absolute; top: 0; bottom: 0; right: 40px; width: 15px; background: #e5603a; box-shadow: inset 2px 0 0 rgba(255, 255, 255, .25), inset -2px 0 0 rgba(0, 0, 0, .18); }
+.j-plate { position: relative; display: grid; justify-items: center; gap: 8px; width: min(300px, 100%); padding: 22px 24px 20px; text-align: center; background: #fffcf3; border: 2px solid #1d2a66; border-radius: 6px; transform: rotate(-1.5deg); box-shadow: 0 6px 12px -6px rgba(20, 17, 28, .5); }
+.j-plate::before { content: ""; position: absolute; left: 50%; top: -11px; width: 74px; height: 22px; margin-left: -37px; background: rgba(255, 214, 90, .85); transform: rotate(2deg); }
+.j-title { font: 800 clamp(1.7rem, 3vw, 2.3rem)/1.05 var(--bold); letter-spacing: -.02em; color: #1d2a66; }
+.j-open { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 22px; border-radius: 999px; background: #ffd65a; border: 2px solid #14111c; box-shadow: 3px 3px 0 #14111c; font: 600 .95rem/1 var(--sans); color: #14111c; transition: transform .2s ease; }
+.j-lid:hover .j-open { transform: translate(-1px, -1px); }
+.j-lid:focus-visible { outline: none; }
+.j-lid:focus-visible .j-open { outline: 3px solid #fffcf3; outline-offset: 3px; }
+
+.journal.is-closed .j-lid, .journal.is-opening .j-lid { display: block; }
+@media (min-width: 861px) {
+  .journal.is-closed .j-stage { transform: translateX(-25%); }
+  .journal.is-closed .book-cover, .journal.is-opening .book-cover { clip-path: inset(-40px -40px -60px 50%); }
+  .journal.is-opening .j-lid { animation: j-open 1.4s linear both; }
+  .journal.is-closing .j-lid { animation: j-open 1.3s linear reverse both; }
+}
+.journal.is-opening .j-band { transform: translateX(70px); opacity: 0; transition: transform .22s ease-in, opacity .22s ease-in; }
+.journal.is-closed .j-lid:hover { transform: perspective(2000px) rotateY(-5deg); transition: transform .3s ease; }
+.journal.is-closed .j-flip { visibility: hidden; }
+
+/* Arrows under the book: the same round buttons as the art gallery */
+.j-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 20px; }
+.j-count { min-width: 64px; text-align: center; font: 600 .9rem/1 var(--sans); letter-spacing: .04em; color: #6b6676; }
+.journal.is-closed .j-nav, .journal.is-opening .j-nav { visibility: hidden; }
+
+/* The end of the book */
+.j-end .page.right { display: grid; place-items: center; }
+.j-endnote { margin: 0; font: 700 clamp(1.3rem, 2.4vw, 1.7rem)/1.2 var(--bold); letter-spacing: -.01em; color: #1d2a66; }
+
+/* A folded corner: tap to turn to the next story */
+.j-flip { position: absolute; right: 0; bottom: 0; z-index: 8; display: flex; align-items: flex-end; gap: 6px; min-height: 44px; padding: 0 0 0 14px; border: 0; background: none; cursor: pointer; color: #4a4558; font: 600 .8rem/1 var(--sans); }
+.j-flip-t { padding-bottom: 12px; }
+.j-flip i { position: relative; display: block; width: 40px; height: 40px; background: var(--cover); clip-path: polygon(100% 0, 100% 100%, 0 100%); transition: width .25s cubic-bezier(.3, 1.4, .5, 1), height .25s cubic-bezier(.3, 1.4, .5, 1); }
+.j-flip::after { content: ""; position: absolute; right: 0; bottom: 0; width: 40px; height: 40px; background: linear-gradient(135deg, #fffdf7 40%, #dcd3c0); clip-path: polygon(0 0, 100% 0, 0 100%); box-shadow: -2px -2px 4px rgba(40, 30, 20, .2); transition: width .25s cubic-bezier(.3, 1.4, .5, 1), height .25s cubic-bezier(.3, 1.4, .5, 1); }
+.j-flip:hover i, .j-flip:hover::after, .j-flip:focus-visible i, .j-flip:focus-visible::after { width: 56px; height: 56px; }
+.j-flip:hover { color: #1d2a66; }
+.j-flip:focus-visible { outline: 3px solid #c2410c; outline-offset: -3px; border-radius: 8px; }
+.book.turn-next .j-flip, .book.turn-prev .j-flip, .book.turn-mob .j-flip, .book.turn-mob-back .j-flip { opacity: 0; transition: opacity .12s ease; }
+
+@media (max-width: 860px) {
+  .j-stage { width: 100%; }
+  /* one column: the cover covers the whole notebook and swings away on its left edge */
+  .j-lid { left: 0; width: 100%; }
+  .j-front { padding: 24px 40px; }
+  .journal.is-opening .j-lid { animation: j-open-phone 1.1s linear both; }
+  .journal.is-closing .j-lid { animation: j-open-phone 1s linear reverse both; }
+}
+@media (prefers-reduced-motion: reduce) { .journal .j-lid, .j-spread::after, .journal .j-band { animation: none !important; } .j-stage, .j-lid, .j-flip i, .j-flip::after { transition: none !important; } }
+
+/* The cover moves like a real one: a slow lift while the elastic slips off, then it falls open under its own weight and settles */
+@keyframes j-open {
+  0% { transform: perspective(2000px) rotateY(0deg); animation-timing-function: cubic-bezier(.4, 0, .8, .6); }
+  14% { transform: perspective(2000px) rotateY(-5deg); animation-timing-function: cubic-bezier(.3, .1, .6, .9); }
+  60% { transform: perspective(2000px) rotateY(-104deg); animation-timing-function: cubic-bezier(.5, 0, .95, .7); }
+  90% { transform: perspective(2000px) rotateY(-180deg); animation-timing-function: ease-out; }
+  95% { transform: perspective(2000px) rotateY(-176deg); animation-timing-function: ease-in; }
+  100% { transform: perspective(2000px) rotateY(-180deg); }
+}
+/* phones: hinged on the left edge, the cover swings towards you until it's edge-on and simply gone */
+@keyframes j-open-phone {
+  0% { transform: perspective(1500px) rotateY(0deg); animation-timing-function: cubic-bezier(.4, 0, .8, .6); }
+  16% { transform: perspective(1500px) rotateY(-6deg); animation-timing-function: cubic-bezier(.4, .1, .9, .7); }
+  100% { transform: perspective(1500px) rotateY(-90deg); }
+}
+/* the cover's shadow lifts off the page as it opens */
+.j-spread::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; right: 0; z-index: 19; pointer-events: none; opacity: 0; background: linear-gradient(90deg, rgba(20, 17, 28, .4), rgba(20, 17, 28, .08) 75%); }
+.journal.is-opening .j-spread::after { animation: j-cast 1.4s ease-out both; }
+.journal.is-closing .j-spread::after { animation: j-cast 1.3s ease-in reverse both; }
+@keyframes j-cast { 0% { opacity: 1; } 55% { opacity: .5; } 100% { opacity: 0; } }
+.journal.is-closing .j-band { animation: j-band-on .24s ease-out 1.08s both; }
+@keyframes j-band-on { from { transform: translateX(70px); opacity: 0; } }
+
+/* phones: words only, no drawings */
+@media (max-width: 860px) {
+  .journal .entry .page.right { display: none !important; }
+  .j-spread::after { left: 0; }
+  .journal .book { grid-template-rows: minmax(0, 1fr); min-height: 330px; }
+  .journal .entry .page.left { justify-content: center !important; padding-bottom: 40px; }
+  .journal .entry .page.left .num { white-space: normal; width: fit-content; font-size: .66rem; }
+}

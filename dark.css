@@ -2222,8 +2222,12 @@ html[data-theme="dark"] .hero3 { background: #222; }
 html[data-theme="dark"] .mat { background-color: #234f38; }
 html[data-theme="dark"] .c-circle { background-color: #1f2f29; }
 
-/* Project page tops: only a soft glow of the project's colour, melting into the page with no visible band */
-html[data-theme="dark"] .proj-hero { background: radial-gradient(75% 90% at 82% -15%, color-mix(in srgb, var(--proj) 30%, transparent), transparent 72%), #1a1a1a !important; }
+/* Project page tops: the same wash as light mode, from the top down, in a deep calm version of the project's own colour.
+   Mixing pastels with grey goes muddy, so these keep the hue and set their own depth, with a cap so no project gets loud. */
+html[data-theme="dark"] .proj-hero { background: radial-gradient(90% 120% at 100% 0%, oklch(from var(--proj) .39 min(calc(c * .9 + .03), .09) h / .45) 0%, transparent 60%), linear-gradient(180deg, oklch(from var(--proj) .3 min(calc(c * .8 + .025), .08) h) 0%, oklch(from var(--proj) .235 min(calc(c * .4 + .012), .036) h) 55%, #1a1a1a 100%) !important; }
+/* The "next project" card uses the same deep colour */
+html[data-theme="dark"] .cs-next .cs-next-card { background: linear-gradient(120deg, oklch(from var(--nc) .33 min(calc(c * .8 + .03), .085) h), oklch(from var(--nc) .25 min(calc(c * .4 + .012), .036) h)) !important; color: #f5f5f5 !important; }
+html[data-theme="dark"] .cs-next .cs-next-card * { color: #f5f5f5 !important; }
 
 /* Things on the page keep their real colours, just a touch dimmer, like objects in a darker room */
 html[data-theme="dark"] .journal, html[data-theme="dark"] .pol, html[data-theme="dark"] .det-card, html[data-theme="dark"] .me-written,

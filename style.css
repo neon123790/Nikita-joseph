@@ -3422,15 +3422,29 @@ mark.hl.on { background-size: 100% 78%; }
   .ch-art--photo .ch-polaroid { order: 5; flex: 0 0 100%; max-width: 380px; margin-top: 10px; transform: rotate(1.5deg); }
 }
 
-/* career hero photo: just the print, taped on at both top corners */
-.ch-polaroid { position: relative; padding: 10px; transform: rotate(1.5deg); }
-.ch-tape { position: absolute; z-index: 2; top: -12px; width: 96px; height: 28px; background: rgba(255, 226, 140, .72);
-  box-shadow: 0 1px 2px rgba(20, 17, 28, .12); backdrop-filter: blur(1px);
-  -webkit-mask: linear-gradient(90deg, transparent 0 3px, #000 3px calc(100% - 3px), transparent calc(100% - 3px));
-  clip-path: polygon(0 8%, 6% 0, 12% 10%, 20% 0, 30% 8%, 100% 0, 100% 92%, 94% 100%, 86% 90%, 78% 100%, 70% 92%, 0 100%); }
-.ch-tape.t1 { left: -26px; transform: rotate(-38deg); top: 4px; }
-.ch-tape.t2 { right: -26px; transform: rotate(38deg); top: 4px; background: rgba(190, 230, 210, .75); }
-@media (max-width: 860px) { .ch-art--photo .ch-polaroid { margin-top: 18px; } .ch-tape { width: 80px; height: 24px; } .ch-tape.t1 { left: -18px; } .ch-tape.t2 { right: -18px; } }
+/* career hero photo: a print lying flat on the page, held down by four strips of masking tape.
+   It lands first, then each strip is pulled across its corner. */
+.ch-polaroid { position: relative; padding: 10px; border-radius: 2px; transform: rotate(1.5deg);
+  box-shadow: 0 1px 2px rgba(20, 17, 28, .2), 0 4px 10px -4px rgba(20, 17, 28, .22);
+  animation: ch-paste .5s cubic-bezier(.2, .8, .3, 1) both; }
+.ch-tape { position: absolute; z-index: 2; width: 112px; height: 32px; filter: drop-shadow(0 1px 1px rgba(20, 17, 28, .28));
+  animation: ch-tape-on .26s ease-out var(--d, .5s) both; }
+.ch-tape::before { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 45%, rgba(120, 90, 20, .08)), rgba(244, 217, 140, .86);
+  clip-path: polygon(3% 0, 97% 0, 100% 10%, 97% 20%, 100% 30%, 97% 40%, 100% 50%, 97% 60%, 100% 70%, 97% 80%, 100% 90%, 97% 100%, 3% 100%, 0 90%, 3% 80%, 0 70%, 3% 60%, 0 50%, 3% 40%, 0 30%, 3% 20%, 0 10%); }
+.ch-tape.t1 { left: -46px; top: -10px; transform: rotate(-44deg); --d: .5s; }
+.ch-tape.t2 { right: -46px; top: -8px; transform: rotate(46deg); --d: .72s; }
+.ch-tape.t3 { left: -46px; bottom: -8px; transform: rotate(42deg); --d: .94s; }
+.ch-tape.t4 { right: -46px; bottom: -10px; transform: rotate(-47deg); --d: 1.16s; }
+@keyframes ch-paste { from { opacity: 0; transform: translateY(-18px) rotate(-1.5deg) scale(1.05); box-shadow: 0 30px 44px -18px rgba(20, 17, 28, .4); } }
+@keyframes ch-tape-on { from { clip-path: inset(-6px 100% -6px -6px); } to { clip-path: inset(-6px -6px -6px -6px); } }
+@media (max-width: 860px) {
+  .ch-art--photo .ch-polaroid { margin-top: 18px; max-width: min(82vw, 380px); } /* leaves room for the tape at the screen edges */
+  .ch-tape { width: 84px; height: 26px; }
+  .ch-tape.t1, .ch-tape.t3 { left: -32px; }
+  .ch-tape.t2, .ch-tape.t4 { right: -32px; }
+}
+@media (prefers-reduced-motion: reduce) { .ch-polaroid, .ch-tape { animation: none; } }
 
 /* ---------- More about me: the note, then the pinned photos in rows ---------- */
 .board3 { display: grid; gap: clamp(26px, 3vw, 40px); }

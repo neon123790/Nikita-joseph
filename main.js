@@ -258,6 +258,16 @@
       // it touches down on the heart and fades away, so the heart is what you see at the end
       plane.style.opacity = (1 - Math.min(1, Math.max(0, (current - (N - 1.3)) / 0.3))).toFixed(2);
       reveal.setAttribute('stroke-dasharray', `${L.toFixed(1)} ${total * 2}`);
+      // the camera flies with the plane, zoomed in and looking a little ahead, then pulls back on landing to show the whole route
+      if (!reduceMotion) {
+        const W = 600, H = 560, ZOOM = 1.9;
+        const look = trail.getPointAtLength(Math.min(L + 36, total));
+        const land = Math.min(1, Math.max(0, (current - (N - 1.6)) / 0.6)), out = land * land * (3 - 2 * land);
+        const z = ZOOM + (1 - ZOOM) * out, vw = W / z, vh = H / z;
+        const cx = look.x + (W / 2 - look.x) * out, cy = look.y - vh * 0.08 * (1 - out) + (H / 2 - look.y) * out;
+        const vx = Math.min(W - vw, Math.max(0, cx - vw / 2)), vy = Math.min(H - vh, Math.max(0, cy - vh / 2));
+        mapSvg.setAttribute('viewBox', `${vx.toFixed(1)} ${vy.toFixed(1)} ${vw.toFixed(1)} ${vh.toFixed(1)}`);
+      }
       const active = Math.min(N - 1, Math.round(current));
       card.classList.toggle('complete', current > N - 1.05);
       if (active !== lastActive) {
@@ -622,7 +632,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
       if (c + cols < N && !down[c]) go(c + cols);
       if (c - cols >= 0 && !down[c - cols]) go(c - cols);
     }
-    if (prev[e] === -1) return; // no route this time: keep the last maze rather than loop forever
+    if (!(prev[e] >= 0)) return; // no route (or no room to draw one yet): keep the last maze rather than loop forever
     const pts = []; for (let c = e; ; c = prev[c]) { pts.push(c); if (c === s) break; }
     pts.reverse();
     const cx = (c) => ox + (c % cols) * cell + cell / 2, cy = (c) => oy + ((c / cols) | 0) * cell + cell / 2;

@@ -6964,3 +6964,8 @@ html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: backg
   body { padding-bottom: 84px; }
   .sec-fab { bottom: calc(76px + env(safe-area-inset-bottom)) !important; }
 }
+@media (max-width: 360px) { .nav-dock a { padding: 0 8px; font-size: .8rem; } }
+
+/* Contact: the address written out, for people who want to copy it or use another mail app */
+.contact3 .contact-copy > p.contact-email { margin: 16px 0 0; font-size: .95rem !important; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }
+.contact-email a { display: inline-block; word-break: normal; color: var(--stk-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }

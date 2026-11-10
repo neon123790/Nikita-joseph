@@ -622,6 +622,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
       if (c + cols < N && !down[c]) go(c + cols);
       if (c - cols >= 0 && !down[c - cols]) go(c - cols);
     }
+    if (prev[e] === -1) return; // no route this time: keep the last maze rather than loop forever
     const pts = []; for (let c = e; ; c = prev[c]) { pts.push(c); if (c === s) break; }
     pts.reverse();
     const cx = (c) => ox + (c % cols) * cell + cell / 2, cy = (c) => oy + ((c / cols) | 0) * cell + cell / 2;

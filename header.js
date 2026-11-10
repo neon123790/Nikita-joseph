@@ -18,37 +18,31 @@
   header.addEventListener('focusin', () => { header.classList.remove('hdr-hide'); document.documentElement.classList.remove('hdr-hidden'); });
 })();
 
-/* On phones the nav links fold into a hamburger menu. The button is added here so every page gets it,
-   and without JavaScript the links simply stay visible. */
+/* On phones the links float in a dock at the bottom of the screen, with Resume as the one highlighted action. */
+(() => {
+  const links = document.querySelector('.site-header .nav-links');
+  if (!links || document.querySelector('.nav-dock')) return;
+  const dock = document.createElement('nav');
+  dock.className = 'nav-dock';
+  dock.setAttribute('aria-label', 'Quick navigation');
+  links.querySelectorAll('a').forEach((a) => dock.appendChild(a.cloneNode(true)));
+  const resume = document.createElement('a');
+  resume.className = 'nav-cta';
+  resume.href = 'https://drive.google.com/file/d/1uXCm8E5I2xzbWDlHEQcuiTX9KQvNNh7n/view?usp=sharing';
+  resume.target = '_blank';
+  resume.rel = 'noopener';
+  resume.innerHTML = 'Resume <span aria-hidden="true">↗</span><span class="sr-only"> (opens Google Drive in a new tab)</span>';
+  dock.appendChild(resume);
+  document.body.appendChild(dock);
+})();
+
+/* The header turns frosted once the page has moved under it */
 (() => {
   const header = document.querySelector('.site-header');
-  const links = header && header.querySelector('.nav-links');
-  const right = header && header.querySelector('.nav-right');
-  if (!links || !right) return;
-  links.id = links.id || 'site-menu';
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'nav-burger';
-  btn.setAttribute('aria-controls', links.id);
-  btn.setAttribute('aria-expanded', 'false');
-  btn.setAttribute('aria-label', 'Open menu');
-  btn.innerHTML = '<span></span><span></span><span></span>';
-  right.appendChild(btn);
-  header.classList.add('has-burger');
-  requestAnimationFrame(() => requestAnimationFrame(() => header.classList.add('burger-ready')));
-
-  const set = (open) => {
-    header.classList.toggle('menu-open', open);
-    btn.setAttribute('aria-expanded', String(open));
-    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  };
-  btn.addEventListener('click', () => set(!header.classList.contains('menu-open')));
-  links.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && header.classList.contains('menu-open')) { set(false); btn.focus(); }
-  });
-  document.addEventListener('click', (e) => { if (!header.contains(e.target)) set(false); });
-  window.matchMedia('(max-width: 760px)').addEventListener('change', () => set(false));
+  if (!header) return;
+  const update = () => header.classList.toggle('is-stuck', window.scrollY > 8);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
 })();
 
 /* Highlighter marks draw themselves in when they scroll into view */
@@ -65,10 +59,10 @@
 /* Show where you are in the header: Career on the career page, Work on project pages,
    and on the home page whichever of Work / Contact you're scrolled to. */
 (() => {
-  const links = [...document.querySelectorAll('.nav-links a')];
+  const links = [...document.querySelectorAll('.nav-links a, .nav-dock a')];
   if (!links.length) return;
   const byText = (t) => links.find((a) => a.textContent.trim() === t);
-  const mark = (a) => links.forEach((l) => (l === a ? l.setAttribute('aria-current', 'page') : l.removeAttribute('aria-current')));
+  const mark = (a) => links.forEach((l) => (a && l.textContent.trim() === a.textContent.trim() ? l.setAttribute('aria-current', 'page') : l.removeAttribute('aria-current')));
   if (/\/work\//.test(location.pathname)) { mark(byText('Work')); return; }
   if (links.some((l) => l.getAttribute('aria-current') === 'page')) return; // set in the page already (Career)
   const sections = [['work', byText('Work')], ['contact', byText('Contact')]]

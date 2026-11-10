@@ -142,44 +142,19 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; let
 
 
 /* the record player: a little vinyl disc that spins while music plays */
-.music-toggle {
-  position: relative;
-  width: 42px; height: 42px;
-  display: grid; place-items: center;
-  padding: 0; border: 0; border-radius: 50%;
-  background: none; cursor: pointer;
-  transition: transform .3s var(--ease);
-}
-.music-toggle:hover { transform: scale(1.06); }
-.music-toggle .disc {
-  position: relative;
-  width: 38px; height: 38px; border-radius: 50%;
-  display: grid; place-items: center;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, .22), transparent 40%, transparent 60%, rgba(255, 255, 255, .12)),
-    repeating-radial-gradient(circle, #1b1820 0 1.6px, #2a2630 1.6px 2.6px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .25), inset 0 0 0 1px rgba(255, 255, 255, .06);
-  animation: spin 2.4s linear infinite;
-  animation-play-state: paused;
-}
-.music-toggle .disc-label {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: conic-gradient(var(--p-magenta), var(--p-orange), var(--p-mustard), var(--p-lime), var(--p-cobalt), var(--p-magenta));
-  display: grid; place-items: center;
-}
-.music-toggle .disc-label::after { content: ""; width: 3px; height: 3px; border-radius: 50%; background: var(--bg); }
-.music-toggle.is-playing .disc { animation-play-state: running; }
+
+
+
+
+
+
 @keyframes spin { to { transform: rotate(360deg); } }
 /* little notes drift up while it plays */
-.music-toggle::before, .music-toggle::after {
-  content: "\266A"; position: absolute; top: -4px; font-size: 13px; color: var(--muted);
-  opacity: 0; pointer-events: none;
-}
-.music-toggle::before { left: -6px; }
-.music-toggle::after { right: -8px; content: "\266B"; }
-.music-toggle.is-playing::before { animation: note-up 2.6s ease-out infinite; }
-.music-toggle.is-playing::after { animation: note-up 2.6s ease-out 1.3s infinite; }
-@keyframes note-up { 0% { opacity: 0; transform: translateY(6px); } 25% { opacity: .9; } 100% { opacity: 0; transform: translateY(-14px); } }
+
+
+
+
+
 
 /* ---------- Shared ---------- */
 .label { display: inline-block; font-size: .76rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
@@ -1208,30 +1183,29 @@ h1, h2, h3 { font-family: var(--bold); font-weight: 800; letter-spacing: -.025em
 .hero2-sub { max-width: 34em; margin: clamp(22px, 3vw, 32px) auto 0; font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.6; color: rgba(246, 243, 238, .78); }
 
 /* ---------- the record player: needle only comes in when it plays ---------- */
-.music-toggle { position: relative; width: 62px; height: 46px; padding: 0; border: 0; background: none; cursor: pointer; }
-.turntable { display: block; width: 100%; height: 100%; overflow: visible; }
-.tt-base { fill: var(--v-yellow); stroke: #14111c; stroke-width: 2.2; }
-.tt-knob { fill: var(--v-orange); stroke: #14111c; stroke-width: 1.8; }
-.tt-vinyl { fill: #121016; stroke: #14111c; stroke-width: 2; }
-.tt-groove { fill: none; stroke: #2e2a35; stroke-width: .8; }
-.tt-label { fill: #1e1b22; stroke: #3a3540; stroke-width: .8; }
-.tt-hole { fill: var(--v-yellow); }
-.tt-shine { fill: none; stroke: rgba(255, 255, 255, .35); stroke-width: 1.6; stroke-linecap: round; }
-.tt-disc { transform-box: view-box; transform-origin: 28px 27px; animation: spin 1.8s linear infinite; animation-play-state: paused; }
-.tt-pivot { fill: #e9e4dc; stroke: #14111c; stroke-width: 1.8; }
-.tt-rod { fill: none; stroke: #14111c; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.tt-head { fill: #e9e4dc; stroke: #14111c; stroke-width: 1.4; }
-.tt-arm { transform-box: view-box; transform-origin: 60px 12px; transform: rotate(-32deg); transition: transform .7s cubic-bezier(.4, 0, .2, 1); }
-.music-toggle.is-playing .tt-arm { transform: rotate(0deg); }
-.music-toggle.is-playing .tt-disc { animation-play-state: running; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes spin { to { transform: rotate(360deg); } }
-.music-toggle::before, .music-toggle::after { content: none !important; }
-.tt-note { position: absolute; top: 0; font-size: 14px; color: var(--accent); opacity: 0; pointer-events: none; }
-.tt-note.n1 { left: 4px; } .tt-note.n2 { left: 22px; color: var(--v-pink); } .tt-note.n3 { right: 2px; color: var(--v-blue); }
-.music-toggle.is-playing .tt-note { animation: note-away 2.4s ease-out infinite; }
-.music-toggle.is-playing .tt-note.n2 { animation-delay: .8s; }
-.music-toggle.is-playing .tt-note.n3 { animation-delay: 1.6s; }
-@keyframes note-away { 0% { opacity: 0; transform: translate(0, 4px) scale(.8); } 20% { opacity: 1; } 100% { opacity: 0; transform: translate(6px, -22px) scale(1.1) rotate(12deg); } }
+
+
+  
+
+
+
 
 /* ---------- noticeboard: a green cutting mat with pinned notes ---------- */
 .noticeboard2 .wrap { max-width: 1240px; }
@@ -6887,3 +6861,106 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 @media (max-width: 640px) { .kind3::before { background-size: 290px 207px; opacity: .38; } }
 .kind3::before { opacity: .34; }
 @media (max-width: 640px) { .kind3::before { opacity: .28; } }
+
+/* ---------- Mode switch and portrait ----------
+   Colours for dark mode live in dark.css. Here: the header button, the pull, and the crossfade between modes. */
+.theme-toggle { width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: none; cursor: pointer; color: var(--stk-ink); transition: transform .25s ease; }
+.theme-toggle:hover { transform: rotate(-12deg) scale(1.08); }
+.theme-toggle svg { width: 26px; height: 26px; overflow: visible; }
+.theme-toggle .tg-moon, .theme-toggle .tg-sun { transform-box: fill-box; transform-origin: center; transition: transform .7s cubic-bezier(.3, 1.5, .5, 1), opacity .35s ease; }
+.theme-toggle .tg-sun { opacity: 0; transform: translateY(16px) rotate(-90deg); }
+html[data-theme="dark"] .theme-toggle .tg-sun { opacity: 1; transform: none; }
+html[data-theme="dark"] .theme-toggle .tg-moon { opacity: 0; transform: translateY(-16px) rotate(90deg); }
+
+/* The modes melt into each other. Browsers with view transitions crossfade the whole page (gradients and all). */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .85s; animation-timing-function: ease; }
+html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: background-color .85s ease, color .85s ease, border-color .85s ease, fill .85s ease, stroke .85s ease, box-shadow .85s ease !important; }
+/* her arm keeps moving through the crossfade instead of being frozen in it */
+.me-pull { view-transition-name: me-pull; }
+::view-transition-old(me-pull) { display: none; }
+::view-transition-new(me-pull) { animation: none; opacity: 1; }
+
+/* Home hero. She rests chin on hand in both modes. Switching plays like a hand-drawn cartoon: she dips, stretches up as her
+   arm comes out of the sleeve to take the string, pulls, lets go, dips again and settles back. The two drawings swap only
+   at the bottom of a dip, while everything is moving, so the change reads as one movement. One timeline runs all of it. */
+.me-pull { --w: 226px; --d: 2200ms; --tug: calc(var(--w) * .1); --low: calc(var(--w) * .26); --reach: 1200px; position: relative; flex: none; width: var(--w); }
+.me-fig { position: relative; z-index: 4; transform-origin: 50% 100%; }
+.hero3 .me-pull .me-sticker { display: block; width: 100%; margin: 0; }
+.me-pull.is-settled .me-sticker { animation: none; }
+.me-pose { position: absolute; left: -27.8%; top: -23.9%; width: 129.6%; max-width: none; height: auto; opacity: 0; pointer-events: none; }
+.me-arm { z-index: 4; transform-origin: 13.1% 60.8%; }  /* tucked under the sleeve, so it really comes out of it */
+.me-body { z-index: 5; }
+.me-cord-line { --end: 5%; position: absolute; z-index: 3; left: calc(-5.84% - var(--w) * .0268); top: calc(var(--reach) * -1); width: calc(var(--w) * .0565); height: calc(var(--reach) + var(--end)); background: url("images/me-cord.png?v=1") center bottom / 100% auto repeat-y; pointer-events: none; transform-origin: 50% 0; transition: transform .3s ease; }
+.me-cord-line::after { content: ""; position: absolute; left: 50%; top: 100%; width: calc(var(--w) * .0821); height: calc(var(--w) * .1027); margin-left: calc(var(--w) * -.0397); margin-top: -1px; background: url("images/me-cord-tip.png?v=1") center top / 100% auto no-repeat; }
+.me-cord { position: absolute; z-index: 6; left: calc(-5.84% - 22px); top: calc(var(--reach) * -1); width: 44px; height: calc(var(--reach) + 12%); padding: 0; border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.me-cord:focus-visible { outline: 3px solid #c2410c; outline-offset: -3px; border-radius: 22px; }
+.me-cord:hover ~ .me-cord-line { transform: translateY(5px); }
+
+.me-pull.is-pull .me-fig { animation: me-fig var(--d) both; }
+.me-pull.is-pull .me-sticker { animation: me-show-rest var(--d) step-end both; }
+.me-pull.is-pull .me-body { animation: me-show-pull var(--d) step-end both; }
+.me-pull.is-pull .me-arm { animation: me-show-pull var(--d) step-end both, me-arm var(--d) both; }
+.me-pull.is-pull .me-cord-line { animation: me-cord-take var(--d) step-end both, me-cord var(--d) both; }
+@keyframes me-show-rest { 0% { opacity: 1; } 11% { opacity: 0; } 78% { opacity: 1; } }
+@keyframes me-show-pull { 0% { opacity: 0; } 11% { opacity: 1; } 78% { opacity: 0; } }
+@keyframes me-fig {
+  0% { transform: none; animation-timing-function: cubic-bezier(.4, 0, .5, 1); }
+  11% { transform: translateY(calc(var(--w) * .035)) rotate(-1.6deg) scaleY(.975); animation-timing-function: cubic-bezier(.2, .8, .3, 1); }
+  24% { transform: translateY(calc(var(--w) * -.03)) rotate(.7deg) scaleY(1.018); animation-timing-function: ease-in-out; }
+  33%, 38% { transform: none; animation-timing-function: cubic-bezier(.5, 0, .9, .6); }
+  47% { transform: translateY(calc(var(--w) * .028)) scaleY(.985); animation-timing-function: cubic-bezier(.2, 1.2, .4, 1); }
+  58%, 70% { transform: none; animation-timing-function: cubic-bezier(.4, 0, .6, 1); }
+  78% { transform: translateY(calc(var(--w) * .03)) rotate(1.4deg) scaleY(.98); animation-timing-function: cubic-bezier(.2, .8, .3, 1); }
+  88% { transform: translateY(calc(var(--w) * -.018)) rotate(-.4deg) scaleY(1.01); animation-timing-function: ease-in-out; }
+  100% { transform: none; }
+}
+@keyframes me-arm {
+  0%, 11% { transform: translateY(var(--low)) rotate(-9deg); animation-timing-function: cubic-bezier(.2, .9, .3, 1); }
+  26% { transform: translateY(calc(var(--w) * -.02)) rotate(1.5deg); animation-timing-function: ease-in-out; }
+  32%, 38% { transform: none; animation-timing-function: cubic-bezier(.5, 0, .9, .6); }
+  47% { transform: translateY(var(--tug)); animation-timing-function: cubic-bezier(.2, 1, .4, 1); }
+  53% { transform: translateY(calc(var(--tug) * -.12)); animation-timing-function: ease-in-out; }
+  59%, 68% { transform: none; animation-timing-function: cubic-bezier(.5, 0, .8, .5); }
+  78%, 100% { transform: translateY(var(--low)) rotate(-9deg); }
+}
+@keyframes me-cord-take {
+  0% { clip-path: inset(0 -10px calc(var(--w) * -.2) -10px); }
+  30% { clip-path: inset(0 -10px calc(var(--w) * .176) -10px); }  /* the hand has it: the loose end is now in her fist */
+  78% { clip-path: inset(0 -10px calc(var(--w) * -.2) -10px); }
+}
+@keyframes me-cord {
+  0%, 38% { transform: none; rotate: 0deg; animation-timing-function: cubic-bezier(.5, 0, .9, .6); }
+  47% { transform: translateY(var(--tug)); animation-timing-function: cubic-bezier(.2, 1, .4, 1); }
+  53% { transform: translateY(calc(var(--tug) * -.12)); animation-timing-function: ease-in-out; }
+  59%, 78% { transform: none; rotate: 0deg; animation-timing-function: ease-out; }
+  84% { rotate: 1.4deg; animation-timing-function: ease-in-out; }
+  91% { rotate: -.8deg; animation-timing-function: ease-in-out; }
+  100% { transform: none; rotate: 0deg; }
+}
+/* phones: a little air above for the string and her hand, and below so her arm clears the label */
+@media (max-width: 760px) { .me-pull { --w: min(38vw, 150px); margin: 24px 0 8px; } }
+@media (max-width: 760px) and (max-height: 700px) { .me-pull { --w: 100px; } }
+@media (prefers-reduced-motion: reduce) { .me-cord-line, .theme-toggle .tg-moon, .theme-toggle .tg-sun { transition: none; } .me-cord:hover ~ .me-cord-line { transform: none; } }
+
+/* ---------- Navigation ----------
+   Laptop: a clear row of pills in the header, with where you are filled in.
+   Phones: the same links, plus Resume, float in a dock at the bottom, where a thumb reaches them. No hamburger, always one tap away. */
+.site-header.is-stuck { background: color-mix(in srgb, var(--bg) 80%, transparent); -webkit-backdrop-filter: blur(16px) saturate(1.5); backdrop-filter: blur(16px) saturate(1.5); box-shadow: 0 1px 0 rgba(20, 17, 28, .07); }
+.site-header .nav-links { display: flex; align-items: center; gap: 2px; }
+.site-header .nav-links a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; color: #57525f !important; font-weight: 500; transition: background-color .2s ease, color .2s ease; }
+.site-header .nav-links a::after { display: none !important; }
+.site-header .nav-links a:hover { background: rgba(20, 17, 28, .06); color: #1f1b29 !important; }
+.site-header .nav-links a[aria-current="page"] { background: rgba(20, 17, 28, .08); color: #1f1b29 !important; font-weight: 600; }
+.nav-dock { display: none; }
+@media (max-width: 360px) { .theme-toggle { margin-left: -6px; } }
+@media (max-width: 760px) {
+  .site-header .nav { height: 64px; flex-wrap: nowrap; padding-block: 0; }
+  .site-header .nav-links { display: none !important; }
+  .nav-right { display: flex !important; align-items: center; gap: 8px; margin-left: auto; }
+  .nav-dock { position: fixed; z-index: 60; left: 50%; bottom: calc(12px + env(safe-area-inset-bottom)); transform: translateX(-50%); display: flex; align-items: center; gap: 2px; padding: 5px; border-radius: 999px; background: color-mix(in srgb, var(--surface, #fff) 84%, transparent); -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); box-shadow: 0 0 0 1px rgba(20, 17, 28, .08), 0 12px 28px -10px rgba(20, 17, 28, .4); }
+  .nav-dock a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 clamp(10px, 3.6vw, 16px); border-radius: 999px; font: 600 .88rem/1 var(--sans); color: #57525f; white-space: nowrap; text-decoration: none; }
+  .nav-dock a[aria-current="page"] { background: rgba(20, 17, 28, .08); color: #1f1b29; }
+  .nav-dock .nav-cta { background: #ffd65a; color: #14111c; }
+  body { padding-bottom: 84px; }
+  .sec-fab { bottom: calc(76px + env(safe-area-inset-bottom)) !important; }
+}

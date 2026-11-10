@@ -2304,3 +2304,4 @@ html[data-theme="dark"] .pl-fold { stroke: #17203c; }
 html[data-theme="dark"] .pl-leg { filter: brightness(2.1) saturate(1.1); }
 html[data-theme="dark"] .pl-label { fill: #f5f5f5; stroke: #1f2740; }
 html[data-theme="dark"] .pl-ahead { stroke: rgba(255, 255, 255, .55); }
+html[data-theme="dark"] .pl-glow { stroke: #f4e3b8; opacity: .2; }

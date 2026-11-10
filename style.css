@@ -7065,3 +7065,15 @@ html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: backg
   .journal .entry .page.left { justify-content: center !important; padding-bottom: 40px; }
   .journal .entry .page.left .num { white-space: normal; width: fit-content; font-size: .66rem; }
 }
+
+/* The Rehearsal drawing: the heading stays on two lines, with room around the chart */
+@media (min-width: 861px) { .sk-h.sk-h-split { font-size: clamp(1.05rem, 1.65vw, 1.5rem); white-space: nowrap; } }
+
+/* phones: the footer is one line, with the links at the far right */
+@media (max-width: 560px) {
+  .site-footer .wrap { flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: 8px; }
+  .site-footer .wrap > span { white-space: nowrap; }
+  .foot-links { margin-left: auto; }
+  .foot-links a { min-height: 44px; }
+}
+@media (max-width: 360px) { .foot-links { gap: 12px; } }

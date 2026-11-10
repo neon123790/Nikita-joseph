@@ -57,7 +57,7 @@
 })();
 
 /* Show where you are in the header: Career on the career page, Work on project pages,
-   and on the home page whichever of Work / Get in touch you're scrolled to. */
+   and on the home page whichever of Work / Contact you're scrolled to. */
 (() => {
   const links = [...document.querySelectorAll('.nav-links a, .nav-dock a')];
   if (!links.length) return;
@@ -65,13 +65,13 @@
   const mark = (a) => links.forEach((l) => (a && l.textContent.trim() === a.textContent.trim() ? l.setAttribute('aria-current', 'page') : l.removeAttribute('aria-current')));
   if (/\/work\//.test(location.pathname)) { mark(byText('Work')); return; }
   if (links.some((l) => l.getAttribute('aria-current') === 'page')) return; // set in the page already (Career)
-  const sections = [['work', byText('Work')], ['contact', byText('Get in touch')]]
+  const sections = [['work', byText('Work')], ['contact', byText('Contact')]]
     .map(([id, a]) => [document.getElementById(id), a]).filter(([s, a]) => s && a);
   if (!sections.length || !('IntersectionObserver' in window)) return;
   const visible = new Map();
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => visible.set(e.target, e.isIntersecting));
-    // the lowest section on screen wins, so Get in touch takes over once you reach it
+    // the lowest section on screen wins, so Contact takes over once you reach it
     const on = sections.filter(([s]) => visible.get(s)).pop();
     mark(on ? on[1] : null);
   }, { rootMargin: '-35% 0px -45% 0px' });

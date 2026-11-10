@@ -1,5 +1,5 @@
 /* Dark mode colours. GENERATED from style.css by build-dark.py: change the script or dark-hand.css, not this file. */
-@scope (html[data-theme="dark"]) to (.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault) {
+@scope (html[data-theme="dark"]) to (.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault, .sx-rocket, .gv-cursor, .cp-hero-art) {
 :scope { --bg: #1c1b19; --paper: #1b1b1b; --surface: #2b2b2b; --board: #1f1d1a; --line: #22201d; --line-strong: #292622; --text: #ebebeb; --ink: #e1e1e1; --muted: #c8c8c8; --outline: #2b2b2b; --ink-stroke: #ebebeb; --route: #3a6fd8; --route-planned: #25282c; --map-land: #1f1d1a; --map-street: #1b1b19; --map-water: #1f2226; --map-park: #1f221a; --accent: #b5573d; --road: #25231f; --road-line: #1b1b1b; }
 body { background-image: none; background-color: var(--bg); color: var(--text); }
 body::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .33 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
@@ -2228,7 +2228,7 @@ body:has(.proj-hero) .site-header:not(.scrolled) { background-image: none !impor
 }
 
 /* objects keep light-mode colours */
-:where(html[data-theme="dark"]) :where(.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault) { --bg: #f7f5f0; --paper: #ffffff; --surface: #ffffff; --board: #efe6d6; --line: #e7e3da; --line-strong: #d3cdc0; --text: #121318; --ink: #26282f; --muted: #6c6e76; --outline: #1d1a2a; --ink-stroke: #26221f; --route: #2f6bff; --route-planned: #9aa6bd; --map-land: #f1efe8; --map-street: #fbf7ef; --map-water: #c8d8ea; --map-park: #d5e2bd; --accent: #ff5a1f; --road: #d9cfbf; --road-line: #fbf8f2; --v-orange: #ff6a2b; --v-yellow: #ffc21a; --v-green: #1fb36b; --v-cyan: #1cb8d6; --v-blue: #3a5cff; --v-pink: #ff3f8e; --stk-ink: #14111c; --mint: #d9f2e4; --head: #4a4558; --hl: #ffe27a; }
+:where(html[data-theme="dark"]) :where(.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault, .sx-rocket, .gv-cursor, .cp-hero-art) { --bg: #f7f5f0; --paper: #ffffff; --surface: #ffffff; --board: #efe6d6; --line: #e7e3da; --line-strong: #d3cdc0; --text: #121318; --ink: #26282f; --muted: #6c6e76; --outline: #1d1a2a; --ink-stroke: #26221f; --route: #2f6bff; --route-planned: #9aa6bd; --map-land: #f1efe8; --map-street: #fbf7ef; --map-water: #c8d8ea; --map-park: #d5e2bd; --accent: #ff5a1f; --road: #d9cfbf; --road-line: #fbf8f2; --v-orange: #ff6a2b; --v-yellow: #ffc21a; --v-green: #1fb36b; --v-cyan: #1cb8d6; --v-blue: #3a5cff; --v-pink: #ff3f8e; --stk-ink: #14111c; --mint: #d9f2e4; --head: #4a4558; --hl: #ffe27a; }
 
 /* ---- hand-made fixes ---- */
 /* Big surfaces: quiet neutral greys, one step up from the page */
@@ -2272,9 +2272,9 @@ html[data-theme="dark"] .nav-dock a.nav-cta { background: #ffd86b; color: #1a1a1
 html[data-theme="dark"] .drive-art [stroke="#14111c"] { stroke: #bebebe; }
 html[data-theme="dark"] .sec-fab { background: #2a2a2a; color: #f5f5f5; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14), 0 10px 24px -10px rgba(0, 0, 0, .8); }
 
-/* Awards: plain neutral cards with a hairline edge; the badges keep their own colours and ink */
-html[data-theme="dark"] .awards3 .aw-card, html[data-theme="dark"] .awards3 .aw-card:hover { background: #222 !important; border-color: rgba(240, 240, 240, .1) !important; box-shadow: none !important; }
-html[data-theme="dark"] .awards3 .aw-card:nth-child(2) .aw-certshot { background: #2a2a2a !important; box-shadow: none !important; }
+/* Awards: the light-mode colour wash in a deep calm version, with a hairline edge; the badges keep their own colours and ink */
+html[data-theme="dark"] .awards3 .aw-card, html[data-theme="dark"] .awards3 .aw-card:hover { background: radial-gradient(115% 130% at 100% 0%, oklch(from var(--aw) .45 min(calc(c * .7 + .045), .105) h / .6) 0%, transparent 64%), linear-gradient(180deg, oklch(from var(--aw) .27 min(calc(c * .4 + .02), .045) h), #1e1e1e 80%) !important; border-color: color-mix(in srgb, var(--aw) 30%, transparent) !important; box-shadow: none !important; }
+html[data-theme="dark"] .awards3 .aw-card:nth-child(2) .aw-certshot { background: radial-gradient(72% 72% at 50% 46%, oklch(from var(--aw) .4 min(calc(c * .6 + .04), .085) h / .7), transparent 78%), #191919 !important; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--aw) 22%, transparent) !important; }
 html[data-theme="dark"] .aw-tag { border-color: rgba(240, 240, 240, .16) !important; }
 
 /* Newspaper cut-outs stay newspaper: darker newsprint, torn edges, serif type, never plain black */
@@ -2286,3 +2286,21 @@ html[data-theme="dark"] .clip p:last-child, html[data-theme="dark"] .nda-content
 html[data-theme="dark"] .np-mast, html[data-theme="dark"] .np-bigline, html[data-theme="dark"] .np-foot { border-color: #6a6253 !important; }
 html[data-theme="dark"] .np-cols { column-rule-color: #575044; }
 html[data-theme="dark"] .np-bars i { background: #cfc6b4; }
+
+/* Things that only worked on a light page */
+html[data-theme="dark"] .edu-seal { mix-blend-mode: normal; opacity: 1; }
+/* pencil doodles beside case study headings are drawn in dark ink, so they flip to light ink and keep their colour */
+html[data-theme="dark"] .gn #overview .cs-title::after, html[data-theme="dark"] .gn #problem .cs-title::after, html[data-theme="dark"] .gn #empathy .cs-title::after, html[data-theme="dark"] .gn #wireframes .cs-title::after,
+html[data-theme="dark"] .nda-content #cp-context .cs-title::after, html[data-theme="dark"] .nda-content #cp-users .cs-title::after, html[data-theme="dark"] .nda-content #cp-explore .cs-title::after, html[data-theme="dark"] .nda-content #cp-findings .cs-title::after, html[data-theme="dark"] .nda-content #cp-reflect .cs-title::after { filter: invert(1) hue-rotate(180deg); }
+
+/* The flight at night: deep sky, soft clouds, a bright plane and a route that glows */
+html[data-theme="dark"] #pl-sky stop:first-child { stop-color: #17203c; }
+html[data-theme="dark"] #pl-sky stop:last-child { stop-color: #2a2c3f; }
+html[data-theme="dark"] .pl-clouds path { fill: rgba(255, 255, 255, .13); stroke: none; }
+html[data-theme="dark"] .pl-birds { stroke: #9aa3bb; }
+html[data-theme="dark"] .pl-wing { fill: #fffdf7; stroke: #17203c; }
+html[data-theme="dark"] .pl-wing-b { fill: #c9cfdf; stroke: #17203c; }
+html[data-theme="dark"] .pl-fold { stroke: #17203c; }
+html[data-theme="dark"] .pl-leg { filter: brightness(2.1) saturate(1.1); }
+html[data-theme="dark"] .pl-label { fill: #f5f5f5; stroke: #1f2740; }
+html[data-theme="dark"] .pl-ahead { stroke: rgba(255, 255, 255, .55); }

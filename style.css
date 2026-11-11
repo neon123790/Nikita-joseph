@@ -7340,7 +7340,7 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #c4ece6; }
 .contact3 .contact-copy > p.label { margin: 0 0 10px !important; }
 .contact3 .contact-copy > p:not(.label) { margin-bottom: 24px; }
 .contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-@media (max-width: 760px) { .contact-actions { justify-content: center; } }
+@media (max-width: 760px) { .contact-actions { justify-content: flex-start; } }
 
 /* Phone menu: same type as the site's headings, a small label on top, arrows instead of numbers */
 @media (max-width: 760px) {

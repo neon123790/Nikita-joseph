@@ -7039,7 +7039,7 @@ html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: backg
 
 /* The cover moves like a real one: a slow lift while the elastic slips off, then it falls open under its own weight and settles */
 @keyframes j-open {
-  0% { transform: perspective(2000px) rotateY(0deg); animation-timing-function: cubic-bezier(.4, 0, .8, .6); }
+  0% { transform: perspective(2000px) rotateY(var(--lift, 0deg)); animation-timing-function: cubic-bezier(.4, 0, .8, .6); }
   14% { transform: perspective(2000px) rotateY(-5deg); animation-timing-function: cubic-bezier(.3, .1, .6, .9); }
   60% { transform: perspective(2000px) rotateY(-104deg); animation-timing-function: cubic-bezier(.5, 0, .95, .7); }
   90% { transform: perspective(2000px) rotateY(-180deg); animation-timing-function: ease-out; }
@@ -7048,7 +7048,7 @@ html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: backg
 }
 /* phones: hinged on the left edge, the cover swings towards you until it's edge-on and simply gone */
 @keyframes j-open-phone {
-  0% { transform: perspective(1500px) rotateY(0deg); animation-timing-function: cubic-bezier(.4, 0, .8, .6); }
+  0% { transform: perspective(1500px) rotateY(var(--lift, 0deg)); animation-timing-function: cubic-bezier(.4, 0, .8, .6); }
   16% { transform: perspective(1500px) rotateY(-6deg); animation-timing-function: cubic-bezier(.4, .1, .9, .7); }
   100% { transform: perspective(1500px) rotateY(-90deg); }
 }

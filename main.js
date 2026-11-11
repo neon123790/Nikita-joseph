@@ -95,6 +95,8 @@
     dressBack();
     const byKeyboard = lid.matches(':focus-visible');
     const instant = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // a mouse click arrives with the cover already tilted by the hover, so the swing starts from there instead of snapping flat
+    journal.style.setProperty('--lift', lid.matches(':hover') ? '-5deg' : '0deg');
     journal.classList.remove('is-closed');
     journal.classList.add('is-opening');
     setTimeout(() => {
@@ -198,6 +200,7 @@
       book.inert = true;
       book._turning = true;
       dressBack();
+      journal.style.setProperty('--lift', '0deg'); // closing lands flat
       journal.classList.remove('is-open');
       journal.classList.add('is-closed', 'is-closing');
       setTimeout(() => {

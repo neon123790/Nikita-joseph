@@ -186,12 +186,19 @@
     const at = () => Math.max(0, ribbons.findIndex((r) => r.getAttribute('aria-selected') === 'true'));
     const label = () => {
       const i = at();
-      count.textContent = i === last ? 'The end' : `${i + 1} / ${last}`;
-      flipText.textContent = i === last ? 'Close the book' : 'Flip this page';
+      count.textContent = i === last ? 'The end' : `Case study ${i + 1} of ${last}`;
+      flipText.textContent = i === last ? 'Close the book' : 'Next case study';
       prev.disabled = i === 0;
       next.disabled = i === last;
     };
     const go = (i) => { if (i >= 0 && i <= last) { ribbons[i].click(); label(); } };
+    // a click anywhere on a story's pages opens it, same as its link (the link stays the keyboard route)
+    book.addEventListener('click', (e) => {
+      if (shut || book._turning || e.target.closest('a, button')) return;
+      const entry = e.target.closest('.entry'); const link = entry?.querySelector('.read-link');
+      if (!link || String(window.getSelection()).trim()) return;
+      if (e.metaKey || e.ctrlKey) window.open(link.href, '_blank'); else link.click();
+    });
     const closeJournal = () => {
       if (shut || book._turning) return;
       const byKeyboard = flip.matches(':focus-visible');

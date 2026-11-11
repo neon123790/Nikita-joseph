@@ -7275,3 +7275,21 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #c4ece6; }
 .rv .quad-photo { background-color: #fbf7ee; }
 .rv .quad-photo img { object-fit: cover; object-position: center top; transform: scale(1.12); transform-origin: 50% 4%; }
 @media (max-width: 700px) { .rv .quad-photo { width: 116px; } }
+/* Homepage critique fixes */
+/* locked work: say what the overview gives you */
+.entry .lock-note { margin: -8px 0 20px; max-width: 27em; padding-left: 12px; border-left: 3px solid var(--stk-ink, #1f1b29); font: 500 .9rem/1.45 var(--sans); color: #4a4558; }
+/* the whole page of a story opens it, not just the link */
+.journal .entry.is-active .page { cursor: pointer; }
+.journal .entry .page.right .print { transition: transform .25s ease; }
+.journal .entry .page:hover ~ .page .print, .journal .entry .page.right:hover .print { transform: rotate(0deg) translateY(-3px); }
+.journal .entry .page:hover .read-link .arrow, .journal .entry .page.left:has(~ .page:hover) .read-link .arrow { transform: translateX(4px); }
+.entry .read-link .arrow { display: inline-block; transition: transform .2s ease; }
+/* Cockpit sketch: figures big enough to read */
+.sk-port .sk-kv { font-size: clamp(.68rem, 2cqw, .8rem) !important; }
+.sk-port .sk-kv b { font-size: clamp(.86rem, 2.5cqw, 1rem) !important; }
+.sk-port .sk-tabs i { font-size: clamp(.66rem, 2cqw, .78rem) !important; }
+.sk-port .sk-tab { font-size: clamp(.66rem, 2cqw, .8rem) !important; }
+.sk-port .sk-bs i { font-size: .68rem !important; width: 20px; height: 18px; }
+/* art strip hint: swipe on touch, arrows with a mouse */
+.art-hint .hint-touch { display: none; }
+@media (hover: none) { .art-hint .hint-touch { display: inline; } .art-hint .hint-mouse { display: none; } }

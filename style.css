@@ -7411,3 +7411,35 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #c4ece6; }
   .pass-f1 { transform: rotate(1.5deg); }
 }
 @media (prefers-reduced-motion: reduce) { .pass { transition: none; } }
+
+/* ===== Featured in the Press: gift card ===== */
+.gift { max-width: 680px; text-align: left; }
+.gift-card { position: relative; margin-top: 34px; padding: clamp(24px, 3vw, 34px) calc(18% + 56px) clamp(22px, 2.6vw, 30px) clamp(22px, 3vw, 34px); border-radius: 22px; border: 2px solid var(--stk-ink); box-shadow: 0 6px 0 var(--stk-ink); color: #3d2703;
+  background:
+    repeating-linear-gradient(115deg, rgba(255,255,255,.07) 0 2px, transparent 2px 9px),
+    linear-gradient(135deg, #ffe58a 0%, #f6c84a 48%, #e8ae32 100%);
+  transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.gift:hover .gift-card { transform: rotate(-1deg) translateY(-4px); }
+.gift-shine { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,.5) 50%, transparent 60%) no-repeat; background-size: 250% 100%; background-position: 130% 0; transition: background-position 1s ease; }
+.gift:hover .gift-shine { background-position: -30% 0; }
+.gift-ribbon { position: absolute; top: 0; bottom: 0; right: 18%; width: 30px; background: #c8457f; border-left: 2px solid var(--stk-ink); border-right: 2px solid var(--stk-ink); }
+.gift-bow { position: absolute; top: -40px; right: calc(18% + 15px - 64px); width: 128px; height: auto; overflow: visible; z-index: 2; }
+.gift-bow path, .gift-bow rect { fill: #e2588f; stroke: var(--stk-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.gift-top { position: relative; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.gift-chip { display: grid; place-items: center; width: 44px; height: 32px; border-radius: 7px; border: 2px solid #8a5a08; background: linear-gradient(135deg, #fff1b8, #e8b236); font-weight: 800; font-size: .85rem; color: #3d2703; }
+.gift-kicker { font-weight: 800; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
+.gift-title { position: relative; margin: 22px 0 0; font-size: clamp(1.4rem, 2.3vw, 1.85rem); line-height: 1.12; font-weight: 800; letter-spacing: -.02em; color: #2a1a02; }
+.gift-sum { position: relative; margin: 8px 0 0; font-size: 1rem; line-height: 1.55; color: #3d2703; max-width: 46ch; }
+.gift-meta { position: relative; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 14px 36px; }
+.gift-meta dt { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #5a3a04; }
+.gift-meta dd { margin: 2px 0 0; font-size: 1rem; font-weight: 700; color: #2a1a02; }
+.gift-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+@media (max-width: 760px) {
+  .gift-card { padding: 24px calc(14% + 46px) 22px 20px; }
+  .gift-ribbon { right: 14%; width: 26px; }
+  .gift-bow { right: calc(14% + 13px - 50px); width: 100px; top: -32px; }
+  .gift-dot { display: none; }
+  .gift-kicker-sub { display: block; margin-top: 3px; }
+  .gift-actions .btn { flex: 1 1 auto; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) { .gift-card, .gift-shine { transition: none; } .gift:hover .gift-card { transform: none; } .gift:hover .gift-shine { background-position: 130% 0; } }

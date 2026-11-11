@@ -2352,6 +2352,15 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #182120; }
 .pass-ddw { --strap: #c2410c; }
 .pass-f1 { --strap: #c81d25; }
 .pass-f1 .pass-band::after { background-image: conic-gradient(#2b2b2b 25%, #2b2b2b 0 50%, #2b2b2b 0 75%, #2b2b2b 0); background-color: transparent; }
+.gift-card { border-color: rgba(240, 240, 240, .16); box-shadow: 0 6px 0 rgba(0, 0, 0, .45); color: #e6e6e6; background-image: repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.025) 0 2px, transparent 2px 9px), linear-gradient(135deg, #211e14 0%, #27241a 48%, #2e2920 100%); background-color: transparent; }
+.gift-shine { background-image: linear-gradient(110deg, transparent 40%, rgba(43, 43, 43, 0.5) 50%, transparent 60%); background-color: transparent; }
+.gift-ribbon { background-image: none; background-color: #c8457f; border-left-color: rgba(240, 240, 240, .16); border-right-color: rgba(240, 240, 240, .16); }
+.gift-bow path, .gift-bow rect { fill: #e2588f; stroke: var(--stk-ink); }
+.gift-chip { border-color: #c08d49; background-image: linear-gradient(135deg, #1e1b12, #2d281f); background-color: transparent; color: #e6e6e6; }
+.gift-title { color: #eeeeee; }
+.gift-sum { color: #e6e6e6; }
+.gift-meta dt { color: #ddb786; }
+.gift-meta dd { color: #eeeeee; }
 }
 
 /* objects keep light-mode colours */
@@ -2475,3 +2484,11 @@ html[data-theme="dark"] .pass li { color: #bebebe !important; }
 html[data-theme="dark"] .pass ul { border-top-color: rgba(240, 240, 240, .16) !important; }
 html[data-theme="dark"] .pass-code { background: repeating-linear-gradient(90deg, #e6e6e6 0 2px, transparent 2px 4px, #e6e6e6 4px 7px, transparent 7px 9px, #e6e6e6 9px 10px, transparent 10px 13px) !important; opacity: .6 !important; }
 html[data-theme="dark"] .pass-f1 .pass-band::after { background: conic-gradient(#1a1a1a 25%, #e6e6e6 0 50%, #1a1a1a 0 75%, #e6e6e6 0) 0 0 / 8px 8px !important; }
+/* press: gift card */
+html[data-theme="dark"] .gift-card { background: repeating-linear-gradient(115deg, rgba(255,255,255,.07) 0 2px, transparent 2px 9px), linear-gradient(135deg, #ffe58a 0%, #f6c84a 48%, #e8ae32 100%) !important; color: #3d2703 !important; border-color: #14111c !important; box-shadow: 0 6px 0 rgba(0, 0, 0, .6) !important; }
+html[data-theme="dark"] .gift-ribbon { background: #c8457f !important; border-color: #14111c !important; }
+html[data-theme="dark"] .gift-bow path, html[data-theme="dark"] .gift-bow rect { fill: #e2588f !important; stroke: #14111c !important; }
+html[data-theme="dark"] .gift-chip { background: linear-gradient(135deg, #fff1b8, #e8b236) !important; border-color: #8a5a08 !important; color: #3d2703 !important; }
+html[data-theme="dark"] .gift-title, html[data-theme="dark"] .gift-meta dd { color: #2a1a02 !important; }
+html[data-theme="dark"] .gift-sum, html[data-theme="dark"] .gift-kicker { color: #3d2703 !important; }
+html[data-theme="dark"] .gift-meta dt { color: #5a3a04 !important; }

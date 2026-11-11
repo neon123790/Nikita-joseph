@@ -2337,6 +2337,21 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #182120; }
 .work3 .process-tab { box-shadow: none; }
 .work3 .process-tab[aria-selected="true"] { box-shadow: 0 3px 0 rgba(0, 0, 0, .45) !important; }
 }
+.pass-strap { background-image: repeating-linear-gradient(180deg, transparent 0 8px, rgba(255, 255, 255, 0.098) 8px 10px), none; background-color: var(--strap, #c2410c); }
+.pass-strap::after { background-image: none; background-color: #2b292d; border-color: rgba(240, 240, 240, .16); }
+.pass-card { background-image: none; background-color: #1c1c1c; border-color: rgba(240, 240, 240, .16); box-shadow: 0 5px 0 rgba(0, 0, 0, .45); }
+.pass-band { background-image: none; background-color: var(--strap, #c2410c); color: #ffffff; }
+.pass-slot { background-image: none; background-color: #1c1c1c; border-color: rgba(240, 240, 240, .16); }
+.pass-date { background-image: none; background-color: rgba(255, 255, 255, 0.07); }
+.pass-event { color: #efefef; }
+.pass-role { color: #d8d8d8; }
+.pass ul { border-top-color: rgba(240, 240, 240, .16); }
+.pass li { color: #d0d0d0; }
+.pass li::before { background-image: none; background-color: var(--strap, #c2410c); }
+.pass-code { background-image: repeating-linear-gradient(90deg, #2b2b2b 0 2px, transparent 2px 4px, #2b2b2b 4px 7px, transparent 7px 9px, #2b2b2b 9px 10px, transparent 10px 13px); background-color: transparent; }
+.pass-ddw { --strap: #c2410c; }
+.pass-f1 { --strap: #c81d25; }
+.pass-f1 .pass-band::after { background-image: conic-gradient(#2b2b2b 25%, #2b2b2b 0 50%, #2b2b2b 0 75%, #2b2b2b 0); background-color: transparent; }
 }
 
 /* objects keep light-mode colours */
@@ -2450,3 +2465,13 @@ html[data-theme="dark"] .btn.btn-ghost:hover, html[data-theme="dark"] .btn.btn-g
 /* hero maze: quieter behind the headline so the text reads easily on dark */
 html[data-theme="dark"] .maze { opacity: .4 !important; }
 html[data-theme="dark"] .maze-walls { stroke: rgba(130, 148, 218, .06) !important; }
+/* volunteering event passes */
+html[data-theme="dark"] .pass-card { background: #262626 !important; border-color: rgba(240, 240, 240, .55) !important; box-shadow: 0 5px 0 rgba(240, 240, 240, .55) !important; }
+html[data-theme="dark"] .pass-slot { background: #1a1a1a !important; border-color: rgba(240, 240, 240, .55) !important; }
+html[data-theme="dark"] .pass-strap::after { background: #8a8494 !important; border-color: rgba(240, 240, 240, .55) !important; }
+html[data-theme="dark"] .pass-event { color: #f5f5f5 !important; }
+html[data-theme="dark"] .pass-role { color: #d6d6d6 !important; }
+html[data-theme="dark"] .pass li { color: #bebebe !important; }
+html[data-theme="dark"] .pass ul { border-top-color: rgba(240, 240, 240, .16) !important; }
+html[data-theme="dark"] .pass-code { background: repeating-linear-gradient(90deg, #e6e6e6 0 2px, transparent 2px 4px, #e6e6e6 4px 7px, transparent 7px 9px, #e6e6e6 9px 10px, transparent 10px 13px) !important; opacity: .6 !important; }
+html[data-theme="dark"] .pass-f1 .pass-band::after { background: conic-gradient(#1a1a1a 25%, #e6e6e6 0 50%, #1a1a1a 0 75%, #e6e6e6 0) 0 0 / 8px 8px !important; }

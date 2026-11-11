@@ -2240,6 +2240,10 @@ body:has(.proj-hero) .site-header:not(.scrolled) { background-image: none !impor
 .sc #solution .cs-title::after { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cfilter%20id%3D%22p%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%221.2%22%20numOctaves%3D%221%22%20seed%3D%227%22/%3E%3CfeDisplacementMap%20in%3D%22SourceGraphic%22%20scale%3D%221.4%22/%3E%3C/filter%3E%3Cg%20filter%3D%22url%28%23p%29%22%20fill%3D%22none%22%20stroke%3D%22%23d9668e%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M17%206%20L23%2019%22/%3E%3Cpath%20d%3D%22M31%206%20L25%2019%22/%3E%3Cpath%20d%3D%22M24%2018%20a12%2012%200%201%200%200.1%200%22/%3E%3Cpath%20d%3D%22M24%2024%20l2.2%204.6%20l5%20.6%20l-3.7%203.4%20l1%205%20l-4.5%20-2.5%20l-4.5%202.5%20l1%20-5%20l-3.7%20-3.4%20l5%20-.6%20Z%22/%3E%3C/g%3E%3C/svg%3E"); }
 .sc #feedback .cs-title::after { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cfilter%20id%3D%22p%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%221.2%22%20numOctaves%3D%221%22%20seed%3D%225%22/%3E%3CfeDisplacementMap%20in%3D%22SourceGraphic%22%20scale%3D%221.4%22/%3E%3C/filter%3E%3Cg%20filter%3D%22url%28%23p%29%22%20fill%3D%22none%22%20stroke%3D%22%234f86c6%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%2010%20H40%20V32%20H22%20L13%2041%20V32%20H8%20Z%22/%3E%3Cpath%20d%3D%22M15%2018%20H33%22/%3E%3Cpath%20d%3D%22M15%2025%20H27%22/%3E%3C/g%3E%3C/svg%3E"); }
 .sc #reflect .cs-title::after { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cfilter%20id%3D%22p%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%221.2%22%20numOctaves%3D%221%22%20seed%3D%229%22/%3E%3CfeDisplacementMap%20in%3D%22SourceGraphic%22%20scale%3D%221.4%22/%3E%3C/filter%3E%3Cg%20filter%3D%22url%28%23p%29%22%20fill%3D%22none%22%20stroke%3D%22%23e08a4c%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M13%2044%20V7%22/%3E%3Cpath%20d%3D%22M13%208%20C20%204%2025%2012%2037%208%20V25%20C25%2029%2020%2021%2013%2025%22/%3E%3C/g%3E%3C/svg%3E"); }
+.sc-principles li { background-image: none; background-color: #1c1c1c; border-color: rgba(240, 240, 240, .16); }
+.sc-principles li::before { background-image: none; background-color: var(--c); color: #eeeeee; }
+.sc-principles b { color: #eeeeee; }
+.sc-principles span { color: #d8d8d8; }
 .sk-score .sk-d.hi { stroke: #45b073; }
 .sk-score .sk-d.lo { stroke: #e27269; }
 @media (max-width: 560px) {
@@ -2325,3 +2329,5 @@ html[data-theme="dark"] .pl-leg { filter: brightness(2.1) saturate(1.1); }
 html[data-theme="dark"] .pl-label { fill: #f5f5f5; stroke: #1f2740; }
 html[data-theme="dark"] .pl-ahead { stroke: rgba(255, 255, 255, .55); }
 html[data-theme="dark"] .pl-glow { stroke: #f4e3b8; opacity: .2; }
+/* Scorecard: principle numbers stay dark ink on their pastel dots */
+html[data-theme="dark"] .sc-principles li::before { color: #1f1b29; }

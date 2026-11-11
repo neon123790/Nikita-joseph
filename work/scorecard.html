@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-    <link rel="stylesheet" href="../style.css?v=347">
-    <link rel="stylesheet" href="../dark.css?v=25">
+    <link rel="stylesheet" href="../style.css?v=348">
+    <link rel="stylesheet" href="../dark.css?v=26">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -83,62 +83,69 @@
     <div class="wrap cs-layout">
       <nav class="cs-toc" aria-label="On this page">
         <details class="cs-toc-box" open><summary class="cs-toc-title">On this page</summary>
-        <ol><li><a href="#context">Context</a></li><li><a href="#brief">Brief</a></li><li><a href="#constraints">Constraints</a></li><li><a href="#solution">Solution</a></li><li><a href="#feedback">Live Feedback</a></li><li><a href="#edge">Edge Cases</a></li><li><a href="#accessibility">Accessibility</a></li><li><a href="#outcome">Outcome</a></li><li><a href="#reflect">Reflect</a></li></ol></details>
+        <ol><li><a href="#context">Context</a></li><li><a href="#brief">Brief</a></li><li><a href="#principles">Design principles</a></li><li><a href="#constraints">Constraints</a></li><li><a href="#solution">Solution</a></li><li><a href="#feedback">Live feedback</a></li><li><a href="#edge">Edge cases</a></li><li><a href="#accessibility">Accessibility</a></li><li><a href="#outcome">Outcome</a></li><li><a href="#reflect">Reflect</a></li><li><a href="#next">Next steps</a></li></ol></details>
       </nav>
 
       <article class="cs-body cs3 pf sc">
         <section class="rh-brief" aria-label="In short">
           <dl>
-            <div><dt>In short</dt><dd>The existing challenge timeline showed how far through the challenge you were, but not how you were doing. I redesigned it as a daily calendar where each trading day’s profit or loss is visible at a glance. I also added badges, a Past Challenges record, and rules shown before a trader starts.</dd></div>
-            <div><dt>The result</dt><dd>A daily calendar that shows profit, loss, and no-trade days without opening anything. Badges and certificates that make a win feel like <b>an achievement, not only a refund</b>. A Past Challenges record with status and pending payouts.</dd></div>
+            <div><dt>In short</dt><dd>The existing challenge timeline showed how far a trader had progressed, but not how they were doing. I redesigned it as a daily calendar, where each trading day’s profit or loss is visible at a glance. I also added badges, a Past Challenges record, and rules shown before a trader starts.</dd></div>
+            <div><dt>The result</dt><dd>A daily calendar that shows profit, loss, and no-trade days without opening anything. Badges and certificates that make a win feel like <b>an achievement, not only a discount</b>. A Past Challenges record with status and pending payouts.</dd></div>
           </dl>
         </section>
         <ul class="rh-stats pf-stats">
           <li style="--c:#ffe3ec"><b>30</b><span>trading days on one card</span></li>
           <li style="--c:#dff5e8"><b>3</b><span>day states: profit, loss, no trade</span></li>
-          <li style="--c:#fff1a8"><b>5</b><span>badge levels, Rookie to Wizard</span></li>
-          <li style="--c:#e3efff"><b>₹3,000</b><span>minimum profit to qualify for a refund</span></li>
+          <li style="--c:#fff1a8"><b>₹3,000</b><span>minimum net profit to qualify</span></li>
+          <li style="--c:#e3efff"><b>₹10,000</b><span>maximum brokerage discount per challenge</span></li>
         </ul>
 
         <section class="cs-section" id="context" aria-labelledby="h-context">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">01</span>Context</p>
           <div class="content">
             <h2 id="h-context" class="cs-title">Built on the <mark>Existing Card</mark></h2>
-            <p class="rh-lead">Traders cared about the challenge. <b>The card hadn’t kept up.</b></p>
-            <p>In June 2021, FYERS launched My Account, a reporting portal that replaced its back office. The announcement listed the 30 Day Challenge among its features: “30 Day Challenge timeline &amp; results of previous challenges.”</p>
-            <p>The original view was a single winding line with a date every second day and a user avatar at the end. It showed progress through time, but <mark class="hl">not performance</mark>. You couldn’t see profit or loss on any day, and there was no visible record of wins or losses.</p>
+            <p class="rh-lead">Traders cared about the challenge, <b>but the card hadn’t kept up.</b></p>
+            <p>In June 2021, FYERS launched My Account, a reporting portal, and listed the 30 Day Challenge among its features.</p>
+            <p>The original view was a single winding line with a date every second day and an avatar at the end. It showed progress through time, but <mark class="hl">not performance</mark>. Traders couldn’t see profit or loss on any day, and there was no visible record of past attempts.</p>
             <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The original challenge view: one winding line of dates, every second day, ending in a user avatar."><img src="../images/scorecard/timeline.jpg?v=1" width="1372" height="721" alt="The original challenge view: one winding line of dates, every second day, ending in a user avatar." loading="lazy"></button><span class="sc-pin" style="--x:51.9%;--y:14.5%" aria-hidden="true">1</span><span class="sc-pin" style="--x:58%;--y:47.5%" aria-hidden="true">2</span><span class="sc-pin" style="--x:86%;--y:71%" aria-hidden="true">3</span></div></div><figcaption>Before: the original challenge timeline</figcaption></figure><ol class="sc-key"><li>Dates appear every second day</li><li>No profit or loss on any day</li><li>No outcome, only an avatar at the end</li></ol>
-            <p>Traders still cared. One trader started with ₹1,800 and said they would share daily P&amp;L in the community. In December 2022, another publicly thanked FYERS for crediting the brokerage on time. The demand was there, but the experience hadn’t kept up.</p>
+            <p>Traders were still engaged. One started with ₹1,800 and planned to share daily P&amp;L in the community. Another publicly thanked FYERS for processing a brokerage discount on time.</p>
           </div>
         </section>
         <section class="cs-section" id="brief" aria-labelledby="h-brief">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">02</span>Brief</p>
           <div class="content">
             <h2 id="h-brief" class="cs-title">Keep Score <mark>Every Day</mark></h2>
-            <p class="rh-lead">Make the challenge feel like a streak. A trader should check it every trading day, see each day’s result at a glance, and <b>understand the whole experience without reading the terms.</b></p>
+            <p class="rh-lead">Make the challenge feel like a streak. A trader should check it every trading day, see each day’s result at a glance, and <b>understand the experience without reading the terms.</b></p>
             <h3 class="cs-sub">Where the old card fell short</h3>
             <dl class="rh-rows">
-              <div><dt>No data</dt><dd>Progress was visible, but profit and loss were not.</dd></div>
+              <div><dt>Missing data</dt><dd>Progress was visible, but profit and loss were not.</dd></div>
               <div><dt>Skipped days</dt><dd>Dates appeared every second day, so the 30-day count was hard to follow.</dd></div>
               <div><dt>No outcome</dt><dd>Wins and losses weren’t marked, and past attempts weren’t recorded.</dd></div>
             </dl>
+            <h3 class="cs-sub" id="principles">Design principles</h3>
+            <ol class="sc-principles">
+              <li style="--c:#ffe3ec"><b>Show, don’t summarise</b><span>Every day’s result is visible without a tap.</span></li>
+              <li style="--c:#e3efff"><b>Make it checkable</b><span>Any number should be traceable to its trades.</span></li>
+              <li style="--c:#fff1a8"><b>Explain before committing</b><span>Rules appear before a trader starts.</span></li>
+              <li style="--c:#dff5e8"><b>Celebrate and recover</b><span>Wins earn recognition, and losses lead to a clear next step.</span></li>
+            </ol>
           </div>
         </section>
         <section class="cs-section" id="constraints" aria-labelledby="h-constraints">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">03</span>Constraints</p>
           <div class="content">
-            <h2 id="h-constraints" class="cs-title">Rules Printed <mark>on the Card</mark></h2>
-            <p class="rh-lead">The challenge rules changed over time, and <b>the interface had to explain them clearly.</b></p>
+            <h2 id="h-constraints" class="cs-title">Rules <mark>on the Card</mark></h2>
+            <p class="rh-lead">The challenge rules changed over time, so <b>the interface had to explain them clearly.</b></p>
             <div class="rh-tablewrap"><table class="cs-table rh-table">
-              <thead><tr><th scope="col">Rule</th><th scope="col">What it meant</th></tr></thead>
+              <thead><tr><th scope="col">Rule</th><th scope="col">What it meant for the design</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Minimum profit</th><td>Traders needed ₹3,000 in profit during the challenge period to qualify for a refund.</td></tr>
+                <tr><th scope="row">Minimum profit</th><td>Traders needed at least ₹3,000 in net profit during the challenge period to qualify.</td></tr>
                 <tr><th scope="row">Overall P&amp;L</th><td>After the new back office went live, overall P&amp;L across NSE, BSE, and MCX counted toward the result.</td></tr>
-                <tr><th scope="row">Refund cap</th><td>From 1 November 2022, a ₹10,000 cap applied to challenges started on or after that date.</td></tr>
-                <tr><th scope="row">API users</th><td>Clients with API access could join but received certificates instead of refunds, since FYERS offers its API free and wanted the challenge to target discretionary traders.</td></tr>
+                <tr><th scope="row">Brokerage discount cap</th><td>FYERS offered a brokerage discount of up to ₹10,000 per challenge.</td></tr>
+                <tr><th scope="row">API users</th><td>API users could join and received certificates instead of brokerage discounts. FYERS said the challenge was meant to reward discretionary discipline.</td></tr>
               </tbody>
             </table></div>
-            <p>The interface had to show these rules <mark class="hl">before a trader started</mark>, not leave them in the terms.</p>
+            <p>These rules were shown <mark class="hl">before a trader started</mark>, not left in the terms.</p>
             <figure class="pf-shot sc-shot sm"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The challenge start screen: a short explanation of the 30 Day Challenge, an empty state and a Start Challenge button."><img src="../images/scorecard/start.jpg?v=3" width="1083" height="692" alt="The challenge start screen: a short explanation of the 30 Day Challenge, an empty state and a Start Challenge button." loading="lazy"></button></div></div><figcaption>Before a trader starts: what the challenge is, in plain words</figcaption></figure>
           </div>
         </section>
@@ -147,93 +154,103 @@
           <div class="content">
             <h2 id="h-solution" class="cs-title">Redesigning <mark>the Card</mark></h2>
             <h3 class="cs-sub">A calendar laid out as a scorecard</h3>
-            <p>I replaced the winding timeline with a calendar grid. Each trading day has its own card: green for profit, red for loss, grey for no trade. Each card shows the date, weekday, number of trades, and total P&amp;L.</p>
-            <p>People already read streaks from fitness and language apps. I wanted the challenge to borrow that habit, so a trader could <mark class="hl">tell where they stood in one glance</mark>.</p>
+            <p>I replaced the winding timeline with a calendar grid. Each trading day has its own card: green for profit, red for loss, and grey for no trade. Each card shows the date, weekday, number of trades, and total P&amp;L.</p>
+            <p>People already read streaks in fitness and language apps. I wanted the challenge to use that habit, so a trader could <mark class="hl">see where they stood in one glance</mark>.</p>
             <figure class="pf-shot sc-shot md"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The full challenge calendar with sample data: day cards in green, red and grey, a running total P&amp;L at the top and a short rules reminder above the grid."><img src="../images/scorecard/calendar.jpg?v=3" width="1515" height="1871" alt="The full challenge calendar with sample data: day cards in green, red and grey, a running total P&amp;L at the top and a short rules reminder above the grid." loading="lazy"></button><span class="sc-pin" style="--x:21.3%;--y:31.8%" aria-hidden="true">1</span><span class="sc-pin" style="--x:39.9%;--y:31.8%" aria-hidden="true">2</span><span class="sc-pin" style="--x:58.3%;--y:31.8%" aria-hidden="true">3</span><span class="sc-pin" style="--x:4.2%;--y:49.6%" aria-hidden="true">4</span><span class="sc-pin" style="--x:39.8%;--y:49.6%" aria-hidden="true">5</span><span class="sc-pin" style="--x:81.8%;--y:12%" aria-hidden="true">6</span></div></div><figcaption>The scorecard, with sample data</figcaption></figure><ol class="sc-key"><li><b>Profit:</b> a green card</li><li><b>Loss:</b> a red card</li><li><b>No trade:</b> a grey card, with its own label</li><li><b>Trades</b> taken that day</li><li><b>Total P&amp;L</b> for that day</li><li><b>Running total</b> for the challenge</li></ol>
             <h3 class="cs-sub">Every score can be checked</h3>
-            <p>A green card only reassures if you can check it. Tapping a day opens its trades: symbol, segment, quantity, price, brokerage, and P&amp;L. Traders can verify the number themselves instead of relying on a summary.</p>
+            <p>A green card only reassures if you can check it. Tapping a day opens its trades: symbol, segment, quantity, price, brokerage, and P&amp;L. Traders can verify the numbers themselves instead of relying on a summary.</p>
             <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: Trade Details: a table of trades grouped by day, with symbol, segment, quantities, prices, P&amp;L and brokerage, and a total row."><img src="../images/scorecard/trades.jpg?v=3" width="1515" height="1275" alt="Trade Details: a table of trades grouped by day, with symbol, segment, quantities, prices, P&amp;L and brokerage, and a total row." loading="lazy"></button><span class="sc-pin" style="--x:5.1%;--y:34%" aria-hidden="true">1</span><span class="sc-pin" style="--x:80.6%;--y:26.9%" aria-hidden="true">2</span><span class="sc-pin" style="--x:94.6%;--y:26.9%" aria-hidden="true">3</span><span class="sc-pin" style="--x:5.1%;--y:88.8%" aria-hidden="true">4</span></div></div><figcaption>Tap a day to see the trades behind it</figcaption></figure><ol class="sc-key"><li><b>The day</b> you tapped, with its total</li><li><b>P&amp;L</b> for every trade</li><li><b>Brokerage</b> for every trade</li><li><b>Totals</b> across the view</li></ol>
             <h3 class="cs-sub">Badges earned on the card</h3>
-            <p>The refund alone felt transactional. FYERS had already introduced Badges of Honour in 2020, with five levels from Rookie (one win) to Wizard (five wins in a row). My contribution was the in-account experience around them. When a trader wins, the badge and certificate appear with the result, so <mark class="hl">the win feels like an accomplishment</mark> even when the refund is limited.</p>
+            <p>FYERS had introduced Badges of Honour in 2020, and later added more for traders who won several challenges in a row. My contribution was the in-account experience around them. When a trader wins, the badge and certificate appear with the result, so <mark class="hl">the win feels like an accomplishment</mark> even when the discount is limited.</p>
             <figure class="pf-shot sc-shot sm"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: Win result: You Won Double Hattrick, with a large badge, the challenge status and dates, and a Start New Challenge button."><img src="../images/scorecard/win.jpg?v=3" width="1083" height="657" alt="Win result: You Won Double Hattrick, with a large badge, the challenge status and dates, and a Start New Challenge button." loading="lazy"></button></div></div><figcaption>The badge appears with the result</figcaption></figure>
             <figure class="pf-shot sc-shot sm"><button class="zoom" type="button" aria-label="Enlarge: A sample certificate of completion with the badge of honour, and buttons to download or share it."><img src="../images/scorecard/certificate.jpg?v=3" width="1231" height="807" alt="A sample certificate of completion with the badge of honour, and buttons to download or share it." loading="lazy"></button><figcaption>A certificate to keep and share, shown here with a sample name</figcaption></figure>
             <h3 class="cs-sub">Past cards on file</h3>
-            <p>Traders can attempt the challenge more than once, so the calendar alone isn’t enough. The Past Challenges view lists each completed and filled challenge with its status, brokerage, and certificate. It also shows pending payouts, so a trader doesn’t need to raise a ticket to check a refund.</p>
+            <p>Traders could attempt the challenge more than once, so the calendar alone wasn’t enough. The Past Challenges view lists each attempt with its status, brokerage discount, and certificate. Pending payouts are shown too, so a trader doesn’t need to raise a ticket to check.</p>
             <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: Past Challenges: a table of earlier attempts with dates, Won or Failed status, brokerage, net P&amp;L, a certificate link and badges."><img src="../images/scorecard/past.jpg?v=3" width="1516" height="1288" alt="Past Challenges: a table of earlier attempts with dates, Won or Failed status, brokerage, net P&amp;L, a certificate link and badges." loading="lazy"></button><span class="sc-pin" style="--x:41.1%;--y:39.6%" aria-hidden="true">1</span><span class="sc-pin" style="--x:74.7%;--y:39.6%" aria-hidden="true">2</span><span class="sc-pin" style="--x:86.4%;--y:39.6%" aria-hidden="true">3</span></div></div><figcaption>Every attempt, on file</figcaption></figure><ol class="sc-key"><li><b>Status:</b> won or failed, in words</li><li><b>Certificate</b> for each win</li><li><b>Badge</b> earned</li></ol>
             <h3 class="cs-sub">A bad round, handled kindly</h3>
-            <p>Losing is part of trading. The failure screen gives an encouraging message and a clear choice: try again, or wait. The intent was to bring people back <mark class="hl">without blame</mark>.</p>
+            <p>Losing is part of trading. The failure screen gives an encouraging message and a clear choice: try again, or come back later. The aim was to bring traders back <mark class="hl">without blame</mark>.</p>
             <div class="pf-shots"><figure class="pf-shot sc-shot"><button class="zoom" type="button" aria-label="Enlarge: It’s Okay: a message saying it’s okay you couldn’t make it this time, with I’m game and Maybe later buttons."><img src="../images/scorecard/loss-modal.jpg?v=3" width="776" height="599" alt="It’s Okay: a message saying it’s okay you couldn’t make it this time, with I’m game and Maybe later buttons." loading="lazy"></button><figcaption>The moment a round ends</figcaption></figure><figure class="pf-shot sc-shot"><button class="zoom" type="button" aria-label="Enlarge: Congratulations: a message saying the challenge is won and the certificate will arrive within 48 hours, with I’m game and Maybe later buttons."><img src="../images/scorecard/win-modal.jpg?v=3" width="776" height="599" alt="Congratulations: a message saying the challenge is won and the certificate will arrive within 48 hours, with I’m game and Maybe later buttons." loading="lazy"></button><figcaption>The same moment, after a win</figcaption></figure></div>
           </div>
         </section>
         <section class="cs-section" id="feedback" aria-labelledby="h-feedback">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">05</span>Live Feedback</p>
           <div class="content">
-            <h2 id="h-feedback" class="cs-title">Voices on <mark>the Scorecard</mark></h2>
+            <h2 id="h-feedback" class="cs-title">What <mark>Traders Said</mark></h2>
             <p class="rh-lead">Users praised the new portal. One wrote that it was <b>“beautiful, intuitive and easy to follow,”</b> and another called the UI <b>“beautiful and simple”</b>.</p>
-            <p>They also reported problems:</p>
-            <div class="clips pf-clips">
-              <article class="clip" style="--r:-1.2deg"><p class="clip-src">Report 01</p><h3>A challenge went missing</h3><p>A running challenge didn’t appear in the new tab for some users, though it showed on the home page. One user confirmed it was fixed a day later.</p></article>
-              <article class="clip" style="--r:1deg"><p class="clip-src">Report 02</p><h3>Charges left out</h3><p>The P&amp;L report excluded charges.</p></article>
-              <article class="clip" style="--r:.8deg"><p class="clip-src">Request 03</p><h3>Show an equity curve</h3><p>Users asked for an equity curve, similar to what other brokers offer.</p></article>
-              <article class="clip" style="--r:-.8deg"><p class="clip-src">Request 04</p><h3>Finish the QA</h3><p>One user asked the team to complete QA fully before launching new features.</p></article>
+            <dl class="rh-rows">
+              <div><dt>Discipline</dt><dd>Traders said the challenge helped them trade more carefully. One credited it with building trading psychology and stopping overtrading. Another described its “psychological reinforcement”.</dd></div>
+              <div><dt>Continuity</dt><dd>A trader suggested keeping a plain certificate without monetary rewards, which shows the goal itself mattered to them.</dd></div>
+            </dl>
+            <h3 class="cs-sub">Requests that shaped next steps</h3>
+            <div class="clips pf-clips sc-clips">
+              <article class="clip" style="--r:-1.2deg"><p class="clip-src">Request 01</p><h3>Charges in P&amp;L</h3><p>Users wanted the report to include charges.</p></article>
+              <article class="clip" style="--r:1deg"><p class="clip-src">Request 02</p><h3>Consistent data</h3><p>A running challenge appeared on the home page but not in the new tab. One user confirmed it was fixed the next day.</p></article>
+              <article class="clip" style="--r:.8deg"><p class="clip-src">Request 03</p><h3>Equity curve</h3><p>Users asked for a performance view similar to other brokers.</p></article>
             </div>
-            <p>These points shaped my priorities: <mark class="hl">consistent data across views</mark>, charges included in P&amp;L, and a clearer performance summary.</p>
           </div>
         </section>
         <section class="cs-section" id="edge" aria-labelledby="h-edge">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">06</span>Edge Cases</p>
           <div class="content">
-            <h2 id="h-edge" class="cs-title">Scores That <mark>Don’t Add Up</mark></h2>
-            <p>Payout delays, reconciliation issues, and mid-month starts fell outside the standard flow and went to customer care. The interface showed status but didn’t resolve back-end exceptions. The new back office was meant to speed up certificates and refunds, and the team had flagged earlier processing delays as a problem.</p>
+            <h2 id="h-edge" class="cs-title">Handled <mark>Behind the Scenes</mark></h2>
+            <p>Payout timing, reconciliation, and mid-month starts went through customer care. The interface showed each status clearly, while the back office handled exceptions.</p>
           </div>
         </section>
         <section class="cs-section" id="accessibility" aria-labelledby="h-accessibility">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">07</span>Accessibility</p>
           <div class="content">
-            <h2 id="h-accessibility" class="cs-title">Reading the Card <mark>Without Colour</mark></h2>
-            <p class="rh-lead">The calendar relies heavily on red and green, so <b>I designed around colour rather than through it.</b></p>
+            <h2 id="h-accessibility" class="cs-title">Colour Is Never <mark>the Only Signal</mark></h2>
+            <p class="rh-lead">The calendar uses red and green, so <b>every state has a second cue.</b></p>
             <dl class="rh-rows">
-              <div><dt>Signals</dt><dd>Colour isn’t the only signal. Profit carries a plus sign and loss a minus sign. Each status has a text label, and “No Trade” has its own label.</dd></div>
-              <div><dt>Plain text</dt><dd>Content works without colour. Dates, weekdays, trade counts, and P&amp;L values are plain text, not part of a graphic.</dd></div>
+              <div><dt>Text with colour</dt><dd>Profit carries a plus sign and loss a minus sign. Each status has a written label, including “No Trade.”</dd></div>
+              <div><dt>Plain text for data</dt><dd>Dates, weekdays, trade counts, and P&amp;L are readable text, not part of a graphic.</dd></div>
             </dl>
-            <h3 class="cs-sub">What I’d audit or improve now</h3>
+            <h3 class="cs-sub">Next audit steps</h3>
             <ul class="rh-checks sc-open">
               <li>Check contrast on small grey labels over tinted backgrounds.</li>
-              <li>Make each card keyboard-focusable, with a visible focus state.</li>
-              <li>Add screen-reader labels that announce the full day in one string, for example: “1 November, profit of ten thousand rupees, four trades.”</li>
-              <li>Test the palette against common forms of colour blindness, and consider patterns or icons on the cards.</li>
+              <li>Add keyboard focus states to each day card.</li>
+              <li>Write screen-reader labels that read a full day in one line, such as “1 November, profit of ten thousand rupees, four trades.”</li>
+              <li>Test with colour-blind users, and add patterns or icons where needed.</li>
             </ul>
           </div>
         </section>
         <section class="cs-section" id="outcome" aria-labelledby="h-outcome">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">08</span>Outcome</p>
           <div class="content">
-            <h2 id="h-outcome" class="cs-title">How the Scorecard <mark>Landed</mark></h2>
-            <p>Traders responded in the community. They called the new portal “beautiful, intuitive and easy to follow,” and they also reported specific problems with data and QA, a sign they were reading it closely.</p>
-            <p>I can’t share participation or win figures from this project. If I ran it again, I’d judge success by how many participants check the calendar each trading day, how many reach day 30, how many start another challenge, and whether refund-status tickets go down.</p>
+            <h2 id="h-outcome" class="cs-title">A <mark>Short Run</mark></h2>
+            <p>The scorecard shipped in late 2022. In January 2023, FYERS discontinued the challenge with immediate effect. Under SEBI circulars, the challenge had been interpreted as a game or competition. FYERS sought clarifications and argued that it was neither, since it offered brokerage discounts and no prizes.</p>
+            <p class="rh-lead">The product ended for regulatory reasons, <b>not because traders stopped valuing it.</b></p>
+            <p>Within its short run, the scorecard let traders check each day’s result and verify their trades.</p>
             <blockquote class="rh-quotecard"><p>From losing a few to winning some, when I look back, it reminds of my trading journey of ups and downs.</p><footer>FYERS community member, January 2023</footer></blockquote>
           </div>
         </section>
         <section class="cs-section" id="reflect" aria-labelledby="h-reflect">
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">09</span>Reflect</p>
           <div class="content">
-            <h2 id="h-reflect" class="cs-title">What the Scorecard <mark>Taught Me</mark></h2>
-            <h3 class="cs-sub">Next rounds</h3>
+            <h2 id="h-reflect" class="cs-title">What <mark>I Learned</mark></h2>
+            <dl class="rh-rows sc-learn">
+              <div><dt>Bring in compliance early</dt><dd>In regulated finance, legal review should run alongside design. Interface polish can’t fix a format that is later questioned.</dd></div>
+              <div><dt>Show all costs</dt><dd>P&amp;L should include charges from day one. Transparency builds more trust than a clean number.</dd></div>
+              <div><dt>Frame it around discipline</dt><dd>The challenge was about reducing emotional trading, so the interface should say “record” rather than “streak.”</dd></div>
+              <div><dt>Test early, with one source of truth</dt><dd>A short usability test on the calendar and colour system would have caught accessibility gaps. Dates, weekdays, and P&amp;L should come from one backend source, so the home page and challenge tab always match.</dd></div>
+            </dl>
+            <h3 class="cs-sub" id="next">Next steps</h3>
             <ul class="rh-checks sc-open">
-              <li><b>Show rules before starting.</b> Minimum profit, excluded segments, and the API difference should be visible up front.</li>
-              <li><b>Add a payout tracker.</b> Past Challenges could show states such as “under review,” “processed,” and “expected by [date].”</li>
-              <li><b>Add a risk reminder.</b> A profit-linked reward can push traders into riskier trades, so the copy should discourage that and avoid framing the challenge as easy money.</li>
-              <li><b>Fix data consistency.</b> Every date, weekday, and P&amp;L figure should come from one source, with charges included.</li>
-              <li><b>Validate with users.</b> Run a short usability test on the calendar and colour system before the next release.</li>
+              <li>Show minimum profit, excluded segments, and the API difference before a trader starts.</li>
+              <li>Add a payout tracker: “under review,” “processed,” and “expected by [date].”</li>
+              <li>Add a risk reminder, since profit-linked rewards can encourage riskier trading.</li>
+              <li>Run usability testing with traders before the next release.</li>
             </ul>
             <p class="sc-note">This is a retrospective review. Screens are recreated with sample data, and account names, IDs, and certificate signatures are removed.</p>
-            <blockquote class="ul-close">The old card showed how far you’d come. The Scorecard shows <mark>how you’re doing, every day</mark>.</blockquote>
+            <blockquote class="ul-close">The old card showed how far you’d come. The Scorecard showed <mark>how you were doing, every day</mark>.</blockquote>
             <p class="ul-cta"><a class="btn btn-primary" href="mailto:nikkijoseph1998@gmail.com?subject=Let%E2%80%99s%20walk%20through%20%E2%80%9CThe%20Scorecard%E2%80%9D">Want to walk through the flows? Let’s talk <span class="arrow" aria-hidden="true">→</span></a></p>
             <div class="sc-sources"><p>Sources, FYERS Community</p><ul>
-              <li><a href="https://fyers.in/community/t/introducing-my-account/12153" target="_blank" rel="noopener">Introducing “My Account”<span class="sr-only"> (opens in a new tab)</span></a></li>
               <li><a href="https://fyers.in/community/t/fyers-30-day-challenge-updates-in-2020/12112" target="_blank" rel="noopener">FYERS 30 Day Challenge Updates In 2020!<span class="sr-only"> (opens in a new tab)</span></a></li>
-              <li><a href="https://fyers.in/community/t/i-have-started-30-days-challenge-from-today-and-lets-hope-that-i-win/15306" target="_blank" rel="noopener">I have started 30 days challenge from today<span class="sr-only"> (opens in a new tab)</span></a></li>
-              <li><a href="https://fyers.in/community/t/a-big-thank-you-to-fyers-for-the-timely-payment-of-brokerage-credit-of-30-day-challenge/15566" target="_blank" rel="noopener">A BIG Thank you to Fyers for the timely payment<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://fyers.in/community/t/a-big-thank-you-to-fyers-for-the-timely-payment-of-brokerage-credit-of-30-day-challenge/15566" target="_blank" rel="noopener">A BIG Thank you to Fyers for the timely payment of brokerage credit of 30-Day challenge<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://fyers.in/community/t/i-have-started-30-days-challenge-from-today-and-lets-hope-that-i-win/15306" target="_blank" rel="noopener">I have started 30 days challenge from today and lets hope that I win<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://fyers.in/community/t/introducing-my-account/12153" target="_blank" rel="noopener">Introducing “My Account”<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://community.fyers.in/post/30-day-challenge---new-badge-of-honours-5f91a40e2b5dfb1972fda373" target="_blank" rel="noopener">30 Day Challenge – New Badge Of Honours<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://fyers.in/community/blogs-gdppin8d/post/closing-the-door-on-fyers-30-day-challenge-mhXLMxjPpexA8G1" target="_blank" rel="noopener">Closing the door on FYERS 30 Day Challenge<span class="sr-only"> (opens in a new tab)</span></a></li>
             </ul></div>
           </div>
         </section>

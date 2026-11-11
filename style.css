@@ -1885,6 +1885,8 @@ html { scroll-padding-top: 96px; }
 .cs-layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
 .cs-toc { position: sticky; top: 96px; padding-top: clamp(40px, 6vw, 72px); }
 .cs-toc-title { margin: 0 0 10px; font: 600 .74rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #4a4652; }
+.bk-ico { flex: none; width: 1.25em; height: 1.25em; vertical-align: -.28em; margin-right: .5em; }
+.sec-fab .bk-ico { width: 18px; height: 18px; margin: 0; }
 .cs-toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; border-left: 2px solid rgba(20, 17, 28, .12); }
 .cs-toc a { display: block; padding: 6px 12px; margin-left: -2px; border-left: 2px solid transparent; color: #4a4652; text-decoration: none; font-size: .92rem; }
 .cs-toc a:hover { color: var(--stk-ink); }
@@ -2842,6 +2844,7 @@ main h2:not(.sr-only):not(.now-title), .cs3 .cs-section h2.cs-title, .mat-head h
 @media (max-width: 900px) {
   .cs-toc { display: none; }
   .sec-fab { display: inline-flex; align-items: center; gap: 8px; position: fixed; right: 16px; bottom: 18px; z-index: 50; min-height: 48px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--stk-ink); color: #fff; font: 700 .95rem/1 var(--sans); letter-spacing: .02em; box-shadow: 0 10px 24px -8px rgba(20, 17, 28, .55); cursor: pointer; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
+  .sec-fab { flex-direction: column; justify-content: center; gap: 3px; min-width: 64px; min-height: 56px; padding: 8px 12px; border-radius: 18px; font: 500 .68rem/1 var(--sans); letter-spacing: .03em; }
   .sec-fab.on { opacity: 1; transform: none; pointer-events: auto; }
   .sec-sheet[open] { display: block; position: fixed; inset: auto 12px 82px auto; margin: 0; width: min(300px, calc(100vw - 24px)); max-height: 70vh; overflow: auto; padding: 14px 8px; border: 0; border-radius: 16px; background: #fff; box-shadow: 0 20px 40px -12px rgba(20, 17, 28, .45); }
   .sec-sheet::backdrop { background: rgba(20, 17, 28, .35); }

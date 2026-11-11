@@ -6925,18 +6925,21 @@ html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: backg
 }
 @keyframes me-cord-take {
   0% { clip-path: inset(0 -10px calc(var(--w) * -.2) -10px); }
-  30% { clip-path: inset(0 -10px calc(var(--w) * .176) -10px); }  /* the hand has it: the loose end is now in her fist */
-  78% { clip-path: inset(0 -10px calc(var(--w) * -.2) -10px); }
+  30% { clip-path: inset(0 -10px calc(var(--w) * .2) -10px); z-index: 7; }  /* the hand has it: in front of her sticker outline, ending on her knuckles, so there is no gap */
+  68% { clip-path: inset(0 -10px calc(var(--w) * .2) -10px); z-index: 7; animation-timing-function: cubic-bezier(.5, 0, .8, .5); }
+  77.9% { clip-path: inset(0 -10px calc(var(--w) * .2 - var(--low)) -10px); z-index: 7; }  /* the string slides through her hand as it comes down, so it never floats */
+  78% { clip-path: inset(0 -10px calc(var(--w) * -.2) -10px); z-index: 3; }
 }
 @keyframes me-cord {
   0%, 38% { transform: none; rotate: 0deg; animation-timing-function: cubic-bezier(.5, 0, .9, .6); }
-  47% { transform: translateY(var(--tug)); animation-timing-function: cubic-bezier(.2, 1, .4, 1); }
+  47% { transform: translateY(calc(var(--tug) + var(--w) * .068)); animation-timing-function: cubic-bezier(.2, 1, .4, 1); }  /* her whole body dips too */
   53% { transform: translateY(calc(var(--tug) * -.12)); animation-timing-function: ease-in-out; }
   59%, 78% { transform: none; rotate: 0deg; animation-timing-function: ease-out; }
   84% { rotate: 1.4deg; animation-timing-function: ease-in-out; }
   91% { rotate: -.8deg; animation-timing-function: ease-in-out; }
   100% { transform: none; rotate: 0deg; }
 }
+
 /* phones: a little air above for the string and her hand, and below so her arm clears the label */
 @media (max-width: 760px) { .me-pull { --w: min(38vw, 150px); margin: 24px 0 8px; } }
 @media (max-width: 760px) and (max-height: 700px) { .me-pull { --w: 100px; } }

@@ -160,3 +160,34 @@
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
   });
 })();
+
+/* In-page links ("See my work", "Get in touch", chapter lists in case studies, …):
+   glide to the section, then check where it landed. Images and reveals above the target can
+   change the page height mid-glide, so the browser's own anchor scroll lands short or overshoots. */
+document.addEventListener('click', (e) => {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = e.target.closest('a[href^="#"]:not([href="#"]):not(.skip-link)');
+  if (!a) return;
+  let target; try { target = document.querySelector(a.getAttribute('href')); } catch (err) { return; }
+  if (!target) return;
+  e.preventDefault();
+  target.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
+  const anchor = target.matches('.cs-section') ? target : (target.querySelector('.section-head, .label, h2') || target);
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const spot = () => {
+    const header = document.querySelector('.site-header');
+    const offset = (header ? header.getBoundingClientRect().height : 0) + 24;
+    return Math.max(0, Math.round(anchor.getBoundingClientRect().top + window.scrollY - offset));
+  };
+  window.scrollTo({ top: spot(), behavior: reduce ? 'auto' : 'smooth' });
+  // once the glide stops, correct for anything that moved underneath it
+  let tries = 0;
+  const settle = () => {
+    const y = spot();
+    if (Math.abs(window.scrollY - y) > 4 && tries++ < 3) window.scrollTo({ top: y, behavior: 'auto' });
+  };
+  let t = setTimeout(settle, 1200);
+  window.addEventListener('scrollend', () => { clearTimeout(t); settle(); t = setTimeout(settle, 400); }, { once: true });
+  history.replaceState(null, '', a.getAttribute('href'));
+  target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
+});

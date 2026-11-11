@@ -680,23 +680,7 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
   requestAnimationFrame(draw);
 })();
 
-/* In-page links ("See my work", "Get in touch", …): glide to the section's heading, already visible */
-document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEach((a) => {
-  a.addEventListener('click', (e) => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (!target || target.closest('.cs-toc')) return;
-    e.preventDefault();
-    target.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
-    const anchor = target.querySelector('.section-head, .label, h2') || target;
-    const header = document.querySelector('.site-header');
-    const offset = (header ? header.getBoundingClientRect().height : 0) + 24;
-    const y = anchor.getBoundingClientRect().top + window.scrollY - offset;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
-    history.replaceState(null, '', a.getAttribute('href'));
-    target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true });
-  });
-});
+/* In-page link glide lives in header.js, so case studies get it too */
 
 /* Hero: a faint maze behind the words. A soft line finds its way from the entrance to the exit,
    rests, fades, and a new maze appears — "lost in a maze of clicks? let's find you a way out." */

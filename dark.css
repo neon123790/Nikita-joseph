@@ -1,5 +1,5 @@
 /* Dark mode colours. GENERATED from style.css by build-dark.py: change the script or dark-hand.css, not this file. */
-@scope (html[data-theme="dark"]) to (.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault, .sx-rocket, .gv-cursor, .cp-hero-art, .sc-badges, .rv .quad-photo) {
+@scope (html[data-theme="dark"]) to (.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault, .sx-rocket, .gv-cursor, .cp-hero-art, .sc-badges, .rv .quad-photo, .cp-aff3) {
 :scope { --bg: #1c1b19; --paper: #1b1b1b; --surface: #2b2b2b; --board: #1f1d1a; --line: #22201d; --line-strong: #292622; --text: #ebebeb; --ink: #e1e1e1; --muted: #c8c8c8; --outline: #2b2b2b; --ink-stroke: #ebebeb; --route: #3a6fd8; --route-planned: #25282c; --map-land: #1f1d1a; --map-street: #1b1b19; --map-water: #1f2226; --map-park: #1f221a; --accent: #b5573d; --road: #25231f; --road-line: #1b1b1b; }
 body { background-image: none; background-color: var(--bg); color: var(--text); }
 body::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .33 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
@@ -2529,10 +2529,23 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #182120; }
 @media (max-width: 760px) {
 .cp-ps-card { background-image: linear-gradient(180deg, var(--c) 0 52px, #1c1c1c 52px); background-color: transparent; }
 }
+.cp-route li::before { box-shadow: 0 0 0 4px rgba(0, 0, 0, .45); }
+.cp-route li::after { border-top-color: #6f94ee; }
+.cp-route li:nth-child(3)::after { border-color: #6f94ee; }
+.cp-route li:nth-child(6)::after { border-color: rgba(240, 240, 240, .16); background-image: repeating-conic-gradient(#2b2b2b 0 25%, #2b2b2b 0 50%); background-color: transparent; }
+.cp-route li:nth-child(6)::before { box-shadow: 0 0 0 4px rgba(0, 0, 0, .45), 0 0 0 6px rgba(0, 0, 0, .45); }
+@media (max-width: 640px) {
+.cp-route li::after, .cp-route li:nth-child(n+4)::after, .cp-route li:nth-child(3)::after { border-left-color: #6f94ee; }
+.cp-route li:nth-child(6)::after { border-color: rgba(240, 240, 240, .16); }
+}
+.cp-ps-card { background-image: linear-gradient(180deg, var(--c) 0 64px, #1c1c1c 64px); background-color: transparent; }
+@media (max-width: 760px) {
+.cp-ps-card { background-image: linear-gradient(180deg, var(--c) 0 54px, #1c1c1c 54px); background-color: transparent; }
+}
 }
 
 /* objects keep light-mode colours */
-:where(html[data-theme="dark"]) :where(.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault, .sx-rocket, .gv-cursor, .cp-hero-art, .sc-badges, .rv .quad-photo) { --bg: #f7f5f0; --paper: #ffffff; --surface: #ffffff; --board: #efe6d6; --line: #e7e3da; --line-strong: #d3cdc0; --text: #121318; --ink: #26282f; --muted: #6c6e76; --outline: #1d1a2a; --ink-stroke: #26221f; --route: #2f6bff; --route-planned: #9aa6bd; --map-land: #f1efe8; --map-street: #fbf7ef; --map-water: #c8d8ea; --map-park: #d5e2bd; --accent: #ff5a1f; --road: #d9cfbf; --road-line: #fbf8f2; --v-orange: #ff6a2b; --v-yellow: #ffc21a; --v-green: #1fb36b; --v-cyan: #1cb8d6; --v-blue: #3a5cff; --v-pink: #ff3f8e; --stk-ink: #14111c; --mint: #d9f2e4; --head: #4a4558; --hl: #ffe27a; }
+:where(html[data-theme="dark"]) :where(.journal, .pol, .det-card, .me-written, .rh-stats li, .stickies li, .loop span, .ch-polaroid, .aw-badge, .cs, .tape-label, .proc-art, .safe, .vault, .sx-rocket, .gv-cursor, .cp-hero-art, .sc-badges, .rv .quad-photo, .cp-aff3) { --bg: #f7f5f0; --paper: #ffffff; --surface: #ffffff; --board: #efe6d6; --line: #e7e3da; --line-strong: #d3cdc0; --text: #121318; --ink: #26282f; --muted: #6c6e76; --outline: #1d1a2a; --ink-stroke: #26221f; --route: #2f6bff; --route-planned: #9aa6bd; --map-land: #f1efe8; --map-street: #fbf7ef; --map-water: #c8d8ea; --map-park: #d5e2bd; --accent: #ff5a1f; --road: #d9cfbf; --road-line: #fbf8f2; --v-orange: #ff6a2b; --v-yellow: #ffc21a; --v-green: #1fb36b; --v-cyan: #1cb8d6; --v-blue: #3a5cff; --v-pink: #ff3f8e; --stk-ink: #14111c; --mint: #d9f2e4; --head: #4a4558; --hl: #ffe27a; }
 
 /* ---- hand-made fixes ---- */
 /* Big surfaces: quiet neutral greys, one step up from the page */
@@ -2690,10 +2703,18 @@ html[data-theme="dark"] .cp-pf-art { background: radial-gradient(circle at 50% 4
 html[data-theme="dark"] .cp-pf-share b, html[data-theme="dark"] .cp-pf-h, html[data-theme="dark"] .cp-pf-q::before { color: color-mix(in srgb, var(--a) 70%, #fff) !important; }
 html[data-theme="dark"] .cp-sc-row b.n { background: #d9d5cf !important; color: #1f1b29 !important; }
 /* Compass v6 persona slides */
-html[data-theme="dark"] .cp-ps-card { background: linear-gradient(180deg, color-mix(in srgb, var(--a) 26%, #1e1c22) 0 58px, #1e1c22 58px) !important; border-color: color-mix(in srgb, var(--a) 30%, #34313a) !important; }
+html[data-theme="dark"] .cp-ps-card { background: linear-gradient(180deg, color-mix(in srgb, var(--a) 26%, #1e1c22) 0 64px, #1e1c22 64px) !important; border-color: color-mix(in srgb, var(--a) 30%, #34313a) !important; }
 html[data-theme="dark"] .cp-ps-card h4, html[data-theme="dark"] .cp-ps-q, html[data-theme="dark"] .nda-content .cp-ps-card dd li { color: #ece8e1 !important; }
 html[data-theme="dark"] .cp-ps-tag, html[data-theme="dark"] .cp-ps-q span, html[data-theme="dark"] .cp-ps-new { color: #b9b4c0 !important; }
 html[data-theme="dark"] .cp-ps-new { background: color-mix(in srgb, var(--a) 14%, #1e1c22) !important; }
 html[data-theme="dark"] .cp-ps-card dt, html[data-theme="dark"] .cp-ps-new b { color: color-mix(in srgb, var(--a) 65%, #fff) !important; }
 html[data-theme="dark"] .cp-ps-card dl > div { border-color: #34313a !important; }
 html[data-theme="dark"] .cp-ps-card dd li::before { background: color-mix(in srgb, var(--a) 65%, #fff) !important; }
+
+/* Compass: mobile persona band, race-course dots and flag, whiteboard stays a (dimmed) whiteboard */
+@media (max-width: 760px) { html[data-theme="dark"] .cp-ps-card { background: linear-gradient(180deg, color-mix(in srgb, var(--a) 26%, #1e1c22) 0 54px, #1e1c22 54px) !important; } }
+html[data-theme="dark"] .cp-route li::before { box-shadow: 0 0 0 4px #1c1b19 !important; }
+html[data-theme="dark"] .cp-route li:nth-child(6)::before { box-shadow: 0 0 0 4px #1c1b19, 0 0 0 6px #7d9dff !important; }
+html[data-theme="dark"] .cp-route li::after { border-color: #7d9dff !important; }
+html[data-theme="dark"] .cp-route li:nth-child(6)::after { border-color: #ece8e1 !important; background: repeating-conic-gradient(#ece8e1 0 25%, #1f1b29 0 50%) 0 0 / 7px 7px !important; }
+html[data-theme="dark"] .cp-aff3 { filter: brightness(.86) contrast(.96); }

@@ -7821,3 +7821,39 @@ html.rh-motion .cp-ps-card[data-anim].in { opacity: 1; transform: none; }
 .cp-build b, .cp-next b { align-items: flex-start; margin-bottom: 0; }
 .cp-build b::before, .cp-next b::before { margin-top: -1px; }
 @media (max-width: 760px) { .cp-build, .cp-next { grid-template-rows: auto auto auto auto; } }
+
+/* Compass: "Plotting the course" as a race track. One dashed route runs through a checkpoint on top of
+   each card: 01 → 03 along the top row, a U-turn on the right, then 04 → 06 back along the bottom to the flag */
+.cp-route { --tk: 18px; --cg: 26px; --rg: 58px; position: relative; column-gap: var(--cg); row-gap: var(--rg); padding: calc(var(--tk) + 16px) 30px 0 0; margin-top: 22px; }
+.cp-route li:nth-child(4) { grid-area: 2 / 3; } .cp-route li:nth-child(5) { grid-area: 2 / 2; } .cp-route li:nth-child(6) { grid-area: 2 / 1; }
+.cp-route li { align-items: center; text-align: center; gap: 6px; padding: 26px 16px 18px; }
+.cp-route li::before { left: 50%; top: calc(-1 * var(--tk) - 16px); width: 32px; height: 32px; transform: translateX(-50%); z-index: 2; box-shadow: 0 0 0 4px #fff; }
+.cp-route li::after { left: 50%; right: auto; top: calc(-1 * var(--tk) - 1.5px); width: calc(100% + var(--cg)); height: 0; border-top: 3px dashed #4b7bff; z-index: 1; }
+.cp-route li:nth-child(n+4)::after { left: auto; right: 50%; }
+.cp-route li:nth-child(3)::after { box-sizing: border-box; width: auto; right: -30px; height: calc(100% + var(--rg) + 3px); border: 3px dashed #4b7bff; border-left: 0; border-radius: 0 34px 34px 0; }
+.cp-route li:nth-child(6)::after { right: auto; left: calc(50% - 46px); top: calc(-1 * var(--tk) - 26px); width: 20px; height: 15px; border: 1.5px solid #2c2836; border-radius: 2px; background: repeating-conic-gradient(#2c2836 0 25%, #fff 0 50%) 0 0 / 7px 7px; transform: rotate(-8deg); }
+.cp-route li:nth-child(6)::before { box-shadow: 0 0 0 4px #fff, 0 0 0 6px #4b7bff; }
+@media (hover: hover) { .rh-motion .nda-content .cp-route.in > li:hover, .cp-route li:hover { transform: none; } }
+@media (max-width: 640px) {
+  /* phones: one column, the route runs down the left edge */
+  .cp-route { grid-template-columns: 1fr; row-gap: 14px; padding: 0 0 0 48px; }
+  .cp-route li:nth-child(n) { grid-area: auto; align-items: flex-start; text-align: left; padding: 14px 16px 15px; }
+  .cp-route li::before { left: -48px; top: 12px; transform: none; }
+  .cp-route li::after, .cp-route li:nth-child(n+4)::after, .cp-route li:nth-child(3)::after { box-sizing: content-box; left: -33.5px; right: auto; top: 50px; width: 0; height: calc(100% - 38px + 14px); border: 0; border-left: 3px dashed #4b7bff; border-radius: 0; }
+  .cp-route li:nth-child(6)::after { left: -44px; top: 52px; width: 20px; height: 15px; border: 1.5px solid #2c2836; border-radius: 2px; }
+}
+
+/* Compass: "How I built the personas" and "What would come next" get room to breathe */
+.cp-build, .cp-next { column-gap: 30px; row-gap: 18px; margin: 14px 0 12px; }
+.cp-build li, .cp-next li { padding: 16px 16px 18px; row-gap: 8px; }
+.cp-build li + li::before, .cp-next li + li::before { left: -22px; }
+@media (max-width: 760px) { .cp-build, .cp-next { column-gap: 14px; row-gap: 14px; } }
+
+/* Compass persona cards: the share pill sits in the middle of the coloured band */
+.cp-ps-card { padding-top: 19px; background: linear-gradient(180deg, var(--c) 0 64px, #fffdf7 64px); }
+.cp-ps-tag { display: flex; align-items: center; min-height: 26px; }
+.cp-ps-card h4 { margin-top: 36px; }
+@media (max-width: 760px) {
+  .cp-ps-card { padding-top: 14px; background: linear-gradient(180deg, var(--c) 0 54px, #fffdf7 54px); }
+  .cp-ps-card h4 { margin-top: 30px; }
+}

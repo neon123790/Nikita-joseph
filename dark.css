@@ -2361,6 +2361,8 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #182120; }
 .gift-sum { color: #e6e6e6; }
 .gift-meta dt { color: #ddb786; }
 .gift-meta dd { color: #eeeeee; }
+.rv-photo.gn-sg { background-image: url(../images/genie/scribble.svg?v=1); background-color: transparent; }
+.gn .quad-photo { background-color: #1b1b19; }
 }
 
 /* objects keep light-mode colours */

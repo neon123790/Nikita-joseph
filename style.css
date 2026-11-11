@@ -7443,3 +7443,8 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #c4ece6; }
   .gift-actions .btn { flex: 1 1 auto; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) { .gift-card, .gift-shine { transition: none; } .gift:hover .gift-card { transform: none; } .gift:hover .gift-shine { background-position: 130% 0; } }
+/* Genie persona: Robert as a whole marker sketch on scribbles, like ReviewIT */
+.rv-photo.gn-sg { background: transparent url(../images/genie/scribble.svg?v=1) center / cover no-repeat; }
+.gn .quad-photo { width: 150px; background-color: #fbf7ee; }
+.gn .quad-photo img { object-fit: cover; object-position: center 7%; transform: none; }
+@media (max-width: 700px) { .gn .quad-photo { width: 116px; } }

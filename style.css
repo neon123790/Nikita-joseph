@@ -7108,6 +7108,25 @@ html.theme-fade *:not(.me-pull, .me-pull *), html.theme-fade { transition: backg
 .sc-principles li::before { content: counter(pr); position: absolute; left: 16px; top: 15px; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--c); color: #1f1b29; font: 700 .8rem/1 var(--sans); }
 .sc-principles b { font: 700 1rem/1.35 var(--sans); color: #1f1b29; }
 .sc-principles span { font-size: .95rem; line-height: 1.5; color: #4a4558; }
+.sc-states { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 18px; max-width: 820px; margin: 4px 0 30px; padding: 20px; border-radius: 14px; background: #fffdf7; border: 1px solid #e3e0d7; }
+.sc-state { display: grid; align-content: start; gap: 10px; }
+.sc-state p { margin: 0 !important; font: 700 .82rem/1.3 var(--sans) !important; color: #4a4558 !important; }
+.sc-state img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.sc-nohover { display: grid; place-items: center; aspect-ratio: 480 / 345; padding: 12px; border: 1.5px dashed #d5d1c6; border-radius: 6px; font-size: .85rem; line-height: 1.4; text-align: center; color: #6b6676; }
+.sc-states figcaption, .sc-badges figcaption { grid-column: 1 / -1; margin: 4px 0 0; font-size: .88rem; color: #6b6676; text-align: center; }
+.sc-badges { max-width: 820px; margin: 4px 0 30px; padding: 22px 16px 18px; border-radius: 14px; background: #fffdf7; border: 1px solid #e3e0d7; }
+.sc-badges ul { list-style: none; margin: 0 0 8px; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 4px; }
+.sc-badges li { margin: 0; }
+.sc-badges img { display: block; height: 118px; width: auto; }
+.sc-badges .sc-lose img { height: 68px; margin: 0 26px; }
+@media (max-width: 560px) {
+  .sc-states { grid-template-columns: 1fr; padding: 16px; }
+  .sc-state { grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+  .sc-state p { grid-column: 1 / -1; }
+  .sc-nohover { font-size: .78rem; }
+  .sc-badges img { height: 84px; }
+  .sc-badges .sc-lose img { height: 48px; margin: 0 18px; }
+}
 .sc .rh-rows > div { grid-template-columns: 170px 1fr; }
 .sc .clips.sc-clips { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 760px) { .sc-principles, .sc .clips.sc-clips { grid-template-columns: 1fr; } }
@@ -7221,3 +7240,18 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #c4ece6; }
 .rv-swatches .tints i:nth-child(3) { background: color-mix(in srgb, var(--c) 20%, #fff); }
 .rv-swatches li { min-height: 140px; }
 @media (max-width: 760px) { .rv-strat { grid-template-columns: 1fr; } .rv-qs { columns: 1; } }
+
+/* ReviewIT personas: the whole sketch, as a portrait card rather than a cropped circle */
+.persona2.rv-persona { grid-template-columns: 200px 1fr; }
+.persona-photo.rv-full { width: 200px; aspect-ratio: 2 / 3; border-radius: 0; border: 0; overflow: visible; background-color: transparent; }
+.persona-photo.rv-full img { object-fit: cover; object-position: center; transform: none; }
+@media (max-width: 700px) { .persona2.rv-persona { grid-template-columns: 1fr; } .persona-photo.rv-full { width: 170px; } }
+/* the sketches sit on loose marker scribbles instead of plain paper */
+.rv-photo.rv-sa { background: transparent url(../images/reviewit/scribble-a.svg?v=2) center / cover no-repeat; }
+.rv-photo.rv-sb { background: transparent url(../images/reviewit/scribble-b.svg?v=2) center / cover no-repeat; }
+.persona-photo.rv-full img { object-fit: contain; object-position: center bottom; }
+/* empathy maps: a bigger round photo, framed on the face */
+.rv .quad-photo { width: 150px; }
+.rv .quad-photo { background-color: #fbf7ee; }
+.rv .quad-photo img { object-fit: cover; object-position: center top; transform: scale(1.12); transform-origin: 50% 4%; }
+@media (max-width: 700px) { .rv .quad-photo { width: 116px; } }

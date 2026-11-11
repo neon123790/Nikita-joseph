@@ -673,6 +673,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     W = r.width; H = r.height;
     cell = W < 600 ? 56 : 76;   // big, calm cells
     cols = Math.floor(W / cell); rows = Math.floor(H / cell);
+    if (cols < 2 || rows < 2) return; // hero has no size yet (hidden or mid-resize): keep the last maze
     const ox = (W - cols * cell) / 2, oy = (H - rows * cell) / 2;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     // recursive-backtracker maze

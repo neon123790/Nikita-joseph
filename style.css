@@ -5052,10 +5052,26 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 @media (max-width: 900px) { .pf-hero .gh-panel { grid-template-columns: 1fr !important; } .pf-hero-shot { transform: none; } }
 /* tabs over real screens */
 .pf-tabs { margin: 16px 0 6px; }
-.pf-tabbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-.pf-tabbar button { min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #e3e0d7; background: #fffdf7; font: 600 .86rem/1 var(--sans); color: #3b3744; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
-.pf-tabbar button[aria-selected="true"] { background: #1f1b29; border-color: #1f1b29; color: #fff; }
-.pf-tabbar button:focus-visible { outline: 2px solid #ff8a3d; outline-offset: 2px; }
+.pf-tabbar { position: relative; display: flex; gap: 2px; margin-bottom: 16px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; box-shadow: inset 0 -1px 0 #e3ded2; }
+.pf-tabbar::-webkit-scrollbar { display: none; }
+.pf-tabbar.more-r { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); }
+.pf-tabbar.more-l { -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px); mask-image: linear-gradient(90deg, transparent, #000 48px); }
+.pf-tabbar.more-l.more-r { -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent); }
+.pf-tabbar button { flex: none; min-height: 46px; padding: 0 14px; border: 0; border-radius: 8px 8px 0 0; background: none; font: 600 .92rem/1 var(--sans); color: #6b6676; cursor: pointer; scroll-snap-align: start; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transition: color .2s, background-color .2s; }
+.pf-tabbar button:first-child { padding-left: 2px; }
+@media (hover: hover) { .pf-tabbar button:hover { color: var(--stk-ink); background-color: rgba(20, 17, 28, .04); } .pf-tabbar button:first-child:hover { background-color: transparent; } }
+.pf-tabbar button[aria-selected="true"] { color: var(--stk-ink); }
+.pf-tabbar button:focus-visible { outline: 2px solid #ff8a3d; outline-offset: -2px; }
+.pf-tabline { position: absolute; left: 0; bottom: 0; width: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--stk-ink); pointer-events: none; transition: transform .3s cubic-bezier(.3, .7, .2, 1), width .3s cubic-bezier(.3, .7, .2, 1); }
+.pf-tabnav { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.pf-tabnum { margin-right: auto; font: 600 .82rem/1 var(--sans); letter-spacing: .04em; color: #6b6676; font-variant-numeric: tabular-nums; }
+.pf-step { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #dcd6c9; background: none; color: #3b3744; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transition: background-color .2s, border-color .2s; }
+.pf-step svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) { .pf-step:hover { background-color: rgba(20, 17, 28, .05); border-color: #bdb6a8; } }
+.pf-step:focus-visible { outline: 2px solid #ff8a3d; outline-offset: 2px; }
+.pf-tabs .pf-view { touch-action: pan-y; }
+@media (max-width: 700px) { .pf-tabbar { margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; } .pf-tabbar button:first-child { padding-left: 0; } }
+@media (prefers-reduced-motion: reduce) { .pf-tabbar button, .pf-step, .pf-tabline { transition: none; } }
 .pf-tabcap { margin: 8px 0 0 !important; font-size: .92rem !important; color: #4a4652 !important; }
 /* tap-through prototype */
 .pf-proto { margin: 18px 0 8px; }

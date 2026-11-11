@@ -1547,9 +1547,22 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #271e18; }
 .pf-url { background-image: none; background-color: #2b2b2b; color: #c8c8c8; }
 .pf-url svg { fill: none; stroke: rgba(240, 240, 240, .16); }
 .pf-hero-shot { background-image: none !important; background-color: transparent !important; box-shadow: none !important; }
-.pf-tabbar button { border-color: rgba(240, 240, 240, .16); background-image: none; background-color: #1c1c1c; color: #dfdfdf; }
-.pf-tabbar button[aria-selected="true"] { background-image: none; background-color: #2b2b2b; border-color: rgba(240, 240, 240, .16); color: #ffffff; }
+.pf-tabbar { box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .45); }
+.pf-tabbar button { background-image: none; background-color: transparent; color: #c8c8c8; }
+@media (hover: hover) {
+.pf-tabbar button:hover { color: var(--stk-ink); background-color: rgba(255, 255, 255, 0.032); }
+.pf-tabbar button:first-child:hover { background-color: transparent; }
+}
+.pf-tabbar button[aria-selected="true"] { color: var(--stk-ink); }
 .pf-tabbar button:focus-visible { outline-color: #f39256; }
+.pf-tabline { background-image: none; background-color: var(--stk-ink); }
+.pf-tabnum { color: #c8c8c8; }
+.pf-step { border-color: rgba(240, 240, 240, .16); background-image: none; background-color: transparent; color: #dfdfdf; }
+.pf-step svg { fill: none; stroke: currentColor; }
+@media (hover: hover) {
+.pf-step:hover { background-color: rgba(255, 255, 255, 0.04); border-color: rgba(240, 240, 240, .16); }
+}
+.pf-step:focus-visible { outline-color: #f39256; }
 .pf-tabcap { color: #d8d8d8 !important; }
 .pf-hot { border-color: #f39256; background-image: none; background-color: rgba(255, 138, 61, 0.08); }
 .pf-hot:focus-visible { outline-color: rgba(240, 240, 240, .16); }
@@ -2382,3 +2395,12 @@ html[data-theme="dark"] .rv-meters.in .m b.on { background: #5eb6af; }
 html[data-theme="dark"] body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #20403c; }
 html[data-theme="dark"] body:has(.proj-hero[style*="#ffc2d1"]) { --hl: #45293a; }
 html[data-theme="dark"] .rv-swatches li:first-child { color: #10302c; }
+
+/* Feature tabs: light labels, a yellow line under the open tab, quiet outline arrows */
+html[data-theme="dark"] .pf-tabbar { box-shadow: inset 0 -1px 0 rgba(240, 240, 240, .14) !important; }
+html[data-theme="dark"] .pf-tabbar button { background-color: transparent !important; color: #a9a5ae !important; box-shadow: none !important; }
+html[data-theme="dark"] .pf-tabbar button[aria-selected="true"] { color: #f3efe6 !important; }
+@media (hover: hover) { html[data-theme="dark"] .pf-tabbar button:hover { color: #f3efe6 !important; background-color: rgba(240, 240, 240, .05) !important; } html[data-theme="dark"] .pf-tabbar button:first-child:hover { background-color: transparent !important; } }
+html[data-theme="dark"] .pf-tabline { background: #ffd65a !important; }
+html[data-theme="dark"] .pf-step { background-color: transparent !important; border-color: rgba(240, 240, 240, .2) !important; color: #e6e2da !important; box-shadow: none !important; }
+@media (hover: hover) { html[data-theme="dark"] .pf-step:hover { background-color: rgba(240, 240, 240, .06) !important; border-color: rgba(240, 240, 240, .35) !important; } }

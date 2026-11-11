@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&family=Mulish:wght@600&display=swap" rel="stylesheet">
     <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-    <link rel="stylesheet" href="../style.css?v=357">
-    <link rel="stylesheet" href="../dark.css?v=34">
+    <link rel="stylesheet" href="../style.css?v=359">
+    <link rel="stylesheet" href="../dark.css?v=36">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -451,12 +451,39 @@
   <script>
   (() => {
     document.querySelectorAll('.pf-tabs').forEach((box) => {
-      const btns = [...box.querySelectorAll('[role="tab"]')], imgs = [...box.querySelectorAll('.pf-stackimg img')], caps = [...box.querySelectorAll('.pf-tabcap span')];
-      const show = (k) => { btns.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === k))); imgs.forEach((i) => i.classList.toggle('on', i.dataset.k === k)); caps.forEach((c) => (c.hidden = c.dataset.k !== k)); };
+      const bar = box.querySelector('.pf-tabbar'), btns = [...box.querySelectorAll('[role="tab"]')], imgs = [...box.querySelectorAll('.pf-stackimg img')], caps = [...box.querySelectorAll('.pf-tabcap span')];
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // previous / next buttons and a counter under the screen
+      const nav = document.createElement('div');
+      nav.className = 'pf-tabnav';
+      nav.innerHTML = '<span class="pf-tabnum" aria-hidden="true"></span><button type="button" class="pf-step" aria-label="Previous screen"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button><button type="button" class="pf-step" aria-label="Next screen"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>';
+      box.querySelector('.pf-browser').after(nav);
+      const num = nav.querySelector('.pf-tabnum');
+      // a line slides under the open tab; the edges fade when more tabs are hidden
+      const line = document.createElement('span'); line.className = 'pf-tabline'; line.setAttribute('aria-hidden', 'true'); bar.appendChild(line);
+      const place = () => { const b = btns[cur], first = b === btns[0]; const x = b.offsetLeft + (first ? parseFloat(getComputedStyle(b).paddingLeft) : 14), w = b.offsetWidth - (first ? parseFloat(getComputedStyle(b).paddingLeft) : 14) - 14; line.style.width = w + 'px'; line.style.transform = 'translateX(' + x + 'px)'; };
+      const edges = () => { bar.classList.toggle('more-l', bar.scrollLeft > 4); bar.classList.toggle('more-r', bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 4); };
+      bar.addEventListener('scroll', edges, { passive: true });
+      new ResizeObserver(() => { place(); edges(); }).observe(bar);
+      let cur = Math.max(0, btns.findIndex((b) => b.getAttribute('aria-selected') === 'true'));
+      const show = (n, follow) => {
+        cur = (n + btns.length) % btns.length; const k = btns[cur].dataset.k;
+        btns.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === k))); imgs.forEach((i) => i.classList.toggle('on', i.dataset.k === k)); caps.forEach((c) => (c.hidden = c.dataset.k !== k));
+        num.textContent = (cur + 1) + ' / ' + btns.length; place();
+        if (follow && bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: btns[cur].offsetLeft - (bar.clientWidth - btns[cur].offsetWidth) / 2, behavior: still ? 'auto' : 'smooth' });
+      };
+      show(cur);
       btns.forEach((b, n) => {
-        b.addEventListener('click', () => show(b.dataset.k));
-        b.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const t = btns[(n + d + btns.length) % btns.length]; t.focus(); show(t.dataset.k); });
+        b.addEventListener('click', () => show(n, true));
+        b.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; show(n + d, true); btns[cur].focus(); });
       });
+      const [prev, next] = nav.querySelectorAll('.pf-step');
+      prev.addEventListener('click', () => show(cur - 1, true));
+      next.addEventListener('click', () => show(cur + 1, true));
+      // swipe across the screen to move between screens
+      const view = box.querySelector('.pf-view'); let x0 = null, y0 = 0;
+      view.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+      view.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) show(cur + (dx < 0 ? 1 : -1), true); }, { passive: true });
       // load the hidden screens once the box is near, so switching is instant
       new IntersectionObserver(([e], io) => { if (e.isIntersecting) { imgs.forEach((i) => (i.loading = 'eager')); io.disconnect(); } }, { rootMargin: '400px' }).observe(box);
     });

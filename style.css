@@ -5072,6 +5072,7 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #ffd3b0; }
 .pf-tabs .pf-view { touch-action: pan-y; }
 @media (max-width: 700px) { .pf-tabbar { margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; } .pf-tabbar button:first-child { padding-left: 0; } }
 @media (prefers-reduced-motion: reduce) { .pf-tabbar button, .pf-step, .pf-tabline { transition: none; } }
+.gn-tabs .pf-browser { background: #1c1c1c; border-color: #2c2c2c; }
 .pf-tabcap { margin: 8px 0 0 !important; font-size: .92rem !important; color: #4a4652 !important; }
 /* tap-through prototype */
 .pf-proto { margin: 18px 0 8px; }

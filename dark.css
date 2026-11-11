@@ -1563,6 +1563,7 @@ body:has(.proj-hero[style*="#ffb27a"]) { --hl: #271e18; }
 .pf-step:hover { background-color: rgba(255, 255, 255, 0.04); border-color: rgba(240, 240, 240, .16); }
 }
 .pf-step:focus-visible { outline-color: #f39256; }
+.gn-tabs .pf-browser { background-image: none; background-color: #2b2b2b; border-color: rgba(240, 240, 240, .16); }
 .pf-tabcap { color: #d8d8d8 !important; }
 .pf-hot { border-color: #f39256; background-image: none; background-color: rgba(255, 138, 61, 0.08); }
 .pf-hot:focus-visible { outline-color: rgba(240, 240, 240, .16); }

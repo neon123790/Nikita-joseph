@@ -186,8 +186,8 @@
     const at = () => Math.max(0, ribbons.findIndex((r) => r.getAttribute('aria-selected') === 'true'));
     const label = () => {
       const i = at();
-      count.textContent = i === last ? 'The end' : `Case study ${i + 1} of ${last}`;
-      flipText.textContent = i === last ? 'Close the book' : 'Next case study';
+      count.textContent = i === last ? 'The end' : `Story ${i + 1} of ${last}`;
+      flipText.textContent = i === last ? 'Close the book' : 'Next story';
       prev.disabled = i === 0;
       next.disabled = i === last;
     };
@@ -680,7 +680,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEac
     W = r.width; H = r.height;
     cell = W < 600 ? 56 : 76;   // big, calm cells
     cols = Math.floor(W / cell); rows = Math.floor(H / cell);
-    if (cols < 2 || rows < 2) return; // hero has no size yet (hidden or mid-resize): keep the last maze
+    if (!(cols >= 2 && rows >= 2 && cols * rows <= 5000)) return; // hero has no sensible size yet (hidden or mid-resize): keep the last maze
     const ox = (W - cols * cell) / 2, oy = (H - rows * cell) / 2;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     // recursive-backtracker maze

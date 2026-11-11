@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-    <link rel="stylesheet" href="../style.css?v=348">
-    <link rel="stylesheet" href="../dark.css?v=26">
+    <link rel="stylesheet" href="../style.css?v=353">
+    <link rel="stylesheet" href="../dark.css?v=30">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -105,7 +105,7 @@
           <div class="content">
             <h2 id="h-context" class="cs-title">Built on the <mark>Existing Card</mark></h2>
             <p class="rh-lead">Traders cared about the challenge, <b>but the card hadn’t kept up.</b></p>
-            <p>In June 2021, FYERS launched My Account, a reporting portal, and listed the 30 Day Challenge among its features.</p>
+            <p>In June 2021, FYERS launched My Account, a reporting portal, and <mark class="hl">listed the 30 Day Challenge among its features</mark>.</p>
             <p>The original view was a single winding line with a date every second day and an avatar at the end. It showed progress through time, but <mark class="hl">not performance</mark>. Traders couldn’t see profit or loss on any day, and there was no visible record of past attempts.</p>
             <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The original challenge view: one winding line of dates, every second day, ending in a user avatar."><img src="../images/scorecard/timeline.jpg?v=1" width="1372" height="721" alt="The original challenge view: one winding line of dates, every second day, ending in a user avatar." loading="lazy"></button><span class="sc-pin" style="--x:51.9%;--y:14.5%" aria-hidden="true">1</span><span class="sc-pin" style="--x:58%;--y:47.5%" aria-hidden="true">2</span><span class="sc-pin" style="--x:86%;--y:71%" aria-hidden="true">3</span></div></div><figcaption>Before: the original challenge timeline</figcaption></figure><ol class="sc-key"><li>Dates appear every second day</li><li>No profit or loss on any day</li><li>No outcome, only an avatar at the end</li></ol>
             <p>Traders were still engaged. One started with ₹1,800 and planned to share daily P&amp;L in the community. Another publicly thanked FYERS for processing a brokerage discount on time.</p>
@@ -154,18 +154,32 @@
           <div class="content">
             <h2 id="h-solution" class="cs-title">Redesigning <mark>the Card</mark></h2>
             <h3 class="cs-sub">A calendar laid out as a scorecard</h3>
+            <figure class="sc-draw draw" aria-label="The winding timeline of dates straightens into a calendar of day cards, coloured for profit, loss and no trade.">
+              <svg viewBox="0 0 760 240" role="img" aria-hidden="true"><defs><filter id="pencil-scd" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="8" result="g"/><feDisplacementMap in="SourceGraphic" in2="g" scale="1.4"/></filter></defs>
+                <g filter="url(#pencil-scd)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path pathLength="1" style="--d:0s" d="M30 50 H230 C 270 50, 270 110, 230 110 H70 C 30 110, 30 170, 70 170 H250"/>
+                  <path pathLength="1" style="--d:.6s" d="M70 44 V56 M110 44 V56 M150 44 V56 M190 44 V56 M210 104 V116 M170 104 V116 M130 104 V116 M90 104 V116 M90 164 V176 M130 164 V176 M170 164 V176 M210 164 V176"/>
+                  <path pathLength="1" style="--d:1.1s" d="M240 160 a10 10 0 1 0 0.1 0"/>
+                  <path pathLength="1" style="--d:1.4s" d="M300 110 H380 M366 98 L380 110 L366 122"/>
+                  <path pathLength="1" style="--d:1.7s" d="M420 30 H730 V210 H420 Z M420 90 H730 M420 150 H730 M482 30 V210 M544 30 V210 M606 30 V210 M668 30 V210"/>
+                </g>
+                <g class="cells"><rect x="424" y="34" width="54" height="52" rx="4" fill="#cdeedb" style="--d:2.30s"/><rect x="486" y="34" width="54" height="52" rx="4" fill="#ffd6d6" style="--d:2.38s"/><rect x="548" y="34" width="54" height="52" rx="4" fill="#e6e6e6" style="--d:2.46s"/><rect x="610" y="34" width="54" height="52" rx="4" fill="#cdeedb" style="--d:2.54s"/><rect x="672" y="34" width="54" height="52" rx="4" fill="#ffd6d6" style="--d:2.62s"/><rect x="424" y="94" width="54" height="52" rx="4" fill="#cdeedb" style="--d:2.70s"/><rect x="486" y="94" width="54" height="52" rx="4" fill="#cdeedb" style="--d:2.78s"/><rect x="548" y="94" width="54" height="52" rx="4" fill="#ffd6d6" style="--d:2.86s"/><rect x="610" y="94" width="54" height="52" rx="4" fill="#cdeedb" style="--d:2.94s"/><rect x="672" y="94" width="54" height="52" rx="4" fill="#e6e6e6" style="--d:3.02s"/><rect x="424" y="154" width="54" height="52" rx="4" fill="#cdeedb" style="--d:3.10s"/><rect x="486" y="154" width="54" height="52" rx="4" fill="#cdeedb" style="--d:3.18s"/><rect x="548" y="154" width="54" height="52" rx="4" fill="#cdeedb" style="--d:3.26s"/><rect x="610" y="154" width="54" height="52" rx="4" fill="#cdeedb" style="--d:3.34s"/><rect x="672" y="154" width="54" height="52" rx="4" fill="#cdeedb" style="--d:3.42s"/></g>
+                <g class="t"><text x="140" y="214" style="--d:.9s">a date every second day</text><text x="575" y="232" style="--d:3.6s">a card for every trading day</text></g>
+              </svg>
+              <figcaption>From a winding line of dates to a card for every trading day</figcaption>
+            </figure>
             <p>I replaced the winding timeline with a calendar grid. Each trading day has its own card: green for profit, red for loss, and grey for no trade. Each card shows the date, weekday, number of trades, and total P&amp;L.</p>
             <p>People already read streaks in fitness and language apps. I wanted the challenge to use that habit, so a trader could <mark class="hl">see where they stood in one glance</mark>.</p>
             <figure class="pf-shot sc-shot md"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The full challenge calendar with sample data: day cards in green, red and grey, a running total P&amp;L at the top and a short rules reminder above the grid."><img src="../images/scorecard/calendar.jpg?v=3" width="1515" height="1871" alt="The full challenge calendar with sample data: day cards in green, red and grey, a running total P&amp;L at the top and a short rules reminder above the grid." loading="lazy"></button><span class="sc-pin" style="--x:21.3%;--y:31.8%" aria-hidden="true">1</span><span class="sc-pin" style="--x:39.9%;--y:31.8%" aria-hidden="true">2</span><span class="sc-pin" style="--x:58.3%;--y:31.8%" aria-hidden="true">3</span><span class="sc-pin" style="--x:4.2%;--y:49.6%" aria-hidden="true">4</span><span class="sc-pin" style="--x:39.8%;--y:49.6%" aria-hidden="true">5</span><span class="sc-pin" style="--x:81.8%;--y:12%" aria-hidden="true">6</span></div></div><figcaption>The scorecard, with sample data</figcaption></figure><ol class="sc-key"><li><b>Profit:</b> a green card</li><li><b>Loss:</b> a red card</li><li><b>No trade:</b> a grey card, with its own label</li><li><b>Trades</b> taken that day</li><li><b>Total P&amp;L</b> for that day</li><li><b>Running total</b> for the challenge</li></ol>
             <h3 class="cs-sub">Every score can be checked</h3>
-            <p>A green card only reassures if you can check it. Tapping a day opens its trades: symbol, segment, quantity, price, brokerage, and P&amp;L. Traders can verify the numbers themselves instead of relying on a summary.</p>
+            <p>A green card only reassures if you can check it. Tapping a day opens its trades: symbol, segment, quantity, price, brokerage, and P&amp;L. Traders can <mark class="hl">verify the numbers themselves</mark> instead of relying on a summary.</p>
             <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: Trade Details: a table of trades grouped by day, with symbol, segment, quantities, prices, P&amp;L and brokerage, and a total row."><img src="../images/scorecard/trades.jpg?v=3" width="1515" height="1275" alt="Trade Details: a table of trades grouped by day, with symbol, segment, quantities, prices, P&amp;L and brokerage, and a total row." loading="lazy"></button><span class="sc-pin" style="--x:5.1%;--y:34%" aria-hidden="true">1</span><span class="sc-pin" style="--x:80.6%;--y:26.9%" aria-hidden="true">2</span><span class="sc-pin" style="--x:94.6%;--y:26.9%" aria-hidden="true">3</span><span class="sc-pin" style="--x:5.1%;--y:88.8%" aria-hidden="true">4</span></div></div><figcaption>Tap a day to see the trades behind it</figcaption></figure><ol class="sc-key"><li><b>The day</b> you tapped, with its total</li><li><b>P&amp;L</b> for every trade</li><li><b>Brokerage</b> for every trade</li><li><b>Totals</b> across the view</li></ol>
             <h3 class="cs-sub">Badges earned on the card</h3>
             <p>FYERS had introduced Badges of Honour in 2020, and later added more for traders who won several challenges in a row. My contribution was the in-account experience around them. When a trader wins, the badge and certificate appear with the result, so <mark class="hl">the win feels like an accomplishment</mark> even when the discount is limited.</p>
             <figure class="pf-shot sc-shot sm"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: Win result: You Won Double Hattrick, with a large badge, the challenge status and dates, and a Start New Challenge button."><img src="../images/scorecard/win.jpg?v=3" width="1083" height="657" alt="Win result: You Won Double Hattrick, with a large badge, the challenge status and dates, and a Start New Challenge button." loading="lazy"></button></div></div><figcaption>The badge appears with the result</figcaption></figure>
             <figure class="pf-shot sc-shot sm"><button class="zoom" type="button" aria-label="Enlarge: A sample certificate of completion with the badge of honour, and buttons to download or share it."><img src="../images/scorecard/certificate.jpg?v=3" width="1231" height="807" alt="A sample certificate of completion with the badge of honour, and buttons to download or share it." loading="lazy"></button><figcaption>A certificate to keep and share, shown here with a sample name</figcaption></figure>
             <h3 class="cs-sub">Past cards on file</h3>
-            <p>Traders could attempt the challenge more than once, so the calendar alone wasn’t enough. The Past Challenges view lists each attempt with its status, brokerage discount, and certificate. Pending payouts are shown too, so a trader doesn’t need to raise a ticket to check.</p>
+            <p>Traders could attempt the challenge more than once, so the calendar alone wasn’t enough. The Past Challenges view lists each attempt with its status, brokerage discount, and certificate. Pending payouts are shown too, so a trader <mark class="hl">doesn’t need to raise a ticket</mark> to check.</p>
             <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: Past Challenges: a table of earlier attempts with dates, Won or Failed status, brokerage, net P&amp;L, a certificate link and badges."><img src="../images/scorecard/past.jpg?v=3" width="1516" height="1288" alt="Past Challenges: a table of earlier attempts with dates, Won or Failed status, brokerage, net P&amp;L, a certificate link and badges." loading="lazy"></button><span class="sc-pin" style="--x:41.1%;--y:39.6%" aria-hidden="true">1</span><span class="sc-pin" style="--x:74.7%;--y:39.6%" aria-hidden="true">2</span><span class="sc-pin" style="--x:86.4%;--y:39.6%" aria-hidden="true">3</span></div></div><figcaption>Every attempt, on file</figcaption></figure><ol class="sc-key"><li><b>Status:</b> won or failed, in words</li><li><b>Certificate</b> for each win</li><li><b>Badge</b> earned</li></ol>
             <h3 class="cs-sub">A bad round, handled kindly</h3>
             <p>Losing is part of trading. The failure screen gives an encouraging message and a clear choice: try again, or come back later. The aim was to bring traders back <mark class="hl">without blame</mark>.</p>
@@ -193,7 +207,7 @@
           <p class="cs-kicker" aria-hidden="true"><span class="cs-num">06</span>Edge Cases</p>
           <div class="content">
             <h2 id="h-edge" class="cs-title">Handled <mark>Behind the Scenes</mark></h2>
-            <p>Payout timing, reconciliation, and mid-month starts went through customer care. The interface showed each status clearly, while the back office handled exceptions.</p>
+            <p>Payout timing, reconciliation, and mid-month starts went through customer care. The interface <mark class="hl">showed each status clearly</mark>, while the back office handled exceptions.</p>
           </div>
         </section>
         <section class="cs-section" id="accessibility" aria-labelledby="h-accessibility">
@@ -220,7 +234,7 @@
             <h2 id="h-outcome" class="cs-title">A <mark>Short Run</mark></h2>
             <p>The scorecard shipped in late 2022. In January 2023, FYERS discontinued the challenge with immediate effect. Under SEBI circulars, the challenge had been interpreted as a game or competition. FYERS sought clarifications and argued that it was neither, since it offered brokerage discounts and no prizes.</p>
             <p class="rh-lead">The product ended for regulatory reasons, <b>not because traders stopped valuing it.</b></p>
-            <p>Within its short run, the scorecard let traders check each day’s result and verify their trades.</p>
+            <p>Within its short run, the scorecard let traders <mark class="hl">check each day’s result and verify their trades</mark>.</p>
             <blockquote class="rh-quotecard"><p>From losing a few to winning some, when I look back, it reminds of my trading journey of ups and downs.</p><footer>FYERS community member, January 2023</footer></blockquote>
           </div>
         </section>
@@ -272,8 +286,8 @@
 
     <nav class="cs-next" aria-label="Next project">
       <div class="wrap">
-        <a class="cs-next-card" href="ten-tabs.html" style="--nc:#ffe08a">
-          <span class="cs-next-txt"><small>Next project</small><strong>The Rehearsal</strong><em>Where first-time traders learn, practise and face the market before real money does.</em></span>
+        <a class="cs-next-card" href="reviewit.html" style="--nc:#cdeee8">
+          <span class="cs-next-txt"><small>Next project</small><strong>ReviewIT</strong><em>One place to review videos and photos, with feedback on the exact moment.</em></span>
           <span class="cs-next-go" aria-hidden="true">→</span>
         </a>
       </div>
@@ -408,6 +422,45 @@
       if (!('IntersectionObserver' in window)) { f.classList.add('in'); return; }
       const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { f.classList.add('in'); io.disconnect(); } }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
       io.observe(f);
+    })();
+  </script>
+  <script>
+    // survey beads fill in when the section scrolls into view; the number counts up with them
+    (() => {
+      const list = document.querySelector('.cs-dots.fill');
+      if (!list) return;
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const cards = [...list.children].map((li) => {
+        const on = [...li.querySelectorAll('.dotgrid i.on')];
+        on.sort((a, b) => b.offsetTop - a.offsetTop || a.offsetLeft - b.offsetLeft).forEach((d, k) => d.style.setProperty('--k', k));
+        const num = li.querySelector('strong'); return { num, end: parseInt(num.textContent, 10) };
+      });
+      if (still) { list.classList.add('in'); return; }
+      cards.forEach((c) => (c.num.textContent = '0%'));
+      new IntersectionObserver((es, io) => es.forEach((e) => {
+        if (!e.isIntersecting) return; io.disconnect(); list.classList.add('in');
+        const t0 = performance.now(), dur = 1300;
+        const tick = (t) => { const p = Math.min(1, (t - t0) / dur), ez = 1 - Math.pow(1 - p, 3);
+          cards.forEach((c) => (c.num.textContent = Math.round(c.end * ez) + '%')); if (p < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }), { threshold: 0.35 }).observe(list);
+    })();
+    // numbers count up, drawings draw themselves in, meters fill, as each scrolls into view
+    (() => {
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const watch = (els, fn, opts) => { if (still || !('IntersectionObserver' in window)) { els.forEach((e) => fn(e, true)); return; }
+        const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { fn(e.target, false); io.unobserve(e.target); } }), opts || { rootMargin: '0px 0px -12% 0px' });
+        els.forEach((e) => io.observe(e)); };
+      watch(document.querySelectorAll('.draw, .rv-meters, .sc-grow'), (el) => el.classList.add('in'));
+      const nums = [...document.querySelectorAll('.rh-stats b')].map((b) => { const m = b.textContent.match(/^(\D*)([\d,]+)(.*)$/); return m && { b, pre: m[1], end: +m[2].replace(/,/g, ''), post: m[3], txt: b.textContent }; }).filter(Boolean);
+      if (still) return;
+      nums.forEach((n) => { n.b.style.minWidth = n.b.offsetWidth + 'px'; });
+      watch(nums.map((n) => n.b), (b) => {
+        const n = nums.find((x) => x.b === b), t0 = performance.now(), dur = 1100;
+        const tick = (t) => { const p = Math.min(1, (t - t0) / dur), ez = 1 - Math.pow(1 - p, 3);
+          b.textContent = p < 1 ? n.pre + Math.round(n.end * ez).toLocaleString('en-IN') + n.post : n.txt; if (p < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }, { threshold: .6 });
     })();
   </script>
   <script src="../theme.js?v=5"></script>

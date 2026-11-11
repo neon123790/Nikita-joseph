@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReviewIT — Nikita Joseph</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="ReviewIT — a case study by Nikita Joseph">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nikita Joseph">
+  <meta property="og:url" content="https://nikitaejoseph.com/work/reviewit.html">
+  <meta property="og:image" content="https://nikitaejoseph.com/images/og-card.jpg?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nikita’s sticker portrait beside a handwritten note: Hi, I’m Nikita! Senior UX Designer.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nikitaejoseph.com/images/og-card.jpg?v=2">
+  <meta name="description" content="ReviewIT: a web app where a team uploads videos and photos, leaves feedback on the exact moment, and tracks every version to sign-off. A case study by Nikita Joseph.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&family=Mulish:wght@600&display=swap" rel="stylesheet">
+    <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+    <link rel="stylesheet" href="../style.css?v=353">
+    <link rel="stylesheet" href="../dark.css?v=30">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+      <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    </filter>
+    <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="7"/>
+    </filter>
+    <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".4"/>
+    </filter>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="../index.html">Nikita Joseph</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../career.html">Career</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="read-progress" aria-hidden="true"><i></i></div>
+  <main id="main">
+    <section class="genie-hero2 proj-hero gn-hero pf-hero" style="--proj:#a8dcd3">
+      <div class="wrap">
+        <div class="gh-panel">
+          <div class="gh-text">
+            <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
+            <p class="label proj-kicker">Collaboration · Web app · 2022</p>
+            <div class="cs-titlerow"><h1>ReviewIT</h1></div>
+            <p class="pf-lede">One place where a team uploads videos and photos, leaves feedback on the exact moment, and tracks every version to sign-off.</p>
+          </div>
+          <figure class="gh-shot pf-hero-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>ReviewIT · Project Zero</span></div><div class="pf-view"><img src="../images/reviewit/home.jpg?v=1" width="1099" height="780" alt="ReviewIT home: Project Zero with folders and videos as cards, each showing its status and comment count, beside the team list." loading="eager" fetchpriority="high"></div></div></figure>
+          <dl class="gh-facts gn-facts">
+            <div><dt>Role</dt><dd>UI/UX Designer, end to end</dd></div>
+            <div><dt>Team</dt><dd>2 designers, with Aravind A</dd></div>
+            <div><dt>Timeline</dt><dd>4 weeks</dd></div>
+            <div><dt>Tools</dt><dd>Figma</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap cs-layout">
+      <nav class="cs-toc" aria-label="On this page">
+        <details class="cs-toc-box" open><summary class="cs-toc-title">On this page</summary>
+        <ol><li><a href="#context">Context</a></li><li><a href="#research">Research</a></li><li><a href="#personas">Personas</a></li><li><a href="#strategy">Strategy</a></li><li><a href="#process">Process</a></li><li><a href="#solution">Solution</a></li><li><a href="#visual">Visual design</a></li><li><a href="#testing">Testing</a></li><li><a href="#reflect">Reflect</a></li></ol></details>
+      </nav>
+
+      <article class="cs-body cs3 pf rv">
+        <section class="rh-brief" aria-label="In short">
+          <dl>
+            <div><dt>In short</dt><dd>When designers and video editors swap feedback over chat and shared drives, notes get lost between versions. Aravind A and I designed ReviewIT, a web app where a team uploads videos and photos, comments on the <em>exact moment</em>, and tracks every version and its status in one place.</dd></div>
+            <div><dt>The result</dt><dd>A tested concept. Two potential users found the layout <b>neat and easy to understand</b>, and could get feedback on time without chasing status updates. Their one request, a light theme, shaped our next steps.</dd></div>
+          </dl>
+        </section>
+        <ul class="rh-stats pf-stats">
+          <li style="--c:#d7f0ec"><b>10</b><span>people interviewed</span></li>
+          <li style="--c:#ffe3ec"><b>89%</b><span>said feedback leads to miscommunication</span></li>
+          <li style="--c:#e3efff"><b>52%</b><span>struggle with versions and links</span></li>
+          <li style="--c:#fff1a8"><b>4</b><span>weeks, concept to final design</span></li>
+        </ul>
+
+        <section class="cs-section" id="context" aria-labelledby="h-context">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">01</span>Context</p>
+          <div class="content">
+            <h2 id="h-context" class="cs-title">Feedback Lost <mark>Between Versions</mark></h2>
+            <p class="rh-lead">The work was fine. <b>The feedback loop around it wasn’t.</b></p>
+            <p>As designers, we collaborated with video editors every week. An editor reworks a cut, uploads the new version to a shared drive and sends a link. The designer then has to compare the old and new versions and <mark class="hl">remember what they asked for last time</mark>.</p>
+            <figure class="rv-draw draw" aria-label="Before ReviewIT: the editor uploads a new cut to a drive, sends a link, the designer compares versions and replies in chat, and notes get lost. With ReviewIT: one file, every version, and notes pinned to the moment.">
+              <svg viewBox="0 0 760 300" role="img" aria-hidden="true"><defs><filter id="pencil-rvd" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="3" result="g"/><feDisplacementMap in="SourceGraphic" in2="g" scale="1.4"/></filter></defs>
+                <g filter="url(#pencil-rvd)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path pathLength="1" style="--d:0s" d="M40 40 H170 V120 H40 Z M60 58 H150 V102 H60 Z M60 58 L72 50 M84 58 L96 50 M108 58 L120 50 M132 58 L144 50"/>
+                  <path pathLength="1" style="--d:.5s" d="M180 80 C 220 60, 250 60, 290 78 M278 70 L290 78 L278 88"/>
+                  <path pathLength="1" style="--d:.9s" d="M300 52 H340 L350 62 H420 V120 H300 Z"/>
+                  <path pathLength="1" style="--d:1.3s" d="M430 80 C 470 60, 500 60, 540 78 M528 70 L540 78 L528 88"/>
+                  <path pathLength="1" style="--d:1.7s" d="M550 40 H700 V112 H550 Z M600 112 V126 M580 128 H670"/>
+                  <path pathLength="1" style="--d:2.1s" d="M640 140 C 610 190, 470 200, 380 196 M392 188 L380 196 L392 204"/>
+                  <path pathLength="1" style="--d:2.5s" d="M220 176 H360 V222 H250 L232 238 V222 H220 Z"/>
+                  <path pathLength="1" class="lost" style="--d:2.9s" d="M150 196 l14 -10 l8 12 l-14 10 Z M118 232 l12 -12 l10 10 l-12 12 Z M86 202 l14 -6 l6 14 l-14 6 Z"/>
+                </g>
+                <g class="t">
+                  <text x="105" y="140" style="--d:.3s">Editor</text>
+                  <text x="235" y="58" style="--d:.7s">uploads v2</text>
+                  <text x="360" y="140" style="--d:1.1s">Shared drive</text>
+                  <text x="485" y="58" style="--d:1.5s">sends a link</text>
+                  <text x="625" y="28" style="--d:1.9s" class="r">Designer compares</text>
+                  <text x="510" y="182" style="--d:2.3s">replies in chat</text>
+                  <text x="290" y="205" style="--d:2.7s" class="hand">“v1 notes?”</text>
+                  <text x="128" y="268" style="--d:3.1s">notes get lost</text>
+                </g>
+              </svg>
+              <figcaption>The loop before ReviewIT: every new cut sends feedback back through a drive link and a chat thread</figcaption>
+            </figure>
+            <p>Notes get missed, reviews take longer, and small misunderstandings turn into extra rounds. We wanted <mark class="hl">the feedback to live on the work itself</mark>, not in a chat thread.</p>
+          </div>
+        </section>
+        <section class="cs-section" id="research" aria-labelledby="h-research">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">02</span>Research</p>
+          <div class="content">
+            <h2 id="h-research" class="cs-title">Ten Conversations, <mark>One Pattern</mark></h2>
+            <p class="rh-lead">We spoke to the people stuck in the loop: <b>designers, video editors, product managers and marketers.</b></p>
+            <h3 class="cs-sub">User interviews</h3>
+            <p>We interviewed eight to ten participants, some in person and others over Zoom, WhatsApp and Google Meet, and gathered more answers through an online survey on Google Forms.</p>
+            <dl class="rh-rows">
+              <div><dt>Type</dt><dd>Contextual interviews with ten people, watching how they receive and track feedback today</dd></div>
+              <div><dt>Duration</dt><dd>About ten minutes per person</dd></div>
+              <div><dt>Channel</dt><dd>Google Meet</dd></div>
+            </dl>
+            <h3 class="cs-sub">What we asked</h3>
+            <ol class="rv-qs">
+              <li>How do you receive feedback on your work?</li>
+              <li>Do you find it difficult to receive feedback from colleagues on your video or photo?</li>
+              <li>How long does it take to review a photo or video?</li>
+              <li>How do you track tasks?</li>
+              <li>Can you find the feedback inside the photo or video?</li>
+              <li>Are you looking for any special features?</li>
+              <li>Are you looking for a web-based collaboration tool?</li>
+              <li>Can you name some web-based collaboration tools?</li>
+            </ol>
+            <h3 class="cs-sub">What the survey said</h3>
+            <p>We surveyed friends and peers to see how widespread the problems were.</p>
+            <ul class="cs-dots fill"><li><div class="dotgrid" role="img" aria-label="89 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>89%</strong><span>found miscommunication happening around feedback</span></li><li><div class="dotgrid" role="img" aria-label="52 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>52%</strong><span>said uploading new versions and managing links is a big issue</span></li><li><div class="dotgrid" role="img" aria-label="76 out of 100 people"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><strong>76%</strong><span>couldn’t track the status of a task in sync</span></li></ul>
+          </div>
+        </section>
+        <section class="cs-section" id="personas" aria-labelledby="h-personas">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">03</span>Personas</p>
+          <div class="content">
+            <h2 id="h-personas" class="cs-title">Two People <mark>We Designed For</mark></h2>
+            <div class="persona2 rv-persona">
+              <span class="persona-photo rv-photo"><img src="../images/reviewit/robin.png?v=1" width="420" height="420" alt="Illustration of Robin, the persona: a smiling man with brown hair in a grey shirt over a white T-shirt" loading="lazy"></span>
+              <div>
+                <p class="persona2-name"><b>Robin</b>, graphic designer · Argentina</p>
+                <p>He gives his best at work, and spends his free time learning new design skills and doing a little photography.</p>
+              </div>
+            </div>
+            <div class="persona2-cols rv-cols">
+              <div><h3>Goals</h3><ul><li>Receive feedback as soon as possible</li><li>Find exactly where the feedback points</li><li>See the status of the project</li></ul></div>
+              <div><h3>Frustrations</h3><ul><li>Little communication between team members</li><li>Can’t tell where the mistakes in a video are</li><li>Hard to get updated links after changes</li></ul></div>
+              <div><h3>Personality</h3><ul class="rv-meters"><li><span>Growth mindset</span><i class="m" style="--n:4" role="img" aria-label="4 out of 5"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b></i></li><li><span>Hardworking</span><i class="m" style="--n:3" role="img" aria-label="3 out of 5"><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b></i></li><li><span>Professional</span><i class="m" style="--n:5" role="img" aria-label="5 out of 5"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b></i></li></ul><p class="rv-tech">Uses social media, mobile apps and a computer</p></div>
+            </div>
+            <div class="persona2 rv-persona">
+              <span class="persona-photo rv-photo"><img src="../images/reviewit/janani.png?v=1" width="420" height="420" alt="Illustration of Janani, the persona: a smiling woman with long grey hair and small flower clips, in a light grey turtleneck" loading="lazy"></span>
+              <div>
+                <p class="persona2-name"><b>Janani</b>, video editor · Bangalore</p>
+                <p>She works at a big company and loves learning something new from her co-workers every day. Outside work, she cooks and looks after her garden.</p>
+              </div>
+            </div>
+            <div class="persona2-cols rv-cols">
+              <div><h3>Goals</h3><ul><li>Know where the feedback points are</li><li>Get updates on the project status</li><li>See whether others have made their changes</li></ul></div>
+              <div><h3>Frustrations</h3><ul><li>Miscommunication between team members</li><li>Feedback takes too long to arrive</li><li>Missed deadlines caused by confusion between co-workers</li></ul></div>
+              <div><h3>Personality</h3><ul class="rv-meters"><li><span>Growth mindset</span><i class="m" style="--n:4" role="img" aria-label="4 out of 5"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b></i></li><li><span>Ambitious</span><i class="m" style="--n:3" role="img" aria-label="3 out of 5"><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b></i></li><li><span>Professional</span><i class="m" style="--n:5" role="img" aria-label="5 out of 5"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b></i></li></ul><p class="rv-tech">Uses social networks, mobile apps and the internet</p></div>
+            </div>
+            <h3 class="cs-sub">Empathy maps</h3>
+            <div class="rv-quads">
+              <div class="rv-quadwrap"><p class="rv-quadname">Robin</p><div class="cs-quad"><div><h3>Says</h3><ul><li>“I try to save every video in the drive.”</li><li>“It gets harder to manage every day.”</li><li>“Some apps are pretty expensive.”</li><li>“I can’t even find a demo.”</li></ul></div><div><h3>Thinks</h3><ul><li>What happens if I use this software?</li><li>How much will it cost?</li><li>Will this app help me out?</li><li>Which features should I use?</li></ul></div><div><h3>Does</h3><ul><li>Saves every version of his videos in the drive</li><li>Buys cloud storage and shares links</li><li>Searches for new software to fix the problem</li><li>Tries out different tools</li></ul></div><div><h3>Feels</h3><ul><li>Doesn’t want to spend more money</li><li>Annoyed while looking for better software</li><li>Worried about wasted time</li><li>Unsure whether an app will help</li></ul></div><span class="quad-photo rv-photo" aria-hidden="true"><img src="../images/reviewit/robin.png?v=1" width="420" height="420" alt="" loading="lazy"></span></div></div>
+              <div class="rv-quadwrap"><p class="rv-quadname">Janani</p><div class="cs-quad"><div><h3>Says</h3><ul><li>“It would be great if a product actually helps.”</li><li>“How will it help me?”</li><li>“How much will it cost?”</li><li>“Will it be team friendly?”</li></ul></div><div><h3>Thinks</h3><ul><li>Will this software help my team?</li><li>Is it really worth buying?</li><li>Will this app help me out?</li><li>Which features should I use?</li></ul></div><div><h3>Does</h3><ul><li>Asks what she should use</li><li>Asks friends for help</li><li>Tries out new software</li><li>Buys hard disks and cloud storage</li></ul></div><div><h3>Feels</h3><ul><li>Unsure what to use</li><li>Worried about cost</li><li>Hopeful it could help the whole team</li><li>Curious how much it will cost</li></ul></div><span class="quad-photo rv-photo" aria-hidden="true"><img src="../images/reviewit/janani.png?v=1" width="420" height="420" alt="" loading="lazy"></span></div></div>
+            </div>
+          </div>
+        </section>
+        <section class="cs-section" id="strategy" aria-labelledby="h-strategy">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">04</span>Strategy</p>
+          <div class="content">
+            <h2 id="h-strategy" class="cs-title">Who It’s For, <mark>What It Must Do</mark></h2>
+            <ul class="rv-strat">
+              <li style="--c:#e3efff"><b>Business goal</b><span>A hassle-free, web-based collaboration app.</span></li>
+              <li style="--c:#ffe3ec"><b>Target users</b><span>Video editors, designers, product managers and marketers.</span></li>
+              <li style="--c:#d7f0ec"><b>Cross-platform</b><span>Web, tablets and mobile devices.</span></li>
+              <li style="--c:#f1e9ff"><b>Technology</b><span>Works over the internet on iOS, Android, tablets and the web.</span></li>
+              <li style="--c:#fff1a8"><b>Core tasks</b><span>Upload a video or image, set a task’s status, assign people, share feedback.</span></li>
+              <li style="--c:#dff5e8"><b>Success</b><span>People can <mark class="hl">give feedback and track each task’s status</mark> without leaving the app.</span></li>
+            </ul>
+          </div>
+        </section>
+        <section class="cs-section" id="process" aria-labelledby="h-process">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">05</span>Process</p>
+          <div class="content">
+            <h2 id="h-process" class="cs-title">Four Weeks, <mark>Concept to Final</mark></h2>
+            <dl class="rh-rows">
+              <div><dt>Aravind A</dt><dd>Research, wireframes and the interface, end to end</dd></div>
+              <div><dt>Me</dt><dd>The interface and the end-to-end UI/UX</dd></div>
+            </dl>
+            <p>We moved from research and strategy into UX and UI in parallel, and finished with a presentation of the final product.</p>
+            <p class="cs-hint gantt-hint" aria-hidden="true">Swipe to see all four weeks →</p>
+            <div class="gantt" aria-hidden="true">
+              <div class="gantt-phases"><span style="--s:0; --e:.5">Concept</span><span style="--s:.5; --e:.75">MVP</span><span style="--s:.75; --e:1">Final product</span></div>
+              <div class="gantt-weeks"><span>Week 1<small>Sep 4</small></span><span>Week 2<small>Sep 11</small></span><span>Week 3<small>Sep 18</small></span><span>Week 4<small>Sep 25</small></span></div>
+              <ul class="gantt-bars">
+                <li style="--s:0.000; --e:0.350"><span class="bar"><b>Research</b> <small>Problems, existing apps</small></span></li>
+                <li style="--s:0.000; --e:0.500"><span class="bar"><b>Strategy</b> <small>Challenges, goals</small></span></li>
+                <li style="--s:0.075; --e:0.550"><span class="bar"><b>Content</b> <small>Copy, master copy</small></span></li>
+                <li style="--s:0.250; --e:0.912"><span class="bar"><b>UX</b> <small>IA, user flows, paper sketch, wireframes, prototype</small></span></li>
+                <li style="--s:0.250; --e:0.750"><span class="bar"><b>UI</b> <small>Colours, typography, layout</small></span></li>
+                <li style="--s:0.750; --e:0.912"><span class="bar"><b>Presentation</b></span></li>
+              </ul>
+            </div>
+            <table class="sr-only"><caption>Design process timeline</caption><thead><tr><th scope="col">Step</th><th scope="col">Includes</th><th scope="col">When</th></tr></thead><tbody><tr><th scope="row">Research</th><td>Problems, existing apps</td><td>Week 1 to week 2</td></tr><tr><th scope="row">Strategy</th><td>Challenges, goals</td><td>Week 1 to week 2</td></tr><tr><th scope="row">Content</th><td>Copy, master copy</td><td>Week 1 to week 3</td></tr><tr><th scope="row">UX</th><td>IA, user flows, paper sketch, wireframes, prototype</td><td>Week 2 to week 4</td></tr><tr><th scope="row">UI</th><td>Colours, typography, layout</td><td>Week 2 to week 3</td></tr><tr><th scope="row">Presentation</th><td></td><td>Week 4</td></tr></tbody></table>
+            <h3 class="cs-sub">Starting on paper</h3>
+            <p>Concept sketches came first, the skeleton of the interface, before low-fidelity wireframes. We drew the three screens that mattered most: <mark class="hl">the project home, a file under review, and the list of review links</mark>.</p>
+            <figure class="pf-shot sc-shot"><button class="zoom" type="button" aria-label="Enlarge: Paper sketches of the project home, a video with comments on its timeline, and the review links table."><img src="../images/reviewit/sketch.jpg?v=1" width="1800" height="1335" alt="Paper sketches of the project home, a video with comments on its timeline, and the review links table." loading="lazy"></button><figcaption>Paper sketches: home, file review and review links</figcaption></figure>
+          </div>
+        </section>
+        <section class="cs-section" id="solution" aria-labelledby="h-solution">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">06</span>Solution</p>
+          <div class="content">
+            <h2 id="h-solution" class="cs-title">One Place for <mark>Every Review</mark></h2>
+            <h3 class="cs-sub">Projects at a glance</h3>
+            <p>Each project opens as a grid of folders and files. Every card shows its status, such as in progress, to review or approved, and how many comments it has, so a team sees what needs attention <mark class="hl">before opening anything</mark>.</p>
+            <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>ReviewIT · Project Zero</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: ReviewIT home: Project Zero with folders and videos as cards, each showing its status and comment count."><img src="../images/reviewit/home.jpg?v=1" width="1099" height="780" alt="ReviewIT home: Project Zero with folders and videos as cards, each showing its status and comment count." loading="lazy"></button></div></div><figcaption>Project home: status and comments on every card</figcaption></figure>
+            <h3 class="cs-sub">Feedback pinned to the moment</h3>
+            <p>Open a video and the comments sit beside it. Each one carries a timestamp, and the reviewer’s avatar appears on the timeline at that point. <mark class="hl">Click it to jump straight to the moment.</mark> Replies stay in the thread, and File information shows size, resolution, frame rate, upload status and date.</p>
+            <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>ReviewIT · Project Zero</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: A video open for review: the comments panel on the left with timestamps, and avatars marking each comment on the timeline below the video."><img src="../images/reviewit/review.jpg?v=1" width="1099" height="779" alt="A video open for review: the comments panel on the left with timestamps, and avatars marking each comment on the timeline below the video." loading="lazy"></button></div></div><figcaption>Comments with timestamps, and avatars on the timeline</figcaption></figure>
+            <h3 class="cs-sub">Everything else, one click away</h3>
+            <p>Every new cut lands under the same file, so nobody digs through drive links to compare. Uploading, sharing, permissions and tracking follow the same simple pattern.</p>
+            <div class="pf-tabs" data-name="features"><div class="pf-tabbar" role="tablist" aria-label="More of ReviewIT"><button type="button" role="tab" aria-selected="true" data-k="0">Upload</button><button type="button" role="tab" aria-selected="false" data-k="1">File options</button><button type="button" role="tab" aria-selected="false" data-k="2">Notifications</button><button type="button" role="tab" aria-selected="false" data-k="3">Versions</button><button type="button" role="tab" aria-selected="false" data-k="4">Status</button><button type="button" role="tab" aria-selected="false" data-k="5">Permissions</button><button type="button" role="tab" aria-selected="false" data-k="6">Photos</button><button type="button" role="tab" aria-selected="false" data-k="7">Review links</button><button type="button" role="tab" aria-selected="false" data-k="8">Details</button></div><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>ReviewIT · Project Zero</span></div><div class="pf-view"><div class=pf-stackimg><img src="../images/reviewit/upload.jpg?v=1" width="1099" height="779" alt="The New menu open: file upload, folder upload, new folder and new private folder." loading="lazy" class="on" data-k="0"><img src="../images/reviewit/options.jpg?v=1" width="1099" height="780" alt="A file card with its options menu open: share, rename, move, copy, update, duplicate, make private, download and delete." loading="lazy" class="" data-k="1"><img src="../images/reviewit/notify.jpg?v=1" width="1099" height="779" alt="The notifications panel open over the project, listing new comments from teammates." loading="lazy" class="" data-k="2"><img src="../images/reviewit/versions.jpg?v=1" width="1099" height="780" alt="The version menu open in the file header, listing V3, V2 and V1 of the same video." loading="lazy" class="" data-k="3"><img src="../images/reviewit/status.jpg?v=1" width="1099" height="714" alt="The status menu open: No Status, Approved, In Progress and To Review." loading="lazy" class="" data-k="4"><img src="../images/reviewit/permissions.jpg?v=1" width="1099" height="780" alt="Share settings: toggles for downloads, comments, approvals and showing all versions, and a link expiration switch." loading="lazy" class="" data-k="5"><img src="../images/reviewit/photo.jpg?v=1" width="1099" height="780" alt="A landscape photo open for review, with the comments panel on the left." loading="lazy" class="" data-k="6"><img src="../images/reviewit/tracking.jpg?v=1" width="1099" height="779" alt="The review testing tab: a table of shared links with date, owner, views, status and link." loading="lazy" class="" data-k="7"><img src="../images/reviewit/details.jpg?v=1" width="1099" height="779" alt="The details tab: a table of files with date, owner, views, comments and version." loading="lazy" class="" data-k="8"></div></div></div><p class="pf-tabcap" aria-live="polite"><span data-k="0" ><b>Upload:</b> a <b>New</b> button for file upload, folder upload, a new folder or a new private folder.</span><span data-k="1" hidden><b>File options:</b> share, rename, move, copy, update, duplicate, make private, download or delete, and sort by date, name, type, size, status or comments.</span><span data-k="2" hidden><b>Notifications:</b> new comments, tasks added, project assignments and status changes, in one panel.</span><span data-k="3" hidden><b>Versions:</b> every cut of a file under one name: switch between V1, V2 and V3 in the header.</span><span data-k="4" hidden><b>Status:</b> no status, approved, in progress or to review, set right beside Share.</span><span data-k="5" hidden><b>Permissions:</b> allow downloads, comments and approvals, show all versions, and set the link to expire.</span><span data-k="6" hidden><b>Photos:</b> the same comments panel as video, with an option to show comments on the image.</span><span data-k="7" hidden><b>Review links:</b> every shared link with its creation date, owner, views, active status and URL.</span><span data-k="8" hidden><b>Details:</b> the project’s files with their date, owner, views, comments and versions.</span></p></div>
+          </div>
+        </section>
+        <section class="cs-section" id="visual" aria-labelledby="h-visual">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">07</span>Visual Design</p>
+          <div class="content">
+            <h2 id="h-visual" class="cs-title">Dark, Calm <mark>and Focused</mark></h2>
+            <p>A dark interface lets photos and video stand out. One teal accent marks actions, and each colour comes in 80, 50 and 20 percent tints for states and surfaces.</p>
+            <ul class="rv-swatches" aria-label="Colour palette"><li style="--c:#5EB6AF"><b>Teal</b><span>#5EB6AF · primary</span><i class="tints"><i></i><i></i><i></i></i></li><li style="--c:#404040"><b>Dark</b><span>#404040 · text</span><i class="tints"><i></i><i></i><i></i></i></li><li style="--c:#303245"><b>Grey</b><span>#303245 · surfaces</span><i class="tints"><i></i><i></i><i></i></i></li><li class="rv-type"><b>Aa</b><span>Mulish · semi-bold, medium, regular, light</span></li></ul>
+            <dl class="rh-rows"><div><dt>Why Mulish</dt><dd>A minimalist sans serif designed for both display and text, so one typeface carries headings and small labels alike.</dd></div></dl>
+          </div>
+        </section>
+        <section class="cs-section" id="testing" aria-labelledby="h-testing">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">08</span>Testing</p>
+          <div class="content">
+            <h2 id="h-testing" class="cs-title">Two Users, <mark>One Clear Request</mark></h2>
+            <p class="rh-lead">We tested the prototype with two potential users, who completed a list of tasks. <b>The response was mostly positive, with one clear request.</b></p>
+            <ul class="rh-checks">
+              <li>The layout is neat and easy to understand.</li>
+              <li>The app is nicely divided into clear sections.</li>
+              <li>They got feedback on time, <mark class="hl">without waiting for status updates</mark>.</li>
+            </ul>
+            <dl class="rh-rows">
+              <div><dt>The request</dt><dd>Some people preferred a light theme, so a switch between light and dark went on our list.</dd></div>
+            </dl>
+          </div>
+        </section>
+        <section class="cs-section" id="reflect" aria-labelledby="h-reflect">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">09</span>Reflect</p>
+          <div class="content">
+            <h2 id="h-reflect" class="cs-title">What <mark>We Learned</mark></h2>
+            <dl class="rh-rows">
+              <div><dt>Research first</dt><dd>In-depth research on video feedback tools made the project <mark class="hl">more relevant and valuable for users</mark>. Running it and shaping the whole flow was the hardest, most satisfying part.</dd></div>
+              <div><dt>Details add up</dt><dd>Colours, typography and components shape the experience, individually and together.</dd></div>
+              <div><dt>Next</dt><dd>Add the light theme, and run more research to flesh out the features and structure of the web app.</dd></div>
+            </dl>
+            <blockquote class="ul-close">Feedback shouldn’t live in a chat thread. ReviewIT keeps it <mark>on the moment it’s about</mark>.</blockquote>
+            <p class="ul-cta"><a class="btn btn-primary" href="mailto:nikkijoseph1998@gmail.com?subject=Let%E2%80%99s%20walk%20through%20%E2%80%9CReviewIT%E2%80%9D">Want to walk through the flows? Let’s talk <span class="arrow" aria-hidden="true">→</span></a></p>
+            <p class="rv-more">Designed with Aravind A. <a href="https://www.behance.net/gallery/154971209/ReviewIT-Case-Study-UI-UX" target="_blank" rel="noopener">See the original case study on Behance<span class="sr-only"> (opens in a new tab)</span></a></p>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <dialog class="viewer" aria-label="Image viewer">
+      <figure><div class="v-pan"><img alt=""></div><figcaption></figcaption><span class="v-tip">Drag the image to look around.</span></figure>
+      <div class="viewer-bar">
+        <button type="button" class="v-prev" aria-label="Previous image">←</button>
+        <span class="v-count" aria-live="polite"></span>
+        <button type="button" class="v-next" aria-label="Next image">→</button>
+        <button type="button" class="v-close" aria-label="Close image viewer">Close ✕</button>
+      </div>
+    </dialog>
+
+    <button class="sec-fab" type="button" aria-haspopup="dialog" aria-controls="sec-sheet"><span aria-hidden="true">☰</span> Sections</button>
+    <dialog class="sec-sheet" id="sec-sheet" aria-label="Jump to a section"><p class="sec-sheet-title">On this page</p><ol></ol></dialog>
+
+    <nav class="cs-next" aria-label="Next project">
+      <div class="wrap">
+        <a class="cs-next-card" href="ten-tabs.html" style="--nc:#ffe08a">
+          <span class="cs-next-txt"><small>Next project</small><strong>The Rehearsal</strong><em>Where first-time traders learn, practise and face the market before real money does.</em></span>
+          <span class="cs-next-go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </nav>
+    <!-- ======================= 7. Contact ======================= -->
+    <section class="section contact3" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact3-grid">
+        <div class="contact-copy">
+          <p class="label">Let’s say hello</p>
+          <h2 class="h-split" id="contact-title">Have a <b>messy product problem?</b></h2>
+          <p>I’d love to help make it make sense. Tell me what you’re working on and I’ll write back.</p>
+          <ul class="contact-links">
+                        <li><a href="mailto:nikkijoseph1998@gmail.com"><span>Email me</span><span class="arrow" aria-hidden="true">→</span></a></li>
+            <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+          </ul>
+          <p class="contact-email">Or write to <a href="mailto:nikkijoseph1998@gmail.com">nikkijoseph1998@gmail.com</a></p>
+        </div>
+
+        <div class="contact-art" aria-hidden="true">
+          <svg class="cs cs-star1" viewBox="0 0 80 80"><path fill="#ffd65a" d="M40 6 L 50 30 L 76 32 L 56 48 L 63 74 L 40 60 L 17 74 L 24 48 L 4 32 L 30 30 Z"/></svg>
+          <svg class="cs cs-star2" viewBox="0 0 80 80"><path fill="#ff9fb5" d="M40 6 L 50 30 L 76 32 L 56 48 L 63 74 L 40 60 L 17 74 L 24 48 L 4 32 L 30 30 Z"/></svg>
+          <svg class="cs cs-spark" viewBox="0 0 40 40"><path fill="#9ccfff" d="M20 2 C 22 14, 26 18, 38 20 C 26 22, 22 26, 20 38 C 18 26, 14 22, 2 20 C 14 18, 18 14, 20 2 Z"/></svg>
+          <svg class="cs cs-chat" viewBox="0 0 120 90"><path fill="#fffdf7" d="M14 6 H 106 a 10 10 0 0 1 10 10 V 56 a 10 10 0 0 1 -10 10 H 46 L 24 84 V 66 H 14 a 10 10 0 0 1 -10 -10 V 16 a 10 10 0 0 1 10 -10 Z"/><text x="60" y="44" text-anchor="middle">hi! 👋</text></svg>
+          <svg class="cs cs-mail" viewBox="0 0 100 74"><rect fill="#9be3bf" x="4" y="4" width="92" height="66" rx="8"/><path fill="none" d="M6 10 L 50 42 L 94 10"/></svg>
+          <svg class="cs cs-heart" viewBox="0 0 24 24"><path fill="#ff6a6a" d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg>
+          <span class="c-circle"><img src="../images/me-phone.png" width="422" height="731" alt="" loading="lazy"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Nikita Joseph</span>
+      <nav class="foot-links" aria-label="Elsewhere"><a href="https://www.behance.net/nikitajoseph1" target="_blank" rel="noopener">Behance<span class="sr-only"> (opens in a new tab)</span></a><a href="https://drive.google.com/file/d/1uXCm8E5I2xzbWDlHEQcuiTX9KQvNNh7n/view?usp=sharing" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens Google Drive in a new tab)</span></a></nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const header = document.querySelector('.site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+  <script>
+    // highlight the section you're reading in "On this page"
+    const links = [...document.querySelectorAll('.cs-toc a')];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        // the deepest matching link is the current one; its group heading lights up too
+        const match = links.filter((a) => a.getAttribute('href') === '#' + e.target.id);
+        const cur = match[match.length - 1];
+        if (cur) { cur.setAttribute('aria-current', 'true'); cur.closest('.has-sub')?.classList.add('in'); }
+        document.querySelectorAll('.cs-toc .has-sub').forEach((li) => li.classList.toggle('in', !!cur && li.contains(cur)));
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.cs3 .cs-section').forEach((s) => io.observe(s));
+  </script>
+  <script>
+    // tap to enlarge: an accessible viewer for screens and wireframes
+    (() => {
+      const dlg = document.querySelector('.viewer');
+      const items = [...document.querySelectorAll('.zoom')];
+      if (!dlg || !items.length) return;
+      const img = dlg.querySelector('img'), cap = dlg.querySelector('figcaption'), count = dlg.querySelector('.v-count');
+      let i = 0, opener = null;
+      let group = items; // the images of one section: wireframes or final screens
+      const show = (n) => {
+        i = (n + group.length) % group.length;
+        const src = group[i].querySelector('img');
+        img.src = src.currentSrc || src.src; img.alt = src.alt;
+        cap.textContent = group[i].closest('figure').querySelector('figcaption')?.textContent || '';
+        count.textContent = `${i + 1} of ${group.length}`;
+        // on phones the image is larger than the screen: start on the Genie panel (right side)
+        const pan = dlg.querySelector('.v-pan');
+        const toPanel = () => { pan.scrollLeft = pan.scrollWidth; };
+        img.complete ? requestAnimationFrame(toPanel) : img.addEventListener('load', toPanel, { once: true });
+      };
+      items.forEach((b) => b.addEventListener('click', () => {
+        opener = b; group = [...b.closest('section').querySelectorAll('.zoom')];
+        show(group.indexOf(b)); dlg.showModal(); dlg.querySelector('.v-close').focus();
+      }));
+      dlg.querySelector('.v-prev').addEventListener('click', () => show(i - 1));
+      dlg.querySelector('.v-next').addEventListener('click', () => show(i + 1));
+      dlg.querySelector('.v-close').addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+      dlg.addEventListener('close', () => opener && opener.focus());
+    })();
+    // reading progress, and the contents list collapses on small screens
+    (() => {
+      const bar = document.querySelector('.read-progress i');
+      const onScroll = () => { const h = document.documentElement; bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'; };
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const box = document.querySelector('.cs-toc-box');
+      if (box && matchMedia('(max-width: 900px)').matches) box.open = false;
+      else if (box) box.querySelector('summary').addEventListener('click', (e) => e.preventDefault()); // always open on desktop
+    })();
+  </script>
+  <script>
+    // phones: a floating "Sections" button opens a quick-jump list (like a food-app menu)
+    (() => {
+      const fab = document.querySelector('.sec-fab'), sheet = document.querySelector('.sec-sheet');
+      if (!fab || !sheet) return;
+      const list = sheet.querySelector('ol');
+      list.innerHTML = [...document.querySelectorAll('.cs3 .cs-section')].map((s) => {
+        const name = (s.querySelector('.cs-kicker')?.textContent || '').replace(/^\d+/, '').trim();
+        return `<li><a href="#${s.id}">${name}</a></li>`;
+      }).join('');
+      fab.addEventListener('click', () => {
+        const cur = document.querySelector('.cs-toc a[aria-current="true"]')?.getAttribute('href');
+        list.querySelectorAll('a').forEach((a) => a.toggleAttribute('aria-current', a.getAttribute('href') === cur));
+        sheet.showModal();
+        (list.querySelector('[aria-current]') || list.querySelector('a')).focus();
+      });
+      list.addEventListener('click', (e) => { if (e.target.closest('a')) sheet.close(); });
+      sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
+      sheet.addEventListener('close', () => fab.focus({ preventScroll: true }));
+      const onScroll = () => {
+        const end = document.querySelector('.cs-next')?.getBoundingClientRect().top ?? 1e9;
+        fab.classList.toggle('on', window.scrollY > 500 && end > window.innerHeight);
+      };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
+  </script>
+  <script>
+    (() => {
+      const f = document.querySelector('.gn-facts'); if (!f) return;
+      if (!('IntersectionObserver' in window)) { f.classList.add('in'); return; }
+      const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { f.classList.add('in'); io.disconnect(); } }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+      io.observe(f);
+    })();
+  </script>
+  <script>
+  (() => {
+    document.querySelectorAll('.pf-tabs').forEach((box) => {
+      const btns = [...box.querySelectorAll('[role="tab"]')], imgs = [...box.querySelectorAll('.pf-stackimg img')], caps = [...box.querySelectorAll('.pf-tabcap span')];
+      const show = (k) => { btns.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === k))); imgs.forEach((i) => i.classList.toggle('on', i.dataset.k === k)); caps.forEach((c) => (c.hidden = c.dataset.k !== k)); };
+      btns.forEach((b, n) => {
+        b.addEventListener('click', () => show(b.dataset.k));
+        b.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const t = btns[(n + d + btns.length) % btns.length]; t.focus(); show(t.dataset.k); });
+      });
+      // load the hidden screens once the box is near, so switching is instant
+      new IntersectionObserver(([e], io) => { if (e.isIntersecting) { imgs.forEach((i) => (i.loading = 'eager')); io.disconnect(); } }, { rootMargin: '400px' }).observe(box);
+    });
+  })();
+  </script>
+  <script>
+    // survey beads fill in when the section scrolls into view; the number counts up with them
+    (() => {
+      const list = document.querySelector('.cs-dots.fill');
+      if (!list) return;
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const cards = [...list.children].map((li) => {
+        const on = [...li.querySelectorAll('.dotgrid i.on')];
+        on.sort((a, b) => b.offsetTop - a.offsetTop || a.offsetLeft - b.offsetLeft).forEach((d, k) => d.style.setProperty('--k', k));
+        const num = li.querySelector('strong'); return { num, end: parseInt(num.textContent, 10) };
+      });
+      if (still) { list.classList.add('in'); return; }
+      cards.forEach((c) => (c.num.textContent = '0%'));
+      new IntersectionObserver((es, io) => es.forEach((e) => {
+        if (!e.isIntersecting) return; io.disconnect(); list.classList.add('in');
+        const t0 = performance.now(), dur = 1300;
+        const tick = (t) => { const p = Math.min(1, (t - t0) / dur), ez = 1 - Math.pow(1 - p, 3);
+          cards.forEach((c) => (c.num.textContent = Math.round(c.end * ez) + '%')); if (p < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }), { threshold: 0.35 }).observe(list);
+    })();
+    // numbers count up, drawings draw themselves in, meters fill, as each scrolls into view
+    (() => {
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const watch = (els, fn, opts) => { if (still || !('IntersectionObserver' in window)) { els.forEach((e) => fn(e, true)); return; }
+        const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { fn(e.target, false); io.unobserve(e.target); } }), opts || { rootMargin: '0px 0px -12% 0px' });
+        els.forEach((e) => io.observe(e)); };
+      watch(document.querySelectorAll('.draw, .rv-meters, .sc-grow'), (el) => el.classList.add('in'));
+      const nums = [...document.querySelectorAll('.rh-stats b')].map((b) => { const m = b.textContent.match(/^(\D*)([\d,]+)(.*)$/); return m && { b, pre: m[1], end: +m[2].replace(/,/g, ''), post: m[3], txt: b.textContent }; }).filter(Boolean);
+      if (still) return;
+      nums.forEach((n) => { n.b.style.minWidth = n.b.offsetWidth + 'px'; });
+      watch(nums.map((n) => n.b), (b) => {
+        const n = nums.find((x) => x.b === b), t0 = performance.now(), dur = 1100;
+        const tick = (t) => { const p = Math.min(1, (t - t0) / dur), ez = 1 - Math.pow(1 - p, 3);
+          b.textContent = p < 1 ? n.pre + Math.round(n.end * ez).toLocaleString('en-IN') + n.post : n.txt; if (p < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }, { threshold: .6 });
+    })();
+  </script>
+  <script src="../theme.js?v=5"></script>
+  <script src="../header.js?v=8"></script>
+  <script>
+    // the story animates in as you read, like the other case studies
+    (() => {
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.documentElement.classList.add('rh-motion');
+      const els = document.querySelectorAll('.pf :is(.sc-shot, .rv-persona, .rv-cols, .rv-quadwrap, .rv-strat li, .cs-dots li, .gantt, .rh-panel, .rh-rows > div, .rh-map li, .rh-quotecard, .clips, .rh-tablewrap, .rh-stats li, .pf-tabs, .pf-board li, .pf-count, .pf-lock, .rh-checks, .pf-voices), .pf-owned');
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('rv-in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+      els.forEach((n) => io.observe(n));
+    })();
+  </script>
+</body>
+</html>

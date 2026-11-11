@@ -23,8 +23,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-  <link rel="stylesheet" href="style.css?v=371">
-  <link rel="stylesheet" href="dark.css?v=42">
+  <script>setTimeout(function(){if(!window.njReveal)document.documentElement.classList.add('no-reveal')},3000)</script>
+  <noscript><style>.reveal,.reveal .art-card{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
+  <link rel="stylesheet" href="style.css?v=378">
+  <link rel="stylesheet" href="dark.css?v=48">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -86,7 +88,10 @@
           <p>Now part of the Innovation Lab, a small, hand-picked team finding ideas that could bring the company its next ₹100 crore this decade. Currently, I’m designing a financial-education product that helps people turn market knowledge into better trading, alongside an AI product being taken from research to a working app.</p>
           <p>An early version of the financial-education idea has been built from sketch to a working app, end to end, with no engineering support. The build used prompt-driven development in Claude Code within VS Code, and the full journey was presented to stakeholders.</p>
         </div>
-        <a class="btn btn-ghost resume-link" href="https://drive.google.com/file/d/1uXCm8E5I2xzbWDlHEQcuiTX9KQvNNh7n/view?usp=sharing" target="_blank" rel="noopener">View resume <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens Google Drive in a new tab)</span></a>
+        <div class="ch-actions">
+          <a class="btn btn-primary" href="index.html#work">See my work <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener">LinkedIn <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
           </div>
         <div class="ch-art ch-art--photo">
           <figure class="ch-polaroid">
@@ -442,14 +447,13 @@
     <section class="section contact3" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact3-grid">
         <div class="contact-copy">
-          <p class="label">Let’s say hello</p>
+          <p class="label">Say hello</p>
           <h2 class="h-split" id="contact-title">Have a <b>messy product problem?</b></h2>
           <p>I’d love to help make it make sense. Tell me what you’re working on and I’ll write back.</p>
-          <ul class="contact-links">
-                        <li><a href="mailto:nikkijoseph1998@gmail.com"><span>Email me</span><span class="arrow" aria-hidden="true">→</span></a></li>
-            <li><a href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
-          </ul>
-          <p class="contact-email">Or write to <a href="mailto:nikkijoseph1998@gmail.com">nikkijoseph1998@gmail.com</a></p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:nikkijoseph1998@gmail.com">Email me <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener">LinkedIn <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
         </div>
 
         <div class="contact-art" aria-hidden="true">
@@ -472,7 +476,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=65"></script>
+  <script src="main.js?v=69"></script>
   <script>
     // "shipped": a rocket lifts off from the word, loops around the heading leaving a smoke trail,
     // comes back to the same spot, and its smoke settles into the letters. Transforms and opacity only.
@@ -540,7 +544,7 @@
     })();
   </script>
   <script src="theme.js?v=5"></script>
-  <script src="header.js?v=13"></script>
+  <script src="header.js?v=15"></script>
   <script>
     // the graduation seal is pressed on when it scrolls into view
     (() => { const seal = document.querySelector('.edu-seal'); if (!seal || !('IntersectionObserver' in window)) return;

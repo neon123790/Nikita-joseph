@@ -83,8 +83,8 @@
   const items = [
     ['Work', byText('Work') && byText('Work').getAttribute('href')],
     ['Career', byText('Career') && byText('Career').getAttribute('href')],
-    ['Resume', RESUME, true],
     ['Contact', contact && contact.getAttribute('href')],
+    ['Resume', RESUME, true],
   ].filter(([, href]) => href);
 
   const sheet = document.createElement('div');
@@ -100,7 +100,7 @@
       <button type="button" class="nav-close"><span class="sr-only">Close menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <nav class="nav-sheet-links wrap" aria-label="Menu">
-      <ol>${items.map(([t, href, ext], i) => `<li style="--i:${i}"><a href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}${links.some((l) => l.textContent.trim() === t && l.getAttribute('aria-current') === 'page') ? ' aria-current="page"' : ''}><span class="n" aria-hidden="true">0${i + 1}</span><span class="t">${t}</span>${ext ? '<span class="ext" aria-hidden="true">↗</span><span class="sr-only"> (opens Google Drive in a new tab)</span>' : ''}</a></li>`).join('')}</ol>
+      <div><p class="nav-sheet-label" aria-hidden="true">Menu</p><ol>${items.map(([t, href, ext], i) => `<li style="--i:${i}"><a href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}${links.some((l) => l.textContent.trim() === t && l.getAttribute('aria-current') === 'page') ? ' aria-current="page"' : ''}><span class="t">${t}</span><span class="go" aria-hidden="true">${ext ? '↗' : '→'}</span>${ext ? '<span class="sr-only"> (opens Google Drive in a new tab)</span>' : ''}</a></li>`).join('')}</ol></div>
     </nav>`;
   document.body.appendChild(sheet);
   const close = sheet.querySelector('.nav-close');
@@ -138,4 +138,25 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
   matchMedia('(min-width: 761px)').addEventListener('change', (m) => { if (m.matches) shut(false); });
+})();
+
+/* copy email buttons */
+(function () {
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-copy]');
+    if (!b) return;
+    var text = b.getAttribute('data-copy');
+    var done = function () {
+      b.classList.add('is-copied');
+      var label = b.getAttribute('aria-label');
+      b.setAttribute('aria-label', 'Email address copied');
+      clearTimeout(b._t);
+      b._t = setTimeout(function () { b.classList.remove('is-copied'); b.setAttribute('aria-label', label === 'Email address copied' ? 'Copy email address' : label); }, 1800);
+    };
+    var fallback = function () {
+      var t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (err) {} t.remove(); done();
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+  });
 })();

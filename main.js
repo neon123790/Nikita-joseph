@@ -12,6 +12,7 @@
   window.addEventListener('scroll', onHeaderScroll, { passive: true });
 
   /* ---------- Scroll reveal ---------- */
+  window.njReveal = true; /* head safety net shows .reveal content if this never runs */
   const revealIO = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {

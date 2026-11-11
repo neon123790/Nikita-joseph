@@ -7857,3 +7857,7 @@ html.rh-motion .cp-ps-card[data-anim].in { opacity: 1; transform: none; }
   .cp-ps-card { padding-top: 14px; background: linear-gradient(180deg, var(--c) 0 54px, #fffdf7 54px); }
   .cp-ps-card h4 { margin-top: 30px; }
 }
+
+/* Homepage: more breathing room between Kind words and How I work */
+.kind3 { padding-bottom: clamp(72px, 9vw, 128px); }
+.kind3 + .work3 { padding-top: clamp(72px, 9vw, 128px); }

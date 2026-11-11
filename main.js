@@ -182,17 +182,18 @@
   // Arrows and the folded corner turn the pages. After the last story comes the end page, and from there the book closes.
   if (lid && ribbons.length) {
     const flip = book.querySelector('.j-flip'), flipText = flip.querySelector('.j-flip-t');
-    const count = journal.querySelector('.j-count'), prev = journal.querySelector('.j-prev'), next = journal.querySelector('.j-next');
-    const last = ribbons.length - 1; // the final page is the end of the book, so it isn't counted as a story
+    const toToc = [...journal.querySelectorAll('.j-to-toc, .j-toc-btn')], count = journal.querySelector('.j-count'), prev = journal.querySelector('.j-prev'), next = journal.querySelector('.j-next');
+    const last = ribbons.length - 1; // the first page is the contents and the final page is the end, so neither is counted as a story
     const at = () => Math.max(0, ribbons.findIndex((r) => r.getAttribute('aria-selected') === 'true'));
     const label = () => {
       const i = at();
-      count.textContent = i === last ? 'The end' : `Story ${i + 1} of ${last}`;
-      flipText.textContent = i === last ? 'Close the book' : 'Next story';
+      count.textContent = i === 0 ? 'Contents' : i === last ? 'The end' : `Story ${i} of ${last - 1}`;
+      flipText.textContent = i === last ? 'Close the book' : i === 0 ? 'First story' : 'Next story';
       prev.disabled = i === 0;
       next.disabled = i === last;
+      toToc.forEach((b) => { if (b.classList.contains('art-btn')) b.disabled = i === 0; else b.hidden = i === 0; });
     };
-    const go = (i) => { if (i >= 0 && i <= last) { ribbons[i].click(); label(); } };
+    const go = (i) => { if (i >= 0 && i <= last) { if (!book.style.getPropertyValue('--page-min')) sizeBook(); ribbons[i].click(); label(); } };
     // a click anywhere on a story's pages opens it, same as its link (the link stays the keyboard route)
     book.addEventListener('click', (e) => {
       if (shut || book._turning || e.target.closest('a, button')) return;
@@ -219,8 +220,38 @@
     };
     prev.addEventListener('click', () => go(at() - 1));
     next.addEventListener('click', () => go(at() + 1));
+    toToc.forEach((b) => b.addEventListener('click', () => { go(0); book.addEventListener('turned', () => book.querySelector('.toc-go')?.focus({ preventScroll: true }), { once: true }); }));
     flip.addEventListener('click', () => { if (at() === last) closeJournal(); else go(at() + 1); });
+    // the contents page: each line turns straight to its story
+    book.querySelectorAll('.toc-go').forEach((b) => b.addEventListener('click', () => {
+      go(+b.dataset.go);
+      if (b.matches(':focus-visible')) book.addEventListener('turned', () => book.querySelector('.entry:not([hidden]) .read-link')?.focus({ preventScroll: true }), { once: true });
+    }));
     label();
+    // phones: every page is as tall as the tallest one, so the book keeps one size as you turn
+    const phone = matchMedia('(max-width: 860px)');
+    const sizeBook = () => {
+      if (book._turning) return;
+      book.style.removeProperty('--page-min');
+      if (!phone.matches) return;
+      const es = [...book.querySelectorAll(':scope > .entry')], was = es.map((e) => e.hidden);
+      let h = 0;
+      es.forEach((e, i) => { es.forEach((x, j) => { x.hidden = j !== i; }); h = Math.max(h, e.querySelector('.page.left')?.offsetHeight || 0); });
+      es.forEach((x, j) => { x.hidden = was[j]; });
+      if (h) book.style.setProperty('--page-min', `${h}px`);
+    };
+    sizeBook();
+    document.fonts?.ready.then(sizeBook);
+    let sizeT; addEventListener('resize', () => { clearTimeout(sizeT); sizeT = setTimeout(sizeBook, 150); });
+    // the book opens by itself the first time it comes into view; after that it stays as the reader leaves it
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => {
+        if (!es.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        setTimeout(() => { if (shut) openJournal(); }, 350);
+      }, { threshold: 0.6 });
+      io.observe(lid);
+    }
   }
   makeTabs([...document.querySelectorAll('.process-tab')]);
 

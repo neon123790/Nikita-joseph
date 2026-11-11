@@ -26,8 +26,8 @@
   <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
   <script>setTimeout(function(){if(!window.njReveal)document.documentElement.classList.add('no-reveal')},3000)</script>
   <noscript><style>.reveal,.reveal .art-card{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
-  <link rel="stylesheet" href="style.css?v=387">
-  <link rel="stylesheet" href="dark.css?v=54">
+  <link rel="stylesheet" href="style.css?v=411">
+  <link rel="stylesheet" href="dark.css?v=69">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -126,13 +126,25 @@
           <div class="book">
             <div class="spiral" aria-hidden="true"></div>
             <div class="turner" aria-hidden="true"></div>
+            <!-- 00 Contents -->
+            <div class="entry j-toc is-active" id="entry-contents" style="--bm:#ffd65a">
+              <div class="page left">
+                <span class="num">Contents</span>
+                <h3><span class="hl">Seven stories, one notebook.</span></h3>
+                <p class="desc">Pick a story to turn straight to it, or flip through them in order.</p>
+                <ol class="toc toc-mob"><li><button class="toc-go" type="button" data-go="1"><span class="toc-n">01</span><span class="toc-t">The Rehearsal</span><span class="toc-k">Fintech · Edtech</span></button></li><li><button class="toc-go" type="button" data-go="2"><span class="toc-n">02</span><span class="toc-t">The Compass</span><span class="toc-k">Fintech · Advisory</span></button></li><li><button class="toc-go" type="button" data-go="3"><span class="toc-n">03</span><span class="toc-t">The Cockpit</span><span class="toc-k">Fintech · Trading</span></button></li><li><button class="toc-go" type="button" data-go="4"><span class="toc-n">04</span><span class="toc-t">Genie</span><span class="toc-k">Productivity · AI search</span></button></li><li><button class="toc-go" type="button" data-go="5"><span class="toc-n">05</span><span class="toc-t">The Scorecard</span><span class="toc-k">Fintech · Gamification</span></button></li><li><button class="toc-go" type="button" data-go="6"><span class="toc-n">06</span><span class="toc-t">Stock Gifting</span><span class="toc-k">Fintech · Gifting</span></button></li><li><button class="toc-go" type="button" data-go="7"><span class="toc-n">07</span><span class="toc-t">ReviewIT</span><span class="toc-k">Collaboration · Web app</span></button></li></ol>
+              </div>
+              <div class="page right">
+                <ol class="toc"><li><button class="toc-go" type="button" data-go="1"><span class="toc-n">01</span><span class="toc-t">The Rehearsal</span><span class="toc-k">Fintech · Edtech</span></button></li><li><button class="toc-go" type="button" data-go="2"><span class="toc-n">02</span><span class="toc-t">The Compass</span><span class="toc-k">Fintech · Advisory</span></button></li><li><button class="toc-go" type="button" data-go="3"><span class="toc-n">03</span><span class="toc-t">The Cockpit</span><span class="toc-k">Fintech · Trading</span></button></li><li><button class="toc-go" type="button" data-go="4"><span class="toc-n">04</span><span class="toc-t">Genie</span><span class="toc-k">Productivity · AI search</span></button></li><li><button class="toc-go" type="button" data-go="5"><span class="toc-n">05</span><span class="toc-t">The Scorecard</span><span class="toc-k">Fintech · Gamification</span></button></li><li><button class="toc-go" type="button" data-go="6"><span class="toc-n">06</span><span class="toc-t">Stock Gifting</span><span class="toc-k">Fintech · Gifting</span></button></li><li><button class="toc-go" type="button" data-go="7"><span class="toc-n">07</span><span class="toc-t">ReviewIT</span><span class="toc-k">Collaboration · Web app</span></button></li></ol>
+              </div>
+            </div>
             <!-- 01 The Rehearsal (NDA) -->
-            <div class="entry is-active" id="entry-tentabs" style="--bm:#c9b6ff">
+            <div class="entry" id="entry-tentabs" style="--bm:#c9b6ff" hidden>
               <div class="page left">
                 <span class="num">Fintech · Edtech · 2026</span>
                 <h3><span class="hl">The Rehearsal</span><span class="title-lock" title="The full story is under NDA"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.5" r="1.2"/></svg><span class="sr-only">Locked: under NDA</span></span></h3>
                 <p class="desc">Where first-time traders learn, practise and face the market before real money does.</p>
-                <a class="read-link" href="work/ten-tabs.html">Read the overview <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/ten-tabs.html"><span class="rl-t">Read<span class="rl-more"> the overview</span></span> <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -155,7 +167,7 @@
                 <span class="num">Fintech · Advisory · 2025</span>
                 <h3><span class="hl">The Compass</span><span class="title-lock" title="The full story is under NDA"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.5" r="1.2"/></svg><span class="sr-only">Locked: under NDA</span></span></h3>
                 <p class="desc">Advice that explains itself, stays optional and moves at your pace.</p>
-                <a class="read-link" href="work/compass.html">Read the overview <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/compass.html"><span class="rl-t">Read<span class="rl-more"> the overview</span></span> <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -184,7 +196,7 @@
                 <span class="num">Fintech · Trading · 2024</span>
                 <h3><span class="hl">The Cockpit</span></h3>
                 <p class="desc">One view to watch, control and exit every position, on any screen.</p>
-                <a class="read-link" href="work/fyers-portfolio.html">Read the story <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/fyers-portfolio.html"><span class="rl-t">Read<span class="rl-more"> the story</span></span> <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -222,7 +234,7 @@
                 <span class="num">Productivity · AI search · 2023</span>
                 <h3><span class="hl">Genie</span></h3>
                 <p class="desc">One place for every work link your team needs.</p>
-                <a class="read-link" href="work/genie.html">Read the story <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/genie.html"><span class="rl-t">Read<span class="rl-more"> the story</span></span> <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -253,7 +265,7 @@
                 <span class="num">Fintech · Gamification · 2022</span>
                 <h3><span class="hl">The Scorecard</span></h3>
                 <p class="desc">Turning a minimal brokerage challenge into a daily scorecard that shows profit, loss, and rewards at a glance.</p>
-                <a class="read-link" href="work/scorecard.html">Read the story <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/scorecard.html"><span class="rl-t">Read<span class="rl-more"> the story</span></span> <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -290,13 +302,41 @@
               </div>
             </div>
 
-            <!-- 06 ReviewIT -->
+            <!-- 06 Stock Gifting -->
+            <div class="entry" id="entry-gifting" style="--bm:#f6c84a" hidden>
+              <div class="page left">
+                <span class="num">Fintech · Gifting · 2022</span>
+                <h3><span class="hl">Stock Gifting</span></h3>
+                <p class="desc">A wedding gift of ETFs to about 300 guests made the news. I turned it into a three-step way to gift stocks on FYERS.</p>
+                <a class="read-link" href="work/stock-gifting.html"><span class="rl-t">Read<span class="rl-more"> the story</span></span> <span class="arrow" aria-hidden="true">→</span></a>
+                <span class="press-stamp" role="img" aria-label="Featured in The Times of India"><svg viewBox="0 0 120 120" width="112" height="112" aria-hidden="true"><defs><path id="ps-ring" d="M60 60 m-41 0 a41 41 0 1 1 82 0 a41 41 0 1 1 -82 0"/><filter id="ps-rough"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.8 1.35" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></defs><g filter="url(#ps-rough)" fill="none" stroke="currentColor"><circle cx="60" cy="60" r="56" stroke-width="3"/><circle cx="60" cy="60" r="50" stroke-width="1.2"/><circle cx="60" cy="60" r="31" stroke-width="1.2"/><text font-size="10" font-weight="800" fill="currentColor" stroke="none"><textPath href="#ps-ring" startOffset="0" textLength="254" lengthAdjust="spacing">AS FEATURED IN ★ AS FEATURED IN ★</textPath></text><text x="60" y="57" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="7" font-weight="700" fill="currentColor" stroke="none">THE TIMES</text><text x="60" y="66" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="7" font-weight="700" fill="currentColor" stroke="none">OF INDIA</text><path d="M44 71h32" stroke-width="1"/><text x="60" y="80" text-anchor="middle" font-size="6.5" font-weight="700" letter-spacing="1" fill="currentColor" stroke="none">2022</text><path d="M44 48h32" stroke-width="1"/></g></svg></span>
+              </div>
+              <div class="page right">
+                <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
+                <div class="thumb sk sk-gift" aria-hidden="true">
+                  <div class="sk-layer">
+                    <svg viewBox="0 0 320 200" preserveAspectRatio="none"><defs><filter id="pencil-sg" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="4" result="g"/><feDisplacementMap in="SourceGraphic" in2="g" scale="1.6"/></filter></defs><g filter="url(#pencil-sg)">
+                      <path class="sk-d" data-s="0" data-e=".2" d="M94 98 H226 V182 H94 Z"/>
+                      <path class="sk-d" data-s=".2" data-e=".34" d="M84 74 H236 V98 H84 Z"/>
+                      <path class="sk-d red" data-s=".34" data-e=".46" d="M152 74 V182 M168 74 V182"/>
+                      <path class="sk-d red" data-s=".46" data-e=".62" d="M160 74 C 140 44, 112 50, 122 68 C 128 78, 150 76, 160 74 C 170 76, 192 78, 198 68 C 208 50, 180 44, 160 74"/>
+                      <path class="sk-d g" data-s=".62" data-e=".84" d="M246 160 L262 136 L276 146 L298 106"/>
+                      <path class="sk-d g" data-s=".84" data-e=".9" d="M284 106 H298 V120"/>
+                      <path class="sk-d" data-s=".62" data-e=".9" d="M30 40 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 Z M52 150 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 Z"/>
+                    </g></svg>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 07 ReviewIT -->
             <div class="entry" id="entry-reviewit" style="--bm:#a8dcd3" hidden>
               <div class="page left">
                 <span class="num">Collaboration · Web app · 2022</span>
                 <h3><span class="hl">ReviewIT</span></h3>
                 <p class="desc">Stop losing feedback between versions.</p>
-                <a class="read-link" href="work/reviewit.html">Read the story <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="work/reviewit.html"><span class="rl-t">Read<span class="rl-more"> the story</span></span> <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right">
                 <div class="print"><span class="tape t1" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span>
@@ -325,37 +365,40 @@
                 <span class="num">The end</span>
                 <h3><span class="hl">That’s the last page, for now.</span></h3>
                 <p class="desc">If you have a messy story of your own, I’d love to hear it.</p>
-                <a class="read-link" href="#contact">Contact <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="read-link" href="#contact"><span class="rl-t">Let’s talk</span> <span class="arrow" aria-hidden="true">→</span></a>
               </div>
               <div class="page right"><p class="j-endnote">Thanks for reading.</p></div>
             </div>
+            <button class="j-to-toc" type="button" hidden><span aria-hidden="true">☰</span> Contents</button>
             <button class="j-flip" type="button"><span class="j-flip-t">Next story</span><i aria-hidden="true"></i></button>
           </div>
           </div>
 
-            <button class="j-lid" type="button" aria-label="Open 6 stories">
+            <button class="j-lid" type="button" aria-label="Open 7 stories">
               <span class="j-face j-front" aria-hidden="true">
                 <span class="j-band"></span>
                 <span class="j-plate">
                   <span class="j-title">Case Studies</span>
                 </span>
-                <span class="j-open">Open 6 stories <span aria-hidden="true">→</span></span>
               </span>
               <span class="j-face j-back" aria-hidden="true"></span>
             </button>
           </div>
           <div class="j-nav">
             <button class="art-btn j-prev" type="button" aria-label="Previous page">←</button>
-            <span class="j-count" aria-live="polite">Story 1 of 6</span>
+            <span class="j-count" aria-live="polite">Contents</span>
             <button class="art-btn j-next" type="button" aria-label="Next page">→</button>
+            <button class="art-btn j-toc-btn" type="button" aria-label="Back to contents" title="Contents" disabled><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 5h10M7 10h10M7 15h10"/><circle cx="3" cy="5" r=".6" fill="currentColor"/><circle cx="3" cy="10" r=".6" fill="currentColor"/><circle cx="3" cy="15" r=".6" fill="currentColor"/></svg></button>
           </div>
           <!-- Pages are driven from this list. To add a case study: add its .entry before the end page, and one button here before bm-end. -->
           <div class="j-ribbons" hidden>
-            <button class="j-bm" type="button" id="bm-tentabs" aria-controls="entry-tentabs" aria-selected="true" tabindex="-1" style="--bm:#c9b6ff"></button>
+            <button class="j-bm" type="button" id="bm-contents" aria-controls="entry-contents" aria-selected="true" tabindex="-1"></button>
+            <button class="j-bm" type="button" id="bm-tentabs" aria-controls="entry-tentabs" aria-selected="false" tabindex="-1" style="--bm:#c9b6ff"></button>
             <button class="j-bm" type="button" id="bm-compass" aria-controls="entry-compass" aria-selected="false" tabindex="-1" style="--bm:#9fc2ff"></button>
             <button class="j-bm" type="button" id="bm-portfolio" aria-controls="entry-portfolio" aria-selected="false" tabindex="-1" style="--bm:#ffb27a"></button>
             <button class="j-bm" type="button" id="bm-genie" aria-controls="entry-genie" aria-selected="false" tabindex="-1" style="--bm:#9be3bf"></button>
             <button class="j-bm" type="button" id="bm-scorecard" aria-controls="entry-scorecard" aria-selected="false" tabindex="-1" style="--bm:#ffc2d1"></button>
+            <button class="j-bm" type="button" id="bm-gifting" aria-controls="entry-gifting" aria-selected="false" tabindex="-1" style="--bm:#f6c84a"></button>
             <button class="j-bm" type="button" id="bm-reviewit" aria-controls="entry-reviewit" aria-selected="false" tabindex="-1" style="--bm:#a8dcd3"></button>
             <button class="j-bm" type="button" id="bm-end" aria-controls="entry-end" aria-selected="false" tabindex="-1"></button>
           </div>
@@ -628,7 +671,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=69"></script>
+  <script src="main.js?v=74"></script>
   <script src="theme.js?v=5"></script>
   <script src="header.js?v=15"></script>
 </body>

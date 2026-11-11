@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock Gifting — Nikita Joseph</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Stock Gifting — a case study by Nikita Joseph">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nikita Joseph">
+  <meta property="og:url" content="https://nikitaejoseph.com/work/stock-gifting.html">
+  <meta property="og:image" content="https://nikitaejoseph.com/images/og-card.jpg?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nikita’s sticker portrait beside a handwritten note: Hi, I’m Nikita! Senior UX Designer.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://nikitaejoseph.com/images/og-card.jpg?v=2">
+  <meta name="description" content="Stock Gifting at FYERS: a wedding gift of ETFs to about 300 guests that made the national news, turned into a three-step flow for gifting stocks, ETFs and mutual funds. A case study by Nikita Joseph.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+    <link rel="stylesheet" href="../style.css?v=411">
+    <link rel="stylesheet" href="../dark.css?v=69">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="paint-edge" filterUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+      <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    </filter>
+    <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="7"/>
+    </filter>
+    <filter id="wc-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".4" numOctaves="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".4"/>
+    </filter>
+  </svg>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="../index.html">Nikita Joseph</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../career.html">Career</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="read-progress" aria-hidden="true"><i></i></div>
+  <main id="main">
+    <section class="genie-hero2 proj-hero gn-hero pf-hero" style="--proj:#f6c84a">
+      <div class="wrap">
+        <div class="gh-panel">
+          <div class="gh-text">
+            <a class="back-btn" href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
+            <p class="label proj-kicker">Fintech · Gifting · 2022</p>
+            <div class="cs-titlerow"><h1>Stock Gifting</h1></div>
+            <p class="pf-lede">It started as a wedding gift and became a FYERS feature: gifting stocks, ETFs and mutual funds in three steps.</p>
+          </div>
+          <figure class="gh-shot pf-hero-shot sg-hero-pop"><img src="../images/stockgift/wedding-popup.jpg?v=1" width="826" height="416" alt="A pop-up on FYERS: You received a Gift! The message reads Happy wedding wishes Bipin and Pami!, signed Samuel, with gift boxes and confetti." loading="eager" fetchpriority="high"></figure>
+          <dl class="gh-facts gn-facts">
+            <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
+            <div><dt>Team</dt><dd>Small product team</dd></div>
+            <div><dt>Platform</dt><dd>Web</dd></div>
+            <div><dt>Tools</dt><dd>Figma</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap cs-layout">
+      <nav class="cs-toc" aria-label="Chapters">
+        <details class="cs-toc-box" open><summary class="cs-toc-title"><svg class="bk-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>Chapters</summary>
+        <ol><li><a href="#origin">Origin</a></li><li><a href="#challenge">Challenge</a></li><li><a href="#principles">Design principles</a></li><li><a href="#flow">Three steps</a></li><li><a href="#newcomers">Not on FYERS yet</a></li><li><a href="#status">When it goes wrong</a></li><li><a href="#received">Receiving</a></li><li><a href="#outcome">Outcome</a></li><li><a href="#reflect">Reflect</a></li></ol></details>
+      </nav>
+
+      <article class="cs-body cs3 pf sc sg">
+        <section class="rh-brief" aria-label="In short">
+          <dl>
+            <div><dt>In short</dt><dd>At a FYERS co-founder’s wedding, about 300 guests went home with gold and equity ETFs instead of the usual return gift. I designed that gift experience. It made national news, and I then took the idea to the team as a product: gifting from a FYERS account in three steps.</dd></div>
+            <div><dt>The result</dt><dd>A gifting flow for stocks, ETFs, mutual funds, REITs and InvITs, for birthdays, anniversaries and festivals. It works for people who trade every day and <b>for people who have never owned a stock</b>.</dd></div>
+          </dl>
+        </section>
+        <ul class="rh-stats pf-stats">
+          <li style="--c:#fff1c7"><b>~300</b><span>wedding guests who got shares as a gift</span></li>
+          <li style="--c:#ffe3ec"><b>2</b><span>national outlets that covered it</span></li>
+          <li style="--c:#e3efff"><b>3</b><span>steps from giftee to sent</span></li>
+          <li style="--c:#dff5e8"><b>5</b><span>kinds of asset you can gift</span></li>
+        </ul>
+
+        <section class="cs-section" id="origin" aria-labelledby="h-origin">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">01</span>Origin</p>
+          <div class="content">
+            <h2 id="h-origin" class="cs-title">A Return Gift <mark>That Made the News</mark></h2>
+            <p class="rh-lead">The first version wasn’t a feature. <b>It was a thank-you to wedding guests.</b></p>
+            <p>When a FYERS co-founder got married, the couple chose a different return gift: <mark class="hl">gold and equity ETFs</mark>, a small share in the market for each of about 300 guests. I designed the experience of receiving and claiming it.</p>
+            <div class="clips pf-clips sg-clips">
+              <a class="clip" style="--r:-1.4deg" href="https://timesofindia.indiatimes.com/city/bengaluru/bengaluru-couple-hands-gold-etfs-as-return-gifts-at-wedding/amp_articleshow/98222113.cms" target="_blank" rel="noopener"><p class="clip-src">The Times of India</p><h3>A Bengaluru couple gives gold ETFs as wedding return gifts</h3><p>Read the article <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></p></a>
+              <a class="clip" style="--r:1.1deg" href="https://theprint.in/ani-press-releases/unique-presents-for-guests-at-fyers-co-founders-wedding/1402790/" target="_blank" rel="noopener"><p class="clip-src">ThePrint · ANI</p><h3>Unusual presents for the guests at a FYERS co-founder’s wedding</h3><p>Read the article <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></p></a>
+              <a class="clip" style="--r:-.6deg" href="https://www.livemint.com/mint-lounge/business-of-life/digital-gold-and-equity-as-gifts-for-wedding-guests-why-not-111677868387175.html" target="_blank" rel="noopener"><p class="clip-src">Mint · Lounge</p><h3>Why not give wedding guests digital gold and equity?</h3><p>Read the article <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></p></a>
+            </div>
+            <ol class="sg-path" aria-label="How a gift became a product">
+              <li style="--c:#fff1c7"><b>A wedding</b><span>Return gifts as ETFs</span></li>
+              <li style="--c:#ffe3ec"><b>~300 guests</b><span>Claimed their gift</span></li>
+              <li style="--c:#e3efff"><b>The press</b><span>Covered nationally</span></li>
+              <li style="--c:#dff5e8"><b>A product</b><span>Gifting for every FYERS user</span></li>
+            </ol>
+            <p>Guests liked it, and the press noticed. I saw a bigger idea in it: <mark class="hl">anyone on FYERS should be able to do this</mark> for a birthday, an anniversary or a festival. I presented the concept and got engineering on board.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="challenge" aria-labelledby="h-challenge">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">02</span>Challenge</p>
+          <div class="content">
+            <h2 id="h-challenge" class="cs-title">A Gift, <mark>Not a Brokerage Form</mark></h2>
+            <p class="rh-lead">The wedding guests showed the range: <b>some trade every day, and some had never owned a stock.</b></p>
+            <div class="sg-duo">
+              <div class="sg-who" style="--c:#e3efff"><p class="sg-tag">The trader</p><h3>Knows the market</h3><p>Holds stocks and ETFs already. Wants to pick a symbol and a quantity quickly, without extra screens.</p></div>
+              <div class="sg-who" style="--c:#fff1c7"><p class="sg-tag">The first-timer</p><h3>Has never owned a stock</h3><p>Is sending, or receiving, a share for the first time. Terms like ISIN and quantity need context, not jargon.</p></div>
+            </div>
+            <p>Transferring shares involves identity checks, holdings and quantities. The task was to keep all of that, and still <mark class="hl">make it feel like giving a present</mark>.</p>
+            <h3 class="cs-sub" id="principles">Design principles</h3>
+            <ol class="sc-principles">
+              <li style="--c:#fff1c7"><b>Three steps, no more</b><span>First-time investors were dropping off in longer forms.</span></li>
+              <li style="--c:#e3efff"><b>Always show where you are</b><span>A progress tracker sits above every step.</span></li>
+              <li style="--c:#ffe3ec"><b>Ask only what’s needed</b><span>Especially for someone who isn’t on FYERS yet.</span></li>
+              <li style="--c:#dff5e8"><b>Warm at both ends</b><span>A thank-you for the sender, and a message for the receiver.</span></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="cs-section" id="flow" aria-labelledby="h-flow">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">03</span>Three Steps</p>
+          <div class="content">
+            <h2 id="h-flow" class="cs-title">From Giftee <mark>to Sent</mark></h2>
+            <p class="rh-lead">Who it’s for, what to give, and a last look before sending. <b>A tracker at the top shows each step as it’s done.</b></p>
+            <div class="pf-tabs sg-steps" data-name="steps"><div class="pf-tabbar" role="tablist" aria-label="The gifting steps"><button type="button" role="tab" aria-selected="true" data-k="0">1 · Select giftee</button><button type="button" role="tab" aria-selected="false" data-k="1">2 · Stock &amp; qty</button><button type="button" role="tab" aria-selected="false" data-k="2">3 · Confirm &amp; send</button><button type="button" role="tab" aria-selected="false" data-k="3">Sent</button></div><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><div class=pf-stackimg><img src="../images/stockgift/step1-filled.webp?v=1" width="1600" height="1074" alt="Step 1, Select giftee: a field for the giftee’s PAN or phone number, under the three-step tracker." loading="lazy" class="on" data-k="0"><img src="../images/stockgift/step2-picked.webp?v=1" width="1600" height="1914" alt="Step 2, Select the stocks to gift: the giftee’s details at the top, Equity &amp; ETFs and Mutual Funds tabs, and a table with two stocks ticked and gift quantities of 1 and 5." loading="lazy" data-k="1"><img src="../images/stockgift/step3-confirm.webp?v=1" width="1600" height="1581" alt="Step 3, Confirm and send: the giftee’s details, a gift details table with symbol, quantity and ISIN, and a message box." loading="lazy" data-k="2"><img src="../images/stockgift/success.webp?v=1" width="1600" height="813" alt="The gift is sent: You are the best! with an illustration, and Gift more and Check status buttons." loading="lazy" data-k="3"></div></div></div><p class="pf-tabcap" aria-live="polite"><span data-k="0"><b>Select giftee:</b> a PAN or phone number is enough to find them.</span><span data-k="1" hidden><b>Stock &amp; qty:</b> tick what to give from your holdings, and set a quantity no higher than you hold.</span><span data-k="2" hidden><b>Confirm &amp; send:</b> one last look, with room for a personal message.</span><span data-k="3" hidden><b>Sent:</b> the flow ends with a thank-you, not a transaction ID.</span></p></div>
+            <h3 class="cs-sub">Find the right person first</h3>
+            <p>Before anything is sent, the giftee’s name appears with their phone and email partly masked. The sender can <mark class="hl">confirm it’s the right person</mark> without seeing private details.</p>
+            <figure class="pf-shot sc-shot md"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The giftee is found: their name, a masked phone number and a masked email, with a Continue button."><img src="../images/stockgift/step1-found.webp?v=1" width="1600" height="730" alt="The giftee is found: their name, a masked phone number and a masked email, with a Continue button." loading="lazy"></button></div></div><figcaption>The giftee, confirmed before step 2</figcaption></figure>
+            <h3 class="cs-sub">Only what you hold, in plain columns</h3>
+            <p>Step 2 lists the sender’s own holdings, so they can’t gift what they don’t have. Each row shows the available quantity next to the gift quantity, and <mark class="hl">the quantity field only opens once a row is ticked</mark>.</p>
+            <figure class="pf-shot sc-shot md"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: Select the stocks to gift, with two rows ticked and their gift quantities filled in."><img src="../images/stockgift/step2-picked.webp?v=1" width="1600" height="1914" alt="Select the stocks to gift, with two rows ticked and their gift quantities filled in." loading="lazy"></button><span class="sc-pin" style="--x:70.6%;--y:6.6%" aria-hidden="true">1</span><span class="sc-pin" style="--x:88.6%;--y:21.7%" aria-hidden="true">2</span><span class="sc-pin" style="--x:33%;--y:41.8%" aria-hidden="true">3</span><span class="sc-pin" style="--x:4.6%;--y:62.4%" aria-hidden="true">4</span><span class="sc-pin" style="--x:74.4%;--y:62.4%" aria-hidden="true">5</span></div></div><figcaption>Step 2, with two stocks picked</figcaption></figure><ol class="sc-key"><li><b>Tracker:</b> step 1 done, step 2 in progress</li><li><b>Edit</b> the giftee without starting over</li><li><b>Equity &amp; ETFs</b> and <b>Mutual Funds</b> in tabs</li><li><b>Tick</b> a holding to include it</li><li><b>Gift qty</b> opens only for ticked rows</li></ol>
+          </div>
+        </section>
+
+        <section class="cs-section" id="newcomers" aria-labelledby="h-newcomers">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">04</span>Not on FYERS Yet</p>
+          <div class="content">
+            <h2 id="h-newcomers" class="cs-title">A Gift Can Be <mark>Someone’s First Share</mark></h2>
+            <p class="rh-lead">Many people you’d gift to don’t have a FYERS account. <b>The flow had to work for them too.</b></p>
+            <figure class="sc-draw draw sg-branch" aria-label="The giftee lookup branches. If the person is on FYERS, their details appear and the sender continues. If not, the flow asks only for the details it needs, then continues to the same step 2.">
+              <svg class="sg-h" viewBox="0 0 760 250" role="img" aria-hidden="true"><defs><filter id="pencil-sgb" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="5" result="g"/><feDisplacementMap in="SourceGraphic" in2="g" scale="1.4"/></filter></defs>
+                <g filter="url(#pencil-sgb)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path pathLength="1" style="--d:0s" d="M16 100 H176 V150 H16 Z"/>
+                  <path pathLength="1" style="--d:.5s" d="M176 125 C 214 125, 214 60, 250 60 M176 125 C 214 125, 214 190, 250 190"/>
+                  <path pathLength="1" style="--d:1s" d="M250 36 H510 V84 H250 Z"/>
+                  <path pathLength="1" style="--d:1.2s" d="M250 166 H510 V214 H250 Z"/>
+                  <path pathLength="1" style="--d:1.6s" d="M510 60 C 548 60, 548 125, 584 125 M510 190 C 548 190, 548 125, 584 125 M570 113 L584 125 L570 137"/>
+                  <path pathLength="1" style="--d:2.1s" d="M584 100 H744 V150 H584 Z"/>
+                </g>
+                <g class="t"><text x="96" y="131" style="--d:.3s">PAN or phone</text><text x="380" y="66" style="--d:1.1s">on FYERS: confirm them</text><text x="380" y="196" style="--d:1.3s">new: only what’s needed</text><text x="664" y="131" style="--d:2.3s">step 2</text></g>
+              </svg>
+              <svg class="sg-v" viewBox="0 0 340 330" role="img" aria-hidden="true"><defs><filter id="pencil-sgv" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="5" result="g"/><feDisplacementMap in="SourceGraphic" in2="g" scale="1.4"/></filter></defs>
+                <g filter="url(#pencil-sgv)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path pathLength="1" style="--d:0s" d="M90 8 H250 V56 H90 Z"/>
+                  <path pathLength="1" style="--d:.5s" d="M170 56 C170 92, 85 92, 85 130 M170 56 C170 92, 255 92, 255 130"/>
+                  <path pathLength="1" style="--d:1s" d="M6 130 H164 V200 H6 Z"/>
+                  <path pathLength="1" style="--d:1.2s" d="M176 130 H334 V200 H176 Z"/>
+                  <path pathLength="1" style="--d:1.6s" d="M85 200 C85 238, 170 238, 170 274 M255 200 C255 238, 170 238, 170 274 M158 262 L170 274 L182 262"/>
+                  <path pathLength="1" style="--d:2.1s" d="M90 274 H250 V322 H90 Z"/>
+                </g>
+                <g class="t"><text x="170" y="38" style="--d:.3s">PAN or phone</text><text x="85" y="160" style="--d:1.1s">on FYERS:</text><text x="85" y="184" style="--d:1.1s">confirm them</text><text x="255" y="160" style="--d:1.3s">new: ask only</text><text x="255" y="184" style="--d:1.3s">what’s needed</text><text x="170" y="304" style="--d:2.3s">step 2</text></g>
+              </svg>
+              <figcaption>Two ways in, one way forward</figcaption>
+            </figure>
+            <p>If the giftee isn’t on FYERS, the flow <mark class="hl">collects only the details it needs</mark> to deliver the gift, then rejoins the same path. Nobody has to open an account before they can be thought of.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="status" aria-labelledby="h-status">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">05</span>When It Goes Wrong</p>
+          <div class="content">
+            <h2 id="h-status" class="cs-title">Mistakes Caught, <mark>Every Gift Tracked</mark></h2>
+            <p class="rh-lead">A gift involves real money. <b>Errors are stated plainly, and nothing is left wondering.</b></p>
+            <h3 class="cs-sub">An error you can act on</h3>
+            <p>A wrong PAN or phone number turns the field red, with a message right under it. The sender <mark class="hl">fixes it in place</mark> instead of finding out later.</p>
+            <figure class="pf-shot sc-shot sm"><button class="zoom" type="button" aria-label="Enlarge: The giftee field with a red border and the message: The PAN or phone number you have entered is incorrect."><img src="../images/stockgift/d-error.webp?v=1" width="1100" height="490" alt="The giftee field with a red border and the message: The PAN or phone number you have entered is incorrect." loading="lazy"></button><figcaption>The error sits right under the field</figcaption></figure>
+            <h3 class="cs-sub">Every gift has a status</h3>
+            <p>Transfers aren’t instant, so the Status tab lists every gift sent. Each status in words comes with <mark class="hl">the one action that makes sense</mark> for it.</p>
+            <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The Status tab: a table of gifts sent, each with giftee, masked email, symbol, type, quantity, date, a Success, Pending or Failed label and an action."><img src="../images/stockgift/status.webp?v=1" width="1600" height="1448" alt="The Status tab: a table of gifts sent, each with giftee, masked email, symbol, type, quantity, date, a Success, Pending or Failed label and an action." loading="lazy"></button><span class="sc-pin" style="--x:78.5%;--y:25.4%" aria-hidden="true">1</span><span class="sc-pin" style="--x:88.8%;--y:25.4%" aria-hidden="true">2</span><span class="sc-pin" style="--x:88.8%;--y:38.5%" aria-hidden="true">3</span><span class="sc-pin" style="--x:88.8%;--y:71.3%" aria-hidden="true">4</span><span class="sc-pin" style="--x:41%;--y:58.3%" aria-hidden="true">5</span></div></div><figcaption>The Status tab, with sample data</figcaption></figure><ol class="sc-key"><li><b>Status</b> in words and colour</li><li><b>Success:</b> repeat the gift</li><li><b>Pending:</b> cancel while you still can</li><li><b>Failed:</b> retry</li><li><b>Several stocks</b> in one gift fold under Show more</li></ol>
+            <p>Cancelling can’t be undone, so it asks once more, <mark class="hl">in plain words</mark>.</p>
+            <figure class="pf-shot sc-shot sm"><button class="zoom" type="button" aria-label="Enlarge: A confirmation: Are you sure? This is an irreversible activity. Please proceed carefully. With Okay and Cancel buttons."><img src="../images/stockgift/d-cancel.webp?v=1" width="794" height="484" alt="A confirmation: Are you sure? This is an irreversible activity. Please proceed carefully. With Okay and Cancel buttons." loading="lazy"></button><figcaption>One more check before an irreversible step</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="cs-section" id="received" aria-labelledby="h-received">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">06</span>Receiving</p>
+          <div class="content">
+            <h2 id="h-received" class="cs-title">The Moment <mark>It Arrives</mark></h2>
+            <p class="rh-lead">Most of a gift’s value is in how it’s received. <b>So the receiver gets a moment, not a notification.</b></p>
+            <figure class="sg-moment"><img src="../images/stockgift/d-popup.webp?v=1" width="1178" height="608" alt="A pop-up: You received a Gift! with confetti, a message reading Happy Birthday Bipin! Have a wonderful year, and the sender’s name." loading="lazy"><figcaption>The sender’s own words come first, before any numbers</figcaption></figure>
+            <p>After the moment, the gift is kept on record. The Received tab lists <mark class="hl">who sent what, with their message, and when</mark>.</p>
+            <figure class="pf-shot sc-shot"><div class="pf-browser"><div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pf-url"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7"/></svg>FYERS · My Account</span></div><div class="pf-view"><button class="zoom" type="button" aria-label="Enlarge: The Received tab: a table of gifts received, with the sender, their message, the gift, type, quantity and date. Long messages expand with More."><img src="../images/stockgift/received.webp?v=1" width="1600" height="1455" alt="The Received tab: a table of gifts received, with the sender, their message, the gift, type, quantity and date. Long messages expand with More." loading="lazy"></button><span class="sc-pin" style="--x:19%;--y:28.7%" aria-hidden="true">1</span><span class="sc-pin" style="--x:46%;--y:32%" aria-hidden="true">2</span><span class="sc-pin" style="--x:41%;--y:57%" aria-hidden="true">3</span><span class="sc-pin" style="--x:74%;--y:28.7%" aria-hidden="true">4</span></div></div><figcaption>The Received tab, with sample data</figcaption></figure><ol class="sc-key"><li><b>Who</b> sent it</li><li><b>Their message,</b> expanded with More</li><li><b>Several stocks</b> in one gift</li><li><b>When</b> it arrived</li></ol>
+          </div>
+        </section>
+
+        <section class="cs-section" id="outcome" aria-labelledby="h-outcome">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">07</span>Outcome</p>
+          <div class="content">
+            <h2 id="h-outcome" class="cs-title">From One Wedding <mark>to a Feature</mark></h2>
+            <dl class="rh-rows">
+              <div><dt>The wedding</dt><dd>About 300 guests received gold and equity ETFs as a return gift.</dd></div>
+              <div><dt>The press</dt><dd>The Times of India, Mint and ANI, through ThePrint, covered it.</dd></div>
+              <div><dt>The product</dt><dd>Gifting launched in 2022 for stocks, mutual funds, ETFs, REITs and InvITs.</dd></div>
+            </dl>
+            <p class="rh-lead">A one-off gesture became <b>a way for any FYERS user to give someone a share in the market.</b></p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="reflect" aria-labelledby="h-reflect">
+          <p class="cs-kicker" aria-hidden="true"><span class="cs-num">08</span>Reflect</p>
+          <div class="content">
+            <h2 id="h-reflect" class="cs-title">What <mark>I Learned</mark></h2>
+            <dl class="rh-rows sc-learn">
+              <div><dt>Clarity and warmth aren’t opposites</dt><dd>The same flow that checks a PAN and an ISIN can end with “You are the best!” Precision is what lets the warm parts feel safe.</dd></div>
+              <div><dt>Design for the least experienced person</dt><dd>A gift is often someone’s first share. Designing for them made the flow quicker for traders too.</dd></div>
+              <div><dt>A good idea needs a story</dt><dd>The wedding gave the concept a real example and real press. That made it easier to bring engineering on board.</dd></div>
+            </dl>
+            <p class="sc-note">This is a retrospective review. Screens use sample data, and names, phone numbers and emails are masked or made up.</p>
+            <blockquote class="ul-close">A financial product can feel human. <mark>This one started at a wedding.</mark></blockquote>
+            <p class="ul-cta"><a class="btn btn-primary" href="mailto:nikkijoseph1998@gmail.com?subject=Let%E2%80%99s%20walk%20through%20%E2%80%9CStock%20Gifting%E2%80%9D">Want to walk through the flows? Let’s talk <span class="arrow" aria-hidden="true">→</span></a></p>
+            <div class="sc-sources"><p>Sources, in the press</p><ul>
+              <li><a href="https://timesofindia.indiatimes.com/city/bengaluru/bengaluru-couple-hands-gold-etfs-as-return-gifts-at-wedding/amp_articleshow/98222113.cms" target="_blank" rel="noopener">The Times of India<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://theprint.in/ani-press-releases/unique-presents-for-guests-at-fyers-co-founders-wedding/1402790/" target="_blank" rel="noopener">ThePrint, from ANI<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://www.livemint.com/mint-lounge/business-of-life/digital-gold-and-equity-as-gifts-for-wedding-guests-why-not-111677868387175.html" target="_blank" rel="noopener">Mint<span class="sr-only"> (opens in a new tab)</span></a></li>
+            </ul></div>
+          </div>
+        </section>
+      </article>
+    </div>
+    <dialog class="viewer" aria-label="Image viewer">
+      <figure><div class="v-pan"><img alt=""></div><figcaption></figcaption><span class="v-tip">Drag the image to look around.</span></figure>
+      <div class="viewer-bar">
+        <button type="button" class="v-prev" aria-label="Previous image">←</button>
+        <span class="v-count" aria-live="polite"></span>
+        <button type="button" class="v-next" aria-label="Next image">→</button>
+        <button type="button" class="v-close" aria-label="Close image viewer">Close ✕</button>
+      </div>
+    </dialog>
+
+    <button class="sec-fab" type="button" aria-haspopup="dialog" aria-controls="sec-sheet"><svg class="bk-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>Chapters</button>
+    <dialog class="sec-sheet" id="sec-sheet" aria-label="Jump to a chapter"><p class="sec-sheet-title"><svg class="bk-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>Chapters</p><ol></ol></dialog>
+
+    <nav class="cs-next" aria-label="Next project">
+      <div class="wrap">
+        <a class="cs-next-card" href="reviewit.html" style="--nc:#a8dcd3">
+          <span class="cs-next-txt"><small>Next project</small><strong>ReviewIT</strong><em>One place to review videos and photos, with feedback on the exact moment.</em></span>
+          <span class="cs-next-go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </nav>
+    <!-- ======================= 7. Contact ======================= -->
+    <section class="section contact3" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact3-grid">
+        <div class="contact-copy">
+          <p class="label">Say hello</p>
+          <h2 class="h-split" id="contact-title">Have a <b>messy product problem?</b></h2>
+          <p>I’d love to help make it make sense. Tell me what you’re working on and I’ll write back.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:nikkijoseph1998@gmail.com">Email me <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/nikita-joseph-0523461a6" target="_blank" rel="noopener">LinkedIn <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+
+        <div class="contact-art" aria-hidden="true">
+          <svg class="cs cs-star1" viewBox="0 0 80 80"><path fill="#ffd65a" d="M40 6 L 50 30 L 76 32 L 56 48 L 63 74 L 40 60 L 17 74 L 24 48 L 4 32 L 30 30 Z"/></svg>
+          <svg class="cs cs-star2" viewBox="0 0 80 80"><path fill="#ff9fb5" d="M40 6 L 50 30 L 76 32 L 56 48 L 63 74 L 40 60 L 17 74 L 24 48 L 4 32 L 30 30 Z"/></svg>
+          <svg class="cs cs-spark" viewBox="0 0 40 40"><path fill="#9ccfff" d="M20 2 C 22 14, 26 18, 38 20 C 26 22, 22 26, 20 38 C 18 26, 14 22, 2 20 C 14 18, 18 14, 20 2 Z"/></svg>
+          <svg class="cs cs-chat" viewBox="0 0 120 90"><path fill="#fffdf7" d="M14 6 H 106 a 10 10 0 0 1 10 10 V 56 a 10 10 0 0 1 -10 10 H 46 L 24 84 V 66 H 14 a 10 10 0 0 1 -10 -10 V 16 a 10 10 0 0 1 10 -10 Z"/><text x="60" y="44" text-anchor="middle">hi! 👋</text></svg>
+          <svg class="cs cs-mail" viewBox="0 0 100 74"><rect fill="#9be3bf" x="4" y="4" width="92" height="66" rx="8"/><path fill="none" d="M6 10 L 50 42 L 94 10"/></svg>
+          <svg class="cs cs-heart" viewBox="0 0 24 24"><path fill="#ff6a6a" d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></svg>
+          <span class="c-circle"><img src="../images/me-phone.png" width="422" height="731" alt="" loading="lazy"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Nikita Joseph</span>
+      <nav class="foot-links" aria-label="Elsewhere"><a href="https://www.behance.net/nikitajoseph1" target="_blank" rel="noopener">Behance<span class="sr-only"> (opens in a new tab)</span></a><a href="https://drive.google.com/file/d/1uXCm8E5I2xzbWDlHEQcuiTX9KQvNNh7n/view?usp=sharing" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens Google Drive in a new tab)</span></a></nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const header = document.querySelector('.site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+  <script>
+    // highlight the section you're reading in "On this page"
+    const links = [...document.querySelectorAll('.cs-toc a')];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        // the deepest matching link is the current one; its group heading lights up too
+        const match = links.filter((a) => a.getAttribute('href') === '#' + e.target.id);
+        const cur = match[match.length - 1];
+        if (cur) { cur.setAttribute('aria-current', 'true'); cur.closest('.has-sub')?.classList.add('in'); }
+        document.querySelectorAll('.cs-toc .has-sub').forEach((li) => li.classList.toggle('in', !!cur && li.contains(cur)));
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.cs3 .cs-section').forEach((s) => io.observe(s));
+  </script>
+  <script>
+    // tap to enlarge: an accessible viewer for screens and wireframes
+    (() => {
+      const dlg = document.querySelector('.viewer');
+      const items = [...document.querySelectorAll('.zoom')];
+      if (!dlg || !items.length) return;
+      const img = dlg.querySelector('img'), cap = dlg.querySelector('figcaption'), count = dlg.querySelector('.v-count');
+      let i = 0, opener = null;
+      let group = items; // the images of one section: wireframes or final screens
+      const show = (n) => {
+        i = (n + group.length) % group.length;
+        const src = group[i].querySelector('img');
+        img.src = src.currentSrc || src.src; img.alt = src.alt;
+        cap.textContent = group[i].closest('figure').querySelector('figcaption')?.textContent || '';
+        count.textContent = `${i + 1} of ${group.length}`;
+        // on phones the image is larger than the screen: start on the Genie panel (right side)
+        const pan = dlg.querySelector('.v-pan');
+        const toPanel = () => { pan.scrollLeft = pan.scrollWidth; };
+        img.complete ? requestAnimationFrame(toPanel) : img.addEventListener('load', toPanel, { once: true });
+      };
+      items.forEach((b) => b.addEventListener('click', () => {
+        opener = b; group = [...b.closest('section').querySelectorAll('.zoom')];
+        show(group.indexOf(b)); dlg.showModal(); dlg.querySelector('.v-close').focus();
+      }));
+      dlg.querySelector('.v-prev').addEventListener('click', () => show(i - 1));
+      dlg.querySelector('.v-next').addEventListener('click', () => show(i + 1));
+      dlg.querySelector('.v-close').addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+      dlg.addEventListener('close', () => opener && opener.focus());
+    })();
+    // reading progress, and the contents list collapses on small screens
+    (() => {
+      const bar = document.querySelector('.read-progress i');
+      const onScroll = () => { const h = document.documentElement; bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'; };
+      onScroll(); addEventListener('scroll', onScroll, { passive: true });
+      const box = document.querySelector('.cs-toc-box');
+      if (box && matchMedia('(max-width: 900px)').matches) box.open = false;
+      else if (box) box.querySelector('summary').addEventListener('click', (e) => e.preventDefault()); // always open on desktop
+    })();
+  </script>
+  <script>
+    // phones: a floating "Sections" button opens a quick-jump list (like a food-app menu)
+    (() => {
+      const fab = document.querySelector('.sec-fab'), sheet = document.querySelector('.sec-sheet');
+      if (!fab || !sheet) return;
+      const list = sheet.querySelector('ol');
+      list.innerHTML = [...document.querySelectorAll('.cs3 .cs-section')].map((s) => {
+        const name = (s.querySelector('.cs-kicker')?.textContent || '').replace(/^\d+/, '').trim();
+        return `<li><a href="#${s.id}">${name}</a></li>`;
+      }).join('');
+      fab.addEventListener('click', () => {
+        const cur = document.querySelector('.cs-toc a[aria-current="true"]')?.getAttribute('href');
+        list.querySelectorAll('a').forEach((a) => a.toggleAttribute('aria-current', a.getAttribute('href') === cur));
+        sheet.showModal();
+        (list.querySelector('[aria-current]') || list.querySelector('a')).focus();
+      });
+      list.addEventListener('click', (e) => { if (e.target.closest('a')) sheet.close(); });
+      sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); });
+      sheet.addEventListener('close', () => fab.focus({ preventScroll: true }));
+      const onScroll = () => {
+        const end = document.querySelector('.cs-next')?.getBoundingClientRect().top ?? 1e9;
+        fab.classList.toggle('on', window.scrollY > 500 && end > window.innerHeight);
+      };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
+  </script>
+  <script>
+    (() => {
+      const f = document.querySelector('.gn-facts'); if (!f) return;
+      if (!('IntersectionObserver' in window)) { f.classList.add('in'); return; }
+      const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { f.classList.add('in'); io.disconnect(); } }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+      io.observe(f);
+    })();
+  </script>
+  <script>
+    // survey beads fill in when the section scrolls into view; the number counts up with them
+    (() => {
+      const list = document.querySelector('.cs-dots.fill');
+      if (!list) return;
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const cards = [...list.children].map((li) => {
+        const on = [...li.querySelectorAll('.dotgrid i.on')];
+        on.sort((a, b) => b.offsetTop - a.offsetTop || a.offsetLeft - b.offsetLeft).forEach((d, k) => d.style.setProperty('--k', k));
+        const num = li.querySelector('strong'); return { num, end: parseInt(num.textContent, 10) };
+      });
+      if (still) { list.classList.add('in'); return; }
+      cards.forEach((c) => (c.num.textContent = '0%'));
+      new IntersectionObserver((es, io) => es.forEach((e) => {
+        if (!e.isIntersecting) return; io.disconnect(); list.classList.add('in');
+        const t0 = performance.now(), dur = 1300;
+        const tick = (t) => { const p = Math.min(1, (t - t0) / dur), ez = 1 - Math.pow(1 - p, 3);
+          cards.forEach((c) => (c.num.textContent = Math.round(c.end * ez) + '%')); if (p < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }), { threshold: 0.35 }).observe(list);
+    })();
+    // numbers count up, drawings draw themselves in, meters fill, as each scrolls into view
+    (() => {
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const watch = (els, fn, opts) => { if (still || !('IntersectionObserver' in window)) { els.forEach((e) => fn(e, true)); return; }
+        const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { fn(e.target, false); io.unobserve(e.target); } }), opts || { rootMargin: '0px 0px -12% 0px' });
+        els.forEach((e) => io.observe(e)); };
+      watch(document.querySelectorAll('.draw, .rv-meters, .sc-grow'), (el) => el.classList.add('in'));
+      const nums = [...document.querySelectorAll('.rh-stats b')].map((b) => { const m = b.textContent.match(/^(\D*)([\d,]+)(.*)$/); return m && { b, pre: m[1], end: +m[2].replace(/,/g, ''), post: m[3], txt: b.textContent }; }).filter(Boolean);
+      if (still) return;
+      nums.forEach((n) => { n.b.style.minWidth = n.b.offsetWidth + 'px'; });
+      watch(nums.map((n) => n.b), (b) => {
+        const n = nums.find((x) => x.b === b), t0 = performance.now(), dur = 1100;
+        const tick = (t) => { const p = Math.min(1, (t - t0) / dur), ez = 1 - Math.pow(1 - p, 3);
+          b.textContent = p < 1 ? n.pre + Math.round(n.end * ez).toLocaleString('en-IN') + n.post : n.txt; if (p < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }, { threshold: .6 });
+    })();
+  </script>
+  <script>
+    document.querySelectorAll('.pf-tabs').forEach((box) => {
+      const bar = box.querySelector('.pf-tabbar'), btns = [...box.querySelectorAll('[role="tab"]')], imgs = [...box.querySelectorAll('.pf-stackimg img')], caps = [...box.querySelectorAll('.pf-tabcap span')];
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // previous / next buttons and a counter under the screen
+      const nav = document.createElement('div');
+      nav.className = 'pf-tabnav';
+      nav.innerHTML = '<span class="pf-tabnum" aria-hidden="true"></span><button type="button" class="pf-step" aria-label="Previous screen"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button><button type="button" class="pf-step" aria-label="Next screen"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>';
+      box.querySelector('.pf-browser').after(nav);
+      const num = nav.querySelector('.pf-tabnum');
+      // a line slides under the open tab; the edges fade when more tabs are hidden
+      const line = document.createElement('span'); line.className = 'pf-tabline'; line.setAttribute('aria-hidden', 'true'); bar.appendChild(line);
+      const place = () => { const b = btns[cur], first = b === btns[0]; const x = b.offsetLeft + (first ? parseFloat(getComputedStyle(b).paddingLeft) : 14), w = b.offsetWidth - (first ? parseFloat(getComputedStyle(b).paddingLeft) : 14) - 14; line.style.width = w + 'px'; line.style.transform = 'translateX(' + x + 'px)'; };
+      const edges = () => { bar.classList.toggle('more-l', bar.scrollLeft > 4); bar.classList.toggle('more-r', bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 4); };
+      bar.addEventListener('scroll', edges, { passive: true });
+      new ResizeObserver(() => { place(); edges(); }).observe(bar);
+      let cur = Math.max(0, btns.findIndex((b) => b.getAttribute('aria-selected') === 'true'));
+      const show = (n, follow) => {
+        cur = (n + btns.length) % btns.length; const k = btns[cur].dataset.k;
+        btns.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === k))); imgs.forEach((i) => i.classList.toggle('on', i.dataset.k === k)); caps.forEach((c) => (c.hidden = c.dataset.k !== k));
+        num.textContent = (cur + 1) + ' / ' + btns.length; place();
+        if (follow && bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: btns[cur].offsetLeft - (bar.clientWidth - btns[cur].offsetWidth) / 2, behavior: still ? 'auto' : 'smooth' });
+      };
+      show(cur);
+      btns.forEach((b, n) => {
+        b.addEventListener('click', () => show(n, true));
+        b.addEventListener('keydown', (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; show(n + d, true); btns[cur].focus(); });
+      });
+      const [prev, next] = nav.querySelectorAll('.pf-step');
+      prev.addEventListener('click', () => show(cur - 1, true));
+      next.addEventListener('click', () => show(cur + 1, true));
+      // swipe across the screen to move between screens
+      const view = box.querySelector('.pf-view'); let x0 = null, y0 = 0;
+      view.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+      view.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) show(cur + (dx < 0 ? 1 : -1), true); }, { passive: true });
+      // load the hidden screens once the box is near, so switching is instant
+      new IntersectionObserver(([e], io) => { if (e.isIntersecting) { imgs.forEach((i) => (i.loading = 'eager')); io.disconnect(); } }, { rootMargin: '400px' }).observe(box);
+    });
+  </script>
+  <script src="../theme.js?v=5"></script>
+  <script src="../header.js?v=15"></script>
+  <script>
+    // the story animates in as you read, like the other case studies
+    (() => {
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.documentElement.classList.add('rh-motion');
+      const els = document.querySelectorAll('.pf :is(.sc-shot, .rh-panel, .rh-rows > div, .rh-map li, .rh-quotecard, .clips, .rh-tablewrap, .rh-stats li, .pf-tabs, .pf-board li, .pf-count, .pf-lock, .rh-checks, .pf-voices), .pf-owned');
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('rv-in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+      els.forEach((n) => io.observe(n));
+    })();
+  </script>
+</body>
+</html>

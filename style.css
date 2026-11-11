@@ -3399,7 +3399,7 @@ mark.hl.on { background-size: 100% 78%; }
   .ch-art--photo .ch-polaroid { order: 5; flex: 0 0 100%; max-width: 380px; margin-top: 10px; transform: rotate(1.5deg); }
 }
 
-/* career hero photo: a print lying flat on the page, held down by four strips of masking tape.
+/* career hero photo: a print lying flat on the page, held down by two strips of masking tape on opposite corners.
    It lands first, then each strip is pulled across its corner. */
 .ch-polaroid { position: relative; padding: 10px; border-radius: 2px; transform: rotate(1.5deg);
   box-shadow: 0 1px 2px rgba(20, 17, 28, .2), 0 4px 10px -4px rgba(20, 17, 28, .22);
@@ -3410,16 +3410,14 @@ mark.hl.on { background-size: 100% 78%; }
   background: linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 45%, rgba(120, 90, 20, .08)), rgba(244, 217, 140, .86);
   clip-path: polygon(3% 0, 97% 0, 100% 10%, 97% 20%, 100% 30%, 97% 40%, 100% 50%, 97% 60%, 100% 70%, 97% 80%, 100% 90%, 97% 100%, 3% 100%, 0 90%, 3% 80%, 0 70%, 3% 60%, 0 50%, 3% 40%, 0 30%, 3% 20%, 0 10%); }
 .ch-tape.t1 { left: -46px; top: -10px; transform: rotate(-44deg); --d: .5s; }
-.ch-tape.t2 { right: -46px; top: -8px; transform: rotate(46deg); --d: .72s; }
-.ch-tape.t3 { left: -46px; bottom: -8px; transform: rotate(42deg); --d: .94s; }
-.ch-tape.t4 { right: -46px; bottom: -10px; transform: rotate(-47deg); --d: 1.16s; }
+.ch-tape.t4 { right: -46px; bottom: -10px; transform: rotate(-47deg); --d: .72s; }
 @keyframes ch-paste { from { opacity: 0; transform: translateY(-18px) rotate(-1.5deg) scale(1.05); box-shadow: 0 30px 44px -18px rgba(20, 17, 28, .4); } }
 @keyframes ch-tape-on { from { clip-path: inset(-6px 100% -6px -6px); } to { clip-path: inset(-6px -6px -6px -6px); } }
 @media (max-width: 860px) {
   .ch-art--photo .ch-polaroid { margin-top: 18px; max-width: min(82vw, 380px); } /* leaves room for the tape at the screen edges */
   .ch-tape { width: 84px; height: 26px; }
-  .ch-tape.t1, .ch-tape.t3 { left: -32px; }
-  .ch-tape.t2, .ch-tape.t4 { right: -32px; }
+  .ch-tape.t1 { left: -32px; }
+  .ch-tape.t4 { right: -32px; }
 }
 @media (prefers-reduced-motion: reduce) { .ch-polaroid, .ch-tape { animation: none; } }
 
@@ -7448,3 +7446,128 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #c4ece6; }
 .gn .quad-photo { width: 150px; background-color: #fbf7ee; }
 .gn .quad-photo img { object-fit: cover; object-position: center 7%; transform: none; }
 @media (max-width: 700px) { .gn .quad-photo { width: 116px; } }
+/* Stock Gifting case study */
+.thumb.sk-gift { aspect-ratio: 16 / 10; }
+.sk-gift .sk-layer { position: absolute; inset: 0; }
+.sg .clips.sg-clips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sg-clips a.clip { display: block; color: inherit; text-decoration: none; transition: transform .3s var(--ease), box-shadow .3s; }
+.sg-clips a.clip:hover { transform: rotate(0deg) translateY(-3px); box-shadow: 0 18px 28px -16px rgba(20, 17, 28, .5); }
+.sg-clips a.clip p:last-child { font: 600 .85rem/1.4 var(--sans); color: #8a4a12; margin-top: 10px; }
+.sg-path { list-style: none; margin: 22px 0 26px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: sgp; }
+.sg-path li { position: relative; display: grid; gap: 2px; padding: 46px 10px 0 0; }
+.sg-path li::before { content: ""; position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--c); border: 2px solid #1f1b29; z-index: 1; }
+.sg-path li::after { content: ""; position: absolute; left: 30px; right: 0; top: 15px; border-top: 2px dashed #b8b0a2; }
+.sg-path li:last-child::after { display: none; }
+.sg-path b { font: 700 1rem/1.3 var(--sans); color: #1f1b29; }
+.sg-path span { font-size: .9rem; line-height: 1.45; color: #4a4558; }
+.sg-duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 18px 0 22px; }
+.sg-who { padding: 18px 20px 20px; border-radius: 16px; background: var(--c); border: 1px solid rgba(20, 17, 28, .08); }
+.sg-who .sg-tag { margin: 0 0 6px; font: 700 .75rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: #5b5566; }
+.sg-who h3 { margin: 0 0 6px; font: 700 1.15rem/1.3 var(--sans); color: #1f1b29; }
+.cs-section .content .sg-who p:last-child { margin: 0; font-size: .97rem; line-height: 1.5; color: #3a3644; }
+.sg-steps .pf-stackimg { aspect-ratio: 1600 / 1300; background: #f4f7ff; }
+.sg-steps .pf-stackimg img { height: 100%; object-fit: contain; object-position: top center; }
+.sg-moment { margin: 22px auto 26px; max-width: 600px; text-align: center; }
+.sg-moment img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid #e3e0d7; background: #fff; box-shadow: 0 26px 50px -30px rgba(20, 17, 28, .55); transform: rotate(-1deg); }
+.sg-moment figcaption { margin-top: 12px; font-size: .85rem; color: #67626f; }
+@media (max-width: 700px) {
+  .sg .clips.sg-clips, .sg-duo { grid-template-columns: 1fr; }
+  .sg-path { grid-template-columns: 1fr; gap: 14px; }
+  .sg-path li { padding: 2px 0 0 46px; }
+  .sg-path li::after { left: 14px; right: auto; top: 32px; bottom: -14px; border-top: 0; border-left: 2px dashed #b8b0a2; }
+}
+@media (prefers-reduced-motion: reduce) { .sg-clips a.clip { transition: none; } }
+.sg-branch .sg-v{display:none}
+@media (max-width:700px){.sg-branch .sg-h{display:none}.sg-branch .sg-v{display:block}}
+
+/* Stock Gifting: gold gradient, matching the career press gift card */
+#entry-gifting, .cs-next-card[href="stock-gifting.html"] { --gold: linear-gradient(135deg, #ffe58a 0%, #f6c84a 48%, #e8ae32 100%); }
+#entry-gifting .num { background: repeating-linear-gradient(115deg, rgba(255,255,255,.18) 0 2px, transparent 2px 9px), var(--gold) !important; }
+#entry-gifting h3 > span.hl { background: linear-gradient(90deg, #ffe58a, #f6c84a 50%, #e8ae32) no-repeat 0 82% / 100% 34%; }
+.cs-next-card[href="stock-gifting.html"] { background: repeating-linear-gradient(115deg, rgba(255,255,255,.12) 0 2px, transparent 2px 9px), linear-gradient(120deg, #fff1b8 0%, #ffe58a 40%, #f6c84a 100%); border-color: #e0a92c; }
+.sk-gift .sk-d.red { stroke: #e0a21f; }
+/* career gift card: redeem strip inside the card */
+.gift-redeem { position: relative; margin: 24px 0 0; padding-top: 20px; border-top: 2px dashed rgba(61, 39, 3, .35); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.gift-cta { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; background: #2a1a02; color: #ffe58a; font-weight: 700; font-size: .95rem; text-decoration: none; transition: transform .2s var(--ease), background .2s; }
+.gift-cta:hover { transform: translateY(-2px); background: #000; }
+.gift-cta:hover .arrow { transform: translateX(3px); }
+.gift-cta .arrow { transition: transform .2s var(--ease); }
+.gift-press { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.gift-press a { font-weight: 700; font-size: .9rem; color: #3d2703; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; text-decoration-color: rgba(61, 39, 3, .4); }
+.gift-press a:hover { text-decoration-color: currentColor; }
+.gift-cta:focus-visible, .gift-press a:focus-visible { outline: 3px solid #2a1a02; outline-offset: 3px; }
+/* press mastheads on the gift card */
+.gift-press { gap: 10px; }
+.gift-press a { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 8px; background: #fffdf5; border: 1.5px solid rgba(61, 39, 3, .3); color: #1a1208; text-decoration: none; transition: transform .2s var(--ease), border-color .2s; }
+.gift-press a:hover { transform: translateY(-2px); border-color: #2a1a02; }
+.gift-press a > span[aria-hidden] { font-size: .8rem; color: #6b5330; }
+.press-toi .pm { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
+.press-print .pm { font-family: var(--bold, inherit); font-weight: 800; font-size: .95rem; letter-spacing: -.02em; }
+.press-print .pm i { font-style: normal; font-weight: 400; }
+.press-print .pm::after { content: ""; display: inline-block; width: 5px; height: 5px; margin-left: 2px; border-radius: 50%; background: #d1322f; }
+.gift .gift-card .gift-title { color: #2a1a02; }
+.part-head .gift-press { margin-top: 18px; }
+.part-head .gift-press a { background: var(--card, #fff); border-color: var(--line, rgba(0,0,0,.14)); color: var(--ink); }
+.part-head .gift-press a:hover { border-color: var(--ink); }
+.part-head .gift-press a > span[aria-hidden] { color: var(--muted, #6b6577); }
+.gift-redeem { padding-top: 22px; }
+.gift-chip { display: block; width: 44px; height: 32px; border: 0; background: none; border-radius: 0; }
+.gift-chip svg { display: block; }
+/* Stock Gifting: a rubber stamp from the press */
+.press-stamp { position: absolute; right: clamp(18px, 4%, 40px); bottom: clamp(44px, 12%, 72px); color: #b3261e; transform: rotate(-14deg); opacity: .88; mix-blend-mode: multiply; pointer-events: none; line-height: 0; }
+.press-stamp svg { display: block; width: clamp(92px, 9vw, 112px); height: auto; }
+@media (max-width: 560px) { .press-stamp { right: 14px; bottom: 54px; } .press-stamp svg { width: 86px; } }
+.press-stamp { top: clamp(18px, 4%, 34px); bottom: auto; right: clamp(16px, 4%, 34px); color: #a3201a; opacity: .95; transform: rotate(12deg); }
+.press-stamp svg { width: clamp(88px, 8vw, 104px); }
+@media (max-width: 560px) { .press-stamp { top: 14px; right: 12px; bottom: auto; } .press-stamp svg { width: 78px; } }
+/* Stock Gifting hero: the wedding gift pop-up on its own */
+.sg-hero-pop { align-self: center; }
+.sg-hero-pop img { display: block; width: 100%; height: auto; border-radius: 18px; background: #fff; box-shadow: 0 2px 0 rgba(0,0,0,.04), 0 24px 60px -18px rgba(60,40,10,.35), 0 0 0 1px rgba(0,0,0,.06); transform: rotate(-1.5deg); }
+@media (max-width: 700px) { .sg-hero-pop img { transform: none; border-radius: 14px; } }
+/* Mint press badge + three clips on Stock Gifting */
+.press-mint .pm { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 1rem; letter-spacing: -.01em; text-transform: lowercase; }
+.sg .clips.sg-clips { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .sg .clips.sg-clips { grid-template-columns: 1fr; } }
+/* Journal: the contents page */
+.j-toc .page.right { display: flex !important; align-items: center; justify-content: center; }
+.toc { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 400px; counter-reset: none; }
+.toc li { margin: 0; border-bottom: 1px dashed rgba(29, 42, 102, .22); }
+.toc li:last-child { border-bottom: 0; }
+.toc-go { display: grid; grid-template-columns: 2.1em 1fr auto; align-items: baseline; gap: 10px; width: 100%; padding: 9px 4px; background: none; border: 0; border-radius: 8px; font: inherit; color: #1d2a66; text-align: left; cursor: pointer; transition: background .2s, transform .2s; }
+.toc-go:hover { background: rgba(255, 214, 90, .35); transform: translateX(3px); }
+.toc-go:focus-visible { outline: 2px solid #1d2a66; outline-offset: 1px; }
+.toc-n { font: 700 .78rem/1 var(--sans); letter-spacing: .08em; color: #8a8594; }
+.toc-t { font: 700 1.05rem/1.2 var(--bold); letter-spacing: -.01em; }
+.toc-k { font: 500 .74rem/1.2 var(--sans); color: #6b6577; white-space: nowrap; }
+@media (max-width: 860px) {
+  .journal .entry.j-toc .page.right { height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible; padding-top: 12px !important; padding-bottom: 12px !important; }
+  .toc-go { padding: 7px 2px; gap: 8px; }
+  .toc-t { font-size: .95rem; }
+  .toc-k { font-size: .68rem; }
+}
+.toc-mob { display: none; }
+@media (max-width: 860px) {
+  .j-toc .page.left .desc { display: none; }
+  .j-toc .page.left h3 { margin-bottom: 6px; }
+  .toc-mob { display: block; max-width: none; margin-top: 4px; }
+}
+@media (max-width: 860px) { .toc-mob .toc-k { display: none; } .toc-mob .toc-go { grid-template-columns: 2.1em 1fr; } }
+/* back to the contents page from any story: bottom-left of the page, mirroring the Next story corner */
+.j-to-toc { position: absolute; left: 0; bottom: 0; z-index: 8; display: inline-flex; align-items: flex-end; gap: 6px; min-height: 44px; padding: 0 16px 12px var(--toc-x, 40px); border: 0; background: none; color: #4a4558; font: 600 .8rem/1 var(--sans); cursor: pointer; white-space: nowrap; }
+.j-to-toc:hover { color: #1d2a66; text-decoration: underline; text-underline-offset: 3px; }
+.j-to-toc:focus-visible { outline: 3px solid #c2410c; outline-offset: -3px; border-radius: 8px; }
+.j-to-toc[hidden] { display: none; }
+.journal.is-closed .j-to-toc, .book.turn-next .j-to-toc, .book.turn-prev .j-to-toc, .book.turn-mob .j-to-toc, .book.turn-mob-back .j-to-toc { opacity: 0; transition: opacity .12s ease; }
+@media (max-width: 860px) { .j-to-toc { --toc-x: 44px; } }
+/* a story's link is plain words and an arrow, no underline */
+.entry .read-link { border-bottom: 0; padding-bottom: 0; text-decoration: none; }
+/* phones: a story's link reads just "Read →" (the full words stay for screen readers),
+   Contents is a round list icon beside the page arrows, and every page keeps the tallest page's height */
+.j-toc-btn { display: none; }
+@media (max-width: 860px) {
+  .journal .entry .read-link .rl-more { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .book .j-to-toc { display: none; }
+  .j-toc-btn { display: grid; }
+  .j-nav { gap: 14px; }
+  .journal .book > .entry .page.left { min-height: var(--page-min, 0px); }
+}

@@ -8329,3 +8329,16 @@ html.rh-motion .cp-hero-art .ca-w2 { animation: ca-wave 5s linear infinite; }
 html.rh-motion .cp-hero-art .ca-w1 { animation: ca-wave2 3.6s linear infinite; }
 html.rh-motion .cp-hero-art .ca-route { animation: ca-route 2.4s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .cp-hero-art :is(.ca-boat, .ca-w1, .ca-w2, .ca-route) { animation: none !important; } }
+.sk-compass .sk-d.sk-flag { stroke: #e0412b; stroke-width: 1.6; stroke-linejoin: round; }
+/* contents page: the number sits close to its story's name, leaving the name more room */
+.toc-go { grid-template-columns: 1.7em 1fr auto; column-gap: 4px; }
+.toc-k { margin-left: 10px; }
+@media (max-width: 860px) { .toc-mob .toc-go { grid-template-columns: 1.7em 1fr; } }
+/* page corner: no label, just a curled corner that peeks now and then so it reads as "flip me" */
+.j-flip-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; padding: 0; }
+.j-flip { padding: 0; min-width: 56px; min-height: 56px; justify-content: flex-end; }
+.j-flip i, .j-flip::after { width: 46px; height: 46px; }
+.j-flip i, .j-flip::after { animation: j-peek 4.5s cubic-bezier(.3, 1.4, .5, 1) 1.5s infinite; }
+.j-flip:hover i, .j-flip:hover::after, .j-flip:focus-visible i, .j-flip:focus-visible::after { animation: none; width: 60px; height: 60px; }
+@keyframes j-peek { 0%, 78%, 100% { width: 46px; height: 46px; } 86% { width: 58px; height: 58px; } }
+@media (prefers-reduced-motion: reduce) { .j-flip i, .j-flip::after { animation: none; } }

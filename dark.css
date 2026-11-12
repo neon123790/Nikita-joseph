@@ -2712,6 +2712,7 @@ body:has(.proj-hero[style*="#a8dcd3"]) { --hl: #182120; }
 .ill-braid figcaption { color: var(--muted, #c8c8c8); }
 .cp-next-lab { color: #c8c8c8; }
 .cp-hero-art .ca-needle circle { fill: url(#caHub); stroke: rgba(240, 240, 240, .16); }
+.sk-compass .sk-d.sk-flag { stroke: #e17461; }
 }
 
 /* objects keep light-mode colours */

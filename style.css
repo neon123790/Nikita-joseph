@@ -6807,6 +6807,7 @@ body:has(.proj-hero) main > .proj-hero:first-child { margin-top: -65px; padding-
 .part-body .det-grid > .det-card:hover { transform: translateY(-3px) !important; }
 @media (min-width: 861px) {
   .part-body .det-grid > .det-card:nth-child(n+4) { grid-column: span 3 !important; }
+  .part-body .det-grid > .det-card.det-funnel { grid-column: 1 / -1 !important; min-height: 0; }
   .part-body .det-grid > .det-card:nth-child(n+4) { min-height: 150px; }
 }
 .btn, a.btn, .contact3 .contact-links a, .pf-lock-btn, .resume-link { white-space: nowrap; }

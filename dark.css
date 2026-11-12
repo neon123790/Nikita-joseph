@@ -2736,6 +2736,20 @@ dialog.aws .aws-info h3 { color: #f2f0ea; }
 .aws-laurel { color: #e2bd54; stroke: none !important; }
 .aws-strip button { outline-color: transparent; }
 .aws-strip button[aria-current="true"] { outline-color: rgba(240, 240, 240, .16); }
+@media (max-width: 760px) {
+.site-header.is-stuck { background-image: none; background-color: var(--bg); }
+}
+.foot-email a { color: var(--ink, #eeeeee); border-bottom-color: transparent; }
+.foot-email a:hover, .foot-email a:focus-visible { border-bottom-color: currentColor; }
+.foot-email .copy-btn { color: var(--ink, #eeeeee); }
+@media (max-width: 560px) {
+.foot-email::before { color: var(--muted); }
+}
+.foot-email .copy-tip { background-image: none; background-color: var(--ink, #2b2b2b); color: var(--bg, #ffffff); }
+.thumb-outcome { background-image: none; background-color: var(--bm, #242117); border-color: var(--stk-ink, rgba(240, 240, 240, .16)); box-shadow: 3px 3px 0 var(--stk-ink, rgba(0, 0, 0, .45)); color: #f4f4f4; }
+@media (max-width: 860px) {
+.thumb-outcome.is-inline { box-shadow: 2px 2px 0 var(--stk-ink, rgba(0, 0, 0, .45)); }
+}
 }
 
 /* objects keep light-mode colours */
@@ -2935,3 +2949,13 @@ html[data-theme="dark"] .ill-park .card { fill: #fff3c4 !important; }
 html[data-theme="dark"] .ill-park .tag text { fill: #5a4a1a !important; }
 html[data-theme="dark"] .ill-park .str { stroke: #b7ad98 !important; }
 html[data-theme="dark"] .ill-bubble .dot { fill: #fff !important; }
+/* Compass research steps: numbers stay dark ink on their pastel dots */
+html[data-theme="dark"] .cp-run-steps i { color: #2c2836 !important; }
+/* Compass research steps: deep tinted cards (no muddy mix) and readable track numbers */
+html[data-theme="dark"] .cp-run-steps li { background: color-mix(in srgb, var(--c) 16%, #212121) !important; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 38%, transparent) !important; }
+html[data-theme="dark"] .cp-run-steps b { color: #f3f1ee !important; }
+html[data-theme="dark"] .nda-content .cp-run-steps span, html[data-theme="dark"] .cp-run-steps span { color: #c9c6cf !important; }
+html[data-theme="dark"] .rt-cp .base { fill: #9a94a3 !important; stroke: #9a94a3 !important; }
+html[data-theme="dark"] .rt-cp .on { stroke: var(--c) !important; }
+html[data-theme="dark"] .rt-cp text { fill: #2c2836 !important; }
+html[data-theme="dark"] .rt-runner line { stroke: #e7e3ee !important; }

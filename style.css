@@ -8398,3 +8398,41 @@ main .awc h3 { margin: 8px 0 0; font: 700 clamp(22px, 2.2vw, 28px)/1.15 var(--bo
 .aws-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
 dialog.aws-art .aws-info h3 { font-size: 28px; }
 @media (max-width: 760px) { .aws-strip { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 52px; overflow-x: auto; } }
+
+/* phones: the header stays pinned to the top, solid, with no gap above it */
+@media (max-width: 760px) {
+  .site-header, .site-header.hdr-hide { position: sticky; top: 0; transform: none !important; }
+  .site-header.is-stuck { background: var(--bg); }
+}
+
+/* footer: email with a copy button where Resume used to be */
+.foot-email { order: 4; gap: 0; font-weight: 600; }
+@media (min-width: 561px) { .site-footer .foot-links { margin-left: auto; } .site-footer .wrap { column-gap: 24px; } }
+.foot-email a { color: var(--ink, #1f1b29); text-decoration: none; border-bottom: 1.5px solid transparent; }
+.foot-email a:hover, .foot-email a:focus-visible { border-bottom-color: currentColor; }
+.foot-email .copy-btn { width: 34px; height: 34px; color: var(--ink, #1f1b29); }
+.foot-email .copy-btn svg { width: 16px; height: 16px; }
+@media (max-width: 560px) {
+  .site-footer .wrap { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 4px 0; }
+  .site-footer .wrap > span:first-child { order: 1; width: 100%; margin-bottom: 2px; }
+  .site-footer .foot-links { order: 2; margin-left: 0; }
+  .foot-email { order: 3; }
+  .foot-email::before { content: "·"; margin: 0 10px; color: var(--muted); font-weight: 700; }
+  .foot-email .copy-btn { width: 44px; height: 44px; }
+}
+.foot-email .copy-tip { background: var(--ink, #1f1b29); color: var(--bg, #fff); }
+/* home thumbnails: the case study's outcome as a sticker on the print's corner */
+.thumb-outcome { position: absolute; right: -14px; bottom: -16px; z-index: 3; margin: 0; padding: 6px 12px; max-width: calc(100% - 24px); background: var(--bm, #ffd65a); border: 2px solid var(--stk-ink, #14111c); border-radius: 8px; box-shadow: 3px 3px 0 var(--stk-ink, #14111c); font: 500 .8rem/1.35 var(--sans); color: #14111c; transform: rotate(-3deg); pointer-events: none; }
+.thumb-outcome b { font-weight: 800; font-size: .95rem; }
+@media (max-width: 560px) { .thumb-outcome { right: -6px; bottom: -14px; font-size: .74rem; padding: 5px 10px; } .thumb-outcome b { font-size: .88rem; } }
+/* the drawings are hidden on narrow screens, so the outcome sits under the description there */
+.thumb-outcome.is-inline { display: none; }
+@media (max-width: 860px) {
+  .thumb-outcome.is-inline { display: inline-block; position: static; max-width: none; margin: 4px 0 18px 3px; transform: rotate(-1.5deg); box-shadow: 2px 2px 0 var(--stk-ink, #14111c); }
+}
+.thumb-outcome .to-i { white-space: nowrap; }
+
+/* Notebook tags sit straight; lock sits beside the title */
+.journal .entry .num { transform: none !important; rotate: none !important; }
+.journal .entry h3 .title-glue { white-space: nowrap; }
+.journal .entry h3 .title-lock { margin-left: 8px; vertical-align: -4px; }

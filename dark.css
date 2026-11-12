@@ -2929,7 +2929,6 @@ html[data-theme="dark"] .cp-aff3 { filter: brightness(.86) contrast(.96); }
 /* Compass v8 */
 html[data-theme="dark"] .cp-groups li, html[data-theme="dark"] .cp-groups b, html[data-theme="dark"] .cp-groups em { color: #1f1b29 !important; }
 html[data-theme="dark"] .cp-time li::before { border-color: #ece8e1 !important; }
-html[data-theme="dark"] .cp-time li:last-child { background: color-mix(in srgb, var(--c) 22%, #1e1c22) !important; }
 html[data-theme="dark"] .cp-who.s { background-color: #3e2f4d !important; } html[data-theme="dark"] .cp-who.d { background-color: #33304f !important; } html[data-theme="dark"] .cp-who.a { background-color: #4a2f3b !important; } html[data-theme="dark"] .cp-who.all { background-color: #353a2c !important; }
 html[data-theme="dark"] .cp-ledger .yes li::before, html[data-theme="dark"] .cp-ledger .no li::before { color: #fff !important; }
 

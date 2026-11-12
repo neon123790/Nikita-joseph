@@ -762,6 +762,38 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
 })();
 
 
+/* Art album: each piece opens a viewer like the awards one (picture left, details right) */
+(() => {
+  const dlg = document.querySelector('.aws-art'), sp = document.querySelector('.art-spread');
+  if (!dlg || !sp) return;
+  const list = JSON.parse(sp.dataset.photos);
+  const kind = (src) => /\/paint-/.test(src) ? 'Painting' : /\/sketch-/.test(src) ? 'Sketch' : 'Craft';
+  const img = dlg.querySelector('.aws-pic img'), card = dlg.querySelector('.aws-card'), strip = dlg.querySelector('.aws-strip');
+  strip.innerHTML = list.map((p, k) => `<li><button type="button" aria-label="Piece ${k + 1}: ${p.cap}"><img src="${p.src}" alt=""></button></li>`).join('');
+  let i = 0, opener = null;
+  const show = (n) => {
+    i = (n + list.length) % list.length; const p = list[i];
+    img.src = p.src; img.alt = p.cap;
+    dlg.querySelector('h3').textContent = p.cap;
+    dlg.querySelector('.aws-meta').textContent = kind(p.src) + ' · Made by hand';
+    dlg.querySelector('.aws-count').textContent = `${i + 1} / ${list.length}`;
+    strip.querySelectorAll('button').forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
+    strip.children[i]?.scrollIntoView({ block: 'nearest', inline: 'center' });
+  };
+  strip.querySelectorAll('button').forEach((b, k) => b.addEventListener('click', () => show(k)));
+  sp.querySelectorAll('.art-card').forEach((c) => c.addEventListener('click', () => { opener = c; dlg.showModal(); show(+c.dataset.index); dlg.querySelector('.aws-next').focus(); }));
+  dlg.querySelector('.aws-prev').addEventListener('click', () => show(i - 1));
+  dlg.querySelector('.aws-next').addEventListener('click', () => show(i + 1));
+  dlg.querySelector('.aws-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+  let x0 = null; const pic = dlg.querySelector('.aws-pic');
+  pic.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  pic.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  dlg.addEventListener('close', () => opener && opener.focus());
+})();
+
+
 /* Noticeboard pockets: open one photo at a time, with a short note */
 (() => {
   const dlg = document.querySelector('.pocket-view');
@@ -789,11 +821,6 @@ document.querySelectorAll('.flip-btn').forEach((btn) => {
     dlg.querySelector('.pv-nav.next').focus();
   };
   document.querySelectorAll('.pocket').forEach((p) => p.addEventListener('click', () => open(JSON.parse(p.dataset.photos), p.dataset.title, 0, p)));
-  // the art album: each piece opens the viewer at that piece
-  document.querySelectorAll('.art-spread').forEach((sp) => {
-    const list = JSON.parse(sp.dataset.photos);
-    sp.querySelectorAll('.art-card').forEach((c) => c.addEventListener('click', () => open(list, sp.dataset.title, +c.dataset.index, c)));
-  });
   dlg.querySelector('.prev').addEventListener('click', () => show(i - 1));
   dlg.querySelector('.next').addEventListener('click', () => show(i + 1));
   dlg.querySelector('.pv-close').addEventListener('click', () => dlg.close());

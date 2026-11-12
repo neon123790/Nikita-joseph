@@ -25,8 +25,8 @@
   <script>try{if(localStorage.getItem('nj-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
   <script>setTimeout(function(){if(!window.njReveal)document.documentElement.classList.add('no-reveal')},3000)</script>
   <noscript><style>.reveal,.reveal .art-card{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
-  <link rel="stylesheet" href="style.css?v=436">
-  <link rel="stylesheet" href="dark.css?v=78">
+  <link rel="stylesheet" href="style.css?v=438">
+  <link rel="stylesheet" href="dark.css?v=80">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -409,7 +409,6 @@
             const b = document.createElement('button'); b.type = 'button'; b.textContent = p[2];
             b.addEventListener('click', () => pic(k)); shots.appendChild(b);
           });
-          dlg.querySelector('.aws-card').classList.remove('is-in'); void dlg.offsetWidth; dlg.querySelector('.aws-card').classList.add('is-in');
           pic(0);
         };
         document.querySelectorAll('[data-aw]').forEach((b) => b.addEventListener('click', () => { opener = b; show(+b.dataset.aw); dlg.showModal(); dlg.querySelector('.aws-close').focus(); }));
@@ -539,7 +538,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=75"></script>
+  <script src="main.js?v=77"></script>
   <script>
     // "shipped": a rocket lifts off from the word, loops around the heading leaving a smoke trail,
     // comes back to the same spot, and its smoke settles into the letters. Transforms and opacity only.

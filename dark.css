@@ -2734,6 +2734,8 @@ dialog.aws .aws-info h3 { color: #f2f0ea; }
 .awc-wreath span { color: #dcb96a; }
 .awc-org { color: #dcb96a; }
 .aws-laurel { color: #e2bd54; stroke: none !important; }
+.aws-strip button { outline-color: transparent; }
+.aws-strip button[aria-current="true"] { outline-color: rgba(240, 240, 240, .16); }
 }
 
 /* objects keep light-mode colours */

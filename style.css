@@ -8349,7 +8349,7 @@ html.rh-motion .cp-hero-art .ca-route { animation: ca-route 2.4s linear infinite
 .aws[open] { display: grid; place-items: center; }
 .aws::backdrop { background: rgba(10,10,10,.82); backdrop-filter: blur(6px); }
 .aws-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 18px; width: min(920px, calc(100% - 32px)); margin: 56px auto; align-items: stretch; }
-.aws-card.is-in { animation: aws-in .35s ease both; }
+.aws[open] .aws-card { animation: aws-in .35s ease both; }
 @keyframes aws-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .aws-pic { margin: 0; background: #1d1d1d; border-radius: 18px; padding: 18px; display: grid; gap: 14px; justify-items: center; }
 .aws-pic img { width: 100%; height: min(68vh, 600px); object-fit: contain; border-radius: 8px; display: block; }
@@ -8369,12 +8369,12 @@ dialog.aws .aws-info h3 { margin: 6px 0 0; font: 700 32px/1.1 var(--bold); lette
 .aws button:focus-visible { outline: 2px solid #f2f0ea; outline-offset: 3px; }
 .aws-close { position: fixed; top: 18px; right: 18px; background: #1d1d1d; }
 @media (max-width: 760px) {
-  .aws-card { grid-template-columns: 1fr; margin: 72px auto 24px; }
+  .aws-card { grid-template-columns: minmax(0, 1fr); margin: 72px auto 24px; }
   .aws-pic img { height: 52vh; }
-  .aws-info { padding: 22px; }
-  .aws-info h3 { font-size: 26px; }
+  .aws-info { padding: 22px; min-width: 0; }
+  dialog.aws .aws-info h3, dialog.aws-art .aws-info h3 { font-size: 26px; }
 }
-@media (prefers-reduced-motion: reduce) { .aws-card.is-in { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .aws[open] .aws-card { animation: none; } }
 
 /* awards as awards: a gold laurel around the year, then the honour */
 .awc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
@@ -8389,3 +8389,12 @@ main .awc h3 { margin: 8px 0 0; font: 700 clamp(22px, 2.2vw, 28px)/1.15 var(--bo
 @media (max-width: 760px) { .awc-grid { grid-template-columns: 1fr; } }
 .aws-k { display: flex; align-items: center; gap: 8px; }
 .aws-laurel { width: 22px !important; height: 22px !important; color: #e3bd4f; stroke: none !important; }
+
+/* art viewer: same shell as the awards viewer, plus a strip of every piece */
+.aws-strip { list-style: none; margin: 18px 0 0; padding: 2px 2px 6px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.aws-strip button { all: unset; cursor: pointer; display: block; border-radius: 8px; overflow: hidden; aspect-ratio: 1; opacity: .5; outline: 2px solid transparent; outline-offset: 1px; transition: opacity .2s ease, outline-color .2s ease; }
+.aws-strip button:hover { opacity: .85; }
+.aws-strip button[aria-current="true"] { opacity: 1; outline-color: #f2f0ea; }
+.aws-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+dialog.aws-art .aws-info h3 { font-size: 28px; }
+@media (max-width: 760px) { .aws-strip { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 52px; overflow-x: auto; } }
